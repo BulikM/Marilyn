@@ -1,0 +1,211 @@
+.button {
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1;
+    color: #343a40;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 0.875rem 2.5rem;
+    font-size: 0.875rem;
+    border-radius: 0.1875rem;
+    -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out; }
+@media (prefers-reduced-motion: reduce) {
+    .btn {
+        -webkit-transition: none;
+        transition: none; } }
+.text-gradient-purple{
+    background: -webkit-gradient(linear, right top, left top, from(#FF29A8), to(#640159));
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+.btn-gradient-purple{
+    background: -webkit-gradient(linear, left top, right top, from(#FF29A8), to(#640159));
+    background: linear-gradient(to right, #FF29A8, #640159);
+    border: 0;
+    -webkit-transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease;
+    color: #ffff;
+}
+.btn-outline-purple {
+    color: #640159 !important;
+    border-color: #640159 !important;
+}
+.btn-outline-purple :hover {
+    color: #FF29A8;
+    border-color: #FF29A8;
+}
+a{
+    text-decoration: none;
+    color:#640159;
+}
+a:hover {
+    color: #FF29A8; }
+.slash:not(:last-child):after{
+    content:" /";
+}
+/*dropdown*/
+.form-select:focus {
+    border-color: #640159;
+    outline: 0;
+    -webkit-box-shadow: 0 0 0 0.25rem rgba(100, 1, 89, 0.25);
+    box-shadow: 0 0 0 0.25rem rgba(100, 1, 89, 0.25);
+}
+
+.bg-none{
+    background: none;
+}
+
+
+/*placeholder top*/
+
+label.label-top {
+    transition: all .4s linear;
+    font-size: 20px;
+    opacity: 0.50;
+}
+
+:focus + label.label-top{
+    color: #640159;
+    top: -15px;
+    left: 5px;
+    background-color: #FFFFFF;
+    height: 50px;
+    opacity: 1 !important;
+    font-size: 16px;
+}
+input:not(:placeholder-shown) + label.label-top{
+    color: #640159;
+    top: -5px;
+    left: 5px;
+    height: 50px !important;
+    padding-top:0;
+    opacity: 1 !important;
+    font-size: 16px;
+}
+:focus + input{
+    border-color: #640159;
+}
+.form-control:focus {
+    color: #212529;
+    border-color: #640159;
+    outline: 0;
+    -webkit-box-shadow: 0 0 0 0.25rem rgba(6100, 1, 89, 0.25);
+    box-shadow: 0 0 0 0.25rem rgba(6100, 1, 89, 0.25);
+}
+
+
+/*check*/
+input[type="checkbox"].check-goop::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em #640159;
+    transform-origin: bottom left;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+input[type="checkbox"].check-goop:checked::before {
+    transform: scale(1.5);
+}
+input[type="checkbox"].check-goop {
+    display: grid;
+    place-content: center;
+    -webkit-appearance: none;
+    background-color: #fff;
+    cursor: pointer;
+    margin: 4px 0 0;
+    margin-top: 1px \9;
+    line-height: normal;
+    width: 20px;
+    height: 20px;
+    border: 1px solid purple;
+    flex-shrink: 0;
+}
+
+/*btn select*/
+.btn-check:checked + .btn-outline-primary, .btn-check:active + .btn-outline-primary, .btn-outline-primary:active, .btn-outline-primary.active, .btn-outline-primary.dropdown-toggle.show {
+    background: -webkit-gradient(linear, left top, right top, from(#da8cff), to(#640159));
+    border: 0;
+    -webkit-transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease; }
+.btn-gradient-primary:not([disabled]):not(.disabled):active, .btn-gradient-primary:not([disabled]):not(.disabled).active,
+.show > .btn-gradient-primary.dropdown-toggle {
+    background: -webkit-gradient(linear, left top, right top, from(#da8cff), to(#640159));
+    background: linear-gradient(to right, #da8cff, #640159); }
+.btn-gradient-primary:hover {
+    opacity: .8; }
+.btn-gradient-primary:not(.btn-gradient-light) {
+    color: #ffffff; }
+.btn-gradient-primary:not(.btn-gradient-light):hover, .btn-gradient-primary:not(.btn-gradient-light):focus, .btn-gradient-primary:not(.btn-gradient-light):active {
+    color: #ffffff;
+}
+/*card*/
+.card{
+    border:none;
+}
+/*btn*/
+.btn-outline-primary {
+    --bs-btn-color: #640159;
+    --bs-btn-border-color: #640159;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #640159;
+    --bs-btn-hover-border-color: #640159;
+    --bs-btn-focus-shadow-rgb: 13,110,253;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #640159;
+    --bs-btn-active-border-color: #640159;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #640159;
+    --bs-btn-disabled-bg: transparent;
+    --bs-btn-disabled-border-color: #640159;
+    --bs-gradient: none;
+}
+.btn-outline-primary :hover{
+    border-color: #9F1ACC !important;
+}
+
+
+/*bootstrap dark*/
+svg{
+    fill: currentColor;
+}
+[data-bs-theme=dark] .logo{
+     filter: invert(1);
+ }
+[data-bs-theme=dark] .bg-white{
+    background: -webkit-gradient(linear, right top, left top, from(#FF29A8), to(#640159));
+}
+[data-bs-theme=dark] {
+    --bs-body-color: #ffff;
+    --bs-dark-text-emphasis: #ffff;
+}
+[data-bs-theme=dark] :focus + label.label-top {
+  background-color: #212529;
+}
+[data-bs-theme=dark] .card {
+  background-color: black;
+}
+
+/*sidebar*/
+.sidebar{
+    position: sticky;
+    top:5rem;
+    height: calc(100vh - 6rem);
+    overflow-y: hidden;
+}
+.content{
+    height: calc(100vh - 6rem);
+    overflow-y: auto;
+}

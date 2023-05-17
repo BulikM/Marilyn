@@ -18,9 +18,17 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        "title_id",
+        "first_name",
+        "last_name",
+        "email",
+        "password",
+        "phone",
+        "mobile_phone",
+        "day_id",
+        "month_id",
+        "newsletterInfo_id",
+        "read_or_shop_id",
     ];
 
     /**
@@ -28,10 +36,7 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
+    protected $hidden = ["password", "remember_token"];
 
     /**
      * The attributes that should be cast.
@@ -39,6 +44,37 @@ class User extends Authenticatable
      * @var array<string, string>
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
+        "email_verified_at" => "datetime",
     ];
+
+    //    relaties
+    //een op veel
+    public function month()
+    {
+        return $this->belongsTo(Month::class);
+    }
+    public function day()
+    {
+        return $this->belongsTo(Day::class);
+    }
+    public function title()
+    {
+        return $this->belongsTo(Title::class);
+    }
+    public function readorshop()
+    {
+        return $this->belongsTo(Readorshop::class);
+    }
+    //    veel op veel
+    public function preferences()
+    {
+        return $this->belongsToMany(preference::class, "preference_user");
+    }
+    public function newsletterinfos()
+    {
+        return $this->belongsToMany(
+            Newsletterinfo::class,
+            "newsletter_info_user"
+        );
+    }
 }
