@@ -21,54 +21,67 @@
 
 
 <body class="">
-<header  class="navbar navbar-expand-lg bg-white sticky-top">
-        <div class="container-fluid bg-white">
+
+<header  class="navbar navbar-expand-lg bg-gradient-purple sticky-top">
+        <div class="container-fluid">
+            <div class="breadcrumb-navbar-toggle">
+                <button class="navbar-toggler button p-2" type="button" data-bs-toggle="collapse" data-bs-target="#breadcrumbs" aria-controls="breadcrumbs" aria-expanded="false" aria-label="Toggle navigation">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="bi" fill="currentColor" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"></path>
+                    </svg>
+                </button>
+            </div>
             <a class="navbar-brand" href="{{route('dashboard')}}">
                 <img src="{{asset('backend/Marilyn.svg')}}" alt="Marilyn" width="auto" height="50" class="logo">
             </a>
-            <div aria-label="breadcrumb">
-                <ol class="navbar-nav">
-                    @yield('breadcrumb')
-                </ol>
+            <div class="collapse navbar-collapse" id="breadcrumbs">
+                <nav class="nav-item" style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='white' class='bi bi-heart-arrow' viewBox='0 0 16 16'%3E%3Cpath d='M6.707 9h4.364c-.536 1.573 2.028 3.806 4.929-.5-2.9-4.306-5.465-2.073-4.929-.5H6.707L4.854 6.146a.5.5 0 1 0-.708.708L5.293 8h-.586L2.854 6.146a.5.5 0 1 0-.708.708L3.293 8h-.586L.854 6.146a.5.5 0 1 0-.708.708L1.793 8.5.146 10.146a.5.5 0 0 0 .708.708L2.707 9h.586l-1.147 1.146a.5.5 0 0 0 .708.708L4.707 9h.586l-1.147 1.146a.5.5 0 0 0 .708.708L6.707 9Z'/%3E%3C/svg%3E"); aria-label="breadcrumb">
+                    <ol class="breadcrumb text-white  breadcrumb-width">
+                        @yield('breadcrumb')
+                    </ol>
+                </nav>
             </div>
-            <div class="d-flex justify-content-center m-auto">
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-light" type="submit">Search</button>
-            </form>
-            </div>
-            <div class="collapse navbar-collaps d-flex m-auto m-lg-0" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                    <li class="nav-item dropdown">
-                        <button class="btn btn-link nav-link py-2 px-0 px-lg-2 dropdown-toggle d-flex align-items-center show" id="bd-theme" type="button" aria-expanded="true" data-bs-toggle="dropdown" data-bs-display="static" aria-label="Toggle theme (light)">
-                            <svg class="bi my-1 theme-icon-active" width="20px" height="20px"><use href="#sun-fill"></use></svg>
-                            <span class="d-lg-none ms-2" id="bd-theme-text">Toggle theme</span>
-                        </button>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="bd-theme-text" data-bs-popper="static">
-                            <li>
-                                <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="light" aria-pressed="true">
-                                    <svg class="bi me-2 opacity-50 theme-icon" width="20px" height="20px"><use href="#sun-fill"></use></svg>
-                                    Light
-                                    <svg class="bi ms-auto d-none"><use href="#check2"></use></svg>
-                                </button>
-                            </li>
-                            <li>
-                                <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
-                                    <svg class="bi me-2 opacity-50 theme-icon" width="20px" height="20px"><use href="#moon-stars-fill"></use></svg>
-                                    Dark
-                                    <svg class="bi ms-auto d-none" width="20px" height="20px"><use href="#check2"></use></svg>
-                                </button>
-                            </li>
-                            <li>
-                                <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="auto" aria-pressed="false">
-                                    <svg class="bi me-2 opacity-50 theme-icon" width="20px" height="20px"><use href="#circle-half"></use></svg>
-                                    Auto
-                                    <svg class="bi ms-auto d-none"><use href="#check2"></use></svg>
-                                </button>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
+            <div class="half-screen d-flex justify-content-between flex-wrap">
+                <div class="search d-flex justify-content-center  justify-content-md-start m-lg-0 m-auto">
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2 bg-white" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-light" type="submit">Search</button>
+                </form>
+                </div>
+
+                <div class="collapse navbar-collaps d-flex m-auto m-lg-0" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <button class="btn btn-link nav-link py-2 px-0 px-lg-2 dropdown-toggle d-flex align-items-center show" id="bd-theme" type="button" aria-expanded="true" data-bs-toggle="dropdown" data-bs-display="static" aria-label="Toggle theme (light)">
+                                <svg class="bi my-1 theme-icon-active" width="20px" height="20px"><use href="#sun-fill"></use></svg>
+                                <span class="d-md-none ms-2" id="bd-theme-text">Toggle theme</span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="bd-theme-text" data-bs-popper="static">
+                                <li>
+                                    <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="light" aria-pressed="true">
+                                        <svg class="bi me-2 opacity-50 theme-icon" width="20px" height="20px"><use href="#sun-fill"></use></svg>
+                                        Light
+                                        <svg class="bi ms-auto d-none"><use href="#check2"></use></svg>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+                                        <svg class="bi me-2 opacity-50 theme-icon" width="20px" height="20px"><use href="#moon-stars-fill"></use></svg>
+                                        Dark
+                                        <svg class="bi ms-auto d-none" width="20px" height="20px"><use href="#check2"></use></svg>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="auto" aria-pressed="false">
+                                        <svg class="bi me-2 opacity-50 theme-icon" width="20px" height="20px"><use href="#circle-half"></use></svg>
+                                        Auto
+                                        <svg class="bi ms-auto d-none"><use href="#check2"></use></svg>
+                                    </button>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
 
@@ -130,7 +143,7 @@
 
 </header>
 
-<main class="container-fluid">
+<main class="container-fluid bg-tertiary">
 {{--    sidebar--}}
     <div class="">
         <div class="row">

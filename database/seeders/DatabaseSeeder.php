@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\BillingAddresses;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -20,6 +21,8 @@ class DatabaseSeeder extends Seeder
             DaySeeder::class,
             NewsletterInfoSeeder::class,
             ReadOrShopSeeder::class,
+            BillingAddressesSeeder::class,
+            ShippingAddressesSeeder::class,
         ]);
     }
 }

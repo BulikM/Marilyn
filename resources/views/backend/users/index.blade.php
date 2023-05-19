@@ -17,7 +17,7 @@
                         </div>
                     @endif
 
-                    <a class="btn btn-outline-primary m-2" href="{{route('users.create')}}"><i class="bi bi-person-fill-add"></i> Add user</a>
+                    <a class="button btn-gradient-purple m-2" href="{{route('users.create')}}"><i class="bi bi-person-fill-add"></i> Add user</a>
                 </div>
                 <table class="table table-borderless table-hover">
                     <thead>
@@ -36,38 +36,36 @@
                     <tbody>
                         @if($users)
                             @forelse($users as $user)
-                                <tr class="{{$user ->deleted_at == null ? 'opacity-100' : 'opacity-50'}}">
+                                <tr class="{{$user ->deleted_at == null ? ' ' : 'text-secondary'}}">
                                     <td>
-                                        <div class="">
-                                            <button class="dropdown-toggle border-0 bg-none" id="userDropdown{{ $user->id }}" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <i class="bi bi-info-circle"></i>
-                                            </button>
-                                            <div class="dropdown-menu  shadow "
-                                                 aria-labelledby="userDropdown{{ $user->id }}">
-                                                <a class="dropdown-item" href="{{route ('users.edit', $user->id )}}">
-                                                    <i class="bi bi-search-heart"></i>
-                                                   show/Edit
-                                                </a>
-                                                @if($user->deleted_at != null)
-                                                    <form action="{{ route('backend.userrestore', $user->id) }}" method="POST">
-                                                        @csrf
-                                                        @method('POST')
-                                                        <button type="submit" class="dropdown-item">
-                                                            <i class="bi bi-rewind-btn"></i>
-                                                            Restore
-                                                        </button>
-                                                    </form>
-                                                @else
-                                                    <form action="{{ route('users.destroy', $user->id) }}" method="POST">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button type="submit" class="dropdown-item">
-                                                            <i class="bi bi-trash3-fill"></i>
-                                                            Delete
-                                                        </button>
-                                                    </form>
-                                                @endif
-                                            </div>
+                                        <button class="dropdown-toggle border-0 bg-none" id="userDropdown{{ $user->id }}" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="bi bi-info-circle"></i>
+                                        </button>
+                                        <div class="dropdown-menu  shadow "
+                                             aria-labelledby="userDropdown{{ $user->id }}">
+                                            <a class="dropdown-item" href="{{route ('users.edit', $user->id )}}">
+                                                <i class="bi bi-search-heart"></i>
+                                               show/Edit
+                                            </a>
+                                            @if($user->deleted_at != null)
+                                                <form action="{{ route('backend.userrestore', $user->id) }}" method="POST">
+                                                    @csrf
+                                                    @method('POST')
+                                                    <button type="submit" class="dropdown-item">
+                                                        <i class="bi bi-rewind-btn"></i>
+                                                        Restore
+                                                    </button>
+                                                </form>
+                                            @else
+                                                <form action="{{ route('users.destroy', $user->id) }}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="dropdown-item">
+                                                        <i class="bi bi-trash3-fill"></i>
+                                                        Delete
+                                                    </button>
+                                                </form>
+                                            @endif
                                         </div>
                                     </td>
                                     <td>{{$user->title ? $user->title->name : "" }}</td>

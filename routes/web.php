@@ -38,8 +38,4 @@ Route::group(["prefix" => "dashboard", "middleware" => "auth"], function () {
         BackendUsersController::class,
         "userRestore",
     ])->name("backend.userrestore");
-    Route::patch("users/UpdateInterests/{user}", [
-        BackendUsersController::class,
-        "UpdateInterests",
-    ])->name("backend.UpdateInterests");
 });

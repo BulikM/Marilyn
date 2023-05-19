@@ -1,78 +1,10 @@
 @extends('layouts.backend')
 @section('breadcrumb')
-    <nav aria-label="breadcrumb page-header">
-        <ol class="breadcrumb p-0 d-flex align-items-center text-center">
-            <li class="breadcrumb-custom me-1">
-                <h3 class="page-title text-primary">
-                <span class="page-title-icon bg-gradient-primary text-white me-2">
-                  <i class="mdi mdi-home p-0"></i>
-                </span> <a href="{{route('backend')}}">Home <i class="bi bi-chevron-double-right text-primary h4 pt-1"></i></a>
-                </h3>
-            </li>
-            <li class="breadcrumb-custom me-1" >
-                <h3 class="page-title text-primary">
-                    Users
-                    <i class="bi bi-chevron-double-right text-primary h4 pt-1"></i>
-                </h3>
-            </li>
-            <li class="breadcrumb-custom me-1" >
-                <h3 class="page-title text-primary">
-                    {{$user->first_name ? $user->first_name : 'Edit'}}
-                </h3>
-            </li>
-
-        </ol>
-    </nav>
+    <li class="breadcrumb-item"><a class="text-white text-decoration-none" href="{{route('dashboard')}}">Home</a></li>
+    <li class="breadcrumb-item "><a class="text-white text-decoration-none" href="{{route('users.index')}}">Users</a></li>
+    <li class="breadcrumb-item text-white active" aria-current="page">{{$user->first_name ? $user->first_name : $user->email}}</li>
 @endsection
 @section('content')
-    <div class="modal fade ozeifez" id="register1" data-bs-backdrop="modal" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content rounded-0 ">
-                <div class="">
-                    <button type="button" class="btn-close knKOjn" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="bvMGHA d-flex justify-content-center align-items-center flex-column text-center">
-                    <h2 class="jIrrng fWvPnl">
-                        Your Profile</h2>
-                    <p class="crzGSJ">Interest 1/3</p>
-                    <div class="jtMBnU">
-                        <h1 class="iXhRDe iHueCX">
-                            All set!</h1>
-                        <p class="RbpsV">First things first: <br
-                                class=" bEcUgx">Help us get to
-                            know you better.</p>
-                        <form action="{{action('App\Http\Controllers\BackendUsersController@UpdateInterests', $user->id)}}" method="POST" enctype="multipart/form-data">
-                            @csrf
-                            @method('patch')
-                            <fieldset class="lghJJp">
-                                <legend class="iPIjsH">
-                                    <p class="jRxSXL">1. Which of these
-                                        topics are you interested in exploring on goop?
-                                        <em class="jtfttS">(Select all that
-                                            apply.)</em>
-                                    </p>
-                                </legend>
-                                <div class="row row-cols-1 row-cols-lg-2 ">
-                                    @foreach($preferences as $preference)
-                                        <div class="card col bg-none" >
-                                            <input type="checkbox" class="btn-check" value="{{$preference->id}}" name="preferences[]" id="preference{{$preference->id}}" autocomplete="off" @checked($user->preferences->contains($preference->id))>
-                                            <label class="btn btn-outline-primary" for="preference{{$preference->id}}">{{$preference->name}}</label><br>
-                                        </div>
-                                    @endforeach
-                                </div>
-                            </fieldset>
-                        </form>
-                    </div>
-                    <div class="OnboardingModalContainerstyles__ButtonContainer-sc-1y49z04-10 hSTBlt">
-                        <div class="d-flex justify-content-center gap-3">
-                            <button type="submit" class="btn btn-gradient-success" data-bs-dismiss="modal">SUBMIT</button>
-                            <button type="submit" class="btn btn-outline-danger" data-bs-dismiss="modal">Cancel</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <div class="row">
         <div class="col-12">
@@ -82,49 +14,41 @@
                         @csrf
                         @method('patch')
 
-{{--                        interests--}}
-                        <div class="col-6 px-3">
-                            <div class="panel panel-default panel-body row">
-                                <div class="col-6 my-3">
-                                    <b><span class="" title="">Interests</span></b>
-                                    <p>3/3 complete</p>
-                                </div>
-                                <div class="col-6 d-flex justify-content-end align-items-center">
-                                    <a class="text-uppercase" data-bs-toggle="modal" data-bs-target="#register1" href="#">edit</a>
-                                </div>
-                            </div>
-                        </div>
 
                         {{--voorkeuren--}}
                         <p class="card-description"> preferences </p>
+                        <hr>
                         <div class="row row-cols-1 row-cols-lg-3">
                             @foreach($preferences as $preference)
                                 <div class="card col bg-none" >
                                     <input type="checkbox" class="btn-check" value="{{$preference->id}}" name="preferences[]" id="preference{{$preference->id}}" autocomplete="off" @checked($user->preferences->contains($preference->id))>
-                                    <label class="btn btn-outline-primary" for="preference{{$preference->id}}">{{$preference->name}}</label><br>
+                                    <label class="button btn-outline-purple" for="preference{{$preference->id}}">{{$preference->name}}</label><br>
                                 </div>
                             @endforeach
                         </div>
                         <p class="card-description"> I am here to... </p>
+                        <hr>
                         <div class="row row-cols-1 row-cols-lg-3">
                             @foreach($ReadOrShops as $ReadOrShop)
                                 <div class="card col bg-none" >
-                                    <input type="radio" class="btn-check" value="{{$ReadOrShop->id}}" name="ReadOrShop" id="ReadOrShop{{$ReadOrShop->id}}" autocomplete="off" @checked($user->ReadOrShop->contains($ReadOrShop->id))>
-                                    <label class="btn btn-outline-primary" for="ReadOrShop{{$ReadOrShop->id}}">{{$ReadOrShop->name}}</label><br>
+                                    <input type="radio" class="btn-check" value="{{$ReadOrShop->id}}" name="ReadOrShop" id="ReadOrShop{{$ReadOrShop->id}}" autocomplete="off" >
+                                    <label class="button btn-outline-purple" for="ReadOrShop{{$ReadOrShop->id}}">{{$ReadOrShop->name}}</label><br>
                                 </div>
                             @endforeach
                         </div>
                         <p class="card-description"> keep me informed </p>
+                        <hr>
                         <div class="row row-cols-1 row-cols-lg-3">
                             @foreach($newsletterinfos as $info)
                                 <div class="card col bg-none" >
                                     <input type="checkbox" class="btn-check" value="{{$info->id}}" name="newsletterinfos[]" id="info{{$info->id}}" autocomplete="off" @checked($user->newsletterinfos->contains($info->id))>
-                                    <label class="btn btn-outline-primary" for="info{{$info->id}}">{{$info->name}}</label><br>
+                                    <label class="button btn-outline-purple" for="info{{$info->id}}">{{$info->name}}</label><br>
                                 </div>
                             @endforeach
                         </div>
 
                         <p class="card-description"> Personal info </p>
+                        <hr>
                         {{--titel--}}
 
                         <div class="dropdown mb-4">
@@ -138,7 +62,7 @@
                         </div>
                         {{--email--}}
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-6 mb-4">
                                 <div class="form-floating form-group">
                                     <input id="email" name="email" type="email" placeholder="email"
                                            class="form-control @error('email') is-invalid @enderror" value="{{$user->email}}">
@@ -152,7 +76,7 @@
                                 </div>
                             </div>
                             {{--passwoord--}}
-                            <div class="col-md-6">
+                            <div class="col-md-6 mb-4">
                                 <div class="form-floating form-group">
                                     <input id="password" name="password" type="password" placeholder="password"
                                            class="form-control @error('password') is-invalid @enderror">
@@ -168,7 +92,7 @@
                         </div>
                         {{--naam--}}
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-6 mb-4">
                                 <div class="form-floating form-group">
                                     <input id="first_name" name="first_name" type="text"
                                            class="form-control"
@@ -176,7 +100,7 @@
                                     <label class="label-top" for="first_name">First name</label>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-6 mb-4">
                                 <div class="form-floating form-group">
                                     <input id="last_name" name="last_name" type="text" class="form-control" placeholder="Last name" value="{{$user->last_name}}">
                                     <label class="label-top" for="last_name">Last name</label>
@@ -185,7 +109,7 @@
                         </div>
                         {{--telfoonnummer--}}
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-6 mb-4">
                                 <div class="form-floating form-group">
                                     <input id="phone" name="phone" type="tel" placeholder="Phone"
                                            class="form-control @error('phone') is-invalid @enderror" value="{{$user->phone}}">
@@ -198,7 +122,7 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-6 mb-4">
                                 <div class="form-floating form-group">
                                     <input id="mobile_phone" name="mobile_phone" type="tel" placeholder="Mobile phone"
                                            class="form-control @error('mobile_phone') is-invalid @enderror" value="{{$user->mobile_phone}}">
@@ -232,11 +156,51 @@
                                 </select>
                             </div>
                         </div>
-
+{{--                        adress--}}
+                        <p> Billing Adres</p>
+                        <hr>
+                        <div class="float-end">
+                        <button class="text-capitalize btn text-decoration-underline">Add New Addres</button>
+                        </div>
+                        <div class="row">
+                            @foreach($BillingAddresses as $B_address)
+                        <div class="col-sm-6">
+                            <div class="card box">
+                                <div class="row">
+                                    <div class="col-sm-8 col-xs-8 address-display">
+                                        <p class="text-capitalize">
+                                           {{$B_address->first_name}} {{$B_address->last_name}}
+                                            <br>
+                                           {{$B_address->street}} {{$B_address->number}} {{$B_address->adon}}
+                                            <br>
+                                            {{$B_address->city}} {{$B_address->zipcode}}
+                                            <br>
+                                            {{$B_address->country}}
+                                            <br>
+                                            {{$B_address->phone}}
+                                        </p>
+                                    </div>
+                                    <div class="col-sm-4 col-xs-4 address-controls">
+                                        <p class="actions">
+                                            <a href="/account/addresses/4954897/edit">Edit</a>
+                                            |
+                                            <a data-confirm="Are You Sure?" rel="nofollow" data-method="delete" href="/account/addresses/4954897">Delete</a>
+                                        </p>
+                                        <p class="default-button">
+                                            <a class="set-default-btn" rel="nofollow" data-method="post" href="/account/addresses/4954897/assign_default">
+                                                <input type="radio" name="default_address_ship" id="{{$B_address->is_primary}}" @checked($B_address->is_primary == 1)>
+                                                &nbsp; Default
+                                            </a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            @endforeach
+                        </div>
 
                         <div class="d-flex justify-content-center gap-3">
-                            <button type="submit" class="btn btn-gradient-success">SUBMIT</button>
-                            <a type="button" href="{{route('users.index')}}" class="btn btn-outline-danger ">Cancel</a>
+                            <button type="submit" class="button btn-gradient-submit">SUBMIT</button>
+                            <a type="button" href="{{route('users.index')}}" class="button btn-gradient-cancel ">Cancel</a>
                         </div>
                     </form>
                 </div>
