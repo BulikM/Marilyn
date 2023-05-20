@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\BackendController;
+use App\Http\Controllers\BackendUsersController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,10 +16,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get("/", function () {
+    return view("welcome");
 });
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get("/home", [
+    App\Http\Controllers\HomeController::class,
+    "index",
+])->name("home");
+
+//Backend
+Route::get("/dashboard", [BackendController::class, "index"])->name(
+    "dashboard"
+);
+
+Route::group(["prefix" => "dashboard", "middleware" => "auth"], function () {
+    Route::resource("users", BackendUsersController::class);
+    Route::post("users/restore/{user}", [
+        BackendUsersController::class,
+        "userRestore",
+    ])->name("backend.userrestore");
+});
