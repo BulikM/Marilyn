@@ -75,6 +75,7 @@
         <main class="py-4">
             @yield('content')
         </main>
+        @include('components.backend_modal.login_modal')
     </div>
 </body>
 </html>
