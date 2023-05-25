@@ -3,21 +3,32 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Day;
+use App\Models\Employee;
+use App\Models\Month;
+use App\Models\NewsletterInfo;
+use App\Models\Preference;
+use App\Models\Title;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class BackendController extends Controller
+class BEmployeeController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware("auth");
-    }
+
+    protected $queryString = [
+        "is_employee",
+    ];
 
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view("backend.index");
+
+        $employees = Employee::all();
+
+
+        return view("backend.employee.index", compact('employees'));
     }
 
     /**
@@ -25,7 +36,17 @@ class BackendController extends Controller
      */
     public function create()
     {
-        //
+
+        $titles = Title::all();
+        $months = Month::all();
+        $days = Day::all();
+        return view(
+            "backend.users.create",
+            compact("titles",
+                "months",
+                "days"
+            )
+        );
     }
 
     /**

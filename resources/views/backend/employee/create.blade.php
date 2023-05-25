@@ -4,7 +4,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                    <form action="{{action('App\Http\Controllers\Backend\BackendUsersController@store')}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{action('App\Http\Controllers\BackendUsersController@store')}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('POST')
 

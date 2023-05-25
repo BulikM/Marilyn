@@ -12,4 +12,8 @@ class Title extends Model
     {
         return $this->belongsToMany(User::class);
     }
+    public function Customors()
+    {
+        return $this->belongsToMany(Customers::class);
+    }
 }

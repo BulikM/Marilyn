@@ -257,9 +257,10 @@ body {
 }
 @media (min-width:  992px) {
     .headerTransform{
-        height: 100px;
+        max-height: 100px;
     }
 }
+
 
 @media (min-width:  992px) {
     .searchNavbar{

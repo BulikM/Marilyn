@@ -12,4 +12,8 @@ class Preference extends Model
     {
         return $this->belongsToMany(User::class, "preference_user");
     }
+    public function Customers()
+    {
+        return $this->belongsToMany(Customers::class, "preference_user");
+    }
 }

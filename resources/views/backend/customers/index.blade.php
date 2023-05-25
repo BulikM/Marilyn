@@ -33,22 +33,23 @@
                     </tr>
                     </thead>
                     <tbody>
-                        @if($users)
-                            @forelse($users as $user)
-                                {{dd($user)}}
-                                <tr class="{{$user ->deleted_at == null ? ' ' : 'text-secondary'}}">
+                        @if($customers)
+                            @forelse($customers as $customer)
+
+                                {{dd($customer)}}
+                                <tr class="{{$customer ->deleted_at == null ? ' ' : 'text-secondary'}}">
                                     <td>
-                                        <button class="dropdown-toggle border-0 bg-none" id="userDropdown{{ $user->id }}" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <button class="dropdown-toggle border-0 bg-none" id="userDropdown{{ $customer->id }}" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             <i class="bi bi-info-circle"></i>
                                         </button>
                                         <div class="dropdown-menu  shadow "
-                                             aria-labelledby="userDropdown{{ $user->id }}">
-                                            <a class="dropdown-item" href="{{route ('users.edit', $user->id )}}">
+                                             aria-labelledby="userDropdown{{ $customer->id }}">
+                                            <a class="dropdown-item" href="{{route ('users.edit', $customer->id )}}">
                                                 <i class="bi bi-search-heart"></i>
                                                show/Edit
                                             </a>
-                                            @if($user->deleted_at != null)
-                                                <form action="{{ route('backend.userrestore', $user->id) }}" method="POST">
+                                            @if($customer->deleted_at != null)
+                                                <form action="{{ route('backend.userrestore', $customer->id) }}" method="POST">
                                                     @csrf
                                                     @method('POST')
                                                     <button type="submit" class="dropdown-item">
@@ -57,7 +58,7 @@
                                                     </button>
                                                 </form>
                                             @else
-                                                <form action="{{ route('users.destroy', $user->id) }}" method="POST">
+                                                <form action="{{ route('users.destroy', $customer->id) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="dropdown-item">
@@ -68,17 +69,17 @@
                                             @endif
                                         </div>
                                     </td>
-                                    <td>{{$user->title ? $user->title->name : "" }}</td>
-                                    <td>{{$user->last_name}} {{$user->first_name}}</td>
-                                    <td>{{$user->day_id}} {{$user->month ? $user->month->name : ""}}</td>
-                                    <td>{{$user->email}}</td>
+                                    <td>{{$customer->title ? $customer->title->name : "" }}</td>
+                                    <td>{{$customer->last_name}} {{$customer->first_name}}</td>
+                                    <td>{{$customer->day_id}} {{$customer->month ? $customer->month->name : ""}}</td>
+                                    <td>{{$customer->email}}</td>
                                     <td>
                                         <div class="dropdown">
                                             <button class="badge-outline-info dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                               {{$user->preferences->count()}} / {{$preferencTotal}}
+                                               {{$customer->preferences->count()}} / {{$preferencTotal}}
                                             </button>
                                             <ul class="dropdown-menu">
-                                                @foreach($user->preferences as $preference)
+                                                @foreach($customer->preferences as $preference)
                                                     <li class="dropdown-item">{{$preference->name}}</li>
                                                 @endforeach
                                             </ul>
@@ -87,17 +88,17 @@
                                     <td>
                                         <div class="dropdown">
                                             <button class="badge-outline-info dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                {{$user->newsletterinfos->count()}} / {{$newsletterinfosTotal}}
+                                                {{$customer->newsletterinfos->count()}} / {{$newsletterinfosTotal}}
                                             </button>
                                             <ul class="dropdown-menu">
-                                                @foreach($user->newsletterinfos as $info)
+                                                @foreach($customer->newsletterinfos as $info)
                                                     <li class="dropdown-item">{{$info->name}}</li>
                                                 @endforeach
                                             </ul>
                                         </div>
                                     </td>
-                                    <td>{{$user->phone}}</td>
-                                    <td>{{$user->mobile_phone}}</td>
+                                    <td>{{$customer->phone}}</td>
+                                    <td>{{$customer->mobile_phone}}</td>
                                 </tr>
                             @empty
                                 <td>Sorry no records where found</td>
@@ -108,5 +109,5 @@
             </div>
         </div>
     </div>
-{{$users->links()}}
+{{--{{$customers->links()}}--}}
 @endsection

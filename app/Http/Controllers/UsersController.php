@@ -1,8 +1,7 @@
 <?php
 
-namespace App\Http\Controllers\Backend;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Models\BillingAddresses;
 use App\Models\Day;
 use App\Models\Month;
@@ -14,11 +13,12 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
-class BackendUsersController extends Controller
+class UsersController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    public function __construct()
+    {
+        $this->middleware(["auth","employee"]);
+    }
     public function index()
     {
         $preferencTotal = Preference::all()->count();

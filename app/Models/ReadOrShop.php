@@ -12,4 +12,8 @@ class ReadOrShop extends Model
     {
         return $this->belongsToMany(User::class);
     }
+    public function Customers()
+    {
+        return $this->belongsToMany(Customers::class);
+    }
 }
