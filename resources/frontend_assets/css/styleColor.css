@@ -1,0 +1,16 @@
+/*juiste achtergrond kleur header en footer*/
+.bg-dark {
+	background-color: rgb(17, 17, 17)!important;
+}
+/*Featured shops*/
+.bg-grey{
+	background-color: rgb(245, 245, 245);
+}
+.nav-link.active{
+	background-color: transparent;!important;
+	border: 0;
+}
+/*detailpage*/
+.dRMvHU {
+	background-color: rgb(245, 245, 245);
+}

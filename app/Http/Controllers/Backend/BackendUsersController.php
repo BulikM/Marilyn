@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Backend;
 
+use App\Http\Controllers\Controller;
 use App\Models\BillingAddresses;
 use App\Models\Day;
 use App\Models\Month;
 use App\Models\Newsletterinfo;
 use App\Models\Preference;
 use App\Models\ReadOrShop;
-use App\Models\ShippingAddresses;
 use App\Models\Title;
 use App\Models\User;
 use Illuminate\Http\Request;

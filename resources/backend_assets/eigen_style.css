@@ -1,3 +1,27 @@
+/*geïmporteerde fonts*/
+@font-face {
+    font-family: 'brandon_text';
+    src: url("webfonts/hvd_fonts_-_brandontext-regular-webfont.woff");
+    src: url("webfonts/hvd_fonts_-_brandontext-regular-webfont.woff") format("woff");
+    font-style: normal;
+}
+@font-face {
+    font-family: 'brandon_grotesque_';
+    src: url("webfonts/brandon-grotesque-black-58a8a3e824392-webfont.woff");
+    src: url("webfonts/brandon-grotesque-black-58a8a3e824392-webfont.woff") format("woff");
+    font-style: normal;
+}
+.title-text{
+	font: 700 15px / 1.1 caslon, georgia, serif;
+    text-transform: capitalize;
+
+}
+.text{
+    font: 400 18px / 1.56 brandon_text, arial, sans-serif;
+}
+*{
+    font-family: brandon_text, arial, sans-serif;
+}
 @media (min-width: 992px) {
     .navbar-expand-lg {
         flex-wrap: nowrap;
@@ -70,12 +94,33 @@ a{
     color: #FF76C7;
     border-color: #FF76C7;
 }
+/*sidebar*/
+
 
 .text-gradient-purple{
     background: -webkit-gradient(linear, right top, left top, from(#fbc2eb), to(#a6c1ee));
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
 }
+.sidebar::-webkit-scrollbar {
+    width: 5px;
+}
+.sidebar{
+   height: calc(100vh - 6rem);
+    overflow: scroll;
+}
+.sidebar::-webkit-scrollbar-track{
+    background: transparent;
+}
+.sidebar::-webkit-scrollbar-thumb {
+    height: 2px;
+    background: linear-gradient(to bottom, #fbc2eb 0%, #a6c1ee 51%, #fbc2eb 100%);
+    border: 2px solid transparent;
+    border-radius: 8px;
+
+}
+
+/*buttons*/
 .btn-gradient-purple{
     background-image: linear-gradient(to right, #fbc2eb 0%, #a6c1ee 51%, #fbc2eb 100%);
     color: #ffff;

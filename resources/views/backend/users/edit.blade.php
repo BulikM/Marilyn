@@ -10,7 +10,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <form action="{{action('App\Http\Controllers\BackendUsersController@update', $user->id)}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{action('App\Http\Controllers\Backend\BackendUsersController@update', $user->id)}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('patch')
 

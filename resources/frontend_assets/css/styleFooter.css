@@ -1,0 +1,98 @@
+/*footer*/
+/*sign in butten footer*/
+.expandableButton {
+	border: none;
+	background: none;
+	cursor: text!important;
+}
+
+@media screen and (max-width: 991px) {
+	.expandableButton {
+		cursor: pointer!important;
+	}
+	.expandableButton::after {
+		content: "+";
+		position: absolute;
+		right: 15px;
+		font: 400 18px brandon_text, arial, sans-serif;
+		color: rgb(83, 83, 83);
+	}
+	.expandableSection {
+		border-bottom: 1px solid rgb(83, 83, 83);
+	}
+	.fa-lg {
+		font-size: 1.5rem;
+	}
+}
+
+
+
+
+.footer {
+	max-width: 1170px;
+}
+.footerLink {
+	color: rgb(204, 204, 204);
+	text-decoration: none;
+}
+.footerLink:hover {
+	color: #fff;
+	text-decoration: underline;
+}
+.footerLinkNoEffect {
+	color: rgb(204, 204, 204);
+}
+.footerLinkNoEffect:hover {
+	color: rgb(204, 204, 204);
+}
+.heading {
+	font: 0.7rem Brandon, Arial, sans-serif;
+}
+.listItemSeparator {
+	border-left: 1px solid rgb(83, 83, 83);
+}
+.logo {
+	width: 65px;
+}
+.max-width-600 {
+	max-width: 600px;
+}
+.separator {
+    background-color: rgb(83, 83, 83);
+	width: 1px;
+}
+.signUpInput {
+	border: none;
+	height: 34px;
+	width: 230px;
+}
+.signUpDisclaimer {
+	display: block;
+	font: 400 10px / 12px Brandon, arial, sans-serif;
+	width: 230px;
+}
+@media screen and (max-width: 334px) {
+	.signUpDisclaimer {
+		width: 100%;
+	}
+}
+.signUpButton {
+	background: none;
+	border: 1px solid rgb(204, 204, 204);
+	font: 500 0.7rem Brandon, Arial, sans-serif;
+	height: 34px;
+	width: 70px;
+}
+.signUpButton:hover {
+	color: #fff;
+	opacity: 0.85;
+}
+@media screen and (max-width: 334px) {
+	.signUpInput {
+		width: 100%;
+	}
+	.signUpButton {
+		margin-top: 0.5rem;
+		width: 100%;
+	}
+}

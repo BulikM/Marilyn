@@ -20,6 +20,7 @@ return new class extends Migration {
             $table->timestamp("email_verified_at")->nullable();
             $table->char("password", 255);
             $table->rememberToken();
+            $table->boolean('is_employee')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

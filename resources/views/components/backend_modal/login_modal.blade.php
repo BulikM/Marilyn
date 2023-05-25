@@ -4,7 +4,7 @@
 
         <div class="modal-content rounded-0 ">
             <div class="">
-                <button type="button" class="btn-close knKOjn" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close knKOjn" data-bs-dismiss="modal" aria-label="Close" id="closemodal"></button>
             </div>
             <div class="bvMGHA bvMGHA d-flex justify-content-center align-items-center flex-column text-center">
                 <h1 class="axZOD">
@@ -63,3 +63,18 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+@if ($errors->any())
+    var d = document.getElementById("loginmodal");
+    d.className += " show";
+    d.style.display = "block"
+    @endif
+    document.getElementById('closemodal').addEventListener('click', function(event) {
+        event.preventDefault();
+        var d = document.getElementById('loginmodal');
+        if (d.classList.contains('show')) {
+            d.classList.remove('show');
+        }
+            d.style.display = "none";
+    });
+</script>
