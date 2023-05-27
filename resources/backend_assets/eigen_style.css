@@ -154,6 +154,9 @@ a{
 
 
 /*placeholder top*/
+label{
+    text-transform: capitalize;
+}
 
 label.label-top {
     transition: all .4s linear;

@@ -25,8 +25,5 @@ class ShippingAddresses extends Model
     {
         return $this->belongsTo(User::class);
     }
-    public function Customer()
-    {
-        return $this->belongsTo(Customers::class);
-    }
+
 }

@@ -49,6 +49,8 @@ class User extends Authenticatable
     ];
 
     //    relaties
+//    een op een
+
     //een op veel
     public function shippingAddresses()
     {

@@ -7,20 +7,24 @@
                 <div class="d-flex flex-sm-column flex-row flex-nowrap bg-none align-items-center">
                     <ul class="nav nav-pills nav-flush flex-sm-column flex-row flex-nowrap mb-auto mx-auto text-center align-items-center">
                         <li>
-                            <a href="{{route('users.index')}}" class="nav-link py-3 px-2" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Customers">
-                                <i class="bi-people fs-2 text-gradient-purple"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link py-3 px-2" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Home">
-                                <i class="bi-house fs-2 text-gradient-purple"></i>
+                            <a href="{{route('dashboard')}}" class="nav-link py-1 px-2 d-flex flex-column" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Dashboard">
+                                <i class="bi-speedometer2 fs-2 text-gradient-purple"></i>
+                                <span class="text-gradient-purple text-capitalize">Dashboard</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="nav-link py-3 px-2" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Dashboard">
-                                <i class="bi-speedometer2 fs-2 text-gradient-purple"></i>
+                            <a href="{{route('customers.index')}}" class="nav-link d-flex flex-column py-1 px-2" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Customers">
+                                <i class="bi-people fs-2 text-gradient-purple"></i>
+                                <span class="text-gradient-purple">customers</span>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{route('employees.index')}}" class="nav-link py-3 px-2 d-flex flex-column" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Home">
+                                <i class="bi bi-person-badge fs-2 text-gradient-purple"></i>
+                                <span class="text-gradient-purple">Employees</span>
+                            </a>
+                        </li>
+
                         <li>
                             <a href="#" class="nav-link py-3 px-2" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Orders">
                                 <i class="bi-table fs-2 text-gradient-purple"></i>

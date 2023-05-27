@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Backend;
 
+use App\Http\Controllers\Controller;
 use App\Models\BillingAddresses;
 use App\Models\Day;
 use App\Models\Month;
@@ -13,7 +14,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
-class UsersController extends Controller
+class BUsersController extends Controller
 {
     public function __construct()
     {

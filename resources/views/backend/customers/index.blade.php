@@ -36,7 +36,6 @@
                         @if($customers)
                             @forelse($customers as $customer)
 
-                                {{dd($customer)}}
                                 <tr class="{{$customer ->deleted_at == null ? ' ' : 'text-secondary'}}">
                                     <td>
                                         <button class="dropdown-toggle border-0 bg-none" id="userDropdown{{ $customer->id }}" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -75,7 +74,7 @@
                                     <td>{{$customer->email}}</td>
                                     <td>
                                         <div class="dropdown">
-                                            <button class="badge-outline-info dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <button class="btn dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                                {{$customer->preferences->count()}} / {{$preferencTotal}}
                                             </button>
                                             <ul class="dropdown-menu">
@@ -87,7 +86,7 @@
                                     </td>
                                     <td>
                                         <div class="dropdown">
-                                            <button class="badge-outline-info dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <button class="btn dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                                 {{$customer->newsletterinfos->count()}} / {{$newsletterinfosTotal}}
                                             </button>
                                             <ul class="dropdown-menu">
@@ -109,5 +108,5 @@
             </div>
         </div>
     </div>
-{{--{{$customers->links()}}--}}
+{{$customers->links()}}
 @endsection

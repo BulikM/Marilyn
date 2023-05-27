@@ -1,12 +1,10 @@
-@include('components.backend.head')
-@include('components.backend.navbar')
-@include('components.backend.sidebar')
+@include('partials.backend.head')
+@include('partials.backend.navbar')
+@include('partials.backend.sidebar')
 
 {{--                inhoud--}}
 
-                @yield('content')
+@yield('content')
 
 
-
-
-@include('components.backend.footer')
+@include('partials.backend.footer')

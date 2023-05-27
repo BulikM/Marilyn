@@ -2,7 +2,7 @@
 
 
 use App\Http\Controllers\Backend\BController;
-use App\Http\Controllers\UsersController;
+use App\Http\Controllers\Backend\BUsersController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -14,9 +14,9 @@ Route::get("/dashboard", [BController::class, "index"])->name(
 
 Route::group(["prefix" => "dashboard","middleware"=> ['employee','auth']], function () {
 Route::get("/", [BController::class, "index"])->name("dashboard");
-Route::resource("users", UsersController::class);
+Route::resource("users", BUsersController::class);
 Route::post("users/restore/{user}", [
-UsersController::class,
+BUsersController::class,
 "userRestore",
 ])->name("backend.userrestore");
 //Employees

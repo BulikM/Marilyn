@@ -13,8 +13,4 @@ class Day extends Model
     {
         return $this->belongsToMany(User::class);
     }
-    public function Customer()
-    {
-        return $this->belongsToMany(Customers::class);
-    }
 }

@@ -1,7 +1,9 @@
 @extends('layouts.backend')
 
 @section('breadcrumb')
-    <li class="breadcrumb-item active fs-5" aria-current="page"><h1 class="fs-3">Epmloyees</h1></li>
+    <li class="breadcrumb-item"><a class="text-white text-decoration-none text-capitalize" href="{{route('dashboard')}}">Home</a></li>
+    <li class="breadcrumb-item "><a class="text-white text-decoration-none text-capitalize active" href="{{route('employees.index')}}">Employees</a></li>
+
 @endsection
 
 @section('content')
@@ -16,7 +18,7 @@
                         </div>
                     @endif
 
-                    <a class="button btn-gradient-purple m-2" href="{{route('employees.create')}}"><i class="bi bi-person-fill-add"></i> Add Employee</a>
+                   <x-new-btn text="employee" :href="'employees.create'"/>
                 </div>
                 <table class="table table-borderless table-hover">
                     <thead>
@@ -39,6 +41,9 @@
                     <tbody>
                         @if($employees)
                             @forelse($employees as $employee)
+                                @if($loop->first)
+                                    aantal : {{$loop->count}}
+                                @endif
                                 <tr class="{{$employee ->deleted_at == null ? ' ' : 'text-secondary'}}">
                                     <td>
                                         <button class="dropdown-toggle border-0 bg-none" id="userDropdown{{ $employee->id }}" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -46,12 +51,12 @@
                                         </button>
                                         <div class="dropdown-menu  shadow "
                                              aria-labelledby="userDropdown{{ $employee->id }}">
-                                            <a class="dropdown-item" href="{{route ('users.edit', $employee->id )}}">
+                                            <a class="dropdown-item" href="{{route ('employees.edit', $employee->id )}}">
                                                 <i class="bi bi-search-heart"></i>
                                                show/Edit
                                             </a>
                                             @if($employee->deleted_at != null)
-                                                <form action="{{ route('backend.userrestore', $employee->id) }}" method="POST">
+                                                <form action="{{ route('backend.employees', $employee->id) }}" method="POST">
                                                     @csrf
                                                     @method('POST')
                                                     <button type="submit" class="dropdown-item">
@@ -105,5 +110,5 @@
             </div>
         </div>
     </div>
-{{--{{$employees->links()}}--}}
+{{$employees->links()}}
 @endsection

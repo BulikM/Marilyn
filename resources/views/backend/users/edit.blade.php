@@ -1,6 +1,6 @@
 @extends('layouts.backend')
 @section('breadcrumb')
-    <li class="breadcrumb-item"><a class="text-white text-decoration-none" href="{{route('dashboard')}}">Home</a></li>
+    <li class="breadcrumb-item"><a class="text-white text-decoration-none text-capitalize" href="{{route('dashboard')}}">Home</a></li>
     <li class="breadcrumb-item "><a class="text-white text-decoration-none" href="{{route('users.index')}}">Users</a></li>
     <li class="breadcrumb-item text-white active" aria-current="page">{{$user->first_name ? $user->first_name : $user->email}}</li>
 @endsection
@@ -10,7 +10,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <form action="{{action('App\Http\Controllers\Backend\BackendUsersController@update', $user->id)}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{action('App\Http\Controllers\Backend\BUsersController@update', $user->id)}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('patch')
 

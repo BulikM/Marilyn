@@ -35,7 +35,6 @@
                     <tbody>
                         @if($users)
                             @forelse($users as $user)
-                                {{dd($user)}}
                                 <tr class="{{$user ->deleted_at == null ? ' ' : 'text-secondary'}}">
                                     <td>
                                         <button class="dropdown-toggle border-0 bg-none" id="userDropdown{{ $user->id }}" type="button" data-bs-toggle="dropdown" aria-expanded="false">
