@@ -28,7 +28,7 @@ return new class extends Migration {
             $table->char("zipcode", 255);
             $table->char("country", 255);
             $table->char("phone", 255);
-            $table->boolean("is_primary")->default(1);
+            $table->boolean("is_primary")->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

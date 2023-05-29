@@ -45,18 +45,25 @@ class BShippingAddressController extends Controller
         $address->province=$request->province;
         $address->country =$request->country;
         $address->user_id = $request->customer_id;
-
         $oldAddresses = ShippingAddresses::where('user_id', $request->customer_id)->get();
 
+//dd(sizeof($oldAddresses)==0);
+if(sizeof($oldAddresses) == 0){
+    $address->is_primary = 1;
+}else{
     foreach ($oldAddresses as $oldAddress){
     $oldIsPrimary = $oldAddress->is_primary = 1;
 //    dd($oldIsPrimary);
-    if ($oldIsPrimary == true){
+    if ($oldIsPrimary == true && $request->is_primary == 1){
         $oldAddress->is_primary = 0;
         $address->is_primary = $request->is_primary;
         $oldAddress->update();
-    }else{$address->is_primary = $request->is_primary;}
+    }elseif($oldIsPrimary == true && $request->is_primary == null){
+        $address->is_primary = 0;
+    }
+    }
 }
+
         $address->save();
 
         $customer= $address->user;
