@@ -157,40 +157,34 @@ class BUsersController extends Controller
         $validatedData = $request->validate(
             [
                 "password" => "nullable|min:8",
-                "email" => "required |email | unique:users",
                 "phone" => 'regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
                 "mobile_phone" =>
                     'nullable|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
             ],
             [
                 "password.required" => "Please enter a password",
-                "email.email" => "Please enter a valid email adres",
                 "phone" => "Please enter a vilid phone number",
                 "mobile_phone" => "Please enter a vilid phone number",
             ]
         );
 
         $user = User::findOrFail($id);
-        $user->read_or_shop_id = $request->ReadOrShop;
-        $user->title_id = $request->title;
-        $user->first_name = $request->first_name;
-        $user->last_name = $request->last_name;
-        $user->phone = $request->phone;
-        $user->mobile_phone = $request->mobile_phone;
-        $user->email = $request->email;
-        $user->password = Hash::make($request->password);
+        if(trim($request->password) == ''){
+            $input = $request->except('password');
+        } else {
+            $input = $request->all();
+            $input['password'] = Hash::make($request['password']);
+        }
 
-        $user->month_id = $request->month;
-        $user->day_id = $request->day;
-        $user->save();
+        $user->update($input);
 
         $user->preferences()->sync($request->preferences, true);
         $user->newsletterinfos()->sync($request->newsletterinfos, true);
 
-        return route("users.index")->with([
+        return redirect("dashboard/users")->with([
             "alert" => [
-                "message" => "User added",
-                "type" => "success",
+                "message" => "$user->first_name is changed",
+                "type" => "primary",
             ],
         ]);
     }
@@ -203,7 +197,7 @@ class BUsersController extends Controller
         User::findOrFail($id)->delete();
         return redirect()->route("users.index");
     }
-    public function userRestore($id)
+    public function restore($id)
     {
         User::onlyTrashed()
             ->where("id", $id)

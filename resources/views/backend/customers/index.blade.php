@@ -2,21 +2,22 @@
 
 
 @section('breadcrumb')
-    <li class="breadcrumb-item active fs-5" aria-current="page"><h1 class="fs-3">users</h1></li>
+    <li class="breadcrumb-item"><a class="text-white text-decoration-none text-capitalize" href="{{route('dashboard')}}">Home</a></li>
+    <li class="breadcrumb-item "><a class="text-white text-decoration-none text-capitalize active" href="{{route('customers.index')}}">Customers</a></li>
 @endsection
 @section('content')
     <div class="col-lg-12 grid-margin container-fluid stretch-card">
         <div class="card">
             <div class="card-body">
+                @if (session('alert'))
+                    <x-alert :type="session('alert')['type']" :message="session('alert')['message']">
+                        <x-slot name="title">Users</x-slot>
+                    </x-alert>
+                @endif
                 <div class="float-end pb-3">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
-                            <strong>Success!</strong> {{ session('status') }}
-                        </div>
-                    @endif
 
-                    <a class="button btn-gradient-purple m-2" href="{{route('users.create')}}"><i class="bi bi-person-fill-add"></i> Add user</a>
+
+                        <x-new-btn text="Customer" :href="'customers.create'"/>
                 </div>
                 <table class="table table-borderless table-hover">
                     <thead>
@@ -36,19 +37,19 @@
                         @if($customers)
                             @forelse($customers as $customer)
 
-                                <tr class="{{$customer ->deleted_at == null ? ' ' : 'text-secondary'}}">
+                                <tr class="{{$customer ->deleted_at == null ? ' ' : 'text-danger'}}">
                                     <td>
                                         <button class="dropdown-toggle border-0 bg-none" id="userDropdown{{ $customer->id }}" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             <i class="bi bi-info-circle"></i>
                                         </button>
                                         <div class="dropdown-menu  shadow "
                                              aria-labelledby="userDropdown{{ $customer->id }}">
-                                            <a class="dropdown-item" href="{{route ('users.edit', $customer->id )}}">
+                                            <a class="dropdown-item" href="{{route ('customers.edit', $customer->id )}}">
                                                 <i class="bi bi-search-heart"></i>
                                                show/Edit
                                             </a>
                                             @if($customer->deleted_at != null)
-                                                <form action="{{ route('backend.userrestore', $customer->id) }}" method="POST">
+                                                <form action="{{ route('customers.restore', $customer->id) }}" method="POST">
                                                     @csrf
                                                     @method('POST')
                                                     <button type="submit" class="dropdown-item">
@@ -57,7 +58,7 @@
                                                     </button>
                                                 </form>
                                             @else
-                                                <form action="{{ route('users.destroy', $customer->id) }}" method="POST">
+                                                <form action="{{ route('customers.destroy', $customer->id) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="dropdown-item">

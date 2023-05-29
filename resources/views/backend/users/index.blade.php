@@ -9,11 +9,10 @@
         <div class="card">
             <div class="card-body">
                 <div class="float-end pb-3">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
-                            <strong>Success!</strong> {{ session('status') }}
-                        </div>
+                    @if (session('alert'))
+                        <x-alert :type="session('alert')['type']" :message="session('alert')['message']">
+                            <x-slot name="title">Users</x-slot>
+                        </x-alert>
                     @endif
 
                     <a class="button btn-gradient-purple m-2" href="{{route('users.create')}}"><i class="bi bi-person-fill-add"></i> Add user</a>

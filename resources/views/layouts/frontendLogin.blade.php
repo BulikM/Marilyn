@@ -526,5 +526,6 @@
         </div>
     </div>
 </footer>
+@include('partials.login_modal')
 </body>
 </html>

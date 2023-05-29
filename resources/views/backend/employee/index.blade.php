@@ -11,11 +11,10 @@
         <div class="card">
             <div class="card-body">
                 <div class="float-end pb-3">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
-                            <strong>Success!</strong> {{ session('status') }}
-                        </div>
+                    @if (session('alert'))
+                        <x-alert :type="session('alert')['type']" :message="session('alert')['message']">
+                            <x-slot name="title">Users</x-slot>
+                        </x-alert>
                     @endif
 
                    <x-new-btn text="employee" :href="'employees.create'"/>

@@ -31,7 +31,7 @@
                         <div class="row row-cols-1 row-cols-lg-3">
                             @foreach($ReadOrShops as $ReadOrShop)
                                 <div class="card col bg-none" >
-                                    <input type="radio" class="btn-check" value="{{$ReadOrShop->id}}" name="ReadOrShop" id="ReadOrShop{{$ReadOrShop->id}}" autocomplete="off" >
+                                    <input type="radio" class="btn-check" value="{{$ReadOrShop->id}}" name="read_or_shop_id" id="ReadOrShop{{$ReadOrShop->id}}" autocomplete="off" @checked($user->read_or_shop_id == value($ReadOrShop->id))>
                                     <label class="button btn-outline-purple" for="ReadOrShop{{$ReadOrShop->id}}">{{$ReadOrShop->name}}</label><br>
                                 </div>
                             @endforeach
@@ -160,7 +160,7 @@
                         <p> Billing Adres</p>
                         <hr>
                         <div class="float-end">
-                        <button class="text-capitalize btn text-decoration-underline">Add New Addres</button>
+                            <a href="{{route('shipping-address.create', $user->id )}}" class="text-capitalize btn text-decoration-underline"> Add New Addres</a>
                         </div>
                         <div class="row">
                             @foreach($BillingAddresses as $B_address)
@@ -195,8 +195,9 @@
                                 </div>
                             </div>
                         </div>
-                            @endforeach
                         </div>
+                            @endforeach
+
 
                         <div class="d-flex justify-content-center gap-3">
                             <button type="submit" class="button btn-gradient-submit">SUBMIT</button>

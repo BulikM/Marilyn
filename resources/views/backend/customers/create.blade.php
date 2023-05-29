@@ -1,10 +1,18 @@
 @extends('layouts.backend')
+@section('breadcrumb')
+    <li class="breadcrumb-item"><a class="text-white text-decoration-none text-capitalize"
+                                   href="{{route('dashboard')}}">Home</a></li>
+    <li class="breadcrumb-item"><a class="text-white text-decoration-none"
+                                   href="{{route('employees.index')}}">Customers</a></li>
+    <li class="breadcrumb-item text-white active" aria-current="page">New Customers</li>
+@endsection
+
 @section('content')
 <div class="row">
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                    <form action="{{action('App\Http\Controllers\Backend\BackendUsersController@store')}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{action('App\Http\Controllers\Backend\BCustomerController@store')}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('POST')
 

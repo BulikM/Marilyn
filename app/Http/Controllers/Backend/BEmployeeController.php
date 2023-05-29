@@ -17,6 +17,11 @@ use Illuminate\Support\Facades\Hash;
 
 class BEmployeeController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware(["auth","employee"]);
+    }
     /**
      * Display a listing of the resource.
      */
@@ -52,7 +57,6 @@ class BEmployeeController extends Controller
     public function store(EmployeesRequest $request)
     {
         $employee = new User();
-        $adres= new Employee_Adress();
         $employee->title_id = $request->title_id;
         $employee->first_name = $request->first_name;
         $employee->last_name = $request->last_name;
