@@ -27,11 +27,10 @@ class BEmployeeController extends Controller
      */
     public function index()
     {
-
-        $employees = User::where('is_employee','=' ,'1')->orderByDesc("id")
+        $employees = User::where('is_employee','=' ,'1')
+            ->orderByDesc("id")
             ->withTrashed()
             ->paginate(10);
-
 
         return view("backend.employee.index", compact('employees'));
     }
@@ -128,5 +127,12 @@ class BEmployeeController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    protected $listeners = ['IsActive' => 'IsActiveState'];
+
+    public function Active(string $filter){
+     $test = "test";
+     dd($test);
     }
 }

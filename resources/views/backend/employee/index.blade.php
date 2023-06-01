@@ -27,14 +27,9 @@
                         <th>name</th>
                         <th>Birth date</th>
                         <th>E-mail</th>
-                        <th>Street</th>
-                        <th>Number</th>
-                        <th>Zipcode</th>
-                        <th>City</th>
-                        <th>Province</th>
-                        <th>Country</th>
                         <th>phone</th>
                         <th>mobile phone</th>
+                        <th>Is active</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -79,26 +74,18 @@
                                     <td>{{$employee->last_name}} {{$employee->first_name}}</td>
                                     <td>{{$employee->day_id}} {{$employee->month ? $employee->month->name : ""}}</td>
                                     <td>{{$employee->email}}</td>
-                                    <td>
-                                       street
-                                    </td>
-                                    <td>
-                                       number
-                                    </td>
-                                    <td>
-                                        Zipcode
-                                    </td>
-                                    <td>
-                                        City
-                                    </td>
-                                    <td>
-                                        province
-                                    </td>
-                                    <td>
-                                        country
-                                    </td>
                                     <td>{{$employee->phone}}</td>
                                     <td>{{$employee->mobile_phone}}</td>
+                                    <td><div class="form-check form-switch">
+                                            @livewire('is-active-state', [
+                                            'model' => $employee,
+                                            'field' => 'is_active',
+                                            ])
+                                            <label  class="form-check-label" for="flexSwitchCheckChecked">
+                                                @if($employee->is_active == true) active
+                                                @else nonactive
+                                                @endif</label>
+                                        </div></td>
                                 </tr>
                             @empty
                                 <td>Sorry no records where found</td>
