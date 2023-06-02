@@ -23,9 +23,10 @@
                     <thead>
                     <tr >
                         <th></th>
+                        <th>id</th>
                         <th>title</th>
                         <th>name</th>
-                        <th>Birth date</th>
+                        <th>Birthdate</th>
                         <th>E-mail</th>
                         <th>phone</th>
                         <th>mobile phone</th>
@@ -70,9 +71,10 @@
                                             @endif
                                         </div>
                                     </td>
+                                    <td>{{$employee->id}}</td>
                                     <td>{{$employee->title ? $employee->title->name : "" }}</td>
                                     <td>{{$employee->last_name}} {{$employee->first_name}}</td>
-                                    <td>{{$employee->day_id}} {{$employee->month ? $employee->month->name : ""}}</td>
+                                    <td>{{$employee->birthdate}}</td>
                                     <td>{{$employee->email}}</td>
                                     <td>{{$employee->phone}}</td>
                                     <td>{{$employee->mobile_phone}}</td>

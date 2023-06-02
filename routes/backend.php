@@ -24,6 +24,7 @@ BUsersController::class,
 Route::resource("employees", \App\Http\Controllers\Backend\BEmployeeController::class);
 //Customers
 Route::resource("customers", \App\Http\Controllers\Backend\BCustomerController::class);
+Route::patch('customers/updatepreferences/{user}',[ \App\Http\Controllers\Backend\BCustomerController::class, 'updatepreferences'])->name('customers.updatepreferences');
     Route::post("customers/restore/{user}", [
         \App\Http\Controllers\Backend\BCustomerController::class,
         "restore",

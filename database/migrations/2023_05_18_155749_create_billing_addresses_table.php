@@ -18,11 +18,12 @@ return new class extends Migration {
                 ->unsigned()
                 ->constrained()
                 ->cascadeOnDelete();
+            $table->char("company_name", 255)->nullable();
+            $table->char("vat", 255)->nullable();
             $table->char("first_name", 255);
             $table->char("last_name", 255);
-            $table->char("street", 255);
-            $table->char("number", 255);
-            $table->char("bus", 255)->nullable();
+            $table->char("address_1", 255);
+            $table->char("address_2", 255)->nullable();
             $table->char("city", 255);
             $table->char("province", 255);
             $table->char("zipcode", 255);

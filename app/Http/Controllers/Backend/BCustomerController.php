@@ -70,7 +70,7 @@ class BCustomerController extends Controller
 
         $customer = new User();
         $customer->read_or_shop_id = $request->ReadOrShop;
-        $customer->title_id = $request->title;
+        $customer->title_id = $request->title_id;
         $customer->first_name = $request->first_name;
         $customer->last_name = $request->last_name;
         $customer->phone = $request->phone;
@@ -160,11 +160,8 @@ class BCustomerController extends Controller
             $input = $request->all();
             $input['password'] = Hash::make($request['password']);
         }
-
         $customer->update($input);
 
-        $customer->preferences()->sync($request->preferences, true);
-        $customer->newsletterinfos()->sync($request->newsletterinfos, true);
 
         return redirect("dashboard/customers")->with([
             "alert" => [
@@ -174,6 +171,24 @@ class BCustomerController extends Controller
         ]);
     }
 
+    public function updatepreferences(Request $request, string $id)
+    {
+
+        $customer = User::findOrFail($id);
+        $input = $request->all();
+        $customer->update($input);
+        $customer->preferences()->sync($request->preferences, true);
+        $customer->newsletterinfos()->sync($request->newsletterinfos, true);
+
+        return redirect()
+            ->route('customers.edit', $customer->id )
+            ->with([
+                "alert" => [
+                    "message" => "Prefferences added",
+                    "type" => "success",
+                ],
+            ]);
+    }
     /**
      * Remove the specified resource from storage.
      */
@@ -188,9 +203,6 @@ class BCustomerController extends Controller
         User::onlyTrashed()
             ->where("id", $id)
             ->restore();
-        $user = User::withTrashed()
-            ->where("id", $id)
-            ->first();
         return redirect()
             ->route("customers.index")
             ->with(["alert" => ["message" => "restore", "type" => "primary"]]);

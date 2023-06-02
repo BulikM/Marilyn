@@ -37,9 +37,8 @@ class BShippingAddressController extends Controller
         $address->first_name = $request->first_name;
         $address->last_name = $request->last_name;
         $address->phone =$request->phone;
-        $address->street =$request->street;
-        $address->number =$request->number;
-        $address->bus =$request->bus;
+        $address->address_1 =$request->address_1;
+        $address->address_2 =$request->address_2;
         $address->city =$request->city;
         $address->zipcode = $request->zipcode;
         $address->province=$request->province;
