@@ -187,7 +187,9 @@ class BCustomerController extends Controller
                 "alert" => [
                     "message" => "Preferences updated",
                     "type" => "success",
-                ],
+                ],"tab-active"=> [
+                    'tab'=>'nav-preferences'
+                ]
             ]);
     }
     /**

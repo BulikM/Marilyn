@@ -73,9 +73,7 @@ if(sizeof($oldAddresses) == 0){
                 "alert" => [
                     "message" => "Address added",
                     "type" => "success",
-                ],
-            ])->with([
-                'tab-active'=>[
+                ],'tab-active'=>[
                     "tab" =>'nav-contact'
                 ]
             ]);
