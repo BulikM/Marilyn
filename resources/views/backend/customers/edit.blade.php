@@ -47,16 +47,14 @@
                                 method="POST" enctype="multipart/form-data">
                                 @csrf
                                 @method('patch')
+                                <input type="hidden" name="customer_id" value="{{$customer->id}}">
                                 {{--titel--}}
 
                                 <div class="dropdown mb-4">
-                                    <select name="title_id" id="title" class="form-select w-25"
-                                            aria-label="title select">
-                                        <option value="" disabled selected hidden>Title</option>
-
-                                        @foreach($titles as $title)
-                                            <option value="{{$title->id}}"
-                                                    @selected($customer->title_id == $title->id) class="hover-purple">{{$title->name}}</option>
+                                    <select  name="salutation_id" id="salutation_id" class="form-select w-25" aria-label="salutation select">
+                                        <option  value="" disabled selected hidden>Title</option>
+                                        @foreach($salutations as $salutation)
+                                            <option value="{{$salutation->id}}" name="salutation_id" class="hover-purple" @selected($customer->salutation_id == $salutation->id)>{{$salutation->name}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -145,7 +143,7 @@
                                 <p class="card-description"> Birthday </p>
                                 <div class="row">
                                     <div class="dropdown mb-4 col-12 col-md-3">
-                                        <select name="month" id="month" class="form-select" aria-label="Month">
+                                        <select name="month_id" id="month_id" class="form-select" aria-label="Month">
                                             <option value="" disabled selected hidden>Month</option>
                                             @foreach($months as $month)
                                                 <option
@@ -154,7 +152,7 @@
                                         </select>
                                     </div>
                                     <div class="dropdown mb-4 col-12 col-md-3">
-                                        <select name="day" id="day" class="form-select" aria-label="Day">
+                                        <select name="day_id" id="day_id" class="form-select" aria-label="Day">
                                             <option value="" disabled selected hidden>Day</option>
                                             @foreach($days as $day)
                                                 <option

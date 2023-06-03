@@ -51,7 +51,7 @@
                                                show/Edit
                                             </a>
                                             @if($employee->deleted_at != null)
-                                                <form action="{{ route('backend.employees', $employee->id) }}" method="POST">
+                                                <form action="{{ route('employees.restore', $employee->id) }}" method="POST">
                                                     @csrf
                                                     @method('POST')
                                                     <button type="submit" class="dropdown-item">
@@ -60,7 +60,7 @@
                                                     </button>
                                                 </form>
                                             @else
-                                                <form action="{{ route('users.destroy', $employee->id) }}" method="POST">
+                                                <form action="{{ route('employees.destroy', $employee->id) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="dropdown-item">
@@ -72,7 +72,7 @@
                                         </div>
                                     </td>
                                     <td>{{$employee->id}}</td>
-                                    <td>{{$employee->title ? $employee->title->name : "" }}</td>
+                                    <td>{{$employee->salutation ? $employee->salutation->name : "" }}</td>
                                     <td>{{$employee->last_name}} {{$employee->first_name}}</td>
                                     <td>{{$employee->birthdate}}</td>
                                     <td>{{$employee->email}}</td>

@@ -3,15 +3,16 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CustomerCreateRequest;
+use App\Http\Requests\CustomerUpdateRequest;
 use App\Models\BillingAddresses;
-use App\Models\Customers;
 use App\Models\Day;
 use App\Models\Month;
 use App\Models\NewsletterInfo;
 use App\Models\Preference;
 use App\Models\ReadOrShop;
 use App\Models\ShippingAddresses;
-use App\Models\Title;
+use App\Models\Salutation;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -22,7 +23,7 @@ class BCustomerController extends Controller
     {
         $preferencTotal = Preference::all()->count();
         $newsletterinfosTotal = Newsletterinfo::all()->count();
-        $customers = User::where('is_employee','=' ,'0')->orderByDesc("id")
+        $customers = User::where('is_employee','=' ,'0')->with('salutation','preferences','newsletterinfos')->orderByDesc("id")
             ->withTrashed()
             ->paginate(10);
         return view(
@@ -35,7 +36,7 @@ class BCustomerController extends Controller
         $preferences = Preference::all();
         $ReadOrShops = ReadOrShop::all();
         $newsletterinfos = Newsletterinfo::all();
-        $titles = Title::all();
+        $salutations = Salutation::all();
         $months = Month::all();
         $days = Day::all();
         return view(
@@ -44,33 +45,17 @@ class BCustomerController extends Controller
                 "preferences",
                 "ReadOrShops",
                 "newsletterinfos",
-                "titles",
+                "salutations",
                 "months",
                 "days"
             )
         );
     }
-    public function store(Request $request)
+    public function store(CustomerCreateRequest $request)
     {
-        $validatedData = $request->validate(
-            [
-                "password" => "required|min:8",
-                "email" => "required |email | unique:users",
-                "phone" => 'regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
-                "mobile_phone" =>
-                    'nullable|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
-            ],
-            [
-                "password.required" => "Please enter a password",
-                "email.email" => "Please enter a valid email adres",
-                "phone" => "Please enter a vilid phone number",
-                "mobile_phone" => "Please enter a vilid phone number",
-            ]
-        );
-
         $customer = new User();
         $customer->read_or_shop_id = $request->ReadOrShop;
-        $customer->title_id = $request->title_id;
+        $customer->salutation_id = $request->salutation_id;
         $customer->first_name = $request->first_name;
         $customer->last_name = $request->last_name;
         $customer->phone = $request->phone;
@@ -89,7 +74,7 @@ class BCustomerController extends Controller
             ->route("customers.index")
             ->with([
                 "alert" => [
-                    "message" => "Customer added",
+                    "message" => "Customer added successfully",
                     "type" => "success",
                 ],
             ]);
@@ -112,7 +97,7 @@ class BCustomerController extends Controller
         $preferences = Preference::all();
         $ReadOrShops = ReadOrShop::all();
         $newsletterinfos = Newsletterinfo::all();
-        $titles = Title::all();
+        $salutations = Salutation::all();
         $months = Month::all();
         $days = Day::all();
         $BillingAddresses = BillingAddresses::where('user_id',$id)->get();
@@ -125,7 +110,7 @@ class BCustomerController extends Controller
                 "preferences",
                 "ReadOrShops",
                 "newsletterinfos",
-                "titles",
+                "salutations",
                 "months",
                 "days",
                 "BillingAddresses",
@@ -137,21 +122,9 @@ class BCustomerController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(CustomerUpdateRequest $request, string $id)
     {
-        $validatedData = $request->validate(
-            [
-                "password" => "nullable|min:8",
-                "phone" => 'regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
-                "mobile_phone" =>
-                    'nullable|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
-            ],
-            [
-                "password.required" => "Please enter a password",
-                "phone" => "Please enter a vilid phone number",
-                "mobile_phone" => "Please enter a vilid phone number",
-            ]
-        );
+//        dd($request);
 
         $customer = User::findOrFail($id);
         if(trim($request->password) == ''){
@@ -163,10 +136,10 @@ class BCustomerController extends Controller
         $customer->update($input);
 
 
-        return redirect("dashboard/customers")->with([
+        return redirect("dashboard/customers")
+            ->with([
             "alert" => [
-                'title'=>'$customer->first_name',
-                "message" => "is updated",
+                "message" => "Updated successfully",
                 "type" => "primary",
             ],
         ]);
@@ -198,7 +171,11 @@ class BCustomerController extends Controller
     public function destroy(string $id)
     {
        User::findOrFail($id)->delete();
-        return redirect()->route('customers.index')->with(["alert" => ["message" => "destroyd", "type" => "danger"]]);
+        return redirect()->route('customers.index')
+            ->with([
+                "alert" =>
+                    ["message" => "Record removed", "type" => "danger"]
+            ]);
 
     }
     public function restore($id)

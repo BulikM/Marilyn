@@ -8,13 +8,12 @@
     <div class="col-lg-12 grid-margin container-fluid stretch-card">
         <div class="card">
             <div class="card-body">
+                @if (session('alert'))
+                    <x-alert :type="session('alert')['type']" :message="session('alert')['message']">
+                        <x-slot name="title">Users</x-slot>
+                    </x-alert>
+                @endif
                 <div class="float-end pb-3">
-                    @if (session('alert'))
-                        <x-alert :type="session('alert')['type']" :message="session('alert')['message']">
-                            <x-slot name="title">Users</x-slot>
-                        </x-alert>
-                    @endif
-
                     <a class="button btn-gradient-purple m-2" href="{{route('users.create')}}"><i class="bi bi-person-fill-add"></i> Add user</a>
                 </div>
                 <table class="table table-borderless table-hover">
@@ -46,7 +45,7 @@
                                                show/Edit
                                             </a>
                                             @if($user->deleted_at != null)
-                                                <form action="{{ route('backend.userrestore', $user->id) }}" method="POST">
+                                                <form action="{{ route('users.restore', $user->id) }}" method="POST">
                                                     @csrf
                                                     @method('POST')
                                                     <button type="submit" class="dropdown-item">
@@ -66,7 +65,7 @@
                                             @endif
                                         </div>
                                     </td>
-                                    <td>{{$user->title ? $user->title->name : "" }}</td>
+                                    <td>{{$user->salutation ? $user->salutation->name : "" }}</td>
                                     <td>{{$user->last_name}} {{$user->first_name}}</td>
                                     <td>{{$user->day_id}} {{$user->month ? $user->month->name : ""}}</td>
                                     <td>{{$user->email}}</td>

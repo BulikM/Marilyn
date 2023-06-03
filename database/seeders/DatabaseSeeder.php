@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             PreferenceSeeder::class,
-            TitleSeeder::class,
+            SalutationSeeder::class,
             MonthSeeder::class,
             DaySeeder::class,
             NewsletterInfoSeeder::class,

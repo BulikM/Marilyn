@@ -19,7 +19,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        "title_id",
+        "salutation_id",
         "first_name",
         "last_name",
         "email",
@@ -70,9 +70,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Day::class);
     }
-    public function title()
+    public function salutation()
     {
-        return $this->belongsTo(Title::class);
+        return $this->belongsTo(Salutation::class);
     }
     public function readorshop()
     {

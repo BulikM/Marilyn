@@ -51,10 +51,10 @@
 {{--titel--}}
                         <div class="row">
                         <div class="dropdown mb-4">
-                            <select  name="title" id="title" class="form-select w-25" aria-label="title select">
+                            <select  name="salutation_id" id="salutation_id" class="form-select w-25" aria-label="salutation select">
                                 <option  value="" disabled selected hidden>Title</option>
-                                @foreach($titles as $title)
-                                    <option value="{{$title->id}}" class="hover-purple">{{$title->name}}</option>
+                                @foreach($salutations as $salutation)
+                                    <option value="{{$salutation->id}}" name="salutation_id" class="hover-purple">{{$salutation->name}}</option>
                                 @endforeach
                             </select>
                         </div>

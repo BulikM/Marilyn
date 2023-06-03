@@ -69,7 +69,7 @@
                                             @endif
                                         </div>
                                     </td>
-                                    <td>{{$customer->title ? $customer->title->name : "" }}</td>
+                                    <td>{{$customer->salutation ? $customer->salutation->name : "" }}</td>
                                     <td>{{$customer->last_name}} {{$customer->first_name}}</td>
                                     <td>{{$customer->day_id}} {{$customer->month ? $customer->month->name : ""}}</td>
                                     <td>{{$customer->email}}</td>

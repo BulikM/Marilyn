@@ -29,7 +29,7 @@ class UserSeeder extends Seeder
                 "password" => bcrypt("12345678"),
                 "created_at" => Carbon::now()->format("Y-m-d H:i:s"),
                 "updated_at" => Carbon::now()->format("Y-m-d H:i:s"),
-                "is_employee"=>0,
+                "is_employee"=>1,
                 "is_active"=>0,
             ],
         ]);

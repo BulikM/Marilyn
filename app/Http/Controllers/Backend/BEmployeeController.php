@@ -10,7 +10,7 @@ use App\Models\Employee_Adress;
 use App\Models\Month;
 use App\Models\NewsletterInfo;
 use App\Models\Preference;
-use App\Models\Title;
+use App\Models\Salutation;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -28,6 +28,7 @@ class BEmployeeController extends Controller
     public function index()
     {
         $employees = User::where('is_employee','=' ,'1')
+            ->with('salutation')
             ->orderByDesc("id")
             ->withTrashed()
             ->paginate(10);
@@ -41,11 +42,11 @@ class BEmployeeController extends Controller
     public function create()
     {
 
-        $titles = Title::all();
+        $salutations = Salutation::all();
 
         return view(
             "backend.employee.create",
-            compact("titles"
+            compact("salutations"
             )
         );
     }
@@ -56,7 +57,7 @@ class BEmployeeController extends Controller
     public function store(EmployeesRequest $request)
     {
         $employee = new User();
-        $employee->title_id = $request->title_id;
+        $employee->salutation_id = $request->salutation_id;
         $employee->first_name = $request->first_name;
         $employee->last_name = $request->last_name;
         $employee->birhtdate = $request->birhdate;
@@ -72,7 +73,7 @@ class BEmployeeController extends Controller
             ->route("employee.index")
             ->with([
                 "alert" => [
-                    "message" => "User added",
+                    "message" => "Employee added successfully",
                     "type" => "success",
                 ],
             ]);
@@ -93,7 +94,7 @@ class BEmployeeController extends Controller
     {
         $employee = User::findOrFail($id);
 
-        $titles = Title::all();
+        $salutations = Salutation::all();
 
 
         return view(
@@ -101,7 +102,7 @@ class BEmployeeController extends Controller
             compact(
                 "employee",
 
-                "titles"
+                "salutations"
             ));
     }
 
@@ -118,7 +119,13 @@ class BEmployeeController extends Controller
             $input['password'] = Hash::make($request['password']);
         }
         $employee->update($input);
-        return redirect('dashboard/employees')->with('status', 'Employee updated');
+        return redirect('dashboard/employees')
+            ->with([
+            "alert" => [
+                "message" => "Updated successfully",
+                "type" => "primary",
+            ],
+        ]);
     }
 
     /**
@@ -126,13 +133,18 @@ class BEmployeeController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        User::findOrFail($id)->delete();
+        return redirect()->route('employee.index')->with(["alert" => ["message" => "Record removed", "type" => "danger"]]);
+
+    }
+    public function restore($id)
+    {
+        User::onlyTrashed()
+            ->where("id", $id)
+            ->restore();
+        return redirect()
+            ->route("customers.index")
+            ->with(["alert" => ["message" => "Record restored", "type" => "primary"]]);
     }
 
-    protected $listeners = ['IsActive' => 'IsActiveState'];
-
-    public function Active(string $filter){
-     $test = "test";
-     dd($test);
-    }
 }

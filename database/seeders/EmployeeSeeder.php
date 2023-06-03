@@ -6,7 +6,7 @@ use App\Http\Middleware\Employee;
 use App\Models\Day;
 use App\Models\Month;
 use App\Models\ReadOrShop;
-use App\Models\Title;
+use App\Models\Salutation;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -20,12 +20,12 @@ class EmployeeSeeder extends Seeder
     public function run(): void
     {
         for ($i = 0; $i < 10; $i++) {
-            $titleId = Title::pluck('id')->toArray();
+            $aappellation_id = Salutation::pluck('id')->toArray();
             $monthId = Month::pluck('id')->toArray();
             $dayId = Day::pluck('id')->toArray();
             $readOrShopId = ReadOrShop::pluck('id')->toArray();
             DB::table('users')->insert([
-                "title_id" => fake()->randomElement($titleId),
+                "salutation_id" => fake()->randomElement($aappellation_id),
                 "birthdate" => fake()->date,
                 "first_name" => fake()->firstName(),
                 "last_name" => fake()->lastName(),

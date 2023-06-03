@@ -5,7 +5,7 @@ namespace Database\Factories;
 use App\Models\Day;
 use App\Models\Month;
 use App\Models\ReadOrShop;
-use App\Models\Title;
+use App\Models\Salutation;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -21,13 +21,13 @@ class UserFactory extends Factory
      */
     public function definition(): array
     {
-        $titleId = Title::pluck('id')->toArray();
+        $salutations_id = Salutation::pluck('id')->toArray();
         $monthId = Month::pluck('id')->toArray();
         $dayId = Day::pluck('id')->toArray();
         $readOrShopId = ReadOrShop::pluck('id')->toArray();
 
         return [
-            "title_id"=>  fake()->randomElement($titleId),
+            "salutation_id"=>  fake()->randomElement($salutations_id),
             "month_id"=>  fake()->randomElement($monthId),
             "day_id"=>  fake()->randomElement($dayId),
             "first_name" => fake()->firstName(),

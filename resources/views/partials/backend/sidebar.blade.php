@@ -24,6 +24,12 @@
                                 <span class="text-gradient-purple">Employees</span>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{route('users.index')}}" class="nav-link py-3 px-2 d-flex flex-column" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Home">
+                                <i class="bi bi-person-lines-fill fs-2 text-gradient-purple"></i>
+                                <span class="text-gradient-purple">Users</span>
+                            </a>
+                        </li>
 
                         <li>
                             <a href="#" class="nav-link py-3 px-2" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Orders">
