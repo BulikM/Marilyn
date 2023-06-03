@@ -1,140 +1,1712 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.frontend')
+@section('content')
 
-        <title>Laravel</title>
+<div class="container-fluid p-0">
+    <div class="row justify-content-center max-width-1680 m-auto p-0">
+        <a href="#" class="col p-0 max-width-1680 mt-xxl-5">
+            <img src="https://goop-img.com/cdn-cgi/image/height=1120,width=3360,dpr=1,format=auto,onerror=redirect,metadata=copyright/wp-content/uploads/2022/11/221201-primaryHero-tablet.jpg" alt="221201-primaryhero-tablet" srcset="https://goop-img.com/cdn-cgi/image/height=1120,width=3360,dpr=1,format=auto,onerror=redirect,metadata=copyright/wp-content/uploads/2022/11/221201-primaryHero-tablet.jpg 3360w,
+			  https://goop-img.com/cdn-cgi/image/height=1120,width=3360,dpr=2,format=auto,onerror=redirect,metadata=copyright/wp-content/uploads/2022/11/221201-primaryHero-tablet.jpg 6720w,
+			  https://goop-img.com/cdn-cgi/image/height=1120,width=3360,dpr=3,format=auto,onerror=redirect,metadata=copyright/wp-content/uploads/2022/11/221201-primaryHero-tablet.jpg 10080w" class="hero">
+        </a>
+    </div>
+</div>
+<!--main-->
+<main class="container-fluid p-0">
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
 
-        <!-- Styles -->
-        <style>
-            /* ! tailwindcss v3.2.4 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:Figtree, sans-serif;font-feature-settings:normal}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;font-weight:inherit;line-height:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]{display:none}*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }::-webkit-backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }.relative{position:relative}.mx-auto{margin-left:auto;margin-right:auto}.mx-6{margin-left:1.5rem;margin-right:1.5rem}.ml-4{margin-left:1rem}.mt-16{margin-top:4rem}.mt-6{margin-top:1.5rem}.mt-4{margin-top:1rem}.-mt-px{margin-top:-1px}.mr-1{margin-right:0.25rem}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.h-16{height:4rem}.h-7{height:1.75rem}.h-6{height:1.5rem}.h-5{height:1.25rem}.min-h-screen{min-height:100vh}.w-auto{width:auto}.w-16{width:4rem}.w-7{width:1.75rem}.w-6{width:1.5rem}.w-5{width:1.25rem}.max-w-7xl{max-width:80rem}.shrink-0{flex-shrink:0}.scale-100{--tw-scale-x:1;--tw-scale-y:1;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.items-center{align-items:center}.justify-center{justify-content:center}.gap-6{gap:1.5rem}.gap-4{gap:1rem}.self-center{align-self:center}.rounded-lg{border-radius:0.5rem}.rounded-full{border-radius:9999px}.bg-gray-100{--tw-bg-opacity:1;background-color:rgb(243 244 246 / var(--tw-bg-opacity))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity))}.bg-red-50{--tw-bg-opacity:1;background-color:rgb(254 242 242 / var(--tw-bg-opacity))}.bg-dots-darker{background-image:url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z' fill='rgba(0,0,0,0.07)'/%3E%3C/svg%3E")}.from-gray-700\/50{--tw-gradient-from:rgb(55 65 81 / 0.5);--tw-gradient-to:rgb(55 65 81 / 0);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.via-transparent{--tw-gradient-to:rgb(0 0 0 / 0);--tw-gradient-stops:var(--tw-gradient-from), transparent, var(--tw-gradient-to)}.bg-center{background-position:center}.stroke-red-500{stroke:#ef4444}.stroke-gray-400{stroke:#9ca3af}.p-6{padding:1.5rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.text-center{text-align:center}.text-right{text-align:right}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.font-semibold{font-weight:600}.leading-relaxed{line-height:1.625}.text-gray-600{--tw-text-opacity:1;color:rgb(75 85 99 / var(--tw-text-opacity))}.text-gray-900{--tw-text-opacity:1;color:rgb(17 24 39 / var(--tw-text-opacity))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity))}.underline{-webkit-text-decoration-line:underline;text-decoration-line:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-gray-500\/20{--tw-shadow-color:rgb(107 114 128 / 0.2);--tw-shadow:var(--tw-shadow-colored)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.selection\:bg-red-500 *::selection{--tw-bg-opacity:1;background-color:rgb(239 68 68 / var(--tw-bg-opacity))}.selection\:text-white *::selection{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}.selection\:bg-red-500::selection{--tw-bg-opacity:1;background-color:rgb(239 68 68 / var(--tw-bg-opacity))}.selection\:text-white::selection{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}.hover\:text-gray-900:hover{--tw-text-opacity:1;color:rgb(17 24 39 / var(--tw-text-opacity))}.hover\:text-gray-700:hover{--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity))}.focus\:rounded-sm:focus{border-radius:0.125rem}.focus\:outline:focus{outline-style:solid}.focus\:outline-2:focus{outline-width:2px}.focus\:outline-red-500:focus{outline-color:#ef4444}.group:hover .group-hover\:stroke-gray-600{stroke:#4b5563}.z-10{z-index: 10}@media (prefers-reduced-motion: no-preference){.motion-safe\:hover\:scale-\[1\.01\]:hover{--tw-scale-x:1.01;--tw-scale-y:1.01;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}}@media (prefers-color-scheme: dark){.dark\:bg-gray-900{--tw-bg-opacity:1;background-color:rgb(17 24 39 / var(--tw-bg-opacity))}.dark\:bg-gray-800\/50{background-color:rgb(31 41 55 / 0.5)}.dark\:bg-red-800\/20{background-color:rgb(153 27 27 / 0.2)}.dark\:bg-dots-lighter{background-image:url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z' fill='rgba(255,255,255,0.07)'/%3E%3C/svg%3E")}.dark\:bg-gradient-to-bl{background-image:linear-gradient(to bottom left, var(--tw-gradient-stops))}.dark\:stroke-gray-600{stroke:#4b5563}.dark\:text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity))}.dark\:text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}.dark\:shadow-none{--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.dark\:ring-1{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.dark\:ring-inset{--tw-ring-inset:inset}.dark\:ring-white\/5{--tw-ring-color:rgb(255 255 255 / 0.05)}.dark\:hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}.group:hover .dark\:group-hover\:stroke-gray-400{stroke:#9ca3af}}@media (min-width: 640px){.sm\:fixed{position:fixed}.sm\:top-0{top:0px}.sm\:right-0{right:0px}.sm\:ml-0{margin-left:0px}.sm\:flex{display:flex}.sm\:items-center{align-items:center}.sm\:justify-center{justify-content:center}.sm\:justify-between{justify-content:space-between}.sm\:text-left{text-align:left}.sm\:text-right{text-align:right}}@media (min-width: 768px){.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}}@media (min-width: 1024px){.lg\:gap-8{gap:2rem}.lg\:p-8{padding:2rem}}
-        </style>
-    </head>
-    <body class="antialiased">
-        <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
-            @if (Route::has('login'))
-                <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
-                    @auth
-                        <a href="{{ url('/home') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Home</a>
-                    @else
-                        <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
+    <!--New arrivals-->
+    <section id="NewArrivals" class="row p-0 max-width-1680 m-auto">
+        <article class="col-12 p-0 my-4">
+            <div class="text-start text-lg-center mt-5 mb-4">
+                <h2 class="text-gTitel"> <span>64</span> New Arrivals</h2>
+                <p class="text-gOnderTitel">Just dropped and yours to explore</p>
+            </div>
+        </article>
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
+        <!--Gwyneth's gift list-->
+        <article class="col12 p-0">
 
-            <div class="max-w-7xl mx-auto p-6 lg:p-8">
-                <div class="flex justify-center">
-                    <svg viewBox="0 0 62 65" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-16 w-auto bg-gray-100 dark:bg-gray-900">
-                        <path d="M61.8548 14.6253C61.8778 14.7102 61.8895 14.7978 61.8897 14.8858V28.5615C61.8898 28.737 61.8434 28.9095 61.7554 29.0614C61.6675 29.2132 61.5409 29.3392 61.3887 29.4265L49.9104 36.0351V49.1337C49.9104 49.4902 49.7209 49.8192 49.4118 49.9987L25.4519 63.7916C25.3971 63.8227 25.3372 63.8427 25.2774 63.8639C25.255 63.8714 25.2338 63.8851 25.2101 63.8913C25.0426 63.9354 24.8666 63.9354 24.6991 63.8913C24.6716 63.8838 24.6467 63.8689 24.6205 63.8589C24.5657 63.8389 24.5084 63.8215 24.456 63.7916L0.501061 49.9987C0.348882 49.9113 0.222437 49.7853 0.134469 49.6334C0.0465019 49.4816 0.000120578 49.3092 0 49.1337L0 8.10652C0 8.01678 0.0124642 7.92953 0.0348998 7.84477C0.0423783 7.8161 0.0598282 7.78993 0.0697995 7.76126C0.0884958 7.70891 0.105946 7.65531 0.133367 7.6067C0.152063 7.5743 0.179485 7.54812 0.20192 7.51821C0.230588 7.47832 0.256763 7.43719 0.290416 7.40229C0.319084 7.37362 0.356476 7.35243 0.388883 7.32751C0.425029 7.29759 0.457436 7.26518 0.498568 7.2415L12.4779 0.345059C12.6296 0.257786 12.8015 0.211853 12.9765 0.211853C13.1515 0.211853 13.3234 0.257786 13.475 0.345059L25.4531 7.2415H25.4556C25.4955 7.26643 25.5292 7.29759 25.5653 7.32626C25.5977 7.35119 25.6339 7.37362 25.6625 7.40104C25.6974 7.43719 25.7224 7.47832 25.7523 7.51821C25.7735 7.54812 25.8021 7.5743 25.8196 7.6067C25.8483 7.65656 25.8645 7.70891 25.8844 7.76126C25.8944 7.78993 25.9118 7.8161 25.9193 7.84602C25.9423 7.93096 25.954 8.01853 25.9542 8.10652V33.7317L35.9355 27.9844V14.8846C35.9355 14.7973 35.948 14.7088 35.9704 14.6253C35.9792 14.5954 35.9954 14.5692 36.0053 14.5405C36.0253 14.4882 36.0427 14.4346 36.0702 14.386C36.0888 14.3536 36.1163 14.3274 36.1375 14.2975C36.1674 14.2576 36.1923 14.2165 36.2272 14.1816C36.2559 14.1529 36.292 14.1317 36.3244 14.1068C36.3618 14.0769 36.3942 14.0445 36.4341 14.0208L48.4147 7.12434C48.5663 7.03694 48.7383 6.99094 48.9133 6.99094C49.0883 6.99094 49.2602 7.03694 49.4118 7.12434L61.3899 14.0208C61.4323 14.0457 61.4647 14.0769 61.5021 14.1055C61.5333 14.1305 61.5694 14.1529 61.5981 14.1803C61.633 14.2165 61.6579 14.2576 61.6878 14.2975C61.7103 14.3274 61.7377 14.3536 61.7551 14.386C61.7838 14.4346 61.8 14.4882 61.8199 14.5405C61.8312 14.5692 61.8474 14.5954 61.8548 14.6253ZM59.893 27.9844V16.6121L55.7013 19.0252L49.9104 22.3593V33.7317L59.8942 27.9844H59.893ZM47.9149 48.5566V37.1768L42.2187 40.4299L25.953 49.7133V61.2003L47.9149 48.5566ZM1.99677 9.83281V48.5566L23.9562 61.199V49.7145L12.4841 43.2219L12.4804 43.2194L12.4754 43.2169C12.4368 43.1945 12.4044 43.1621 12.3682 43.1347C12.3371 43.1097 12.3009 43.0898 12.2735 43.0624L12.271 43.0586C12.2386 43.0275 12.2162 42.9888 12.1887 42.9539C12.1638 42.9203 12.1339 42.8916 12.114 42.8567L12.1127 42.853C12.0903 42.8156 12.0766 42.7707 12.0604 42.7283C12.0442 42.6909 12.023 42.656 12.013 42.6161C12.0005 42.5688 11.998 42.5177 11.9931 42.4691C11.9881 42.4317 11.9781 42.3943 11.9781 42.3569V15.5801L6.18848 12.2446L1.99677 9.83281ZM12.9777 2.36177L2.99764 8.10652L12.9752 13.8513L22.9541 8.10527L12.9752 2.36177H12.9777ZM18.1678 38.2138L23.9574 34.8809V9.83281L19.7657 12.2459L13.9749 15.5801V40.6281L18.1678 38.2138ZM48.9133 9.14105L38.9344 14.8858L48.9133 20.6305L58.8909 14.8846L48.9133 9.14105ZM47.9149 22.3593L42.124 19.0252L37.9323 16.6121V27.9844L43.7219 31.3174L47.9149 33.7317V22.3593ZM24.9533 47.987L39.59 39.631L46.9065 35.4555L36.9352 29.7145L25.4544 36.3242L14.9907 42.3482L24.9533 47.987Z" fill="#FF2D20"/>
-                    </svg>
-                </div>
 
-                <div class="mt-16">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-                        <a href="https://laravel.com/docs" class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                            <div>
-                                <div class="h-16 w-16 bg-red-50 dark:bg-red-800/20 flex items-center justify-center rounded-full">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-7 h-7 stroke-red-500">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
-                                    </svg>
-                                </div>
+            <!--scrol img in mobile-->
 
-                                <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Documentation</h2>
+            <div class="d-flex scrollmenu row-cols-12 d-lg-none ps-4 gap-2">
+                <a href="#" class="col-5">
+                    <div class="card">
+                        <img alt="Nancy Newberg Diamond Striped Cigar Band"
+                             src="https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/059/large/open-uri20221121-5152-ltfuua?1669060961"
+                             srcset="https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=1,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/059/large/open-uri20221121-5152-ltfuua?1669060961 600w,
+          https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=2,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/059/large/open-uri20221121-5152-ltfuua?1669060961 1200w,
+          https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/059/large/open-uri20221121-5152-ltfuua?1669060961 1800w">
+                        <div class="card-body p-0 text-wrap">
+                            <p class="text-g1">Nancy Newberg</p>
+                            <p class="text-g2">Diamond Striped Cigar Band</p>
+                            <p class="text-g3">US $3,600.00</p>
 
-                                <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                    Laravel has wonderful documentation covering every aspect of the framework. Whether you are a newcomer or have prior experience with Laravel, we recommend reading our documentation from beginning to end.
-                                </p>
-                            </div>
-
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="self-center shrink-0 stroke-red-500 w-6 h-6 mx-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
-                            </svg>
-                        </a>
-
-                        <a href="https://laracasts.com" class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                            <div>
-                                <div class="h-16 w-16 bg-red-50 dark:bg-red-800/20 flex items-center justify-center rounded-full">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-7 h-7 stroke-red-500">
-                                        <path stroke-linecap="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
-                                    </svg>
-                                </div>
-
-                                <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Laracasts</h2>
-
-                                <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                    Laracasts offers thousands of video tutorials on Laravel, PHP, and JavaScript development. Check them out, see for yourself, and massively level up your development skills in the process.
-                                </p>
-                            </div>
-
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="self-center shrink-0 stroke-red-500 w-6 h-6 mx-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
-                            </svg>
-                        </a>
-
-                        <a href="https://laravel-news.com" class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                            <div>
-                                <div class="h-16 w-16 bg-red-50 dark:bg-red-800/20 flex items-center justify-center rounded-full">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-7 h-7 stroke-red-500">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5M6 7.5h3v3H6v-3z" />
-                                    </svg>
-                                </div>
-
-                                <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Laravel News</h2>
-
-                                <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                    Laravel News is a community driven portal and newsletter aggregating all of the latest and most important news in the Laravel ecosystem, including new package releases and tutorials.
-                                </p>
-                            </div>
-
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="self-center shrink-0 stroke-red-500 w-6 h-6 mx-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
-                            </svg>
-                        </a>
-
-                        <div class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                            <div>
-                                <div class="h-16 w-16 bg-red-50 dark:bg-red-800/20 flex items-center justify-center rounded-full">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-7 h-7 stroke-red-500">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6.115 5.19l.319 1.913A6 6 0 008.11 10.36L9.75 12l-.387.775c-.217.433-.132.956.21 1.298l1.348 1.348c.21.21.329.497.329.795v1.089c0 .426.24.815.622 1.006l.153.076c.433.217.956.132 1.298-.21l.723-.723a8.7 8.7 0 002.288-4.042 1.087 1.087 0 00-.358-1.099l-1.33-1.108c-.251-.21-.582-.299-.905-.245l-1.17.195a1.125 1.125 0 01-.98-.314l-.295-.295a1.125 1.125 0 010-1.591l.13-.132a1.125 1.125 0 011.3-.21l.603.302a.809.809 0 001.086-1.086L14.25 7.5l1.256-.837a4.5 4.5 0 001.528-1.732l.146-.292M6.115 5.19A9 9 0 1017.18 4.64M6.115 5.19A8.965 8.965 0 0112 3c1.929 0 3.716.607 5.18 1.64" />
-                                    </svg>
-                                </div>
-
-                                <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Vibrant Ecosystem</h2>
-
-                                <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                    Laravel's robust library of first-party tools and libraries, such as <a href="https://forge.laravel.com" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Forge</a>, <a href="https://vapor.laravel.com" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Vapor</a>, <a href="https://nova.laravel.com" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Nova</a>, and <a href="https://envoyer.io" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Envoyer</a> help you take your projects to the next level. Pair them with powerful open source libraries like <a href="https://laravel.com/docs/billing" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Cashier</a>, <a href="https://laravel.com/docs/dusk" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dusk</a>, <a href="https://laravel.com/docs/broadcasting" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Echo</a>, <a href="https://laravel.com/docs/horizon" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Horizon</a>, <a href="https://laravel.com/docs/sanctum" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Sanctum</a>, <a href="https://laravel.com/docs/telescope" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Telescope</a>, and more.
-                                </p>
-                            </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="flex justify-center mt-16 px-0 sm:items-center sm:justify-between">
-                    <div class="text-center text-sm text-gray-500 dark:text-gray-400 sm:text-left">
-                        <div class="flex items-center gap-4">
-                            <a href="https://github.com/sponsors/taylorotwell" class="group inline-flex items-center hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="-mt-px mr-1 w-5 h-5 stroke-gray-400 dark:stroke-gray-600 group-hover:stroke-gray-600 dark:group-hover:stroke-gray-400">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                                </svg>
-                                Sponsor
-                            </a>
+                </a>
+                <a href="#" class="col-5">
+                    <div class="card">
+                        <img alt="Grown Alchemist Trio Hand Cream Kit"
+                             class="ProductListCardstyles__StyledImage-g09iyn-3 cJjQKT"
+                             src="https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/082/large/open-uri20221121-3682-kp2f80?1669066591"
+                             srcset="https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=1,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/082/large/open-uri20221121-3682-kp2f80?1669066591 600w,
+          https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=2,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/082/large/open-uri20221121-3682-kp2f80?1669066591 1200w,
+          https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/082/large/open-uri20221121-3682-kp2f80?1669066591 1800w">
+                        <div class="card-body p-0 text-wrap">
+                            <p class="text-g1">Grown Alchemist</p>
+                            <p class="text-g2">Trio Hand Cream Kit</p>
+                            <p class="text-g3">US $59.00</p>
                         </div>
                     </div>
+                </a>
+                <a href="#" class="col-5">
+                    <div class="card">
+                        <img src="https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/201/large/open-uri20221129-2921-1iqmlph?1669762526" srcset="https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=1,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/201/large/open-uri20221129-2921-1iqmlph?1669762526 600w,
+          https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=2,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/201/large/open-uri20221129-2921-1iqmlph?1669762526 1200w,
+          https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/201/large/open-uri20221129-2921-1iqmlph?1669762526 1800w" alt="BONDI BORN Montenegro Long Dress">
+                        <div class="card-body text-wrap p-0">
+                            <p class="text-g1">BONDI BORN</p>
+                            <p class="text-g2">Montenegro Long Dress</p>
+                            <p class="text-g3">US $675.00</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="col-5">
+                    <div class="card">
+                        <img src="https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/227/large/open-uri20221201-21858-k1m8lj?1669928673" srcset="https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=1,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/227/large/open-uri20221201-21858-k1m8lj?1669928673 600w,
+          https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=2,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/227/large/open-uri20221201-21858-k1m8lj?1669928673 1200w,
+          https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/227/large/open-uri20221201-21858-k1m8lj?1669928673 1800w" alt="La DoubleJ Magnifico Dress" >
+                        <div class="card-body text-wrap p-0">
+                            <p class="text-g1">La DoubleJ</p>
+                            <p class="text-g2">Magnifico Dress</p>
+                            <p class="text-g3">US $1,265.00</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="col-5">
+                    <div class="card">
+                        <img src="https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/232/large/open-uri20221201-18-8tau7x?1669929005" srcset="https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=1,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/232/large/open-uri20221201-18-8tau7x?1669929005 600w,
+          https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=2,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/232/large/open-uri20221201-18-8tau7x?1669929005 1200w,
+          https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/232/large/open-uri20221201-18-8tau7x?1669929005 1800w" alt="Sea Palmer Jacket" >
+                        <div class="card-body text-wrap p-0">
+                            <p class="text-g1">Sea</p>
+                            <p class="text-g2">Palmer Jacket</p>
+                            <p class="text-g3">US $495.00</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="col-5">
+                    <div class="card">
+                        <img src="https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/083/640/large/open-uri20221018-2558-1tyr6ko?1666129939" srcset="https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=1,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/083/640/large/open-uri20221018-2558-1tyr6ko?1666129939 600w,
+          https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=2,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/083/640/large/open-uri20221018-2558-1tyr6ko?1666129939 1200w,
+          https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/083/640/large/open-uri20221018-2558-1tyr6ko?1666129939 1800w" alt="KULE The Monica Cardigan" >
+                        <div class="card-body text-wrap p-0">
+                            <p class="text-g1">KULE</p>
+                            <p class="text-g2">The Monica Cardigan</p>
+                            <p class="text-g3">US $398.00</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="col-5">
+                    <div class="card">
+                        <img src="https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/195/large/open-uri20221129-2921-yo8pjh?1669762485" srcset="https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=1,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/195/large/open-uri20221129-2921-yo8pjh?1669762485 600w,
+          https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=2,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/195/large/open-uri20221129-2921-yo8pjh?1669762485 1200w,
+          https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/195/large/open-uri20221129-2921-yo8pjh?1669762485 1800w" alt="BONDI BORN Chateau Long Dress">
+                        <div class="card-body text-wrap p-0">
+                            <p class="text-g1">BONDI BORN</p>
+                            <p class="text-g2">Chateau Long Dress</p>
+                            <p class="text-g3">US $525.00</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="col-5">
+                    <div class="card">
+                        <img src="https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/242/large/open-uri20221201-8456-1eo3m93?1669929380" srcset="https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=1,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/242/large/open-uri20221201-8456-1eo3m93?1669929380 600w,
+          https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=2,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/242/large/open-uri20221201-8456-1eo3m93?1669929380 1200w,
+          https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/242/large/open-uri20221201-8456-1eo3m93?1669929380 1800w" alt="La DoubleJ Vesta Dress" >
+                        <div class="card-body text-wrap p-0">
+                            <p class="text-g1">La DoubleJ</p>
+                            <p class="text-g2">Vesta Dress</p>
+                            <p class="text-g3">US $1,250.00</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="col-5">
+                    <div class="card">
+                        <img src="https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/087/large/open-uri20221122-15503-1vlrgap?1669141361" srcset="https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=1,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/087/large/open-uri20221122-15503-1vlrgap?1669141361 600w,
+          https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=2,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/087/large/open-uri20221122-15503-1vlrgap?1669141361 1200w,
+          https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/087/large/open-uri20221122-15503-1vlrgap?1669141361 1800w" alt="Jade Swim Sena One-Piece" >
+                        <div class="card-body text-wrap p-0">								<p class="text-g1">Jade Swim</p>
+                            <p class="text-g2">Sena One-Piece</p>
+                            <p class="text-g3">US $220.00</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="col-5">
+                    <div class="card">
+                        <img src="https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/068/large/open-uri20221121-20403-19pirr?1669061331" srcset="https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=1,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/068/large/open-uri20221121-20403-19pirr?1669061331 600w,
+          https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=2,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/068/large/open-uri20221121-20403-19pirr?1669061331 1200w,
+          https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/068/large/open-uri20221121-20403-19pirr?1669061331 1800w" alt="Officine Generale Maud Coat">
+                        <div class="card-body text-wrap p-0">
+                            <p class="text-g1">Officine Generale</p>
+                            <p class="text-g2">Maud Coat</p>
+                            <p class="text-g3">US $1,270.00</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="col-5">
+                    <div class="card">
+                        <img src="https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/167/large/open-uri20221128-17932-1qwdso6?1669661096" srcset="https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=1,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/167/large/open-uri20221128-17932-1qwdso6?1669661096 600w,
+          https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=2,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/167/large/open-uri20221128-17932-1qwdso6?1669661096 1200w,
+          https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/167/large/open-uri20221128-17932-1qwdso6?1669661096 1800w" alt="Ciao Lucia Isotta Dress" >
+                        <div class="card-body text-wrap p-0">
+                            <p class="text-g1">Ciao Lucia</p>
+                            <p class="text-g2">Isotta Dress</p>
+                            <p class="text-g3">US $360.00</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="">
+                    <div class="card">
+                        <div class="card-img filter">
+                            <img alt="Shop All 79 New Arrivals" src="https://goop-img.com/wp-content/uploads/2022/02/20210831_EDITORIAL_BEAUTY_Hair-Serum-Product_SHOT-04_650.png" srcset="">
+                        </div>
+                        <div class="card-body centered text-uppercase space-3 text-title text-gl">
+                            <p class="CTATilestyles__Title-mev37o-2 krqhVa">Shop all</p><p class="CTATilestyles__Subtext-mev37o-3 hStHMK">69</p><p class="CTATilestyles__Title-mev37o-2 krqhVa">New Arrivals</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
 
-                    <div class="ml-4 text-center text-sm text-gray-500 dark:text-gray-400 sm:text-right sm:ml-0">
-                        Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
+            <!--carousel-->
+
+            <!--				carousel-->
+            <div class="d-none d-lg-block">
+                <div id="carouselExampleIndicators" class="carousel slide dotscarousel" data-bs-ride="false">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner Items_container pb-5">
+                        <div class="carousel-item active">
+                            <!--							eerste carousel-->
+                            <!--									eerste card-->
+                            <div class="d-flex justify-content-evenly col-10 m-auto">
+                                <div class="card">
+                                    <img alt="Nancy Newberg Diamond Striped Cigar Band"
+                                         src="https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/059/large/open-uri20221121-5152-ltfuua?1669060961"
+                                         srcset="https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=1,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/059/large/open-uri20221121-5152-ltfuua?1669060961 600w,
+										  https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=2,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/059/large/open-uri20221121-5152-ltfuua?1669060961 1200w,
+										  https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/059/large/open-uri20221121-5152-ltfuua?1669060961 1800w">
+                                    <div class="card-body">
+                                        <p class="text-g1">Nancy Newberg</p>
+                                        <a class="text-g2" href="https://goop.com/nancy-newberg-diamond-striped-cigar-band/p/">Diamond Striped Cigar Band</a>
+                                        <p class="text-g3">US $3,600.00</p>
+                                    </div>
+                                </div>
+                                <!--										tweede card-->
+                                <div class="card">
+                                    <div class="img">
+                                        <img alt="Grown Alchemist Trio Hand Cream Kit"
+                                             class="card-img-top"
+                                             src="https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/082/large/open-uri20221121-3682-kp2f80?1669066591"
+                                             srcset="https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=1,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/082/large/open-uri20221121-3682-kp2f80?1669066591 600w,
+												  https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=2,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/082/large/open-uri20221121-3682-kp2f80?1669066591 1200w,
+												  https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/082/large/open-uri20221121-3682-kp2f80?1669066591 1800w">
+                                        <img src="https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/084/171/large/open-uri20221025-13-1c5ccr3?1666721139" class="hover_img card-img-top">
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="text-g1">Grown Alchemist</p>
+                                        <a class="text-g2" href="https://goop.com/grown-alchemist-trio-hand-cream-kit/p/">Trio Hand Cream Kit</a>
+                                        <p class="text-g3">US $59.00</p>
+                                    </div>
+                                </div>
+                                <!--											derde card-->
+                                <div class="card">
+                                    <div class="img">
+                                        <img src="https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/201/large/open-uri20221129-2921-1iqmlph?1669762526" srcset="https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=1,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/201/large/open-uri20221129-2921-1iqmlph?1669762526 600w,
+										  https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=2,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/201/large/open-uri20221129-2921-1iqmlph?1669762526 1200w,
+										  https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/201/large/open-uri20221129-2921-1iqmlph?1669762526 1800w" alt="BONDI BORN Montenegro Long Dress" class="card-img-top">
+                                        <img src="https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/202/large/open-uri20221129-2921-1fdddcy?1669762531" class="card-img-top hover_img">
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="text-g1">BONDI BORN</p>
+                                        <a class="text-g2" href="https://goop.com/bondi-born-montenegro-long-dress/p/" >Montenegro Long Dress</a>
+                                        <p class="text-g3">US $675.00</p>
+                                    </div>
+                                </div>
+                                <!--												vierde card-->
+                                <div class="card">
+                                    <div class="img">
+                                        <img src="https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/227/large/open-uri20221201-21858-k1m8lj?1669928673" srcset="https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=1,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/227/large/open-uri20221201-21858-k1m8lj?1669928673 600w,
+          https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=2,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/227/large/open-uri20221201-21858-k1m8lj?1669928673 1200w,
+          https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/227/large/open-uri20221201-21858-k1m8lj?1669928673 1800w" alt="La DoubleJ Magnifico Dress" class="card-img-top">
+                                        <img src="https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/228/large/open-uri20221201-21858-1omymj5?1669928677" class="card-img-top hover_img" >
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="text-g1">La DoubleJ</p>
+                                        <a class="text-g2" href="https://goop.com/la-doublej-magnifico-dress/p/">Magnifico Dress</a>
+                                        <p class="text-g3">US $1,265.00</p></div></div>
+                            </div>
+                            <!--							einde inhoud tweede carousel-->
+                        </div>
+                        <div class="carousel-item">
+                            <!--							tweed carousel-->
+                            <!--									eerste card-->
+                            <div class="d-flex justify-content-evenly col-10 m-auto">
+                                <div class="card">
+                                    <div class="img">
+                                        <img src="https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/232/large/open-uri20221201-18-8tau7x?1669929005" srcset="https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=1,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/232/large/open-uri20221201-18-8tau7x?1669929005 600w,
+										  https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=2,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/232/large/open-uri20221201-18-8tau7x?1669929005 1200w,
+										  https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/232/large/open-uri20221201-18-8tau7x?1669929005 1800w" alt="Sea Palmer Jacket" class="card-img-top">
+                                        <img src="https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/233/large/open-uri20221201-18-1auaudc?1669929010" class="card-img-top hover_img">
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="text-g1">Sea</p>
+                                        <a class="text-g2" href="https://goop.com/sea-palmer-jacket/p/">Palmer Jacket</a>
+                                        <p class="text-g3">US $495.00</p>
+                                    </div>
+                                </div>
+                                <!--										tweede card-->
+                                <div class="card">
+                                    <div class="img">
+                                        <img src="https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/083/640/large/open-uri20221018-2558-1tyr6ko?1666129939" srcset="https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=1,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/083/640/large/open-uri20221018-2558-1tyr6ko?1666129939 600w,
+          https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=2,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/083/640/large/open-uri20221018-2558-1tyr6ko?1666129939 1200w,
+          https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/083/640/large/open-uri20221018-2558-1tyr6ko?1666129939 1800w" alt="KULE The Monica Cardigan" class="card-img-top">
+                                        <img  src="https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/084/122/large/open-uri20221024-18-10b5l5g?1666627880" class="card-img-top hover_img">
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="text-g1">KULE</p>
+                                        <a class="text-g2" href="https://goop.com/kule-the-monica-cardigan/p/">The Monica Cardigan</a>
+                                        <p class="text-g3">US $398.00</p>
+                                    </div>
+                                </div>
+                                <!--											derde card-->
+                                <div class="card">
+                                    <div class="img">
+                                        <img src="https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/195/large/open-uri20221129-2921-yo8pjh?1669762485" srcset="https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=1,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/195/large/open-uri20221129-2921-yo8pjh?1669762485 600w,
+          https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=2,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/195/large/open-uri20221129-2921-yo8pjh?1669762485 1200w,
+          https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/195/large/open-uri20221129-2921-yo8pjh?1669762485 1800w" alt="BONDI BORN Chateau Long Dress" class="card-img-top">
+                                        <img  src="https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/196/large/open-uri20221129-2921-1htur3i?1669762490" class="card-img-top hover_img">
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="text-g1">BONDI BORN</p>
+                                        <a class="text-g2" href="https://goop.com/bondi-born-chateau-long-dress/p/" >Chateau Long Dress</a>
+                                        <p class="text-g3">US $525.00</p>
+                                    </div>
+                                </div>
+                                <!--												vierde card-->
+                                <div class="card">
+                                    <div class="img">
+                                        <img src="https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/242/large/open-uri20221201-8456-1eo3m93?1669929380" srcset="https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=1,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/242/large/open-uri20221201-8456-1eo3m93?1669929380 600w,
+          https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=2,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/242/large/open-uri20221201-8456-1eo3m93?1669929380 1200w,
+          https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/242/large/open-uri20221201-8456-1eo3m93?1669929380 1800w" alt="La DoubleJ Vesta Dress" class="card-img-top">
+                                        <img  src="https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/243/large/open-uri20221201-8456-waxmsc?1669929384" class="card-img-top hover_img">
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="text-g1">La DoubleJ</p>
+                                        <a class="text-g2" href="https://goop.com/la-doublej-vesta-dress-handmade-dots-bordeaux-placee/p/">Vesta Dress</a>
+                                        <p class="text-g3">US $1,250.00</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--						einde tweede carousel-->
+                        <div class="carousel-item">
+                            <!--							derde carousel-->
+                            <!--									eerste card-->
+                            <div class="d-flex justify-content-evenly col-10 m-auto">
+                                <div class="card col">
+                                    <div class="img">
+                                        <img src="https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/087/large/open-uri20221122-15503-1vlrgap?1669141361" srcset="https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=1,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/087/large/open-uri20221122-15503-1vlrgap?1669141361 600w,
+			  https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=2,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/087/large/open-uri20221122-15503-1vlrgap?1669141361 1200w,
+			  https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/087/large/open-uri20221122-15503-1vlrgap?1669141361 1800w" alt="Jade Swim Sena One-Piece" class="card-img-top">
+                                        <img src="https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/088/large/open-uri20221122-15503-5qtmzk?1669141365" class="card-img-top hover_img">
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="text-g1">Jade Swim</p>
+                                        <a class="text-g2" href="https://goop.com/jade-swim-sena-one-piece/p/" >Sena One-Piece</a>
+                                        <p class="text-g3">US $220.00</p>
+                                    </div>
+                                </div>
+                                <!--										tweede card-->
+                                <div class="card col">
+                                    <div class="img">
+                                        <img src="https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/068/large/open-uri20221121-20403-19pirr?1669061331" srcset="https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=1,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/068/large/open-uri20221121-20403-19pirr?1669061331 600w,
+          https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=2,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/068/large/open-uri20221121-20403-19pirr?1669061331 1200w,
+          https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/068/large/open-uri20221121-20403-19pirr?1669061331 1800w" alt="Officine Generale Maud Coat" class="card-img-top">
+                                        <img src="https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/069/large/open-uri20221121-20403-176lx4y?1669061336" class="card-img-top hover_img">
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="text-g1">Officine Generale</p>
+                                        <a class="text-g2" href="https://goop.com/officine-generale-maud-coat/p/">Maud Coat</a>
+                                        <p class="ProductListCardstyles__BasePrice-g09iyn-7 ProductListCardstyles__Price-g09iyn-8 fnHOyu text-g3">US $1,270.00</p>
+                                    </div>
+                                </div>
+                                <!--											derde card-->
+                                <div class="card col">
+                                    <div class="img">
+                                        <img src="https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/167/large/open-uri20221128-17932-1qwdso6?1669661096" srcset="https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=1,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/167/large/open-uri20221128-17932-1qwdso6?1669661096 600w,
+          https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=2,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/167/large/open-uri20221128-17932-1qwdso6?1669661096 1200w,
+          https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/167/large/open-uri20221128-17932-1qwdso6?1669661096 1800w" alt="Ciao Lucia Isotta Dress" class="card-img-top">
+                                        <img src="https://shop.goop-img.com/cdn-cgi/image/height=600,width=600,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/085/168/large/open-uri20221128-17932-1wp4brr?1669661100" class="card-img-top hover_img">
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="ProductListCardstyles__Brand-g09iyn-4 text-g1">Ciao Lucia</p>
+                                        <a class="text-g2" href="https://goop.com/ciao-lucia-isotta-dress/p/">Isotta Dress</a>
+                                        <p class="text-g3">US $360.00</p>
+                                    </div>
+                                </div>
+                                <!--												vierde card-->
+                                <div class="card col">
+                                    <div class="card-body">
+                                        <div class="d-flex flex-column justify-content-center align-items-center text-center shopAll">
+                                            <div class="shopAllText">
+                                                <p class="CTATilestyles__Title-mev37o-2 krqhVa">Shop all</p><p class="shopAllNumber">69</p><p class="CTATilestyles__Title-mev37o-2 krqhVa">New Arrivals</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!--							einde inhoud derde carousel-->
+                        </div>
+
+                        <button class="carousel-control-prev pijl" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next pijl" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
                     </div>
                 </div>
             </div>
+
+        </article>
+        <!--	btn new arrivals-->
+        <article CLASS="text-center">
+            <button type="button" class="btn btn-g btn-dark text-uppercase rounded-0 m-auto">Shop all 64 new Arrivals</button>
+        </article>
+        <!--		afbeelding body-->
+        <div class="row p-0 mt-5 m-auto">
+            <img class="col-11 col-lg-6 m-auto" border="0" src="https://tpc.googlesyndication.com/simgad/5598301330394035923?">
         </div>
-    </body>
-</html>
+    </section>
+    <!--Featured shops-->
+    <section id="featured_shops"  class="d-flex justify-content-evenly align-items-center mt-5">
+        <article class="row-col-12 p-0 bg-grey max-width-1680">
+            <div class="featured">
+                <h2 class="col-12 p-0 text-start ps-4 p-lg-0 text-lg-center text-gTitel" >Featured Shops</h2>
+                <!--			uitlijnen kaartjes-->
+                <div class="row justify-content-evenly align-items-center text-center gap-lg-4 gap-1 m-0">
+                    <!--				kaart 1-->
+                    <div class="card col-lg col-5 p-0">
+                        <div class="img-hover-zoom">
+                            <a href="https://goop.com/best-of-beauty/c/" aria-label="the best of beauty" class="FeaturedShopCardstyles__WrapperLink-uxmj2s-1 jwslkU"><div class="FeaturedShopCardstyles__StyledImageWrapper-uxmj2s-2 knzUub"><div class="LazyImagestyles__Wrapper-sc-1pcwm2t-0 hMTCLb" title="the best of beauty" src=""><img alt="the best of beauty" src="https://goop-img.com/cdn-cgi/image/height=570,width=475,dpr=1,format=auto,onerror=redirect,metadata=copyright/wp-content/uploads/2022/04/test-img-1.jpeg" srcset="" class="card-img-top border-0"></div></div></a>
+                        </div>
+                        <div class="card-body bg-grey d-none d-lg-block">
+                            <a href="https://goop.com/best-of-beauty/c/" class="text-gTitelkl text-nowrap">the best of beauty</a><p class="d-none d-lg-block text-g4">Shop the bestselling, clean beauty products on goop right here.</p>
+                            <a href="https://goop.com/best-of-beauty/c/" data-analytics-name="" aria-label="shop the best of beauty" class="d-none d-lg-block text-gTitelkl"> <u> SHOP NOW </u></a>
+                        </div>
+                        <div class="d-lg-none py-2"><a href="https://goop.com/best-of-beauty/c/" class="text-uppercase">the best of beauty</a>
+                        </div>
+                    </div>
+                    <!--				kaart2-->
+                    <div class="card col-5 col-lg p-0">
+                        <div class="card-body bg-grey d-none d-lg-block">
+                            <div class="FeaturedShopCardstyles__TextWrapper-uxmj2s-6 coHMnP"><a href="https://goop.com/the-best-of-wellness/c/" class="text-uppercase">the best of wellness</a><p class="FeaturedShopCardstyles__Caption-uxmj2s-5 ilfhFT">These are the wellness products—from superpowered supplements to sex toys to silky essential oils—we want for ourselves.</p><a href="https://goop.com/the-best-of-wellness/c/" data-analytics-name="" aria-label="shop the best of wellness" class="InlineButtonstyles__BaseButton-b3iiqa-0 InlineButtonstyles__StyledInlineButton-b3iiqa-1 fABAeT dhpxAK">SHOP NOW</a></div>
+                        </div>
+
+                        <div class="img-hover-zoom">
+                            <a href="https://goop.com/the-best-of-wellness/c/" aria-label="the best of wellness" class="FeaturedShopCardstyles__WrapperLink-uxmj2s-1 fVDhfm"><div class="FeaturedShopCardstyles__StyledImageWrapper-uxmj2s-2 knzUub"><div class="LazyImagestyles__Wrapper-sc-1pcwm2t-0 hMTCLb" title="the best of wellness" src=""><img alt="the best of wellness" src="https://goop-img.com/cdn-cgi/image/height=570,width=475,dpr=1,format=auto,onerror=redirect,metadata=copyright/wp-content/uploads/2022/06/72.jpeg" srcset="" class="card-img-bottom border-0"></div></div></a>
+                        </div>
+                        <div class="d-lg-none py-2"><a href="https://goop.com/the-best-of-wellness/c/" class="text-uppercase">the best of wellness</a>
+                        </div>
+                    </div>
+
+
+                    <!--					kaart3-->
+                    <div class="card col-5 col-lg p-0">
+                        <div class="img-hover-zoom">
+                            <a href="https://goop.com/goop-exclusives/c/" aria-label="exclusive to goop" class="FeaturedShopCardstyles__WrapperLink-uxmj2s-1 jwslkU"><div class="FeaturedShopCardstyles__StyledImageWrapper-uxmj2s-2 knzUub"><div class="LazyImagestyles__Wrapper-sc-1pcwm2t-0 hMTCLb" title="exclusive to goop" src=""><img alt="exclusive to goop" src="https://goop-img.com/cdn-cgi/image/height=570,width=475,dpr=1,format=auto,onerror=redirect,metadata=copyright/wp-content/uploads/2022/04/4_11.jpg" srcset="" class="card-img-top border-0"></div></div></a>
+                        </div>
+                        <div class="card-body bg-grey d-none d-lg-block">
+                            <div class="FeaturedShopCardstyles__TextWrapper-uxmj2s-6 coHMnP"><a href="https://goop.com/goop-exclusives/c/" class="text-uppercase">exclusive to goop</a><p class="FeaturedShopCardstyles__Caption-uxmj2s-5 ilfhFT">Clothing, clean beauty, and life-bettering tools you’ll only find here.</p><a href="https://goop.com/goop-exclusives/c/" data-analytics-name="" aria-label="shop exclusive to goop" class="InlineButtonstyles__BaseButton-b3iiqa-0 InlineButtonstyles__StyledInlineButton-b3iiqa-1 fABAeT dhpxAK">SHOP NOW</a></div>
+                        </div>
+                        <div class="d-lg-none py-2"><a href="https://goop.com/goop-exclusives/c/" class="text-uppercase">exclusive to goop</a></div>
+                    </div>
+                    <!--				kaart 4-->
+                    <div class="card col-5 col-lg p-0">
+                        <div class="card-body bg-grey d-none d-lg-block">
+                            <div class="FeaturedShopCardstyles__TextWrapper-uxmj2s-6 coHMnP"><a href="https://goop.com/the-sex-shop/c/" class="text-uppercase">the pleasure shop</a><p class="FeaturedShopCardstyles__Caption-uxmj2s-5 ilfhFT">Vibrators, couples’ sets, toys, lubes, and more—for pleasure.</p><a href="https://goop.com/the-sex-shop/c/" data-analytics-name="" aria-label="shop the pleasure shop" class="InlineButtonstyles__BaseButton-b3iiqa-0 InlineButtonstyles__StyledInlineButton-b3iiqa-1 fABAeT dhpxAK">SHOP NOW</a></div>
+                        </div>
+
+                        <div class="img-hover-zoom">
+                            <a href="https://goop.com/the-sex-shop/c/" aria-label="the pleasure shop" class="FeaturedShopCardstyles__WrapperLink-uxmj2s-1 fVDhfm"><div class="FeaturedShopCardstyles__StyledImageWrapper-uxmj2s-2 knzUub"><div class="LazyImagestyles__Wrapper-sc-1pcwm2t-0 hMTCLb" title="the pleasure shop" src=""><img alt="the pleasure shop" src="https://goop-img.com/cdn-cgi/image/height=570,width=475,dpr=1,format=auto,onerror=redirect,metadata=copyright/wp-content/uploads/2022/04/7_2-1.jpg" srcset="" class="card-img-bottom border-0"></div></div></a>
+                        </div>
+
+                        <div class="d-lg-none py-2"><a href="https://goop.com/the-sex-shop/c/" class="text-uppercase">the pleasure shop</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </section>
+    <!--	Products we love-->
+    <!--tab-->
+    <section id="Products_we_love" class="m-auto max-width-1680 p-0">
+        <ul class="nav nav-tabs max-width-1140 m-auto" id="myTab" role="tablist">
+            <li class="nav-item " role="presentation">
+                <button class="nav-link active text-dark" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true" aria-label="Gwyneth's Gift List" value="">Gwyneth's Gift List</button>
+                <!--			<button type="button" class="Button__ButtonBase-sc-1f89saf-0 Button__StyledButton-sc-1f89saf-1 emilXf dUTcMc TabbedNavigationstyles__NavLink-sc-1y0e2fx-2 BUVMf" data-analytics-name=":nav-gwyneths-gift-list:tab-0" aria-label="Gwyneth's Gift List" value="">Gwyneth's Gift List</button>-->
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link text-dark border-0" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false" aria-label="The 2022 goop Gift Guides" value="">The 2022 goop Gift Guides</button>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <!--		eerste tab-->
+            <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+                <div id="carouselExampleIndicators2" class="carousel slide dotscarousel" data-bs-ride="false">
+
+                    <!--				carousel-->
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner Items_container max-width-1140 m-auto">
+                        <div class="carousel-item active">
+                            <!--							eerste carousel-->
+                            <!--									eerste card-->
+                            <div class="d-flex justify-content-evenly mb-4 pb-5">
+                                <div class="card">
+                                    <img alt="Olivia von Halle Queenie Corcia Silk Satin Robe" src="https://shop.goop-img.com/spree/images/attachments/000/082/907/large/open-uri20221005-27298-1lrauhr?version=1665001228" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                    <div class="card-body">
+                                        <div class="ProductListCardstyles__RequiredDetails-g09iyn-6 dkGnft"><span class="ProductListCardstyles__Brand-g09iyn-4 text-g1">Olivia von Halle</span>
+                                            <br>
+                                            <a href="https://goop.com/olivia-von-halle-queenie-corcia-silk-satin-robe/p/" class="ProductListCardstyles__Title-g09iyn-11 text-g2">Queenie Corcia Silk Satin Robe</a><div class="ProductListCardstyles__PriceWrapper-g09iyn-5 etZzrn"><span class="ProductListCardstyles__BasePrice-g09iyn-7 ProductListCardstyles__Price-g09iyn-8 fnHOyu text-g3">US $1,200.00</span></div></div>
+                                    </div>
+                                </div>
+                                <!--										tweede card-->
+                                <div class="card">
+                                    <img alt="G. Label by goop Deven Pavé Link Necklace" src="https://shop.goop-img.com/spree/images/attachments/000/083/894/large/open-uri20221019-14-7475jh?version=1666219092" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                    <div class="card-body">
+                                        <div class="ProductListCardstyles__RequiredDetails-g09iyn-6 dkGnft"><span class="ProductListCardstyles__Brand-g09iyn-4 text-g1">G. Label by goop</span>
+                                            <br>
+                                            <a href="https://goop.com/g-label-deven-pave-link-necklace/p/" class="ProductListCardstyles__Title-g09iyn-11 text-g2">Deven Pavé Link Necklace</a><div class="ProductListCardstyles__PriceWrapper-g09iyn-5 etZzrn"><span class="ProductListCardstyles__BasePrice-g09iyn-7 ProductListCardstyles__Price-g09iyn-8 fnHOyu text-g3">US $8,000.00</span></div></div>
+                                    </div>
+                                </div>
+                                <!--											derde card-->
+                                <div class="card">
+                                    <img alt="Chefanie Kama Sutra Dinner Napkins, Set of 4" src="https://shop.goop-img.com/spree/images/attachments/000/084/222/large/open-uri20221026-10-1l9i9cl?version=1666758094" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                    <div class="card-body">
+                                        <div class="ProductListCardstyles__RequiredDetails-g09iyn-6 dkGnft"><span class="ProductListCardstyles__Brand-g09iyn-4 text-g1">Chefanie</span>
+                                            <br>
+                                            <a href="https://goop.com/chefanie-kama-sutra-dinner-napkins-set-of-4/p/" class="ProductListCardstyles__Title-g09iyn-11 text-g2">Kama Sutra Dinner Napkins, Set of 4</a><div class="ProductListCardstyles__PriceWrapper-g09iyn-5 etZzrn"><span class="ProductListCardstyles__BasePrice-g09iyn-7 ProductListCardstyles__Price-g09iyn-8 fnHOyu text-g3">US $88.00</span></div></div>
+                                    </div>
+                                </div>
+                                <!--												vierde card-->
+                                <div class="card">
+                                    <img alt="G. Label by goop Cabalo Faux-Fur Cape" src="https://shop.goop-img.com/spree/images/attachments/000/084/578/large/open-uri20221103-1392-s4n7c0?version=1667498037" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                    <div class="card-body">
+                                        <div class="ProductListCardstyles__RequiredDetails-g09iyn-6 dkGnft"><span class="ProductListCardstyles__Brand-g09iyn-4 text-g1">G. Label by goop</span>
+                                            <br>
+                                            <a href="https://goop.com/g-label-cabalo-faux-fur-cape/p/" class="ProductListCardstyles__Title-g09iyn-11 text-g2">Cabalo Faux-Fur Cape</a><div class="ProductListCardstyles__PriceWrapper-g09iyn-5 etZzrn"><span class="ProductListCardstyles__BasePrice-g09iyn-7 ProductListCardstyles__Price-g09iyn-8 fnHOyu text-g3">US $745.00</span></div></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--							einde inhoud eerste carousel-->
+                        </div>
+                        <div class="carousel-item">
+                            <!--							tweed carousel-->
+                            <!--									eerste card-->
+                            <div class="d-flex justify-content-evenly mb-4 pb-5">
+                                <div class="card">
+                                    <span class="text-end ProductListCardstyles__Badge-g09iyn-13 jisFkc">Exclusive</span>
+                                    <img alt="G. Label by goop Arielle Velvet Jumpsuit" src="https://shop.goop-img.com/spree/images/attachments/000/084/653/large/open-uri20221103-14-8cy4yl?version=1667499044" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                    <div class="card-body">
+                                        <div class="ProductListCardstyles__RequiredDetails-g09iyn-6 dkGnft"><span class="ProductListCardstyles__Brand-g09iyn-4 text-g1">G. Label by goop</span>
+                                            <br>
+                                            <a href="https://goop.com/g-label-by-goop-arielle-velvet-jumpsuit/p/" class="ProductListCardstyles__Title-g09iyn-11 text-g2">Arielle Velvet Jumpsuit</a><div class="ProductListCardstyles__PriceWrapper-g09iyn-5 etZzrn"><span class="ProductListCardstyles__BasePrice-g09iyn-7 ProductListCardstyles__Price-g09iyn-8 fnHOyu text-g3">US $795.00</span></div></div>
+                                    </div>
+                                </div>
+                                <!--										tweede card-->
+                                <div class="card" >
+                                    <span class="text-end ProductListCardstyles__Badge-g09iyn-13 jisFkc">Exclusive</span>
+                                    <img alt="G. Label by goop Fiene Yellow Gold and Black Pavé Ear Cuff" src="https://shop.goop-img.com/spree/images/attachments/000/083/889/large/open-uri20221019-10986-14fz25k?version=1666219012" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                    <div class="card-body">
+                                        <div class="ProductListCardstyles__RequiredDetails-g09iyn-6 dkGnft"><span class="ProductListCardstyles__Brand-g09iyn-4 text-g1">G. Label by goop</span>
+                                            <br>
+                                            <a href="https://goop.com/g-label-fiene-yellow-gold-and-black-pave-ear-cuff/p/" class="ProductListCardstyles__Title-g09iyn-11 text-g2">Fiene Yellow Gold and Black Pavé Ear Cuff</a><div class="ProductListCardstyles__PriceWrapper-g09iyn-5 etZzrn"><span class="ProductListCardstyles__BasePrice-g09iyn-7 ProductListCardstyles__Price-g09iyn-8 fnHOyu text-g3">US $895.00</span></div></div>
+                                    </div>
+                                </div>
+                                <!--											derde card-->
+                                <div class="card">
+                                    <span class="text-end ProductListCardstyles__Badge-g09iyn-13 jisFkc">Exclusive</span>
+                                    <img alt="G. Label by goop Elliott Pavé Assorted-Link Bracelet" src="https://shop.goop-img.com/spree/images/attachments/000/083/892/large/open-uri20221019-21-1g45tgb?version=1666219053" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                    <div class="card-body">
+                                        <div class="ProductListCardstyles__RequiredDetails-g09iyn-6 dkGnft"><span class="ProductListCardstyles__Brand-g09iyn-4 text-g1">G. Label by goop</span>
+                                            <br>
+                                            <a href="https://goop.com/g-label-elliott-pave-assorted-link-bracelet/p/" class="ProductListCardstyles__Title-g09iyn-11 text-g2">Elliott Pavé Assorted-Link Bracelet</a><div class="ProductListCardstyles__PriceWrapper-g09iyn-5 etZzrn"><span class="ProductListCardstyles__BasePrice-g09iyn-7 ProductListCardstyles__Price-g09iyn-8 fnHOyu text-g3">US $2,950.00</span></div></div>
+                                    </div>
+                                </div>
+                                <!--												vierde card-->
+                                <div class="card">
+                                    <span class="text-end ProductListCardstyles__Badge-g09iyn-13 jisFkc">Exclusive</span>
+                                    <img alt="goop Wellness Heartthrob Vibrator" src="https://shop.goop-img.com/spree/images/attachments/000/082/658/large/open-uri20220929-6004-i7i9ez?version=1664468008" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                    <div class="card-body">
+                                        <div class="ProductListCardstyles__RequiredDetails-g09iyn-6 dkGnft"><span class="ProductListCardstyles__Brand-g09iyn-4 text-g1">goop Wellness</span>
+                                            <br>
+                                            <a href="https://goop.com/goop-wellness-heartthrob-vibrator/p/" class="ProductListCardstyles__Title-g09iyn-11 text-g2">Heartthrob Vibrator</a><div class="ProductListCardstyles__PriceWrapper-g09iyn-5 etZzrn"><span class="ProductListCardstyles__BasePrice-g09iyn-7 ProductListCardstyles__Price-g09iyn-8 fnHOyu text-g3">US $98.00</span></div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--						einde tweede carousel-->
+                        <div class="carousel-item">
+                            <!--							derde carousel-->
+                            <!--									eerste card-->
+                            <div class="d-flex justify-content-evenly mb-4 pb-5">
+                                <div class="card">
+                                    <img alt="goop Beauty GOOPGLOW Dark Spot Exfoliating Sleep Milk" src="https://shop.goop-img.com/spree/images/attachments/000/080/578/large/open-uri20220721-18965-aslq4n?version=1658420127" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                    <div class="card-body">
+                                        <div class="ProductListCardstyles__RequiredDetails-g09iyn-6 dkGnft"><span class="ProductListCardstyles__Brand-g09iyn-4 text-g1">goop Beauty</span>
+                                            <br>
+                                            <a href="https://goop.com/goop-beauty-goopglow-dark-spot-exfoliating-sleep-milk/p/" class="ProductListCardstyles__Title-g09iyn-11 text-g2">GOOPGLOW Dark Spot Exfoliating Sleep Milk</a><div class="ProductListCardstyles__PriceWrapper-g09iyn-5 etZzrn"><span class="ProductListCardstyles__BasePrice-g09iyn-7 ProductListCardstyles__Price-g09iyn-8 fnHOyu text-g3">US $98.00</span></div></div>
+                                    </div>
+                                </div>
+                                <!--										tweede card-->
+                                <div class="card">
+                                    <img alt="Mercado Famous Jamón 100% Iberico" src="https://shop.goop-img.com/spree/images/attachments/000/083/105/large/open-uri20221006-14030-1ivg1uc?version=1665088663" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                    <div class="card-body">
+                                        <div class="ProductListCardstyles__RequiredDetails-g09iyn-6 dkGnft"><span class="ProductListCardstyles__Brand-g09iyn-4 text-g1">Mercado Famous</span>
+                                            <br>
+                                            <a href="https://goop.com/mercado-famous-jamon-100-percent-iberico/p/" class="ProductListCardstyles__Title-g09iyn-11 text-g2">Jamón 100% Iberico</a><div class="ProductListCardstyles__PriceWrapper-g09iyn-5 etZzrn"><span class="ProductListCardstyles__BasePrice-g09iyn-7 ProductListCardstyles__Price-g09iyn-8 fnHOyu text-g3">US $34.00</span></div></div>
+                                    </div>
+                                </div>
+                                <!--											derde card-->
+                                <div class="card">
+                                    <span class="text-end ProductListCardstyles__Badge-g09iyn-13 jisFkc">Exclusive</span>
+                                    <img alt="goop Wellness Viva la Vulva Vibrator" src="https://shop.goop-img.com/spree/images/attachments/000/079/074/large/open-uri20220607-31610-1h9rbr7?version=1654622429" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                    <div class="card-body">
+                                        <div class="ProductListCardstyles__RequiredDetails-g09iyn-6 dkGnft"><span class="ProductListCardstyles__Brand-g09iyn-4 text-g1">goop Wellness</span>
+                                            <br>
+                                            <a href="https://goop.com/goop-wellness-viva-la-vulva-vibrator/p/" class="ProductListCardstyles__Title-g09iyn-11 text-g2">Viva la Vulva Vibrator</a><div class="ProductListCardstyles__PriceWrapper-g09iyn-5 etZzrn"><span class="ProductListCardstyles__BasePrice-g09iyn-7 ProductListCardstyles__Price-g09iyn-8 fnHOyu text-g3">US $98.00</span></div></div>
+                                    </div>
+                                </div>
+                                <!--												vierde card-->
+                                <div class="card">
+                                    <img alt="WTHN Body Cupping Kit" src="https://shop.goop-img.com/spree/images/attachments/000/082/123/large/open-uri20220912-4883-gjmxra?version=1663020670" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                    <div class="card-body">
+                                        <div class="ProductListCardstyles__RequiredDetails-g09iyn-6 dkGnft"><span class="ProductListCardstyles__Brand-g09iyn-4 text-g1">WTHN</span>
+                                            <br>
+                                            <a href="https://goop.com/wthn-body-cupping-kit/p/" class="ProductListCardstyles__Title-g09iyn-11 text-g2">Body Cupping Kit</a><div class="ProductListCardstyles__PriceWrapper-g09iyn-5 etZzrn"><span class="ProductListCardstyles__BasePrice-g09iyn-7 ProductListCardstyles__Price-g09iyn-8 fnHOyu text-g3">US $68.00</span></div></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--							einde inhoud eerste carousel-->
+                        </div>
+                    </div>
+                    <!--				pijltjes naast carousel-->
+                    <button class="carousel-control-prev pijl" type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next pijl" type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+            <!--		tweede tab-->
+            <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+                <!--				carousel-->
+                <div id="carouselExampleIndicators3" class="carousel slide dotscarousel" data-bs-ride="false">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner Items_container">
+                        <div class="carousel-item active">
+                            <!--							eerste carousel-->
+                            <!--									eerste card-->
+                            <div class="d-flex justify-content-evenly mb-4 pb-5">
+                                <div class="card flex-column">
+                                    <span class="text-end">New</span>
+                                    <img alt="Dr. Barbara Sturm The Serum House" src="https://shop.goop-img.com/spree/images/attachments/000/083/475/large/open-uri20221013-13527-ustlxo?version=1665687700" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                    <div class="card-body">
+                                        <div class="ProductListCardstyles__RequiredDetails-g09iyn-6 dkGnft"><span class="ProductListCardstyles__Brand-g09iyn-4 text-g1">Dr. Barbara Sturm</span>
+                                            <a href="https://goop.com/dr-barbara-sturm-the-serum-house/p/" class="ProductListCardstyles__Title-g09iyn-11 text-g2">The Serum House</a><div class="ProductListCardstyles__PriceWrapper-g09iyn-5 etZzrn"><span class="ProductListCardstyles__BasePrice-g09iyn-7 ProductListCardstyles__Price-g09iyn-8 fnHOyu text-g3">US $470.00</span></div></div>
+                                    </div>
+                                </div>
+                                <!--										tweede card-->
+                                <div class="card">
+                                    <span class="ProductListCardstyles__Badge-g09iyn-13 jisFkc">Exclusive</span>
+                                    <img alt="LYMA LYMA Laser Starter Kit" src="https://shop.goop-img.com/spree/images/attachments/000/080/110/large/open-uri20220708-31495-1lt0yp0?version=1657297496" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                    <div class="card-body">
+                                        <div class="ProductListCardstyles__RequiredDetails-g09iyn-6 dkGnft"><span class="ProductListCardstyles__Brand-g09iyn-4 text-g1">LYMA</span>
+                                            <br>
+                                            <a href="https://goop.com/lyma-lyma-laser-starter-kit/p/" class="ProductListCardstyles__Title-g09iyn-11 text-g2">LYMA Laser Starter Kit</a><div class="ProductListCardstyles__PriceWrapper-g09iyn-5 etZzrn"><span class="ProductListCardstyles__BasePrice-g09iyn-7 ProductListCardstyles__Price-g09iyn-8 fnHOyu text-g3">US $2,700.00</span></div></div>
+                                    </div>
+                                </div>
+                                <!--											derde card-->
+                                <div class="card">
+                                    <img alt="Caddis Hooper Glasses" src="https://shop.goop-img.com/spree/images/attachments/000/083/684/large/open-uri20221019-14-ytvs5d?version=1666208981" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                    <div class="card-body">
+                                        <div class="ProductListCardstyles__RequiredDetails-g09iyn-6 dkGnft"><span class="ProductListCardstyles__Brand-g09iyn-4 text-g1">Caddis</span>
+                                            <br>
+                                            <a href="https://goop.com/caddis-hooper-glasses/p/" class="ProductListCardstyles__Title-g09iyn-11 text-g2">Hooper Glasses</a><div class="ProductListCardstyles__PriceWrapper-g09iyn-5 etZzrn"><span class="ProductListCardstyles__BasePrice-g09iyn-7 ProductListCardstyles__Price-g09iyn-8 fnHOyu text-g3">US $105.00</span></div></div>
+                                    </div>
+                                </div>
+                                <!--												vierde card-->
+                                <div class="card">
+                                    <img alt="LUXTON Down Jumpsuit No. 2.1" src="https://shop.goop-img.com/spree/images/attachments/000/083/723/large/open-uri20221019-10-8x2svw?version=1666209864" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                    <div class="card-body">
+                                        <div class="ProductListCardstyles__RequiredDetails-g09iyn-6 dkGnft"><span class="ProductListCardstyles__Brand-g09iyn-4 text-g1">LUXTON</span><a href="https://goop.com/luxton-down-jumpsuit-no-2-1/p/" class="ProductListCardstyles__Title-g09iyn-11 text-g2">Down Jumpsuit No. 2.1</a><div class="ProductListCardstyles__PriceWrapper-g09iyn-5 etZzrn"><span class="ProductListCardstyles__BasePrice-g09iyn-7 ProductListCardstyles__Price-g09iyn-8 fnHOyu text-g3">US $1,295.00</span></div></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--							einde inhoud eerste carousel-->
+                        </div>
+                        <div class="carousel-item">
+                            <!--							tweed carousel-->
+                            <!--									eerste card-->
+                            <div class="d-flex justify-content-evenly mb-4 pb-5">
+                                <div class="card">
+                                    <img alt="Moonsisters Moon Calendar 2023" src="https://shop.goop-img.com/spree/images/attachments/000/084/256/large/open-uri20221026-23-aqv0lx?version=1666759672" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                    <div class="card-body">
+                                        <div class="ProductListCardstyles__RequiredDetails-g09iyn-6 dkGnft"><span class="ProductListCardstyles__Brand-g09iyn-4 text-g1">Moonsisters</span>
+                                            <br>
+                                            <a href="https://goop.com/moonsisters-moon-calendar-2023/p/" class="ProductListCardstyles__Title-g09iyn-11 text-g2">Moon Calendar 2023</a><div class="ProductListCardstyles__PriceWrapper-g09iyn-5 etZzrn"><span class="ProductListCardstyles__BasePrice-g09iyn-7 ProductListCardstyles__Price-g09iyn-8 fnHOyu text-g3">US $39.00</span></div></div>
+                                    </div>
+                                </div>
+                                <!--										tweede card-->
+                                <div class="card" >
+                                    <img alt="Loftie Loftie Lamp" src="https://shop.goop-img.com/spree/images/attachments/000/083/019/large/open-uri20221006-12930-cc4i73?version=1665081436" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                    <div class="card-body">
+                                        <div class="ProductListCardstyles__RequiredDetails-g09iyn-6 dkGnft"><span class="ProductListCardstyles__Brand-g09iyn-4 text-g1">Loftie</span>
+                                            <br>
+                                            <a href="https://goop.com/loftie-lamp/p/" class="ProductListCardstyles__Title-g09iyn-11 text-g2">Loftie Lamp</a><div class="ProductListCardstyles__PriceWrapper-g09iyn-5 etZzrn"><span class="ProductListCardstyles__BasePrice-g09iyn-7 ProductListCardstyles__Price-g09iyn-8 fnHOyu text-g3">US $275.00</span></div></div>
+                                    </div>
+                                </div>
+                                <!--											derde card-->
+                                <div class="card">
+                                    <img alt="Ven Store Essential Cashmere Travel Set" src="https://shop.goop-img.com/spree/images/attachments/000/083/804/large/open-uri20221019-10-6mnahr?version=1666211420" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                    <div class="card-body">
+                                        <div class="ProductListCardstyles__RequiredDetails-g09iyn-6 dkGnft"><span class="ProductListCardstyles__Brand-g09iyn-4 text-g1">Ven Store</span>
+                                            <br>
+                                            <a href="https://goop.com/ven-store-essential-cashmere-travel-set/p/" class="ProductListCardstyles__Title-g09iyn-11 text-g2">Essential Cashmere Travel Set</a><div class="ProductListCardstyles__PriceWrapper-g09iyn-5 etZzrn"><span class="ProductListCardstyles__BasePrice-g09iyn-7 ProductListCardstyles__Price-g09iyn-8 fnHOyu text-g3">US $500.00</span></div></div>
+                                    </div>
+                                </div>
+                                <!--												vierde card-->
+                                <div class="card">
+                                    <img alt="Toteme Signature Monogram Silk Scarf" src="https://shop.goop-img.com/spree/images/attachments/000/083/795/large/open-uri20221019-32193-op0275?version=1666211239" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                    <div class="card-body">
+                                        <div class="ProductListCardstyles__RequiredDetails-g09iyn-6 dkGnft"><span class="ProductListCardstyles__Brand-g09iyn-4 text-g1">Toteme</span>
+                                            <br>
+                                            <a href="https://goop.com/toteme-signature-monogram-silk-scarf/p/" class="ProductListCardstyles__Title-g09iyn-11 text-g2">Signature Monogram Silk Scarf</a><div class="ProductListCardstyles__PriceWrapper-g09iyn-5 etZzrn"><span class="ProductListCardstyles__BasePrice-g09iyn-7 ProductListCardstyles__Price-g09iyn-8 fnHOyu text-g3">US $220.00</span></div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--						einde tweede carousel-->
+                        <div class="carousel-item">
+                            <!--							derde carousel-->
+                            <!--									eerste card-->
+                            <div class="d-flex justify-content-evenly mb-4 pb-5">
+                                <div class="card">
+                                    <img alt="POJ Studio DIY Incense Kit" src="https://shop.goop-img.com/spree/images/attachments/000/073/082/large/open-uri20211022-14612-91h1t2?version=1634927516" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                    <div class="card-body">
+                                        <div class="ProductListCardstyles__RequiredDetails-g09iyn-6 dkGnft"><span class="ProductListCardstyles__Brand-g09iyn-4 text-g1">POJ Studio</span>
+                                            <br>
+                                            <a href="https://goop.com/poj-studio-diy-incense-kit/p/" class="ProductListCardstyles__Title-g09iyn-11 text-g2">DIY Incense Kit</a><div class="ProductListCardstyles__PriceWrapper-g09iyn-5 etZzrn"><span class="ProductListCardstyles__BasePrice-g09iyn-7 ProductListCardstyles__Price-g09iyn-8 fnHOyu text-g3">US $52.00</span></div></div>
+                                    </div>
+                                </div>
+                                <!--										tweede card-->
+                                <div class="card">
+                                    <img alt="J. Hannah Nail Polish Set" src="https://shop.goop-img.com/spree/images/attachments/000/084/248/large/open-uri20221026-14-10v4uvp?version=1666759175" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                    <div class="card-body">
+                                        <div class="ProductListCardstyles__RequiredDetails-g09iyn-6 dkGnft"><span class="ProductListCardstyles__Brand-g09iyn-4 text-g1">J. Hannah</span>
+                                            <br>
+                                            <a href="https://goop.com/j-hannah-nail-polish-set/p/" class="ProductListCardstyles__Title-g09iyn-11 text-g2">Nail Polish Set</a><div class="ProductListCardstyles__PriceWrapper-g09iyn-5 etZzrn"><span class="ProductListCardstyles__BasePrice-g09iyn-7 ProductListCardstyles__Price-g09iyn-8 fnHOyu text-g3">US $56.00</span></div></div>
+                                    </div>
+                                </div>
+                                <!--											derde card-->
+                                <div class="card">
+                                    <img alt="Ga.Ma. Italy Professional IQ Perfetto Hair Dryer" src="https://shop.goop-img.com/spree/images/attachments/000/071/938/large/open-uri20211008-14033-1d5bnp7?version=1633729599" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                    <div class="card-body">
+                                        <div class="ProductListCardstyles__RequiredDetails-g09iyn-6 dkGnft"><span class="ProductListCardstyles__Brand-g09iyn-4 text-g1">Ga.Ma. Italy Professional</span>
+                                            <br>
+                                            <a href="https://goop.com/ga-ma-italy-professional-iq-perfetto/p/" class="ProductListCardstyles__Title-g09iyn-11 text-g2">IQ Perfetto Hair Dryer</a><div class="ProductListCardstyles__PriceWrapper-g09iyn-5 etZzrn"><span class="ProductListCardstyles__BasePrice-g09iyn-7 ProductListCardstyles__Price-g09iyn-8 fnHOyu text-g3">US $399.00</span></div></div>
+                                    </div>
+                                </div>
+                                <!--												vierde card-->
+                                <div class="card">
+                                    <img alt="Dr. Dennis Gross DRx SpectraLite™ FaceWare Pro" src="https://shop.goop-img.com/spree/images/attachments/000/084/343/large/open-uri20221026-31981-179f60w?version=1666808127" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                    <div class="card-body">
+                                        <div class="ProductListCardstyles__RequiredDetails-g09iyn-6 dkGnft"><span class="ProductListCardstyles__Brand-g09iyn-4 text-g1">Dr. Dennis Gross</span>
+                                            <br>
+                                            <a href="https://goop.com/dr-dennis-gross-drx-spectralite-faceware-pro/p/" class="ProductListCardstyles__Title-g09iyn-11 text-g2">DRx SpectraLite™ FaceWare Pro</a><div class="ProductListCardstyles__PriceWrapper-g09iyn-5 etZzrn"><span class="ProductListCardstyles__BasePrice-g09iyn-7 ProductListCardstyles__Price-g09iyn-8 fnHOyu text-g3">US $435.00</span></div></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--							einde inhoud eerste carousel-->
+                        </div>
+                    </div>
+                    <!--				pijltjes naast carousel-->
+                    <button class="carousel-control-prev pijl" type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next pijl" type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!--	shop all button-->
+        <div class="text-center">
+            <button class="text-uppercase btn btn-dark rounded-0">SHOP ALL</button>
+            <!--		<a class=" Button__ButtonBase-sc-1f89saf-0 Button__StyledButton-sc-1f89saf-1 emilXf dUTcMc PrimaryButtonstyles__StyledButton-sc-19dqr27-0 lgLNaJ TabbedCarouselstyles__StyledPrimaryButton-sc-1tp24iz-6 fDgAOr" data-cta="Shop All" data-link="https://goop.com/holiday-gift-guide/c/" href="https://goop.com/holiday-gift-guide/c/">  Shop All</a>-->
+        </div>
+    </section>
+    <!--		From the editors-->
+    <!--	foto-->
+    <section id="from the editors" class="row-col-12 p-0 max-width-1680 m-auto">
+        <div class="max-width-1680 px-0 m-auto">
+            <article class="col-12 text-center my-5 p-0">
+                <h2 class="text-gTitel">From the Editors</h2>
+                <p class="text-gOnderTitel">Your beaty, wellness, food and travel questions answered.</p>
+            </article>
+            <article class="d-flex gift max-width-1680 justify-content-center align-items-center p-0 m-auto">
+                <div class="text-center max-width-1680">
+                    <h2 class="text-white">The goop Gift Guides</h2>
+                    <button type="button" class="btn btn-outline-light text-uppercase btn-lg px-5 rounded-0 ">Read more</button>
+                </div>
+            </article>
+            <article class="bg-grey max-width-1680 p-0 m-auto pijlGImage">
+                <ul class="nav max-width-1140 m-auto " id="myTab2" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active text-dark bg-grey btn-g" id="home-tab2" data-bs-toggle="tab" data-bs-target="#home-tab2-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true" aria-label="Gwyneth's Gift List" value="">The 2022 goop Gift Guides</button>
+                        <!--					<button type="button" class="Button__ButtonBase-sc-1f89saf-0 Button__StyledButton-sc-1f89saf-1 emilXf dUTcMc TabbedNavigationstyles__NavLink-sc-1y0e2fx-2 BUVMf" data-analytics-name=":nav-the-2022-goop-gift-guides:tab-0" aria-label="The 2022 goop Gift Guides" value="">The 2022 goop Gift Guides</button>-->
+                    </li>
+                </ul>
+
+                <div class="tab-content p-0 max-width-1680" id="myTabContent2">
+                    <!--		eerste tab-->
+                    <div class="tab-pane fade show active" id="home-tab-pane1" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+
+                        <!--				carousel-->
+                        <div id="carouselExampleIndicators4" class="carousel slide dotscarousel" data-bs-ride="false">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carouselExampleIndicators4" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators4" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            </div>
+                            <div class="carousel-inner bg-grey mb-4 pb-5">
+                                <div class="carousel-item active">
+                                    <!--							eerste carousel-->
+                                    <!--									eerste card-->
+                                    <div class="row row-cols-4 m-auto justify-content-evenly">
+                                        <div class="card col bg-grey">
+                                            <img alt="Clementina Sketchbook Hand-Painted Stationery, Set of 10" src="https://shop.goop-img.com/spree/images/attachments/000/083/472/large/open-uri20221013-14-15hjjo8?version=1665687630" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                            <p class="text-g1">Clementina Sketchbook</p>
+                                            <a  class="text-g2" href="https://goop.com/clementina-sketchbook-hand-painted-stationery-set-of-10/p/" >Hand-Painted Stationery, Set of 10</a>
+                                            <p  class="text-g3">US $75.00</p>
+                                        </div>
+                                        <!--										tweede card-->
+                                        <div class="card col bg-grey">
+                                            <img alt="Cody Foster &amp; Co. Caviar Ornament" src="https://shop.goop-img.com/spree/images/attachments/000/084/231/large/open-uri20221026-10-nrtd8b?version=1666758281" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                            <div class="ProductListCardstyles__RequiredDetails-g09iyn-6 dkGnft">
+                                                <span class="ProductListCardstyles__Brand-g09iyn-4 text-g1">Cody Foster &amp; Co.</span>
+                                                <br>
+                                                <a href="https://goop.com/cody-foster-co-caviar-ornament/p/" class="ProductListCardstyles__Title-g09iyn-11 text-g2">Caviar Ornament</a><div class="ProductListCardstyles__PriceWrapper-g09iyn-5 etZzrn"><span class="ProductListCardstyles__BasePrice-g09iyn-7 ProductListCardstyles__Price-g09iyn-8 fnHOyu text-g3">US $25.00</span></div></div>
+                                        </div>
+                                        <!--											derde card-->
+                                        <div class="card col bg-grey">
+                                            <img alt="Augustinus Bader The Winter Recovery Kit" src="https://shop.goop-img.com/spree/images/attachments/000/082/879/large/open-uri20221005-22232-vxa94b?version=1665000532" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                            <div class="ProductListCardstyles__RequiredDetails-g09iyn-6 dkGnft"><span class="ProductListCardstyles__Brand-g09iyn-4 text-g1">Augustinus Bader</span>
+                                                <br>
+                                                <a href="https://goop.com/augustinus-bader-the-winter-recovery-kit/p/" class="ProductListCardstyles__Title-g09iyn-11 text-g2">The Winter Recovery Kit</a><div class="ProductListCardstyles__PriceWrapper-g09iyn-5 etZzrn"><span class="ProductListCardstyles__BasePrice-g09iyn-7 ProductListCardstyles__Price-g09iyn-8 fnHOyu text-g3">US $575.00</span></div></div>
+                                        </div>
+                                        <!--												vierde card-->
+                                        <div class="card col bg-grey">
+                                            <img alt="goop x Heretic This Smells Like My Vagina Candle" src="https://shop.goop-img.com/spree/images/attachments/000/062/322/large/open-uri20201104-21194-17ggzjo?version=1604522908" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                            <div class="card-body">
+                                                <div class="ProductListCardstyles__RequiredDetails-g09iyn-6 dkGnft"><span class="ProductListCardstyles__Brand-g09iyn-4 text-g1">goop x Heretic</span>
+                                                    <br>
+                                                    <a href="https://goop.com/heretic-this-smells-like-my-vagina-candle/p/" class="ProductListCardstyles__Title-g09iyn-11 text-g2">This Smells Like My Vagina Candle</a><div class="ProductListCardstyles__PriceWrapper-g09iyn-5 etZzrn"><span class="ProductListCardstyles__BasePrice-g09iyn-7 ProductListCardstyles__Price-g09iyn-8 fnHOyu text-g3">US $75.00</span></div></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--							einde inhoud eerste carousel-->
+                                </div>
+                                <div class="carousel-item">
+                                    <!--							tweed carousel-->
+                                    <!--									eerste card-->
+                                    <div class="row row-cols-4 m-auto justify-content-evenly">
+                                        <div class="card col bg-grey">
+                                            <<img alt="G. Label by goop Bloomer Cable-Knit Poncho" src="https://shop.goop-img.com/spree/images/attachments/000/082/463/large/open-uri20220922-20575-8i8yp3?version=1663865647" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                            <div class="ProductListCardstyles__RequiredDetails-g09iyn-6 dkGnft">
+                                                <span class="ProductListCardstyles__Brand-g09iyn-4 text-g1">Proxies</span>
+                                                <a href="https://goop.com/proxies-nonalcoholic-wine-tasting-set/p/" class="ProductListCardstyles__Title-g09iyn-11 text-g2">Nonalcoholic Wine Tasting Set</a>
+                                                <div class="ProductListCardstyles__PriceWrapper-g09iyn-5 etZzrn">
+                                                    <span class="ProductListCardstyles__BasePrice-g09iyn-7 ProductListCardstyles__Price-g09iyn-8 fnHOyu text-g3">US $94.00</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!--										tweede card-->
+                                        <div class="card col bg-grey">
+                                            <img alt="Proxies Nonalcoholic Wine Tasting Set" src="https://shop.goop-img.com/spree/images/attachments/000/083/118/large/open-uri20221006-12696-1cltjat?version=1665089844" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                            <div class="ProductListCardstyles__RequiredDetails-g09iyn-6 dkGnft">
+                                                <span class="ProductListCardstyles__Brand-g09iyn-4 text-g1">Proxies</span>
+                                                <a href="https://goop.com/proxies-nonalcoholic-wine-tasting-set/p/" class="ProductListCardstyles__Title-g09iyn-11 text-g2">Nonalcoholic Wine Tasting Set</a>
+                                                <div class="ProductListCardstyles__PriceWrapper-g09iyn-5 etZzrn">
+																	<span class="ProductListCardstyles__BasePrice-g09iyn-7 ProductListCardstyles__Price-g09iyn-8 fnHOyu text-g3">
+																		US $94.00
+																	</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--											derde card-->
+                                        <div class="card col bg-grey">
+                                            <img alt="Reflections Copenhagen Mayfair Short Crystal Glass, Set of 2" src="https://shop.goop-img.com/spree/images/attachments/000/083/489/large/open-uri20221013-13627-1u6xu00?version=1665687982" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                            <div class="ProductListCardstyles__RequiredDetails-g09iyn-6 dkGnft">
+																<span class="ProductListCardstyles__Brand-g09iyn-4 text-g1">Reflections Copenhagen
+																</span>
+                                                <br>
+                                                <a href="https://goop.com/reflections-copenhagen-mayfair-short-crystal-glass-set-of-2/p/" class="ProductListCardstyles__Title-g09iyn-11 text-g2">Mayfair Short Crystal Glass, Set of 2</a>
+                                                <div class="ProductListCardstyles__PriceWrapper-g09iyn-5 etZzrn">
+																	<span class="ProductListCardstyles__BasePrice-g09iyn-7 ProductListCardstyles__Price-g09iyn-8 fnHOyu text-g3">US $650.00
+																	</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--												vierde card-->
+                                        <div class="card col bg-grey">
+                                            <img alt="La DoubleJ Madras Ornaments, Set of 3" src="https://shop.goop-img.com/spree/images/attachments/000/084/512/large/open-uri20221101-25-bry5xf?version=1667332889" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                            <div class="ProductListCardstyles__RequiredDetails-g09iyn-6 dkGnft"><span class="ProductListCardstyles__Brand-g09iyn-4 text-g1">La DoubleJ</span>
+                                                <br>
+                                                <a href="https://goop.com/la-doublej-madras-ornaments-set-of-3/p/" class="ProductListCardstyles__Title-g09iyn-11 text-g2">Madras Ornaments, Set of 3
+                                                </a>
+                                                <div class="ProductListCardstyles__PriceWrapper-g09iyn-5 etZzrn">
+															<span class="ProductListCardstyles__BasePrice-g09iyn-7 ProductListCardstyles__Price-g09iyn-8 fnHOyu text-g3">US $140.00
+															</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--						einde tweede carousel-->
+                                <!--				pijltjes naast carousel-->
+                                <button class="carousel-control-prev pijl" type="button" data-bs-target="#carouselExampleIndicators4" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next pijl" type="button" data-bs-target="#carouselExampleIndicators4" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </article>
+
+
+
+
+            <!--	new /expert q&a's tabs -->
+            <article class="py-5 px-0 row m-auto max-width-1680">
+                <ul class="nav nav-tabs max-width-1140 m-auto p-3 p-lg-0" id="myTab3" role="tablist">
+                    <li class="nav-item " role="presentation">
+                        <button class="nav-link active text-dark text-uppercase" id="home-tab3" data-bs-toggle="tab" data-bs-target="#home-tab-pane3" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true" aria-label="Gwyneth's Gift List" value="">NEW</button>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link text-dark border-0" id="profile-tab3" data-bs-toggle="tab" data-bs-target="#profile-tab-pane3" type="button" role="tab" aria-controls="profile-tab-pane3" aria-selected="false" aria-label="The 2022 goop Gift Guides" value="">EXPERT Q&A'S</button>
+                    </li>
+                </ul>
+                <!--		tab inhoud New-->
+
+                <div class="tab-content container max-width-1680 p-0" id="myTabContent3">
+                    <div class="tab-pane fade show active" id="home-tab-pane3" role="tabpanel" aria-labelledby="home-tab3" tabindex="0">
+                        <!--				mobiel-->
+
+
+                        <div class="d-flex scrollmenu gap-1 d-lg-none">
+                            <a href="#" class="col-8">
+                                <div class="card">
+                                    <img alt="" src="https://goop-img.com/wp-content/uploads/2021/06/Bringing-Your-Hormones-into-Alignment_Stocksy_txp14c69cc8eX6300_Medium_3107569-1.jpg" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                    <div class="card-body">
+                                        <div class="ContentCardstyles__TextWrapper-sc-1u4zv99-9 eETzzy"><span class="ContentCardstyles__Category-sc-1u4zv99-4 pNwqG">Wellness</span>
+                                            <br>
+                                            <p  class="ContentCardstyles__Title-sc-1u4zv99-5 gSiZQX">Bringing Your Hormones into Alignment</p><span class="ContentCardstyles__Caption-sc-1u4zv99-6 cABIUA">Doctor, herbalist, and midwife Aviva Romm, MD, describes the menstrual cycle as our sixth vital sign: The length of our cycles, the heaviness of our flows, and the signs and symptoms that pop up along the way can all tell us something about the state of our hormonal health.</span></div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#" class="col-8">
+                                <div class="card">
+                                    <img alt="" src="https://goop-img.com/wp-content/uploads/2020/06/ear-seeds-hi-res-1024x780.jpg" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                    <div class="card-body">
+                                        <div class="ContentCardstyles__TextWrapper-sc-1u4zv99-9 eETzzy"><span class="ContentCardstyles__Category-sc-1u4zv99-4 pNwqG">Wellness</span>
+                                            <br>
+                                            <p href="https://goop.com/wellness/health/ear-seeds/" class="ContentCardstyles__Title-sc-1u4zv99-5 gSiZQX">Ear Seeds for Easy, At-Home Acupressure</p><span class="ContentCardstyles__Caption-sc-1u4zv99-6 cABIUA">Ear seeds are teeny gold beads that are placed at different points on the ear to support overall well-being. They look almost like a constellation of small earrings. And they’re something you can apply at home. </span></div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#" class="col-8">
+                                <div class="card">
+                                    <img alt="" src="https://goop-img.com/wp-content/uploads/2022/07/Can-Your-Marriage-Bounce-Back-from-Financial-Infidelity_Stocksy_txp9ab387b9GrS300_Medium_3393522-1-1-1024x781.jpg" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                    <div class="card-body">
+                                        <div class="ContentCardstyles__TextWrapper-sc-1u4zv99-9 eETzzy"><span class="ContentCardstyles__Category-sc-1u4zv99-4 pNwqG">Wellness</span>
+                                            <br>
+                                            <p class="ContentCardstyles__Title-sc-1u4zv99-5 gSiZQX">Can Your Marriage Bounce Back from Financial Infidelity?</p><span class="ContentCardstyles__Caption-sc-1u4zv99-6 cABIUA">Like sexual or emotional cheating, financial infidelity can sink a relationship. But if each partner is willing to put in the work, they can often heal—as well as resolve the underlying issues that paved the way for it in the first place. Financial psychology specialist Alex Melkumian, PsyD, LMFT, works with couples when one partner’s financial behavior has crossed a line.</span></div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#" class="col-8">
+                                <div class="card">
+                                    <img alt="" src="https://goop-img.com/wp-content/uploads/2022/06/Hiatal-Hernia_Stocksy_txpe4316c90M6S300_Medium_3662167-1-1024x781.jpg" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                    <div class="card-body">
+                                        <div class="ContentCardstyles__TextWrapper-sc-1u4zv99-9 eETzzy"><span class="ContentCardstyles__Category-sc-1u4zv99-4 pNwqG">Wellness</span><p class="ContentCardstyles__Title-sc-1u4zv99-5 gSiZQX">Symptoms of a Mild Hiatal Hernia—and How to Treat It</p><span class="ContentCardstyles__Caption-sc-1u4zv99-6 cABIUA">Functional medicine practitioner Vikki Petersen explains mild hiatal hernias and their cascading array of symptoms, like acid reflux, difficulty breathing, and heart palpitations.</span></div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#" class="col-8">
+                                <div class="card ">
+                                    <img alt="" src="https://goop-img.com/wp-content/uploads/2022/06/image-34-1024x781.jpg" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                    <div class="card-body">
+                                        <div class="ContentCardstyles__TextWrapper-sc-1u4zv99-9 eETzzy"><span class="ContentCardstyles__Category-sc-1u4zv99-4 pNwqG">Wellness</span><p class="ContentCardstyles__Title-sc-1u4zv99-5 gSiZQX">Getting More Out of Digital Note-Taking</p><span class="ContentCardstyles__Caption-sc-1u4zv99-6 cABIUA">Productivity expert and author of Building a Second Brain Tiago Forte explains his approach to managing the vast amount of content that we consume every day.</span></div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#" class="col-8">
+                                <div class="card">
+                                    <img alt="" src="https://goop-img.com/wp-content/uploads/2022/06/EMDR-QA_Stocksy_txpfca25760gsR300_Medium_3719069-1-1024x780.jpg" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                    <div class="card-body">
+                                        <div class="ContentCardstyles__TextWrapper-sc-1u4zv99-9 eETzzy"><span class="ContentCardstyles__Category-sc-1u4zv99-4 pNwqG">Wellness</span><p>What Is EMDR Therapy?</p><span class="ContentCardstyles__Caption-sc-1u4zv99-6 cABIUA">EMDR therapy has gained increasing popularity, 35 years after it was developed by Francine Shapiro, PhD, for the treatment of post-traumatic stress disorder. Licensed psychotherapist Luz Kyncl discusses how she uses EMDR therapy in her practice.</span></div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#" class="col-8">
+                                <div class="card">
+                                    <img alt="" src="https://goop-img.com/wp-content/uploads/2022/06/Recognizing-Postpartum-Depression-in-Dads_Stocksy_txp75e9a6879Uy100_Medium_1969044-1-1024x781.jpg" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                    <div class="card-body">
+                                        <div class="ContentCardstyles__TextWrapper-sc-1u4zv99-9 eETzzy"><span class="ContentCardstyles__Category-sc-1u4zv99-4 pNwqG">Wellness</span><p class="ContentCardstyles__Title-sc-1u4zv99-5 gSiZQX">Recognizing Postpartum Depression in Dads</p><span class="ContentCardstyles__Caption-sc-1u4zv99-6 cABIUA">There isn’t a clear set of diagnostic criteria for dads experiencing major mental health shifts after the birth of their baby. But Alan-Michael Graves, EdD, who heads up learning and capacity building programs at Good+ Foundation in Los Angeles, says he sees new fathers struggling in silence with unrecognized postpartum depression.</span></div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#" class="col-8">
+                                <div class="card">
+                                    <img alt="" src="https://goop-img.com/wp-content/uploads/2022/05/Fertility-QA-with-Dr.-Bendikson-KindBody_jamiestreetphotography_katya-5-1-1024x780.jpg" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                    <div class="card-body">
+                                        <div class="ContentCardstyles__TextWrapper-sc-1u4zv99-9 eETzzy">
+                                            <span class="ContentCardstyles__Category-sc-1u4zv99-4 pNwqG">Wellness</span>
+                                            <p class="ContentCardstyles__Title-sc-1u4zv99-5 gSiZQX">What Can an At-Home Fertility Test Tell You?</p>
+                                            <span class="ContentCardstyles__Caption-sc-1u4zv99-6 cABIUA">Reproductive endocrinologist Kristin Bendikson, MD, talks fertility and explains why it’s important to take a holistic approach to reproductive health and family planning.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#" class="col-8">
+                                <div class="card ">
+                                    <img alt="" src="https://goop-img.com/wp-content/uploads/2022/05/Connecting-Trans-Youth-with-Gender-Affirming-Medical-Care-Stocksy_txp7a053c66NfP300_Medium_4388644-1024x780.jpg" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                    <div class="card-body">
+                                        <div class="ContentCardstyles__TextWrapper-sc-1u4zv99-9 eETzzy"><span class="ContentCardstyles__Category-sc-1u4zv99-4 pNwqG">Wellness</span><p class="ContentCardstyles__Title-sc-1u4zv99-5 gSiZQX">Connecting Trans Youth with Gender-Affirming Medical Care</p><span class="ContentCardstyles__Caption-sc-1u4zv99-6 cABIUA">Medical care for trans and nonbinary people isn’t rocket science, says Izzy Lowell, MD, who specializes in transgender medicine. But a dearth of gender-affirming, accessible health care threatens their long-term well-being.</span></div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#" class="col-8">
+                                <div class="card">
+                                    <img alt="" src="https://goop-img.com/wp-content/uploads/2022/11/3-1-1024x782.jpg" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                    <div class="card-body">
+                                        <div class="ContentCardstyles__TextWrapper-sc-1u4zv99-9 eETzzy"><span class="ContentCardstyles__Category-sc-1u4zv99-4 pNwqG">Beauty</span>
+                                            <br>
+                                            <p class="ContentCardstyles__Title-sc-1u4zv99-5 gSiZQX">Chic New Balm Colors—Wear Them Everywhere</p><span class="ContentCardstyles__Caption-sc-1u4zv99-6 cABIUA">We reimagined our bestselling clean lip balm trio in new colors—one clear, one a translucent pink-nude, and the other a sheer bright red. With their silky texture, exquisite pigments, and nourishing ingredients, these balms are the ultimate luxury for lips.</span></div>
+                                    </div>
+                                </div>
+
+                            </a>
+                            <a href="#" class="col-8">
+                                <div class="card">
+                                    <img alt="" src="https://goop-img.com/wp-content/uploads/2022/11/How-to-Pick-an-Effective-Exfoliating-Cleanser_20211201_EDITORIAL_BEAUTY_GOOPGLOW_JELLY_CLEANSER_476-1-1024x780.jpg" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                    <div class="card-body">
+                                        <div class="ContentCardstyles__TextWrapper-sc-1u4zv99-9 eETzzy"><span class="ContentCardstyles__Category-sc-1u4zv99-4 pNwqG">Beauty</span>
+                                            <br>
+                                            <p href="https://goop.com/beauty/skin/how-to-pick-an-exfoliating-cleanser/" class="ContentCardstyles__Title-sc-1u4zv99-5 gSiZQX">How to Pick the Best Exfoliating Cleanser for Your Skin</p><span class="ContentCardstyles__Caption-sc-1u4zv99-6 cABIUA">Adding a bit of exfoliation into your daily cleanse delivers serious benefits for almost every type of skin, helping to soften, clear, brighten, and smooth—day by day.</span></div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#" class="col-8">
+                                <div class="card">
+                                    <img alt="" src="https://goop-img.com/wp-content/uploads/2022/08/Goop-Holiday_Editorial-Select_058-1-1024x780.jpg" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                    <div class="card-body">
+                                        <div class="ContentCardstyles__TextWrapper-sc-1u4zv99-9 eETzzy"><span class="ContentCardstyles__Category-sc-1u4zv99-4 pNwqG">Style</span>
+                                            <br>
+                                            <p href="https://goop.com/style/gift-guides/gwyneth-reveals-how-we-bring-gift-guide-to-life/" class="ContentCardstyles__Title-sc-1u4zv99-5 gSiZQX">Gwyneth’s Version of the North Pole</p><span class="ContentCardstyles__Caption-sc-1u4zv99-6 cABIUA">A behind-the-scenes look at our unconventional holiday workshop.</span></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!--			pc	carousel-->
+
+                        <div id="carouselExampleIndicators5" class="carousel dotscarousel slide max-width-1680 m-auto d-none d-lg-block" data-bs-ride="false">
+
+                            <!--					carousel bolletjes-->
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carouselExampleIndicators5" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators5" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators5" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators5" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators5" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                            </div>
+                            <!--					carousel container-->
+                            <div class="carousel-inner Items_container">
+
+                                <!--						eerste carousel-->
+
+                                <div class="carousel-item active">
+                                    <!--							eerste carousel-->
+
+                                    <!--									eerste card-->
+
+                                    <div class="row max-width-1140 m-auto">
+
+                                        <div class="card col">
+                                            <img alt="" src="https://goop-img.com/wp-content/uploads/2022/11/hero-2-1-1024x773.jpg" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                            <div class="card-body d-flex flex-column">
+                                                <span class="text-g1">Beauty</span>
+                                                <a href="https://goop.com/travel/experiences/costa-rican-spa-vacation-at-hacienda-altagracia-auberge/" class="text-g2">A Weekend Spa Vacation in the Misty Costa Rican Mountains</a><span class="text-g3">They say it takes a whole week to fully unwind on vacation, but clearly “they” have never spent a weekend at Hacienda AltaGracia, a spa hotel high in the Talamanca Mountains of Costa Rica. There are stunningly designed casitas, jungle hikes, yoga sessions, artisanal cocktails, incredible organic food, and a next-level spa from The Well (with chakra-clearing massages and maderoterapia, to name a few treatments), which put you in fully unwound territory pretty much instantly.</span>
+                                            </div>
+                                        </div>
+
+                                        <!--										tweede card-->
+                                        <div class="card col">
+                                            <img alt="" src="https://goop-img.com/wp-content/uploads/2022/11/Tongue-Vibrators_TRU3237449-1-1024x780.jpg" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                            <div class="card-body d-flex flex-column">
+                                                <p class="text-g1">Wellness</p>
+                                                <a href="https://goop.com/wellness/sexual-health/best-tongue-vibrators/" class="text-g2">4 Tongue Vibrators That Mimic Oral Sex</a><p class="text-g3">Today’s sex toys do so much more than vibrate against your body—including a whole category of tongue vibrators that lick, swirl, and suck like a talented lover.</p>
+                                            </div>
+                                        </div>
+                                        <!--											derde card-->
+
+                                        <div class="card col">
+                                            <img alt="" src="https://goop-img.com/wp-content/uploads/2022/07/How-to-Slow-Down-Time_Brian-Chorski-1-1024x780.jpg" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                            <div class="card-body">
+                                                <div class="ContentCardstyles__TextWrapper-sc-1u4zv99-9 eETzzy"><span class="ContentCardstyles__Category-sc-1u4zv99-4 pNwqG">Wellness</span>
+                                                    <br>
+                                                    <a href="https://goop.com/wellness/mindfulness/how-to-slow-down-time/" class="ContentCardstyles__Title-sc-1u4zv99-5 gSiZQX">How to Slow Down Time</a><span class="ContentCardstyles__Caption-sc-1u4zv99-6 cABIUA">Researchers are still uncovering how time is processed in the brain. But our perception of time is just that: our perception. You can play with ways to speed up time in the dullest moments—and slow it down when you want a moment to last.</span></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <!--						tweede ccarousel-->
+
+                                <div class="carousel-item">
+                                    <!--							tweed carousel-->
+                                    <div class="m-auto max-width-1140">
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <div class="card w-100">
+                                                    <img alt="" src="https://goop-img.com/wp-content/uploads/2017/11/Stuffing-waffle-min-1024x780.jpg" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                                    <div class="card-body">
+                                                        <div class="ContentCardstyles__TextWrapper-sc-1u4zv99-9 eETzzy"><span class="ContentCardstyles__Category-sc-1u4zv99-4 pNwqG">Recipe</span>
+                                                            <br>
+                                                            <a href="https://goop.com/recipes/stuffing-waffle/" class="ContentCardstyles__Title-sc-1u4zv99-5 gSiZQX">The Stuffing Waffle</a><span class="ContentCardstyles__Caption-sc-1u4zv99-6 cABIUA">Stuffing in a waffle iron might sound a little out-there, but when you crunch through those delightfully crispy corners, you’ll understand. (This would be a perfect breakfast with a fried egg and leftover gravy sidecar.) Because no two leftover stuffings are the same, add stock as needed until you get a nice moist mixture. </span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--										tweede card-->
+                                            <div class="col-4">
+                                                <div class="card w-100">
+                                                    <img alt="" src="https://goop-img.com/wp-content/uploads/2022/11/Beauty-Editor-House-Tour-Jean-Godfrey-June’s-Clean-WFH-Routine-1-1024x780.jpg" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                                    <div class="card-body">
+                                                        <div class="ContentCardstyles__TextWrapper-sc-1u4zv99-9 eETzzy"><span class="ContentCardstyles__Category-sc-1u4zv99-4 pNwqG">Beauty</span>
+                                                            <br>
+                                                            <a href="https://goop.com/beauty/skin/goop-beauty-director-jean-godfrey-june-clean-routine/" class="ContentCardstyles__Title-sc-1u4zv99-5 gSiZQX">Beauty Editor House Tour: Jean Godfrey-June’s Clean WFH Routine</a><span class="ContentCardstyles__Caption-sc-1u4zv99-6 cABIUA">If it’s clean and at all beauty-related, she’s tried it. As a result Jean Godfrey-June’s house (and garden, believe it or not) is peppered with beauty products, from beloved essentials to new discoveries.</span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--											derde card-->
+                                            <div class="col-4">
+                                                <div class="card w-100">
+                                                    <img alt="" src="https://goop-img.com/wp-content/uploads/2021/12/My-Morning-Routine-Win-the-Day-First-Thing-1024x780.jpg" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                                    <div class="card-body">
+                                                        <div class="ContentCardstyles__TextWrapper-sc-1u4zv99-9 eETzzy"><span class="ContentCardstyles__Category-sc-1u4zv99-4 pNwqG">Beauty</span>
+                                                            <br>
+                                                            <a href="https://goop.com/beauty/hair/michelle-ranavat-morning-routine/" class="ContentCardstyles__Title-sc-1u4zv99-5 gSiZQX">Win the Day First Thing</a><span class="ContentCardstyles__Caption-sc-1u4zv99-6 cABIUA">She makes one of the most gorgeous hair serums—and now, the most stunning shampoo and conditioner—we’ve ever tried (the shine! the texture! the scent!), so we weren’t surprised that Michelle Ranavat’s hair looks especially lush, healthy, and shiny. She also makes skin care, as it turns out, and her exquisite complexion is a testament to that. Her morning routine emphasizes early-in-the-a.m. triumphs, the power of ritual, and next-level skin- and hair-care ingredients like bakuchiol, saffron, turmeric, and ashwagandha.</span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--							derde carousel-->
+
+                                <div class="carousel-item">
+                                    <div class="m-auto max-width-1140">
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <div class="card w-100">
+                                                    <img alt="" src="https://goop-img.com/wp-content/uploads/2022/11/New-Balance-How-One-Stylist-Wears-Her-Favorite-Sneakers-1-1024x782.jpg" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                                    <div class="card-body">
+                                                        <div class="ContentCardstyles__TextWrapper-sc-1u4zv99-9 eETzzy"><span class="ContentCardstyles__Category-sc-1u4zv99-4 pNwqG">Style</span>
+                                                            <br>
+                                                            <a href="https://goop.com/style/outfitting-ideas/how-one-stylist-wears-her-favorite-sneakers/" class="ContentCardstyles__Title-sc-1u4zv99-5 gSiZQX">How One Stylist Wears Her Favorite Sneakers</a><span class="ContentCardstyles__Caption-sc-1u4zv99-6 cABIUA">Becky Malinsky, personal stylist and former deputy fashion director at the Wall Street Journal’s Off Duty section, shares four looks featuring her favorite New Balance styles.</span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--										tweede card-->
+                                            <div class="col-4">
+                                                <div class="card w-100">
+                                                    <img alt="" src="https://goop-img.com/wp-content/uploads/2022/11/hero-4-1024x782.jpg" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                                    <div class="card-body">
+                                                        <div class="ContentCardstyles__TextWrapper-sc-1u4zv99-9 eETzzy">
+                                                            <br>
+                                                            <span class="ContentCardstyles__Category-sc-1u4zv99-4 pNwqG">Style</span><a href="https://goop.com/style/gift-guides/best-jewelry-gifts/" class="ContentCardstyles__Title-sc-1u4zv99-5 gSiZQX">33 Jewelry Gifts for Everyone on Your List</a><span class="ContentCardstyles__Caption-sc-1u4zv99-6 cABIUA">Jewelry gifts are personal, lasting, and pretty much always well-received—plus, who doesn’t get excited by a teeny box under the tree?</span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--											derde card-->
+                                            <div class="col-4">
+                                                <div class="card w-100">
+                                                    <img alt="" src="https://goop-img.com/wp-content/uploads/2021/11/A-Cozy-Winter-Dinner-Menu_20211022_EDITORIAL_FOOD_COZY_SHOT-03_319_CROPPED-1-1024x780.jpg" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                                    <div class="card-body">
+                                                        <div class="ContentCardstyles__TextWrapper-sc-1u4zv99-9 eETzzy"><span class="ContentCardstyles__Category-sc-1u4zv99-4 pNwqG">Food &amp; Home</span>
+                                                            <br>
+                                                            <a href="https://goop.com/food/recipes/cozy-winter-dinner-menu/" class="ContentCardstyles__Title-sc-1u4zv99-5 gSiZQX">A Cozy Winter Dinner Party Menu</a><span class="ContentCardstyles__Caption-sc-1u4zv99-6 cABIUA">Pan-roasted chicken with mushrooms and thyme, creamy potato-cauli mash, and a tender kale salad showered with lemony bread crumbs. It’s both comforting and packed with veggies, deluxe yet easy to prepare.</span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--										vierde carousel-->
+
+                                <div class="carousel-item">
+                                    <!--							tweed carousel-->
+                                    <div class="m-auto max-width-1140">
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <div class="card w-100">
+                                                    <img alt="" src="https://goop-img.com/wp-content/uploads/2022/11/3-1-1024x782.jpg" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                                    <div class="card-body">
+                                                        <div class="ContentCardstyles__TextWrapper-sc-1u4zv99-9 eETzzy"><span class="ContentCardstyles__Category-sc-1u4zv99-4 pNwqG">Beauty</span>
+                                                            <br>
+                                                            <a href="https://goop.com/beauty/skin/goopgenes-clean-nourishing-lip-balm-trio-new-colors/" class="ContentCardstyles__Title-sc-1u4zv99-5 gSiZQX">Chic New Balm Colors—Wear Them Everywhere</a><span class="ContentCardstyles__Caption-sc-1u4zv99-6 cABIUA">We reimagined our bestselling clean lip balm trio in new colors—one clear, one a translucent pink-nude, and the other a sheer bright red. With their silky texture, exquisite pigments, and nourishing ingredients, these balms are the ultimate luxury for lips.</span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--										tweede card-->
+                                            <div class="col-4">
+                                                <div class="card w-100">
+                                                    <img alt="" src="https://goop-img.com/wp-content/uploads/2022/11/How-to-Pick-an-Effective-Exfoliating-Cleanser_20211201_EDITORIAL_BEAUTY_GOOPGLOW_JELLY_CLEANSER_476-1-1024x780.jpg" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                                    <div class="card-body">
+                                                        <div class="ContentCardstyles__TextWrapper-sc-1u4zv99-9 eETzzy"><span class="ContentCardstyles__Category-sc-1u4zv99-4 pNwqG">Beauty</span>
+                                                            <br>
+                                                            <a href="https://goop.com/beauty/skin/how-to-pick-an-exfoliating-cleanser/" class="ContentCardstyles__Title-sc-1u4zv99-5 gSiZQX">How to Pick the Best Exfoliating Cleanser for Your Skin</a><span class="ContentCardstyles__Caption-sc-1u4zv99-6 cABIUA">Adding a bit of exfoliation into your daily cleanse delivers serious benefits for almost every type of skin, helping to soften, clear, brighten, and smooth—day by day.</span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--											derde card-->
+                                            <div class="col-4">
+                                                <div class="card w-100">
+                                                    <img alt="" src="https://goop-img.com/wp-content/uploads/2022/08/Goop-Holiday_Editorial-Select_058-1-1024x780.jpg" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                                    <div class="card-body">
+                                                        <div class="ContentCardstyles__TextWrapper-sc-1u4zv99-9 eETzzy"><span class="ContentCardstyles__Category-sc-1u4zv99-4 pNwqG">Style</span>
+                                                            <br>
+                                                            <a href="https://goop.com/style/gift-guides/gwyneth-reveals-how-we-bring-gift-guide-to-life/" class="ContentCardstyles__Title-sc-1u4zv99-5 gSiZQX">Gwyneth’s Version of the North Pole</a><span class="ContentCardstyles__Caption-sc-1u4zv99-6 cABIUA">A behind-the-scenes look at our unconventional holiday workshop.</span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--									vijfde carousel-->
+
+                                <div class="carousel-item">
+                                    <!--							tweed carousel-->
+                                    <div class="m-auto max-width-1140">
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <div class="card w-100">
+                                                    <img alt="" src="https://goop-img.com/wp-content/uploads/2022/11/Can-Bondage-Help-You-Understand-Your-Sexual-Boundaries_TLP-NAMA-0079-1-1024x780.jpg" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                                    <div class="card-body">
+                                                        <div class="ContentCardstyles__TextWrapper-sc-1u4zv99-9 eETzzy"><span class="ContentCardstyles__Category-sc-1u4zv99-4 pNwqG">Wellness</span>
+                                                            <br>
+                                                            <a href="https://goop.com/wellness/sexual-health/bdsm-boundaries-and-consent/" class="ContentCardstyles__Title-sc-1u4zv99-5 gSiZQX">Can Bondage Help You Understand Your Sexual Boundaries?</a><span class="ContentCardstyles__Caption-sc-1u4zv99-6 cABIUA">Liz Goldwyn, author of Sex, Health &amp; Consciousness, discusses bondage as a tool for understanding and voicing our sexual boundaries.</span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--										tweede card-->
+                                            <div class="col-4">
+                                                <div class="card w-100">
+                                                    <img alt="" src="https://goop-img.com/wp-content/uploads/2022/11/Droplette-ad-unit-slot-A-New-High-Tech-Skin-Trick-for-Winter-Glow-1-1024x780.jpg" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                                    <div class="card-body">
+                                                        <div class="ContentCardstyles__TextWrapper-sc-1u4zv99-9 eETzzy"><span class="ContentCardstyles__Category-sc-1u4zv99-4 pNwqG">Beauty</span><a href="https://goop.com/beauty/skin/a-high-tech-skin-trick-for-glowing-skin/" class="ContentCardstyles__Title-sc-1u4zv99-5 gSiZQX">A New High-Tech Skin Trick for Winter Glow</a><span class="ContentCardstyles__Caption-sc-1u4zv99-6 cABIUA">Walk out the door in the morning with skin that’s fresh, plumped with moisture, and glowing and you move through the entire day differently. The secret is layering your skin care so it really sinks in; now a brilliant at-home device called Droplette makes it easier than ever to see radiant results.</span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--											derde card-->
+                                            <div class="col-4">
+                                                <div class="card w-100">
+                                                    <img alt="" src="https://goop-img.com/wp-content/uploads/2022/11/Stutz_00_03_12_17-1024x780.jpg" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                                    <div class="card-body">
+                                                        <div class="ContentCardstyles__TextWrapper-sc-1u4zv99-9 eETzzy"><span class="ContentCardstyles__Category-sc-1u4zv99-4 pNwqG">Podcast</span><a href="https://goop.com/the-goop-podcast/gwyneth-paltrow-x-phil-stutz-the-power-of-small-things" class="ContentCardstyles__Title-sc-1u4zv99-5 gSiZQX">Gwyneth Paltrow x Phil Stutz: The Power of Small Things</a><span class="ContentCardstyles__Caption-sc-1u4zv99-6 cABIUA">“Non-attachment says I can go for this thing, I can work as hard as I want to on it, but I’m also willing not to have it,” says legendary psychiatrist Phil Stutz. Stutz is known for his visualization exercises (called the tools) which he uses to help people overcome blocks to create lasting change. He joins GP to talk about why the tools work and how to tap into the invisible forces that collectively and individually move us forward. (After listening to this episode, be sure to watch Stutz, a new Netflix documentary directed by Jonah Hill about Stutz’s work.)</span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--									einde carousels-->
+                            </div>
+                            <!--				pijltjes naast carousel-->
+                            <button class="carousel-control-prev pijl" type="button" data-bs-target="#carouselExampleIndicators5" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next pijl" type="button" data-bs-target="#carouselExampleIndicators5" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                    <!--		tweede tab-->
+                    <div class="tab-pane fade" id="profile-tab-pane3" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+                        <div id="carouselExampleIndicators6" class="carousel dotscarousel slide max-width-1680 m-auto" data-bs-ride="false">
+                            <!--					carousel bolletjes-->
+                            <button type="button" data-bs-target="#carouselExampleIndicators6" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators6" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators6" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators6" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators6" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                        </div>
+                        <!--					carousel container-->
+                        <div class="carousel-inner Items_container">
+
+                            <!--						eerste carousel-->
+
+                            <div class="carousel-item active">
+                                <!--							eerste carousel-->
+                                <div class="row row-cols-3 max-width-1140">
+                                    <!--									eerste card-->
+                                    <div class="card col">
+                                        <img alt="" src="https://goop-img.com/wp-content/uploads/2021/06/Bringing-Your-Hormones-into-Alignment_Stocksy_txp14c69cc8eX6300_Medium_3107569-1.jpg" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                        <div class="card-body">
+                                            <div class="ContentCardstyles__TextWrapper-sc-1u4zv99-9 eETzzy"><span class="ContentCardstyles__Category-sc-1u4zv99-4 pNwqG">Wellness</span>
+                                                <br>
+                                                <a href="https://goop.com/wellness/health/hormone-intelligence-interview/" class="ContentCardstyles__Title-sc-1u4zv99-5 gSiZQX">Bringing Your Hormones into Alignment</a><span class="ContentCardstyles__Caption-sc-1u4zv99-6 cABIUA">Doctor, herbalist, and midwife Aviva Romm, MD, describes the menstrual cycle as our sixth vital sign: The length of our cycles, the heaviness of our flows, and the signs and symptoms that pop up along the way can all tell us something about the state of our hormonal health.</span></div>
+                                        </div>
+                                    </div>
+                                    <!--										tweede card-->
+                                    <div class="card col">
+                                        <img alt="" src="https://goop-img.com/wp-content/uploads/2020/06/ear-seeds-hi-res-1024x780.jpg" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                        <div class="card-body">
+                                            <div class="ContentCardstyles__TextWrapper-sc-1u4zv99-9 eETzzy"><span class="ContentCardstyles__Category-sc-1u4zv99-4 pNwqG">Wellness</span>
+                                                <br>
+                                                <a href="https://goop.com/wellness/health/ear-seeds/" class="ContentCardstyles__Title-sc-1u4zv99-5 gSiZQX">Ear Seeds for Easy, At-Home Acupressure</a><span class="ContentCardstyles__Caption-sc-1u4zv99-6 cABIUA">Ear seeds are teeny gold beads that are placed at different points on the ear to support overall well-being. They look almost like a constellation of small earrings. And they’re something you can apply at home. </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--											derde card-->
+                                    <div class="card col">
+                                        <img alt="" src="https://goop-img.com/wp-content/uploads/2022/07/Can-Your-Marriage-Bounce-Back-from-Financial-Infidelity_Stocksy_txp9ab387b9GrS300_Medium_3393522-1-1-1024x781.jpg" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                        <div class="card-body">
+                                            <div class="ContentCardstyles__TextWrapper-sc-1u4zv99-9 eETzzy"><span class="ContentCardstyles__Category-sc-1u4zv99-4 pNwqG">Wellness</span>
+                                                <br>
+                                                <a href="https://goop.com/wellness/relationships/financial-infidelity/" class="ContentCardstyles__Title-sc-1u4zv99-5 gSiZQX">Can Your Marriage Bounce Back from Financial Infidelity?</a><span class="ContentCardstyles__Caption-sc-1u4zv99-6 cABIUA">Like sexual or emotional cheating, financial infidelity can sink a relationship. But if each partner is willing to put in the work, they can often heal—as well as resolve the underlying issues that paved the way for it in the first place. Financial psychology specialist Alex Melkumian, PsyD, LMFT, works with couples when one partner’s financial behavior has crossed a line.</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--						tweede ccarousel-->
+
+                            <div class="carousel-item">
+                                <!--							tweed carousel-->
+                                <div class="m-auto max-width-1140">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="card w-100">
+                                                <img alt="" src="https://goop-img.com/wp-content/uploads/2022/06/Hiatal-Hernia_Stocksy_txpe4316c90M6S300_Medium_3662167-1-1024x781.jpg" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                                <div class="card-body">
+                                                    <div class="ContentCardstyles__TextWrapper-sc-1u4zv99-9 eETzzy"><span class="ContentCardstyles__Category-sc-1u4zv99-4 pNwqG">Wellness</span><a href="https://goop.com/wellness/health/what-is-hiatal-hernia/" class="ContentCardstyles__Title-sc-1u4zv99-5 gSiZQX">Symptoms of a Mild Hiatal Hernia—and How to Treat It</a><span class="ContentCardstyles__Caption-sc-1u4zv99-6 cABIUA">Functional medicine practitioner Vikki Petersen explains mild hiatal hernias and their cascading array of symptoms, like acid reflux, difficulty breathing, and heart palpitations.</span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--										tweede card-->
+                                        <div class="col-4">
+                                            <div class="card w-100">
+                                                <img alt="" src="https://goop-img.com/wp-content/uploads/2022/06/image-34-1024x781.jpg" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                                <div class="card-body">
+                                                    <div class="ContentCardstyles__TextWrapper-sc-1u4zv99-9 eETzzy"><span class="ContentCardstyles__Category-sc-1u4zv99-4 pNwqG">Wellness</span><a href="https://goop.com/wellness/career-money/getting-more-out-of-digital-note-taking/" class="ContentCardstyles__Title-sc-1u4zv99-5 gSiZQX">Getting More Out of Digital Note-Taking</a><span class="ContentCardstyles__Caption-sc-1u4zv99-6 cABIUA">Productivity expert and author of Building a Second Brain Tiago Forte explains his approach to managing the vast amount of content that we consume every day.</span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--											derde card-->
+                                        <div class="col-4">
+                                            <div class="card w-100">
+                                                <img alt="" src="https://goop-img.com/wp-content/uploads/2022/06/EMDR-QA_Stocksy_txpfca25760gsR300_Medium_3719069-1-1024x780.jpg" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                                <div class="card-body">
+                                                    <div class="ContentCardstyles__TextWrapper-sc-1u4zv99-9 eETzzy"><span class="ContentCardstyles__Category-sc-1u4zv99-4 pNwqG">Wellness</span><a href="https://goop.com/wellness/mindfulness/what-is-emdr-therapy/" class="ContentCardstyles__Title-sc-1u4zv99-5 gSiZQX">What Is EMDR Therapy?</a><span class="ContentCardstyles__Caption-sc-1u4zv99-6 cABIUA">EMDR therapy has gained increasing popularity, 35 years after it was developed by Francine Shapiro, PhD, for the treatment of post-traumatic stress disorder. Licensed psychotherapist Luz Kyncl discusses how she uses EMDR therapy in her practice.</span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--							derde carousel-->
+
+                            <div class="carousel-item">
+                                <div class="m-auto max-width-1140">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="card w-100">
+                                                <img alt="" src="https://goop-img.com/wp-content/uploads/2022/06/Recognizing-Postpartum-Depression-in-Dads_Stocksy_txp75e9a6879Uy100_Medium_1969044-1-1024x781.jpg" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                                <div class="card-body">
+                                                    <div class="ContentCardstyles__TextWrapper-sc-1u4zv99-9 eETzzy"><span class="ContentCardstyles__Category-sc-1u4zv99-4 pNwqG">Wellness</span><a href="https://goop.com/wellness/parenthood/postpartum-depression-in-men/" class="ContentCardstyles__Title-sc-1u4zv99-5 gSiZQX">Recognizing Postpartum Depression in Dads</a><span class="ContentCardstyles__Caption-sc-1u4zv99-6 cABIUA">There isn’t a clear set of diagnostic criteria for dads experiencing major mental health shifts after the birth of their baby. But Alan-Michael Graves, EdD, who heads up learning and capacity building programs at Good+ Foundation in Los Angeles, says he sees new fathers struggling in silence with unrecognized postpartum depression.</span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--										tweede card-->
+                                        <div class="col-4">
+                                            <div class="card w-100">
+                                                <img alt="" src="https://goop-img.com/wp-content/uploads/2022/05/Fertility-QA-with-Dr.-Bendikson-KindBody_jamiestreetphotography_katya-5-1-1024x780.jpg" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                                <div class="card-body">
+                                                    <div class="ContentCardstyles__TextWrapper-sc-1u4zv99-9 eETzzy"><span class="ContentCardstyles__Category-sc-1u4zv99-4 pNwqG">Wellness</span><a href="https://goop.com/wellness/health/at-home-fertility-test-results/" class="ContentCardstyles__Title-sc-1u4zv99-5 gSiZQX">What Can an At-Home Fertility Test Tell You?</a><span class="ContentCardstyles__Caption-sc-1u4zv99-6 cABIUA">Reproductive endocrinologist Kristin Bendikson, MD, talks fertility and explains why it’s important to take a holistic approach to reproductive health and family planning.</span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--											derde card-->
+                                        <div class="col-4">
+                                            <div class="card w-100">
+                                                <img alt="" src="https://goop-img.com/wp-content/uploads/2022/05/Connecting-Trans-Youth-with-Gender-Affirming-Medical-Care-Stocksy_txp7a053c66NfP300_Medium_4388644-1024x780.jpg" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                                <div class="card-body">
+                                                    <div class="ContentCardstyles__TextWrapper-sc-1u4zv99-9 eETzzy"><span class="ContentCardstyles__Category-sc-1u4zv99-4 pNwqG">Wellness</span><a href="https://goop.com/wellness/health/gender-affirming-care-for-trans-youth/" class="ContentCardstyles__Title-sc-1u4zv99-5 gSiZQX">Connecting Trans Youth with Gender-Affirming Medical Care</a><span class="ContentCardstyles__Caption-sc-1u4zv99-6 cABIUA">Medical care for trans and nonbinary people isn’t rocket science, says Izzy Lowell, MD, who specializes in transgender medicine. But a dearth of gender-affirming, accessible health care threatens their long-term well-being.</span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--										vierde carousel-->
+
+                            <div class="carousel-item">
+
+                                <div class="m-auto max-width-1140">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="card w-100">
+                                                <img alt="" src="https://goop-img.com/wp-content/uploads/2022/11/3-1-1024x782.jpg" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                                <div class="card-body">
+                                                    <div class="ContentCardstyles__TextWrapper-sc-1u4zv99-9 eETzzy"><span class="ContentCardstyles__Category-sc-1u4zv99-4 pNwqG">Beauty</span>
+                                                        <br>
+                                                        <a href="https://goop.com/beauty/skin/goopgenes-clean-nourishing-lip-balm-trio-new-colors/" class="ContentCardstyles__Title-sc-1u4zv99-5 gSiZQX">Chic New Balm Colors—Wear Them Everywhere</a><span class="ContentCardstyles__Caption-sc-1u4zv99-6 cABIUA">We reimagined our bestselling clean lip balm trio in new colors—one clear, one a translucent pink-nude, and the other a sheer bright red. With their silky texture, exquisite pigments, and nourishing ingredients, these balms are the ultimate luxury for lips.</span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--										tweede card-->
+                                        <div class="col-4">
+                                            <div class="card w-100">
+                                                <img alt="" src="https://goop-img.com/wp-content/uploads/2022/11/How-to-Pick-an-Effective-Exfoliating-Cleanser_20211201_EDITORIAL_BEAUTY_GOOPGLOW_JELLY_CLEANSER_476-1-1024x780.jpg" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                                <div class="card-body">
+                                                    <div class="ContentCardstyles__TextWrapper-sc-1u4zv99-9 eETzzy"><span class="ContentCardstyles__Category-sc-1u4zv99-4 pNwqG">Beauty</span>
+                                                        <br>
+                                                        <a href="https://goop.com/beauty/skin/how-to-pick-an-exfoliating-cleanser/" class="ContentCardstyles__Title-sc-1u4zv99-5 gSiZQX">How to Pick the Best Exfoliating Cleanser for Your Skin</a><span class="ContentCardstyles__Caption-sc-1u4zv99-6 cABIUA">Adding a bit of exfoliation into your daily cleanse delivers serious benefits for almost every type of skin, helping to soften, clear, brighten, and smooth—day by day.</span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--											derde card-->
+                                        <div class="col-4">
+                                            <div class="card w-100">
+                                                <img alt="" src="https://goop-img.com/wp-content/uploads/2022/08/Goop-Holiday_Editorial-Select_058-1-1024x780.jpg" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                                <div class="card-body">
+                                                    <div class="ContentCardstyles__TextWrapper-sc-1u4zv99-9 eETzzy"><span class="ContentCardstyles__Category-sc-1u4zv99-4 pNwqG">Style</span>
+                                                        <br>
+                                                        <a href="https://goop.com/style/gift-guides/gwyneth-reveals-how-we-bring-gift-guide-to-life/" class="ContentCardstyles__Title-sc-1u4zv99-5 gSiZQX">Gwyneth’s Version of the North Pole</a><span class="ContentCardstyles__Caption-sc-1u4zv99-6 cABIUA">A behind-the-scenes look at our unconventional holiday workshop.</span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--									vijfde carousel-->
+
+                            <div class="carousel-item">
+                                <!--							tweed carousel-->
+                                <div class="m-auto max-width-1140">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="card w-100">
+                                                <img alt="" src="https://goop-img.com/wp-content/uploads/2022/11/Can-Bondage-Help-You-Understand-Your-Sexual-Boundaries_TLP-NAMA-0079-1-1024x780.jpg" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                                <div class="card-body">
+                                                    <div class="ContentCardstyles__TextWrapper-sc-1u4zv99-9 eETzzy"><span class="ContentCardstyles__Category-sc-1u4zv99-4 pNwqG">Wellness</span>
+                                                        <br>
+                                                        <a href="https://goop.com/wellness/sexual-health/bdsm-boundaries-and-consent/" class="ContentCardstyles__Title-sc-1u4zv99-5 gSiZQX">Can Bondage Help You Understand Your Sexual Boundaries?</a><span class="ContentCardstyles__Caption-sc-1u4zv99-6 cABIUA">Liz Goldwyn, author of Sex, Health &amp; Consciousness, discusses bondage as a tool for understanding and voicing our sexual boundaries.</span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--										tweede card-->
+                                        <div class="col-4">
+                                            <div class="card w-100">
+                                                <img alt="" src="https://goop-img.com/wp-content/uploads/2022/11/Droplette-ad-unit-slot-A-New-High-Tech-Skin-Trick-for-Winter-Glow-1-1024x780.jpg" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                                <div class="card-body">
+                                                    <div class="ContentCardstyles__TextWrapper-sc-1u4zv99-9 eETzzy"><span class="ContentCardstyles__Category-sc-1u4zv99-4 pNwqG">Beauty</span><a href="https://goop.com/beauty/skin/a-high-tech-skin-trick-for-glowing-skin/" class="ContentCardstyles__Title-sc-1u4zv99-5 gSiZQX">A New High-Tech Skin Trick for Winter Glow</a><span class="ContentCardstyles__Caption-sc-1u4zv99-6 cABIUA">Walk out the door in the morning with skin that’s fresh, plumped with moisture, and glowing and you move through the entire day differently. The secret is layering your skin care so it really sinks in; now a brilliant at-home device called Droplette makes it easier than ever to see radiant results.</span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--											derde card-->
+                                        <div class="col-4">
+                                            <div class="card w-100">
+                                                <img alt="" src="https://goop-img.com/wp-content/uploads/2022/11/Stutz_00_03_12_17-1024x780.jpg" srcset="" class="LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jKWSwJ">
+                                                <div class="card-body">
+                                                    <div class="ContentCardstyles__TextWrapper-sc-1u4zv99-9 eETzzy"><span class="ContentCardstyles__Category-sc-1u4zv99-4 pNwqG">Podcast</span><a href="https://goop.com/the-goop-podcast/gwyneth-paltrow-x-phil-stutz-the-power-of-small-things" class="ContentCardstyles__Title-sc-1u4zv99-5 gSiZQX">Gwyneth Paltrow x Phil Stutz: The Power of Small Things</a><span class="ContentCardstyles__Caption-sc-1u4zv99-6 cABIUA">“Non-attachment says I can go for this thing, I can work as hard as I want to on it, but I’m also willing not to have it,” says legendary psychiatrist Phil Stutz. Stutz is known for his visualization exercises (called the tools) which he uses to help people overcome blocks to create lasting change. He joins GP to talk about why the tools work and how to tap into the invisible forces that collectively and individually move us forward. (After listening to this episode, be sure to watch Stutz, a new Netflix documentary directed by Jonah Hill about Stutz’s work.)</span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--									einde carousels-->
+                        </div>
+                        <!--				pijltjes naast carousel-->
+                        <button class="carousel-control-prev pijl" type="button" data-bs-target="#carouselExampleIndicators6" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next pijl" type="button" data-bs-target="#carouselExampleIndicators6" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </article>
+            <!--		10% off-->
+            <article class="bg-grey d-flex justify-content-center align-items-center mb-lg-4">
+                <div class="col-9 max-width-1140 m-3">
+                    <div class="justify-content-center m-auto row">
+                        <div class="col-3" >
+                            <p>Enjoy 10% off your first purchase</p>
+                            <p>when you subscribe to our newsletter</p>
+                        </div>
+                        <div class="col-5">
+                            <div class="input-group">
+                                <input id="subscribe" type="text" class="form-control" placeholder="Your Email" aria-label="Username" aria-describedby="basic-addon1">
+                                <button class="btn btn-dark border-0">SUBSCRIBE NOW</button>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <p>By clicking 'submit', you agree to receive emails from goop and accept our <a target="_blank" href="https://goop.com/web-terms-of-use/" style="color:#858585;">web terms</a> of use and <a target="_blank" href="https://goop.com/privacy-cookies-policy/" style="color:#858585;"> privacy</a>and <a target="_blank" href="https://goop.com/privacy-cookies-policy/" style="color:#858585;">cookie policy</a>. &ast;<a target="_blank" href="https://goop.com/subscription-terms-conditions/" style="color:#858585;">Terms apply*</a>.</p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!--		<div id="layout" style="width: 1504px; height: 100px;"><div id="text1_wrapper" style="left: 257px; top: 26px; width: 320px; height: 31px;"><div id="text1">Enjoy 10% off your first purchase</div></div><div id="text2_wrapper" style="left: 257px; top: 47px; width: 288px; height: 30px;"><div id="text2">when you subscribe to our newsletter</div></div><div id="text3_wrapper" style="left: 1024px; top: 30px; width: 262px; height: 56px;"><div id="text3">By clicking 'submit', you agree to receive emails from goop and accept our <a target="_blank" href="https://goop.com/web-terms-of-use/" style="color:#858585;">web terms</a> of use and <a target="_blank" href="https://goop.com/privacy-cookies-policy/" style="color:#858585;">privacy</a>and <a target="_blank" href="https://goop.com/privacy-cookies-policy/" style="color:#858585;">cookie policy</a>. *<a target="_blank" href="https://goop.com/subscription-terms-conditions/" style="color:#858585;">Terms apply*</a>. </div></div><div id="text4_wrapper"><div id="text4"></div></div><div id="form_wrapper" style="left: 577px; top: 14px; width: 280px; height: 52px;"><div id="form"><label id="form_input_email_ada_label" for="form_input_email" style="border: 0;clip: rect(0 0 0 0);height: 1px;width: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;">Your email</label><div id="form_label_email" class="form_labels form_spacing form_labels_hide" style="">Your email<span id="form_label_email_required" class="form_labels_required">*required</span></div><div id="form_input_email_wrapper" class="form_inputs_wrapper form_spacing" style=""><input type="text" id="form_input_email" class="form_inputs" placeholder="Your Email"><div id="form_input_email_help" class="form_inputs_help" style="display: none;"></div><div id="form_input_email_error_text" class="form_inputs_error_text"></div></div><div style="float: none; clear: both;"></div><input type="hidden" id="form_input_custom1" class="form_inputs" value="[COUPON_369]" promo_welcome="[COUPON_369]"><input type="hidden" id="form_input_custom2" class="form_inputs"><input type="hidden" id="form_input_custom3" class="form_inputs"><input type="hidden" id="form_input_custom4" class="form_inputs"><input type="hidden" id="form_input_custom5" class="form_inputs"><input type="hidden" id="form_input_custom6" class="form_inputs"><input type="hidden" id="form_input_custom7" class="form_inputs"><input type="hidden" id="form_input_custom8" class="form_inputs"><input type="hidden" id="form_input_custom9" class="form_inputs"><input type="hidden" id="form_input_custom10" class="form_inputs"><input type="hidden" id="form_input_custom11" class="form_inputs"><input type="hidden" id="form_input_custom12" class="form_inputs"><input type="hidden" id="form_input_custom13" class="form_inputs"><input type="hidden" id="form_input_custom14" class="form_inputs"><input type="hidden" id="form_input_custom15" class="form_inputs"><input type="hidden" id="form_input_custom16" class="form_inputs"><input type="hidden" id="form_input_custom17" class="form_inputs"><input type="hidden" id="form_input_custom18" class="form_inputs"><input type="hidden" id="form_input_custom19" class="form_inputs"><input type="hidden" id="form_input_custom20" class="form_inputs"><input type="hidden" id="form_input_custom21" class="form_inputs"><input type="hidden" id="form_input_custom22" class="form_inputs"><input type="hidden" id="form_input_custom23" class="form_inputs"><input type="hidden" id="form_input_custom24" class="form_inputs"><input type="hidden" id="form_input_custom25" class="form_inputs"><input type="hidden" id="form_input_custom26" class="form_inputs"><input type="hidden" id="form_input_custom27" class="form_inputs"><input type="hidden" id="form_input_custom28" class="form_inputs"><input type="hidden" id="form_input_custom29" class="form_inputs"><input type="hidden" id="form_input_custom30" class="form_inputs"><input type="hidden" id="form_input_custom31" class="form_inputs"><input type="hidden" id="form_input_custom32" class="form_inputs"><input type="hidden" id="form_input_custom33" class="form_inputs"><input type="hidden" id="form_input_custom34" class="form_inputs"><input type="hidden" id="form_input_custom35" class="form_inputs"><input type="hidden" id="form_input_custom36" class="form_inputs"><input type="hidden" id="form_input_custom37" class="form_inputs"><input type="hidden" id="form_input_custom38" class="form_inputs"><input type="hidden" id="form_input_custom39" class="form_inputs"><input type="hidden" id="form_input_custom40" class="form_inputs"><input type="hidden" id="form_input_custom41" class="form_inputs"><input type="hidden" id="form_input_custom42" class="form_inputs"><input type="hidden" id="form_input_custom43" class="form_inputs"><input type="hidden" id="form_input_custom44" class="form_inputs"><input type="hidden" id="form_input_custom45" class="form_inputs"><input type="hidden" id="form_input_custom46" class="form_inputs"><input type="hidden" id="form_input_custom47" class="form_inputs"><input type="hidden" id="form_input_custom48" class="form_inputs"><input type="hidden" id="form_input_custom49" class="form_inputs"><input type="hidden" id="form_input_custom50" class="form_inputs"></div></div><div id="button1_wrapper" style="left: 863px; top: 30px; width: 150px; height: 40px;"><button id="button1" class="button1" aria-label="Submit Modal Form">Subscribe Now</button></div><div id="button2_wrapper" style="display:none;"><button id="button2" class="button2"></button></div><div id="button3_wrapper" style="display:none;"><button id="button3" class="button3"></button></div><div id="button4_wrapper" style="display:none;"><button id="button4" class="button4"></button></div><div id="image1_wrapper" style="display:none;"><img id="image1"></div><div id="image2_wrapper" style="display:none;"><img id="image2"></div><div id="image3_wrapper" style="display:none;"><img id="image3"></div><div id="image4_wrapper" style="display:none;"><img id="image4"></div><div id="html1_wrapper" style="display:none;"><div id="html1"></div></div><div id="html2_wrapper" style="display:none;"><div id="html2"></div></div><div id="html3_wrapper" style="display:none;"><div id="html3"></div></div><div id="html4_wrapper" style="display:none;"><div id="html4"></div></div></div>-->
+            </article>
+        </div>
+    </section>
+
+    <section id="FeaturedShops" class="row align-items-center justify-content-evenly max-width-1140 m-auto p-0">
+
+        <article class="p-0">
+            <img alt="221031-featuredshop-01-mobile" src="https://goop-img.com/wp-content/uploads/2022/10/221031-featuredShop-01-mobile.png" srcset="" class="col-12 col-lg-6 pe-lg-3 p-3 p-lg-0 float-start LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jkexpC">
+            <img alt="221031-featuredshop-01-mobile-2" src="https://goop-img.com/wp-content/uploads/2022/10/221031-featuredShop-01-mobile-1.png" srcset="" class="col-12 col-lg-6 ps-lg-3 p-3 p-lg-0 float-end LazyImagestyles__LazyFadeImage-sc-1pcwm2t-1 jkexpC">
+
+        </article>
+    </section>
+
+    <section id="Discover" class="d-flex flex-column align-items-lg-center justify-content-lg-center text-start p-0 m-0">
+
+        <article class="max-width-1140 text-lg-center ps-3 p-lg-0 row">
+            <div class="text-start styles__StyledHeader-sc-1i7onw4-0 gzZwdw Homestyles__CategoryCarouselHeader-sc-1v1uqy-2 gWWWgY"><h1 class="styles__StyledHeadline-sc-1i7onw4-1 gcByNx">Read. Shop. Discover.</h1><p class="styles__StyledSubhed-sc-1i7onw4-2 fnukYw"></p></div>
+        </article>
+
+        <!--			mobile-->
+        <article class="row d-lg-none">
+            <div class="scrollmenu d-flex ps-4 row-cols-8">
+                <a class="col-8 p-1" href="#">
+                    <div class="card" >
+                        <div class="filter">
+                            <img alt="beauty" src="https://goop-img.com/wp-content/uploads/2021/04/beauty.jpg" srcset="" class="card-img">
+                        </div>
+                        <p class="centered text-uppercase space-3 text-title text-gl">BEAUTY</p>
+                    </div>
+                </a>
+                <a class="col-8 p-1" href="#">
+                    <div class="card">
+                        <div class="filter">
+                            <img alt="food &amp; home" src="https://goop-img.com/wp-content/uploads/2021/04/food.jpg" srcset="" class="card-img">
+                        </div>
+                        <p class="centered text-uppercase space-3 text-title text-gl">FOOD & HOME</p>
+                    </div>
+                </a>
+                <a class="col-8 p-1" href="#">
+                    <div class="card">
+                        <div class="filter">
+                            <img alt="wellness" src="https://goop-img.com/wp-content/uploads/2021/04/wellness.jpg" srcset="" class="card-img">
+                        </div>
+                        <p class="centered text-uppercase space-3 text-title text-gl">WELLNESS</p>
+                    </div>
+                </a>
+                <a class="col-8 p-1" href="#">
+                    <div class="card">
+                        <div class="filter">
+                            <img alt="style" src="https://goop-img.com/wp-content/uploads/2022/04/style.jpg" srcset="" class="card-img">
+                        </div>
+                        <div class="centered text-uppercase space-3 text-title text-gl">STYLE</div>
+                    </div>
+                </a>
+                <a class="col-8 p-1" href="#">
+                    <div class="card">
+                        <div class="filter">
+                            <img alt="travel" src="https://goop-img.com/wp-content/uploads/2021/04/travel.jpg" srcset="" class="card-img">
+                        </div>
+                        <div class="centered text-uppercase space-3 text-title text-gl">TRAVEL</div>
+                    </div>
+                </a>
+            </div>
+        </article>
+
+        <!--			pc-->
+        <article class="row p-0 d-none d-lg-block">
+            <div class="d-flex align-items-center justify-content-evenly gap-lg-4">
+                <div class="d-flex max-width-1140 p-0 gap-3">
+                    <div class="card col">
+                        <div class="filter">
+                            <img alt="beauty" src="https://goop-img.com/wp-content/uploads/2021/04/beauty.jpg" srcset="" class="card-img">
+                        </div>
+                        <p class="centered text-uppercase space-3 text-title text-gl">BEAUTY</p>
+                    </div>
+                    <div class="card col">
+                        <div class="filter">
+                            <img alt="food &amp; home" src="https://goop-img.com/wp-content/uploads/2021/04/food.jpg" srcset="" class="card-img">
+                        </div>
+                        <p class="centered text-uppercase space-3 text-title text-gl">FOOD & HOME</p>
+                    </div>
+                    <div class="card col">
+                        <div class="filter">
+                            <img alt="wellness" src="https://goop-img.com/wp-content/uploads/2021/04/wellness.jpg" srcset="" class="card-img">
+                        </div>
+                        <p class="centered text-uppercase space-3 text-title text-gl">WELLNESS</p>
+                    </div>
+                    <div class="card col">
+                        <div class="filter">
+                            <img alt="style" src="https://goop-img.com/wp-content/uploads/2022/04/style.jpg" srcset="" class="card-img">
+                        </div>
+                        <div class="centered text-uppercase space-3 text-title text-gl">STYLE</div>
+                    </div>
+                    <div class="card col">
+                        <div class="filter">
+                            <img alt="travel" src="https://goop-img.com/wp-content/uploads/2021/04/travel.jpg" srcset="" class="card-img">
+                        </div>
+                        <div class="centered text-uppercase space-3 text-title text-gl">TRAVEL</div>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+    </section>
+
+    <section id="follow" class="mt-5">
+        <!--		mobile-->
+        <div id="carouselExampleControls" class="carousel slide  d-lg-none" data-bs-ride="false">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <a href="https://www.instagram.com/goop/">
+                        <div class="w-100 h-100 text-gl d-flex flex-column justify-content-evenly p-2" style="background-image: url(https://goop-img.com/wp-content/uploads/2021/02/David-Maisel-Aerial-Photographs-4-2.png)">
+                            <i class="bi bi-instagram">&#64; GOOP</i>
+                            <p>Exclusive workouts, office hours with expert, recipes and more.</p>
+                            <link rel="stylesheet" href="https://www.instagram.com/goop/">
+                            <p class="text-uppercase text-gl">follow us</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="https://www.instagram.com/goop/">
+                        <div class="w-100 h-100 text-gl d-flex flex-column justify-content-evenly p-2" style="background-image: url(https://goop-img.com/wp-content/uploads/2021/02/GOOP-1_Page_17-1.png)">
+                            <i class="bi bi-instagram">	&#64;GOOP</i>
+                            <p>Exclusive workouts, office hours with expert, recipes and more.</p>
+                            <link rel="stylesheet" href="https://www.instagram.com/goop/">
+                            <p class="text-uppercase text-gl">follow us</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="https://www.instagram.com/goop/">
+                        <div class="w-100 h-100 text-gl d-flex flex-column justify-content-evenly p-2" style="background-image: url(https://goop-img.com/wp-content/uploads/2021/02/GOOP-1_Page_17-2.png)">
+                            <i class="bi bi-instagram">	&#64;GOOP</i>
+                            <p>Exclusive workouts, office hours with expert, recipes and more.</p>
+                            <link rel="stylesheet" href="https://www.instagram.com/goop/">
+                            <p class="text-uppercase text-gl">follow us</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="carousel-indicators">
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+        <!--		pc-->
+        <article class="row p-0 m-0 d-none d-lg-block">
+            <div class="vw-100 d-flex m-0 p-0">
+                <div class="w-100 h-100 text-gl d-flex flex-column justify-content-evenly ps-2 p-4" style="background-image: url(https://goop-img.com/wp-content/uploads/2021/02/David-Maisel-Aerial-Photographs-4-2.png)">
+                    <i class="bi bi-instagram">	&#64;GOOP</i>
+                    <p>Exclusive workouts, office hours with expert, recipes and more.</p>
+                    <link rel="stylesheet" href="https://www.instagram.com/goop/">
+                    <a href="https://www.instagram.com/goop/" class="text-uppercase link-light">follow us</a>
+                </div>
+                <div class="w-100 h-100 text-gl d-flex flex-column justify-content-evenly ps-2 p-4" style="background-image: url(https://goop-img.com/wp-content/uploads/2021/02/David-Maisel-Aerial-Photographs-4-4.png)">
+                    <i class="bi bi-instagram">	&#64;GOOP</i>
+                    <p>Exclusive workouts, office hours with expert, recipes and more.</p>
+                    <link rel="stylesheet" href="https://www.instagram.com/goop/">
+                    <a href="https://www.instagram.com/goop/" class="text-uppercase link-light">follow us</a>
+                </div>
+                <div class="w-100 h-100 text-gl d-flex flex-column justify-content-evenly ps-2 p-4" style="background-image: url(https://goop-img.com/wp-content/uploads/2021/02/GOOP-1_Page_17-1.png)">
+                    <i class="bi bi-instagram">	&#64;GOOP</i>
+                    <p>Exclusive workouts, office hours with expert, recipes and more.</p>
+                    <link rel="stylesheet" href="https://www.instagram.com/goop/">
+                    <a href="https://www.instagram.com/goop/" class="text-uppercase link-light">follow us</a>
+                </div>
+                <div class="w-100 h-100 text-gl d-flex flex-column justify-content-evenly p-2 p-4"style="background-image: url(https://goop-img.com/wp-content/uploads/2021/02/GOOP-1_Page_17-2.png)">
+                    <i class="bi bi-instagram">	&#64;GOOP</i>
+                    <p>Exclusive workouts, office hours with expert, recipes and more.</p>
+                    <link rel="stylesheet" href="https://www.instagram.com/goop/">
+                    <a href="https://www.instagram.com/goop/" class="text-uppercase link-light">follow us</a>
+                </div>
+            </div>
+        </article>
+    </section>
+</main>
+
+
+
+@endsection

@@ -1,14 +1,15 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Backend;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class BackendController extends Controller
+class BController extends Controller
 {
     public function __construct()
     {
-        $this->middleware("auth");
+        $this->middleware(["auth","employee"]);
     }
 
     /**

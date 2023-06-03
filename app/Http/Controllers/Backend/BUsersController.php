@@ -1,31 +1,34 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Backend;
 
+use App\Http\Controllers\Controller;
+use App\Http\Requests\CustomerCreateRequest;
+use App\Http\Requests\CustomerUpdateRequest;
 use App\Models\BillingAddresses;
 use App\Models\Day;
 use App\Models\Month;
 use App\Models\Newsletterinfo;
 use App\Models\Preference;
 use App\Models\ReadOrShop;
-use App\Models\ShippingAddresses;
-use App\Models\Title;
+use App\Models\Salutation;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
-class BackendUsersController extends Controller
+class BUsersController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    public function __construct()
+    {
+        $this->middleware(["auth","employee"]);
+    }
     public function index()
     {
         $preferencTotal = Preference::all()->count();
         $newsletterinfosTotal = Newsletterinfo::all()->count();
         $users = User::with([
             "preferences",
-            "title",
+            "salutation",
             "month",
             "newsletterinfos",
         ])
@@ -46,7 +49,7 @@ class BackendUsersController extends Controller
         $preferences = Preference::all();
         $ReadOrShops = ReadOrShop::all();
         $newsletterinfos = Newsletterinfo::all();
-        $titles = Title::all();
+        $salutations = Salutation::all();
         $months = Month::all();
         $days = Day::all();
         return view(
@@ -55,7 +58,7 @@ class BackendUsersController extends Controller
                 "preferences",
                 "ReadOrShops",
                 "newsletterinfos",
-                "titles",
+                "salutations",
                 "months",
                 "days"
             )
@@ -65,7 +68,7 @@ class BackendUsersController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CustomerCreateRequest $request)
     {
         $validatedData = $request->validate(
             [
@@ -85,7 +88,7 @@ class BackendUsersController extends Controller
 
         $user = new User();
         $user->read_or_shop_id = $request->ReadOrShop;
-        $user->title_id = $request->title;
+        $user->salutation_id = $request->salutation_id;
         $user->first_name = $request->first_name;
         $user->last_name = $request->last_name;
         $user->phone = $request->phone;
@@ -104,7 +107,7 @@ class BackendUsersController extends Controller
             ->route("users.index")
             ->with([
                 "alert" => [
-                    "message" => "User added",
+                    "message" => "User added successfully",
                     "type" => "success",
                 ],
             ]);
@@ -128,7 +131,7 @@ class BackendUsersController extends Controller
         $preferences = Preference::all();
         $ReadOrShops = ReadOrShop::all();
         $newsletterinfos = Newsletterinfo::all();
-        $titles = Title::all();
+        $salutations = Salutation::all();
         $months = Month::all();
         $days = Day::all();
         $BillingAddresses = BillingAddresses::all();
@@ -140,7 +143,7 @@ class BackendUsersController extends Controller
                 "preferences",
                 "ReadOrShops",
                 "newsletterinfos",
-                "titles",
+                "salutations",
                 "months",
                 "days",
                 "BillingAddresses"
@@ -151,45 +154,25 @@ class BackendUsersController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(CustomerUpdateRequest $request, string $id)
     {
-        $validatedData = $request->validate(
-            [
-                "password" => "nullable|min:8",
-                "email" => "required |email | unique:users",
-                "phone" => 'regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
-                "mobile_phone" =>
-                    'nullable|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
-            ],
-            [
-                "password.required" => "Please enter a password",
-                "email.email" => "Please enter a valid email adres",
-                "phone" => "Please enter a vilid phone number",
-                "mobile_phone" => "Please enter a vilid phone number",
-            ]
-        );
-
         $user = User::findOrFail($id);
-        $user->read_or_shop_id = $request->ReadOrShop;
-        $user->title_id = $request->title;
-        $user->first_name = $request->first_name;
-        $user->last_name = $request->last_name;
-        $user->phone = $request->phone;
-        $user->mobile_phone = $request->mobile_phone;
-        $user->email = $request->email;
-        $user->password = Hash::make($request->password);
+        if(trim($request->password) == ''){
+            $input = $request->except('password');
+        } else {
+            $input = $request->all();
+            $input['password'] = Hash::make($request['password']);
+        }
 
-        $user->month_id = $request->month;
-        $user->day_id = $request->day;
-        $user->save();
+        $user->update($input);
 
         $user->preferences()->sync($request->preferences, true);
         $user->newsletterinfos()->sync($request->newsletterinfos, true);
 
-        return route("users.index")->with([
+        return redirect("dashboard/users")->with([
             "alert" => [
-                "message" => "User added",
-                "type" => "success",
+                "message" => "Updated successfully",
+                "type" => "primary",
             ],
         ]);
     }
@@ -200,18 +183,22 @@ class BackendUsersController extends Controller
     public function destroy(string $id)
     {
         User::findOrFail($id)->delete();
-        return redirect()->route("users.index");
+        return redirect()->route("users.index")
+            ->with([
+                "alert" =>
+                    ["message" => "Record removed", "type" => "danger"]
+            ]);
     }
-    public function userRestore($id)
+    public function restore($id)
     {
         User::onlyTrashed()
             ->where("id", $id)
             ->restore();
-        $user = User::withTrashed()
-            ->where("id", $id)
-            ->first();
+
         return redirect()
             ->route("users.index")
-            ->with(["aldert" => ["message" => "restore", "type" => "succes"]]);
+            ->with(["aldert" =>
+                ["message" => "Record restored", "type" => "succes"]
+            ]);
     }
 }

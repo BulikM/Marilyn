@@ -1,0 +1,43 @@
+
+.max-width-1170 {
+	max-width: 1170px;
+}
+.max-width-1680{
+	max-width: 1680px;
+}
+.max-width-1140{
+
+	max-width: 1140px;
+}
+.h-300{
+	height: 8rem;
+}
+
+
+#goop-retail .goop-retail-locations{
+
+	padding-bottom: 80px;
+
+}
+#goop-retail .goop-retail__section {
+	margin: 50px 168px 50px 154px;!important;
+}
+.py-60{
+    padding-top: 3.75rem;
+    padding-bottom: 3.75rem;
+}
+@media screen and (min-width: 991px) {
+    .featured {
+        padding: 60px 140px 60px 140px;
+
+    }
+}
+
+/*shopcart*/
+/*cartheader*/
+@media screen and (min-width: 769px){
+	.w-md-70{
+		max-width: 70%;
+	}
+
+}

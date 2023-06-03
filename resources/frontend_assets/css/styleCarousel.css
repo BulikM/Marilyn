@@ -1,0 +1,84 @@
+
+/*carousel*/
+
+/*pijl kleur carousel*/
+.pijl{
+	height: 6rem;
+	width: 2rem;
+	background-color: rgb(68, 68, 68)
+}
+.dotscarousel .carousel-indicators [data-bs-target] {
+
+	/*bolletjes + kleur*/
+	color: rgb(17, 17, 17)!important;
+	background-color: rgb(83, 83, 83);
+	width: 8px;
+	height: 8px;
+	display: inline-block;
+	border-radius: 50%;
+	/*meer naar onder*/
+	bottom: -2rem;
+}
+/*pijltje omlaag*/
+.dotscarousel .carousel-control-next, .dotscarousel .carousel-control-prev {
+	top: 20%;
+	whidth: 15% !important;
+}
+/*card rand weg*/
+
+.card{
+	border: none;
+	border-radius: 0;
+}
+.card-img{
+	border-radius: 0;
+}
+
+
+/*hover image tweede image*/
+.hover_img {
+
+	position: absolute;
+
+	top: 0;
+
+	left: 0;
+
+	display: none;
+
+}
+.img:hover .hover_img {
+
+	display: inline;
+
+}
+/*zoom image on hover*/
+/* [1] The container */
+.img-hover-zoom {
+	/*height: 300px; !* [1.1] Set it as per your need *!*/
+	overflow: hidden; /* [1.2] Hide the overflowing of child elements */
+}
+
+/* [2] Transition property for smooth transformation of images */
+.img-hover-zoom img {
+	/*transition: transform 0.8s ease;*/
+	transition: all 0.5s ease-in-out 0s;
+	border-radius: 0;
+
+}
+
+/* [3] Finally, transforming the image when container gets hovered */
+.img-hover-zoom:hover img {
+	transform: scale(1.1);
+}
+
+/*aanpaasen pijltjes*/
+.pijl .carousel-control-prev-icon {
+	/* change fill="currentColor" to %23fff to make it white  */
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' height='24' width='24' class='SvgIconstyles__StyledSvgIcon-sc-1h1x60g-0 hqtITr Carouselstyles__StyledSvgIcon-b7o3y3-8 ceHZFw' aria-label='Back' fill='%23fff' type='arrow' aria-hidden='true' data-acsb-hidden='true' data-acsb-force-hidden='true'%3E%3Cpath d='M16.517 12L7.414 0 7 .31 15.868 12 7 23.69l.414.31 9.103-12'%3E%3C/path%3E%3C/svg%3E");
+	transform: rotate(180deg);
+}
+.pijl .carousel-control-next-icon {
+	/* change fill="currentColor" to %23fff to make it white  */
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' height='24' width='24' class='SvgIconstyles__StyledSvgIcon-sc-1h1x60g-0 hqtITr Carouselstyles__StyledSvgIcon-b7o3y3-8 ceHZFw' aria-label='Back' fill='%23fff' type='arrow' aria-hidden='true' data-acsb-hidden='true' data-acsb-force-hidden='true'%3E%3Cpath d='M16.517 12L7.414 0 7 .31 15.868 12 7 23.69l.414.31 9.103-12'%3E%3C/path%3E%3C/svg%3E");
+}

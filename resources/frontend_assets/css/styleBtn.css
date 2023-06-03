@@ -1,0 +1,344 @@
+*{
+	box-sizing: border-box;
+}
+/*detailpage*/
+
+@media screen and (min-width: 990px){
+	.cZinvQ {
+		max-width: 100%;
+		margin: 0px;
+		padding-top: 15px;
+		padding-bottom: 15px;
+		font-size: 14px;
+	}
+}
+@media screen and (max-width: 768px){
+	.cZinvQ {
+		max-width: 335px;
+		margin: 0px auto;
+	}
+}
+.cZinvQ {
+	display: block;
+	width: 100%;
+	padding-top: 18px;
+	padding-bottom: 18px;
+	font-size: 16px;
+}
+
+@media screen and (min-width: 992px){
+	.lgLNaJ {
+		font-size: 14px;
+		padding: 12px 20px;
+	}
+}
+.lgLNaJ {
+	display: flex;
+	-webkit-box-align: center;
+	align-items: center;
+	background-color: rgb(17, 17, 17) !important;
+	color: rgb(255, 255, 255) !important;
+	text-transform: uppercase;
+	text-align: center;
+	font: 16px / 1.6 brandon_text, arial, sans-serif;
+	padding: 18px 30px;
+	white-space: nowrap;
+	text-decoration: none;
+	border: 0;
+}
+.lgLNaJ:hover {
+	display: flex;
+	-webkit-box-align: center;
+	align-items: center;
+	color: rgb(17, 17, 17) !important;
+	background-color: rgb(255, 255, 255) !important;
+	text-transform: uppercase;
+	text-align: center;
+	font: 16px / 1.6 brandon_text, arial, sans-serif;
+	padding: 18px 30px;
+	white-space: nowrap;
+	text-decoration: none;
+	border: 0;
+}
+.cffkFG {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+	z-index: 5;
+}
+.emilXf {
+	display: inline-block;
+	border-radius: 0px;
+	border: none;
+	background: none;
+	cursor: pointer;
+	text-decoration: none;
+	width: 100%;
+}
+.eRdOTX {
+	width: 100%;
+	position: relative;
+	cursor: pointer;
+}
+.eRdOTX:not(:last-child)::after {
+	content: "";
+	height: 100%;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	border-right: 1px solid rgb(255, 255, 255);
+}
+.zUICG {
+	padding: 18px 20px;
+}
+
+.vast{
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	z-index: 100;
+}
+/*streepjes na de filters maar dit gaf een probleem met bootstrap dropdown after dus vervangen door separator*/
+
+/*.ehVPHh:not(:last-child)::after {*/
+/*	content: "";*/
+/*	position: absolute;*/
+/*	height: 50%;*/
+/*	right: 0px;*/
+/*	top: 50%;*/
+/*	transform: translateY(-50%);*/
+/*	border-right: 1px solid rgb(153, 153, 153);*/
+/*}*/
+
+
+/*acordion*/
+.accordion-button:not(.collapsed) {
+	 color: white;
+	 background-color: white;
+	box-shadow: inset 0 calc(-1 * var(--bs-accordion-border-width)) 0 var(--bs-accordion-border-color);
+}
+.accordion{
+	border-radius: 0 !important;
+    --bs-accordion-btn-focus-border-color: white;
+	--bs-accordion-active-color: white;
+	--bs-accordion-active-bg: white;
+}
+.accordion-button:focus {
+	box-shadow: none;
+	border-color: rgba(0,0,0,.125);
+}
+.joUleu {
+	border-bottom: 1px solid rgb(204, 204, 204);
+}
+
+.accordionArrow .accordion-item .accordion-header .accordion-button:not(.collapsed)::after {
+	content: "\F229";
+	font-family: "bootstrap-icons";
+	color: rgb(0, 0, 0);
+	background-image: none;
+}
+.accordionArrow .accordion-item .accordion-header .accordion-button.collapsed::after {
+	content: "\F229";
+	color: rgb(0, 0, 0);;
+	font-weight: 400;
+	font-family: "bootstrap-icons";
+	background-image: none;
+}
+.accordion{
+	border: 0px;
+}
+.accordion-button{
+	border: 0px;
+}
+
+/*inputveld modal hart*/
+.iUqCEa {
+	margin-bottom: 12px;
+}
+.jYrnUY.jYrnUY {
+	border: 1px solid rgb(204, 204, 204);
+	height: 54px;
+	padding: 20px;
+	width: 100%;
+	display: block;
+	border-radius: 0px;
+	outline: none;
+	font-size: 16px;
+}
+button, input, optgroup, select, textarea {
+	font-family: inherit;
+	font-size: 100%;
+	line-height: 1.15;
+	margin: 0px;
+}
+/*remember me button*/
+.kLypQX {
+	padding: 0px;
+	text-align: left;
+	margin-bottom: 0px;
+	align-items: flex-start;
+}
+.gGlTKb {
+	width: 100%;
+	margin-bottom: 12px;
+}
+.bWwxQF {
+	display: inline-flex;
+	-webkit-box-align: center;
+	align-items: center;
+	cursor: pointer;
+	vertical-align: middle;
+	background: none;
+	border-style: none;
+	outline: none;
+	flex-direction: row;
+}
+.eFZXLa {
+	appearance: none;
+	cursor: pointer;
+	padding: 0px;
+	margin: 0px;
+	width: 20px;
+	height: 20px;
+	border: 1px solid rgb(153, 153, 153);
+	flex-shrink: 0;}
+
+/*forgot password?*/
+.hvEihu {
+	font-size: 14px;
+	padding: 0px;
+}
+.dhpxAK {
+	background-color: rgb(255, 255, 255);
+	border: none;
+	color: rgb(17, 17, 17);
+	padding: 0px 10px;
+	text-decoration: underline;
+}
+/*login*/
+.hIwozP {
+	padding-left: 80px;
+	padding-right: 80px;
+}
+
+/*more of brand*/
+@media screen and (min-width: 768px){
+	.BUVMf {
+		font-size: 12px;
+		line-height: 35px;
+	}
+}
+.BUVMf {
+	font: 700 16px / 45px brandon_grotesque_, arial, sans-serif;
+	color: rgb(17, 17, 17);
+	letter-spacing: 2px;
+	position: relative;
+	text-transform: uppercase;
+	background: none;
+}
+/*product page*/
+/*sticky button gsm*/
+
+/*accordion + -*/
+.accordionMulti .accordion-item .accordion-header .accordion-button:not(.collapsed)::after {
+	content: "\F63B";
+	font-family: "bootstrap-icons";
+	color: rgb(255, 255, 255);
+	background-image: none;
+	margin-top: 1rem;
+}
+.accordionMulti .accordion-item .accordion-header .accordion-button:not(.collapsed){
+	background-color: rgb(17, 17, 17);
+	transform: none;
+}
+.accordionMulti .accordion-item .accordion-header .accordion-button.collapsed::after {
+	content: "\F64D";
+	color: rgb(255, 255, 255);
+	font-weight: 400;
+	font-family: "bootstrap-icons";
+	background-image: none;
+	margin-bottom: 1rem;
+}
+.accordionMulti {
+	transition: none !important;
+}
+.accordionMulti .accordion-button {
+	transition: none !important;
+}
+/*acordion btn text*/
+/*btn*/
+.cbGfCo {
+	background-color: rgb(17, 17, 17);
+	color: rgb(255, 255, 255);
+	padding: 3px 10px 1px 26px;
+	border-bottom: 1px solid rgb(255, 255, 255);
+	text-transform: uppercase;
+	display: flex;
+	-webkit-box-pack: justify;
+	justify-content: space-between;
+	cursor: pointer;
+}
+/*tekst*/
+.dzbKSV {
+	display: flex;
+	-webkit-box-align: center;
+	align-items: center;
+	color: rgb(255, 255, 255);
+	text-transform: uppercase;
+	font: 1.3rem / 1.6 brandon_text, arial, sans-serif;
+}
+/*dropdown toggle*/
+.dropdown-toggle-change::after {
+	display: inline-block;
+	margin-left: 0.255em;
+	vertical-align: 0.255em;
+	content: "";
+	border-top: 0;
+	border-right: 0.3em solid transparent;
+	border-bottom: 0.3em solid;
+	border-left: 0.3em solid transparent;
+}
+.dropdown-toggle-change:not(.show)::after {
+	display: inline-block;
+	margin-left: 0.255em;
+	vertical-align: 0.255em;
+	content: "";
+	border-top: 0.3em solid;
+	border-right: 0.3em solid transparent;
+	border-bottom: 0;
+	border-left: 0.3em solid transparent;
+}
+/*scrol btn gsm product*/
+/*pijltje*/
+.cLYNbP {
+	width: 0px;
+	height: 0px;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-bottom: 10px solid white;
+}
+.nUGXJ {
+	display: block;
+	inset: 0px;
+	margin: 5px auto;
+}
+.hfHwMs {
+	background-color: rgb(17, 17, 17);
+	border-top: 1px solid rgb(17, 17, 17);
+	border-bottom: 1px solid rgb(17, 17, 17);
+	display: block;
+	height: 50px;
+	width: 70px;
+	margin-top: -50px;
+	position: sticky;
+	bottom: 55px;
+	left: calc(100% - 50px);
+	z-index: 1000;
+	padding: 7px 0px;
+	text-align: center;
+	text-transform: uppercase;
+	opacity: 0.8;
+	transition: opacity 250ms ease-in-out 0s;
+}

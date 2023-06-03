@@ -14,4 +14,5 @@ class NewsletterInfo extends Model
     {
         return $this->belongsToMany(User::class, "newsletter_info_user");
     }
+
 }

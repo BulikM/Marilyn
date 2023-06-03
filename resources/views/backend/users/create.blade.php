@@ -4,7 +4,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                    <form action="{{action('App\Http\Controllers\BackendUsersController@store')}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{action('App\Http\Controllers\Backend\BUsersController@store')}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('POST')
 
@@ -42,15 +42,16 @@
                         <p class="card-description mb-4"> Personal info </p>
 {{--titel--}}
                         <div class="row">
-                        <div class="dropdown mb-4">
-                            <select  name="title" id="title" class="form-select w-25" aria-label="title select">
-                                <option  value="" disabled selected hidden>Title</option>
-                                @foreach($titles as $title)
-                                    <option value="{{$title->id}}" class="hover-purple">{{$title->name}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        </div>
+                            <div class="row">
+                                <div class="dropdown mb-4">
+                                    <select  name="salutation_id" id="salutation_id" class="form-select w-25" aria-label="salutation select">
+                                        <option  value="" disabled selected hidden>Title</option>
+                                        @foreach($salutations as $salutation)
+                                            <option value="{{$salutation->id}}" name="salutation_id" class="hover-purple">{{$salutation->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
 {{--email--}}
                         <div class="row mb-4">
                             <div class="col-12 col-md-6">

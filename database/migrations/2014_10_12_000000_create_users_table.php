@@ -17,9 +17,12 @@ return new class extends Migration {
             $table->char("email", 255)->unique();
             $table->char("phone", 255)->nullable();
             $table->char("mobile_phone", 255)->nullable();
+            $table->date('birthdate')->nullable();
             $table->timestamp("email_verified_at")->nullable();
             $table->char("password", 255);
             $table->rememberToken();
+            $table->boolean('is_employee')->default(0);
+            $table->integer("is_active")->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

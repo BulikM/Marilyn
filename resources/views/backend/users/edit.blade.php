@@ -1,6 +1,6 @@
 @extends('layouts.backend')
 @section('breadcrumb')
-    <li class="breadcrumb-item"><a class="text-white text-decoration-none" href="{{route('dashboard')}}">Home</a></li>
+    <li class="breadcrumb-item"><a class="text-white text-decoration-none text-capitalize" href="{{route('dashboard')}}">Home</a></li>
     <li class="breadcrumb-item "><a class="text-white text-decoration-none" href="{{route('users.index')}}">Users</a></li>
     <li class="breadcrumb-item text-white active" aria-current="page">{{$user->first_name ? $user->first_name : $user->email}}</li>
 @endsection
@@ -10,7 +10,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <form action="{{action('App\Http\Controllers\BackendUsersController@update', $user->id)}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{action('App\Http\Controllers\Backend\BUsersController@update', $user->id)}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('patch')
 
@@ -31,7 +31,7 @@
                         <div class="row row-cols-1 row-cols-lg-3">
                             @foreach($ReadOrShops as $ReadOrShop)
                                 <div class="card col bg-none" >
-                                    <input type="radio" class="btn-check" value="{{$ReadOrShop->id}}" name="ReadOrShop" id="ReadOrShop{{$ReadOrShop->id}}" autocomplete="off" >
+                                    <input type="radio" class="btn-check" value="{{$ReadOrShop->id}}" name="read_or_shop_id" id="ReadOrShop{{$ReadOrShop->id}}" autocomplete="off" @checked($user->read_or_shop_id == value($ReadOrShop->id))>
                                     <label class="button btn-outline-purple" for="ReadOrShop{{$ReadOrShop->id}}">{{$ReadOrShop->name}}</label><br>
                                 </div>
                             @endforeach
@@ -52,11 +52,10 @@
                         {{--titel--}}
 
                         <div class="dropdown mb-4">
-                            <select  name="title" id="title" class="form-select w-25" aria-label="title select" >
+                            <select  name="salutation_id" id="salutation_id" class="form-select w-25" aria-label="salutation select">
                                 <option  value="" disabled selected hidden>Title</option>
-
-                                @foreach($titles as $title)
-                                    <option value="{{$title->id}}"  @selected($user->title_id == $title->id) class="hover-purple">{{$title->name}}</option>
+                                @foreach($salutations as $salutation)
+                                    <option value="{{$salutation->id}}" name="salutation_id" class="hover-purple" @selected($user->salutation_id == $salutation->id)>{{$salutation->name}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -160,7 +159,7 @@
                         <p> Billing Adres</p>
                         <hr>
                         <div class="float-end">
-                        <button class="text-capitalize btn text-decoration-underline">Add New Addres</button>
+                            <a href="{{route('shipping-address.create', $user->id )}}" class="text-capitalize btn text-decoration-underline"> Add New Addres</a>
                         </div>
                         <div class="row">
                             @foreach($BillingAddresses as $B_address)
@@ -195,8 +194,9 @@
                                 </div>
                             </div>
                         </div>
-                            @endforeach
                         </div>
+                            @endforeach
+
 
                         <div class="d-flex justify-content-center gap-3">
                             <button type="submit" class="button btn-gradient-submit">SUBMIT</button>
