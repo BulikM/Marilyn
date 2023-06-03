@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Backend;
+namespace App\Http\Controllers\Account;
 
 use App\Http\Controllers\Controller;
 use App\Models\ShippingAddresses;
 use App\Models\User;
 use Illuminate\Http\Request;
 
-class BShippingAddressController extends Controller
+class ShippingAddressController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -64,16 +64,20 @@ if(sizeof($oldAddresses) == 0){
 }
 
         $address->save();
-
+        $tab = 'nav-contact';
         $customer= $address->user;
 
         return redirect()
-            ->route('customers.edit', $customer->id )
+            ->route('customers.edit', $customer->id)
             ->with([
                 "alert" => [
                     "message" => "Address added",
                     "type" => "success",
                 ],
+            ])->with([
+                'tab-active'=>[
+                    "tab" =>'nav-contact'
+                ]
             ]);
     }
 

@@ -29,10 +29,10 @@ Route::patch('customers/updatepreferences/{user}',[ \App\Http\Controllers\Backen
         \App\Http\Controllers\Backend\BCustomerController::class,
         "restore",
     ])->name("customers.restore");
-Route::resource('shipping-address', \App\Http\Controllers\Backend\BShippingAddressController::class);
+Route::resource('shipping-address', \App\Http\Controllers\Account\ShippingAddressController::class);
 //shipping address
-    Route::get("shipping-address/create/{user}", [
-        \App\Http\Controllers\Backend\BShippingAddressController::class,
+    Route::get("shipping-address/new/{user:name}", [
+        \App\Http\Controllers\Account\ShippingAddressController::class,
         "create",
     ])->name("shipping-address.create");
 });

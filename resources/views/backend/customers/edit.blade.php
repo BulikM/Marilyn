@@ -1,4 +1,4 @@
-@extends('layouts.backend')
+@extends('layouts.backend',['title'=>'customer info'])
 @section('breadcrumb')
     <li class="breadcrumb-item"><a class="text-white text-decoration-none" href="{{route('dashboard')}}">Home</a></li>
     <li class="breadcrumb-item "><a class="text-white text-decoration-none"
@@ -10,7 +10,6 @@
 @section('content')
     @if (session('alert'))
         <x-alert :type="session('alert')['type']" :message="session('alert')['message']">
-            <x-slot name="title">Users</x-slot>
         </x-alert>
     @endif
     <div class="row">
@@ -29,11 +28,17 @@
                             </button>
                             <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab"
                                     data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact"
-                                    aria-selected="false">Adress Book
+                                    aria-selected="false">Address Book
                             </button>
                         </div>
                     </nav>
                     <div class="tab-content mt-4" id="nav-tabContent">
+                        @if (session('tab'))
+                        test
+
+                        {{--const triggerEl = document.querySelector('#myTab button[data-bs-target="#{{$tab}}"]')--}}
+                        {{--bootstrap.Tab.getInstance(triggerEl).show()}--}}
+                        @endisset
                         {{--Persenal info--}}
                         <div class="tab-pane fade show active" id="nav-info" role="tabpanel"
                              aria-labelledby="nav-home-tab" tabindex="0">
@@ -193,7 +198,7 @@
                                     @foreach($ReadOrShops as $ReadOrShop)
                                         <div class="card col bg-none">
                                             <input type="radio" class="btn-check" value="{{$ReadOrShop->id}}"
-                                                   name="ReadOrShop"
+                                                   name="read_or_shop_id"
                                                    id="ReadOrShop{{$ReadOrShop->id}}"
                                                    autocomplete="off" @checked($customer->read_or_shop_id == $ReadOrShop->id)>
                                             <label class="button btn-outline-purple"
@@ -237,17 +242,9 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="form-check">
+                                <div class="form-check d-flex flex-wrap p-0">
                                     @foreach($shippingAddresses as $s_address)
-{{--                                                                                                            {{dd($shippingAddresses)}}--}}
-{{--                                    @livewire('address', [--}}
-{{--                                    'model' => $customer,--}}
-{{--                                    'addresses'=> $shippingAddresses,--}}
-{{--                                    'field'=> 'is_primary',--}}
-
-{{--                                    ])--}}
-
-                                        <div class="col-sm-6">
+                                        <div class="col-12 col-sm-6 px-2">
                                             <div class="card box">
                                                 <div class="row">
                                                     <div class="col-sm-8 col-xs-8 address-display">
@@ -350,4 +347,27 @@
             </div>
         </div>
     </div>
+@endsection
+@section('scripts')
+    @if (session('tab-active'))
+           <script>
+            const triggerTabList = document.querySelectorAll('#nav-tab button')
+            triggerTabList.forEach(triggerEl => {
+                const tabTrigger = new bootstrap.Tab(triggerEl)
+
+                triggerEl.addEventListener('click', event => {
+                    event.preventDefault()
+                    tabTrigger.show()
+                })
+            })
+
+            const triggerEl = document.querySelector('#nav-tab button[data-bs-target="#{{session('tab-active')['tab']}}"]')
+            //const triggerEl = document.querySelector('#nav-preferences')
+            console.log(triggerEl);
+            const t = bootstrap.Tab.getInstance(triggerEl)
+            console.log(t);
+            t.show()
+        </script>
+    @endisset
+
 @endsection

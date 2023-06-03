@@ -1,9 +1,8 @@
 <!-- resources/views/components/_alert.blade.php -->
-@props(['type' => 'success', 'message'])
-@slot('title')@endslot
+@props(['type' => 'success', 'message', 'test'])
 
 <div data-alert {{ $attributes->merge(['class' => 'alert alert-' . $type . ' alert-dismissible fade show']) }} role="alert">
-    <strong>{{ $title ?? ucfirst($type) }}!</strong> {{ $message }}
+    {{ $message }}
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
 

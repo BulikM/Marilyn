@@ -1,4 +1,4 @@
-@extends('layouts.backend')
+@extends('layouts.backend', ['title' => 'shipping address'])
 @section('breadcrumb')
     <li class="breadcrumb-item"><a class="text-white text-decoration-none text-capitalize"
                                    href="{{route('dashboard')}}">Home</a></li>
@@ -9,7 +9,7 @@
 @section('content')
     {{--    {{dd($customer)}}--}}
 
-    <form action="{{action('App\Http\Controllers\Backend\BShippingAddressController@store')}}" method="POST"
+    <form action="{{action('App\Http\Controllers\Account\ShippingAddressController@store')}}" method="POST"
           enctype="multipart/form-data">
         @csrf
         @method('POST')

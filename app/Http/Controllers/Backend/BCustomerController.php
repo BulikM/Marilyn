@@ -165,7 +165,8 @@ class BCustomerController extends Controller
 
         return redirect("dashboard/customers")->with([
             "alert" => [
-                "message" => "$customer->first_name is changed",
+                'title'=>'$customer->first_name',
+                "message" => "is updated",
                 "type" => "primary",
             ],
         ]);
@@ -173,7 +174,7 @@ class BCustomerController extends Controller
 
     public function updatepreferences(Request $request, string $id)
     {
-
+//dd($request);
         $customer = User::findOrFail($id);
         $input = $request->all();
         $customer->update($input);
@@ -184,7 +185,7 @@ class BCustomerController extends Controller
             ->route('customers.edit', $customer->id )
             ->with([
                 "alert" => [
-                    "message" => "Prefferences added",
+                    "message" => "Preferences updated",
                     "type" => "success",
                 ],
             ]);
