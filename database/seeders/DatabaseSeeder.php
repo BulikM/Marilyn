@@ -4,7 +4,9 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\BillingAddresses;
+use App\Models\ProductCategory;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,6 +15,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         $this->call([
             PreferenceSeeder::class,
             SalutationSeeder::class,
@@ -24,6 +27,15 @@ class DatabaseSeeder extends Seeder
             BillingAddressesSeeder::class,
             ShippingAddressesSeeder::class,
             EmployeeSeeder::class,
+            BrandsSeeder::class,
+            ColorsSeeder::class,
+            KeywordsSeeder::class,
+            ImagesSeeder::class,
+            ProductSeeder::class,
+            ProductCategorySeeder::class,
+            Product_ProductCategorySeeder::class,
+
         ]);
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 }

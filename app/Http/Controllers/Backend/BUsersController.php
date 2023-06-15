@@ -18,10 +18,7 @@ use Illuminate\Support\Facades\Hash;
 
 class BUsersController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(["auth","employee"]);
-    }
+
     public function index()
     {
         $preferencTotal = Preference::all()->count();

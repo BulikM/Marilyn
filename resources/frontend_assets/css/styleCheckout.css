@@ -1,0 +1,13 @@
+.cartItemWrapper___1GWWZ .cartItemImage___3USxn {
+    width: 130px;
+    max-width: 40%;
+}
+@media (min-width: 769px) {
+    .cartItemWrapper___1GWWZ .cartItemImage___3USxn {
+        width: 200px;
+    }
+}
+.productImg___2ywut {
+    width: 100%;
+}
+

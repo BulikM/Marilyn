@@ -39,5 +39,8 @@ Route::group(["prefix" => "dashboard", "middleware" => ['employee', 'auth']], fu
         \App\Http\Controllers\Account\ShippingAddressController::class,
         "create",
     ])->name("shipping-address.create");
+
+//    products
+    Route::resource("products", \App\Http\Controllers\Backend\BProductController::class);
 });
 

@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,18 +13,28 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get("/", function () {
-    return view("welcome");
-});
+Route::resource("/", \App\Http\Controllers\frontend\HomeController::class);
 Route::get("/home", [
-    App\Http\Controllers\HomeController::class,
+    \App\Http\Controllers\frontend\HomeController::class,
     "index",
 ])->name("home");
-Route::get("products", function (){
-    return view('products');
-});
+//products
+Route::resource("/product", \App\Http\Controllers\frontend\ProductController::class);
+Route::get('product/{id}', [\App\Http\Controllers\frontend\ProductController::class, 'show'])->name('posts.show');
+Route::get("/products/brand/{id}", '\App\Http\Controllers\frontend\ProductController@productsPerBrand')->name('productsPerBrand');
 
+//cart
+Route::get('/addToCart/{id}', '\App\Http\Controllers\frontend\ProductController@addToCart')->name('addToCart');
+Route::get('/cart', '\App\Http\Controllers\frontend\ProductController@cart')->name('cart');
+Route::post('/cart', '\App\Http\Controllers\frontend\ProductController@updateQuantity')->name('quantity');
+Route::get('/removeItem/{id}', '\App\Http\Controllers\frontend\ProductController@removeItem')->name('removeItem');
 
+//payment
+Route::post('/checkout', '\App\Http\Controllers\frontend\CheckoutController@checkout')->name('checkout');
+Route::get('/failure', '\App\Http\Controllers\frontend\CheckoutController@failure')->name('checkout.failure');
+Route::get('/success', [App\Http\Controllers\frontend\CheckoutController::class, 'success'])->name('checkout.success');
+//Route::get('/cancel', [App\Http\Controllers\frontend\ProductController::class, 'cancel'])->name('checkout.cancel');
+Route::post('/webhook', '\App\Http\Controllers\frontend\CheckoutController@webhook')->name('checkout.webhook');
 
 
 //Backend

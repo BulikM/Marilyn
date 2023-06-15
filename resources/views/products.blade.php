@@ -1,9 +1,4 @@
 @extends('layouts.frontend')
-
-{{--@section('title')--}}
-{{--    Clothing for Women - Shop Designer Brands | goop--}}
-{{--@endsection--}}
-
 @section('content')
     <!--main-->
     <main class="container-fluid p-0">

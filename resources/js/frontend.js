@@ -15,6 +15,7 @@ import("../frontend_assets/css/styleMobile.css")
 import("../frontend_assets/css/login.css")
 import("../frontend_assets/css/styleText.css")
 import("../frontend_assets/css/styleNavbar.css")
+import("../frontend_assets/css/styleCheckout.css")
 
 
 import("../frontend_assets/js/index.js")

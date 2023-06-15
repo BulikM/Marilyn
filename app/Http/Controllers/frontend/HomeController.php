@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\frontend;
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\Product;
 
 class HomeController extends Controller
 {
@@ -20,6 +21,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view("welcome");
+        $new_products = Product::with('image', 'brand')->latest('created_at')->take(11)->get();
+        return view("index", compact('new_products'));
     }
 }

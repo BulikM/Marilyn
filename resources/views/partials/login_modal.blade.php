@@ -64,3 +64,21 @@
     </div>
 </div>
 
+@section('scripts')
+
+    <script type="text/javascript">
+        @if ($errors->any())
+        var d = document.getElementById("loginmodal");
+        d.className += " show";
+        d.style.display = "block"
+        @endif
+        document.getElementById('closemodal').addEventListener('click', function(event) {
+            event.preventDefault();
+            var d = document.getElementById('loginmodal');
+            if (d.classList.contains('show')) {
+                d.classList.remove('show');
+            }
+            d.style.display = "none";
+        });
+    </script>
+@endsection

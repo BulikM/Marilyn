@@ -17,11 +17,6 @@ use Illuminate\Support\Facades\Hash;
 
 class BEmployeeController extends Controller
 {
-
-    public function __construct()
-    {
-        $this->middleware(["auth","employee"]);
-    }
     /**
      * Display a listing of the resource.
      */
