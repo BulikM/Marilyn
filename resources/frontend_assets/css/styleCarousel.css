@@ -3,9 +3,14 @@
 
 /*pijl kleur carousel*/
 .pijl{
-	height: 6rem;
-	width: 2rem;
+	height: 6rem !important;
+	width: 2rem !important;
 	background-color: rgb(68, 68, 68)
+}
+@media (min-width: 992px) {
+    .pijl {
+        flex: 0 0 139px;
+    }
 }
 .dotscarousel .carousel-indicators [data-bs-target] {
 
@@ -14,7 +19,6 @@
 	background-color: rgb(83, 83, 83);
 	width: 8px;
 	height: 8px;
-	display: inline-block;
 	border-radius: 50%;
 	/*meer naar onder*/
 	bottom: -2rem;

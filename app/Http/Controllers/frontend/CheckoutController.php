@@ -21,13 +21,13 @@ class CheckoutController extends Controller
         $cartitems = $cart->products;
         $ids = Arr::pluck($cartitems,'product_id');
         $products = Product::query()->whereIn('id', $ids)->get();
-        $cartitems = Arr::keyBy($cartitems, 'product_id');
-//       dd($products);
+
         $lineItems = [];
         $totalPrice = 0;
-        foreach ($products as $product) {
-//            dd($product);
-            $totalPrice += $product->price;
+        foreach ($cartitems as $cartitem) {
+            $product = $products->where('id', $cartitem['product_id'])->first();
+            $totalPrice += $cartitem['quantity'] * $product->price;
+
             $lineItems[] = [
                 'price_data' => [
                     'currency' => 'EUR',
@@ -37,10 +37,10 @@ class CheckoutController extends Controller
                     ],
                     'unit_amount_decimal' => $product->price * 100,
                 ],
-                'quantity' => 1,
+                'quantity' => $cartitem['quantity'],
             ];
         }
-//        dd( route('cancel', [], true));
+
         $session = \Stripe\Checkout\Session::create([
             'line_items' => $lineItems,
             'mode' => 'payment',

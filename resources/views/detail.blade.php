@@ -322,10 +322,10 @@
                     <!--			carousel laptop-->
                     <article id="carouselExampleDark" class="carousel carousel-dark slide rechts" data-bs-ride="false">
 
-                        <div class="carousel-inner mb-4">
-                            <div class="carousel-item active">
+                        <div class="carousel-inner mb-4" style="width: 576px;">
+                            <div class="carousel-item active" style="width: 576px;">
                                 <img alt="{{$product->name}}"
-                                     src="{{$product->image->file}}">
+                                     src="{{$product->image->file}}" class="w-100">
                             </div>
 {{--                            <div class="carousel-item">--}}
 {{--                                <img alt="Mara Hoffman Marilyn Dress"--}}

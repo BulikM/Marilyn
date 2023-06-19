@@ -67,7 +67,7 @@
 @section('scripts')
 
     <script type="text/javascript">
-        @if ($errors->any())
+        @if ($errors->has('email'))
         var d = document.getElementById("loginmodal");
         d.className += " show";
         d.style.display = "block"

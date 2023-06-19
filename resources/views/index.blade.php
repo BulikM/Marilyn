@@ -27,20 +27,20 @@
         <!--Gwyneth's gift list-->
         <article class="col12 p-0">
 
-                <div id="carouselExampleIndicators" class="carousel slide dotscarousel" data-bs-ride="false">
+            <div id="carouselExampleIndicators" class="carousel slide dotscarousel d-flex" data-bs-ride="false">
                     <div class="carousel-indicators">
                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
                     </div>
-                    <div class="carousel-inner carousel-4 Items_container pb-5">
+                    <div class="carousel-inner carousel-4 Items_container pb-5 px-5" style="width: 1655px;">
                         @foreach($new_products as $key=>$new)
-                        <div class="carousel-item {{$key == 0 ? 'active':'' }}">
+                        <div class="carousel-item {{$key == 0 ? 'active':'' }} w-100 justify-content-center gap-5" style="padding-left: 24px; padding-right: 24px">
 
-                                <div class="card mx-3">
+                                <div class="card" style="width: 272px;">
                                     <a href="{{route('product.show', $new->id)}}">
                                     <img alt="{{$new->name}}"
-                                         src="{{$new->image->file}}">
+                                         src="{{$new->image->file}}" class="w-100 h-auto">
                                     </a>
                                     <div class="card-body">
                                         <p class="text-g1">{{$new->brand->name}}</p>
@@ -51,6 +51,7 @@
                             <!--							einde inhoud tweede carousel-->
                         </div>
                         @endforeach
+
 
                         <button class="carousel-control-prev pijl" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>

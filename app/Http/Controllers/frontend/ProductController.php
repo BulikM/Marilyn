@@ -95,10 +95,20 @@ class ProductController extends Controller
             $currentCart =Session::has('cart')? Session::get('cart') : null;
             $cart = new Cart($currentCart);
             $cart = $cart->products;
-            return view ('checkout', compact('cart'));
+            return view ('cart', compact('cart'));
         }
     }
     public function updateQuantity(Request $request){
+        request()->validate([
+            'quantity'=> ['required', 'integer', 'min:1'],
+        ],
+            [
+                'quantity.required'=> 'Quantity is required',
+                'quantity.integer' => 'Please give a valid quantity',
+                'quantity.min'=>'Please give a valid quantity',
+                //   'categories.required'=>'Please check minimum one category'
+            ]);
+
         $oldCart = Session::has('cart') ? Session::get('cart'):null;
         $cart = new Cart($oldCart);
         $cart->updateQuantity($request->id, $request->quantity);

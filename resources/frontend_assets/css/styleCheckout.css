@@ -11,3 +11,86 @@
     width: 100%;
 }
 
+.go-back{
+    position: absolute;
+}
+
+/*quantity*/
+.cartItemQuantityInner___34hNk {
+    font: 13px/0 brandon_grotesque_, brandon_grotesque, arial, sans-serif;
+}
+.qty::after {
+    content: 'Qty: ';
+    position: absolute;
+    font-size: 1.25em;
+    top: calc((100% - 1.25em) / 3);
+    left: 1em;
+    line-height: 25px;
+}
+
+@media (min-width: 769px) {
+    .cartItemActionsWrapper___1ahDy {
+        align-items: flex-start !important;
+        flex-direction: row;
+        flex-basis: 33%;
+        flex-grow: 2;
+        max-width: 100%;
+    }
+}
+
+/*you might also like*/
+h2.line:before, h2.line:after {
+    content: '';
+    height: 1px;
+    background-color: #ccc;
+    display: block;
+    flex: 1 1;
+}
+.title___1Ikv6 {
+    margin: 30px 0 25px;
+    text-align: center;
+}
+
+/*you might also like*/
+.name___1-mZL {
+    display: block;
+    text-transform: uppercase;
+    color: #111;
+    font-size: 12px;
+    font-weight: 500;
+    font-family: brandon_grotesque_, brandon_grotesque, arial, sans-serif;
+}
+
+
+/*checkout*/
+.checkout h3 {
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 35px 0 10px;
+    font-size: 24px;
+    line-height: 26px;
+}
+.checkout-list {
+    font-weight: 500;
+    text-transform: uppercase;
+    line-height: 36px;
+    color: #111;
+    font-family: brandon_grotesque_, brandon_grotesque, arial, sans-serif;
+}
+
+.promoInputinfo{
+    font-size: 14px;
+    line-height: 18px;
+    color: #666;
+    margin-bottom: 14px;
+    font-style: italic;
+    text-transform: none;
+}
+.promoInput{
+    width: 100%;
+    height: 39px;
+    color: black;
+    padding: 0 1em;
+    vertical-align: bottom;
+    border: 1px solid #ccc;
+}

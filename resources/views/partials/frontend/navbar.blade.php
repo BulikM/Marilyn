@@ -22,7 +22,7 @@
 </div>
 <!--header-->
 <header class="bg-dark sticky-top" id="header">
-    <nav class="container-fluid max-width-1220 ps-4 pe-4 pt-4" id="navbar">
+    <nav class="container-fluid max-width-1220 ps-4 pe-4 pt-lg-4" id="navbar">
 
         <div class="row ms-md-4 me-md-4">
             <div class="col-12 d-flex justify-content-lg-between justify-content-evenly">
