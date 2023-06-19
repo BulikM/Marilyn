@@ -33,16 +33,15 @@
                 <div class="m-0">
                     @foreach($cart as $product)
                         <hr class="text-black">
-                        <div class="cartItem___1vbT9 row">
-                            <div class="cartItemWrapper___1GWWZ mediaBody___3mOPi media-body d-flex flex-wrap p-2">
-
-                                <div class="cartItemImage___3USxn me-3">
+                        <div class="p-2">
+                            <div class="cartItemWrapper___1GWWZ d-flex flex-wrap m-0 p-0 w-100">
+                                <div class="cartItemImage___3USxn">
 
                                     <a href="{{route('product.show', $product['product_id'])}}">
                                         <img class="productImg___2ywut d-block"
                                              src="{{$product['product_image'] ? asset ( $product['product_image']) : ' no image availebel'}}"></a>
                                 </div>
-                                <div class="order-2 order-lg-1">
+                                <div class="order-2 order-lg-1 ps-4">
                                     <h3 class="productName___289kw">
                                         <a href="{{route('product.show', $product['product_id'])}}">{{$product['product_name']}}</a>
                                     </h3>
@@ -63,38 +62,24 @@
                                                 BLACK/IVORY
                                             </p>
                                             <p class="optionValues___qDP92">
-                                                <span>Price:</span>€ {{$product['product_price']}} </p></div>
+                                                <span>Price:</span>€ {{$product['product_price']}}
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
 
-                                <div class="cartItemActionsWrapper___1ahDy order-1 order-lg-2">
-                                    <div class="cartItemQuantity___2Qyvk cartItemQuantity___BGj-b">
-                                        <div class="cartItemQuantityInner___34hNk">
-                                            <div class="quantityFieldWrapper___MEQVi">
-                                                <div class="quantityFieldContainer___2f0Fo">
+                                <div class="order-1 order-lg-2 flex-fill align-items-end">
+
+                                    <div class="pt-4 pt-md-0 ps-3">
                                                     <form method="POST"
                                                           action="{{action('App\Http\Controllers\frontend\ProductController@updateQuantity')}}"
                                                           enctype='multipart/form-data'>
                                                         @csrf
                                                         @method('POST')
-                                                        <div class="m-2 m-lg-0">
-                                                            <div class="cartItemQuantityInner___34hNk">
-                                                                <div class="quantityFieldWrapper___MEQVi">
-                                                                    <div class="quantityFieldContainer___2f0Fo">
-                                                                        <input class="quantityField___2_jMP" type="number" aria-label="Quantity, to increase or decrease quantity, enter a new number." value="1" style="width: 80px;">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+                                                        <div class="input-group mb-3" style=" width: 100px">
+                                                            <span class="input-group-text border-dark bg-white rounded-0 border-end-0" id="basic-addon1">Qty: </span>
+                                                            <input type="number" class="form-control border-dark border-start-0 bg-white rounded-0 text-center" aria-label="quantity" aria-describedby="basic-addon1" value="{{$product['quantity']}}" name="quantity">
                                                         </div>
-                                                        {{--                                                            <input type="number" class="form-control-sm qty" name="quantity"--}}
-                                                        {{--                                                                   value="{{$product['quantity']}}"--}}
-                                                        {{--                                                                   max="10" @error('quantity') is-invalid @enderror">--}}
-                                                        {{--                                                            @error('quantity')--}}
-                                                        {{--                                                            <span class="invalid-feedback" role="alert">--}}
-
-                                                        {{--                                                                   <strong>{{ $message }}</strong>--}}
-                                                        {{--                                                              </span>--}}
-                                                        {{--                                                            @enderror--}}
                                                         <input type="hidden" class="form-control form-control-sm"
                                                                name="id" value="{{$product['product_id']}}">
                                                         <button class="d-none" type="submit">
@@ -103,14 +88,14 @@
                                                     </form>
 
                                                 </div>
-                                            </div>
+                                        <div class="cartItemDelete___6Odzn">
+                                            <p class="text-black d-flex d-lg-none">{{$product['product_price']}}</p>
                                         </div>
                                     </div>
-                                    <p class="totalPrice___1Z6Ur">{{$product['product_price']}}</p>
-                                    <div class="cartItemDelete___6Odzn">
-                                        <a href="{{route('removeItem', $product['product_id'])}}"
-                                           class="btn btn-link">Remove</a>
-                                    </div>
+                                <div class="order-3 d-flex flex-column align-items-end">
+                                    <p class="text-black d-none d-lg-block">€ {{$product['product_price'] * $product['quantity']}}</p>
+                                    <a href="{{route('removeItem', $product['product_id'])}}"
+                                         class="text-decoration-underline removeButton ">Remove</a>
                                 </div>
                             </div>
                         </div>
@@ -316,10 +301,14 @@
                                     <div class="xs-flex-1 value___38GgZ">€ {{Session::get('cart')->totalPrice}}</div>
                                 </div>
                             </div>
-                        <form action="{{route('checkout')}}" method="POST">
-                            @csrf
+{{--                        <form action="{{route('checkout')}}" method="POST">--}}
+{{--                            @csrf--}}
+{{--                            <button class="btn btn-g btn-dark text-uppercase rounded-0 w-100 mt-3 mb-4">Checkout</button>--}}
+{{--                        </form>--}}
+
+                            <a href="{{route('cart-address')}}">
                             <button class="btn btn-g btn-dark text-uppercase rounded-0 w-100 mt-3 mb-4">Checkout</button>
-                        </form>
+                            </a>
                     </div>
                 </div>
                 <a href="{{route('home')}}">

@@ -122,4 +122,15 @@ class ProductController extends Controller
         session::put('cart', $cart);
         return redirect()->back();
     }
+
+    public function cartAddress(){
+        if(!Session::has('cart')){
+            return redirect('/');
+        }else{
+            $currentCart =Session::has('cart')? Session::get('cart') : null;
+            $cart = new Cart($currentCart);
+            $cart = $cart->products;
+        }
+        return view ('cart-address', compact('cart'));
+}
 }
