@@ -723,6 +723,7 @@
                     <div data-cy="add-to-btn-container"
                          class="AddToCartBtnstyles__AddToBtnContainer-sc-1m28s06-0 hTTyJb">
                         <!--					add do bag-->
+
                         <button type="button"
                                 class="Button__ButtonBase-sc-1f89saf-0 Button__StyledButton-sc-1f89saf-1 dUTcMc PrimaryButtonstyles__StyledButton-sc-19dqr27-0 lgLNaJ LoadingButtonstyles__StyledLoadingButton-sc-1bnpwr4-0 jaXJCb Productstyles__StyledLoadingButton-jw9a2y-15 cZinvQ m-0 lgLNaJ zUICG"
                                 id="add-to-button-static1" value="" data-acsb-clickable="true"
@@ -847,7 +848,7 @@
                 </div>
             </div>
             <!--				omschrijving laptop-->
-            <div id="omschrijvingLg" class="col-5 d-none d-lg-block p-0 vh-100 ">
+            <div id="omschrijvingLg" class="col-5 d-none d-lg-block vh-100 ">
                 <div class="text-start col-11 offset-1 p-0">
                     <a href="{{route('productsPerBrand', $product->brand->id)}}"
                        class=" p-0 Text__BaseText-vs2pg6-0 Link__StyledLink-sc-7p0xb2-0 bLYPWY iICCXR styles__Brand-gvy2cl-0 hwMBsm Productstyles__StyledBrand-jw9a2y-18 bYxLCt"
@@ -900,80 +901,22 @@
                             class="AddToCartFormstyles__Bold-sc-17o2z77-9 gldpZt">
                             <strong>Color/Size unavailable?</strong>
                         </b>&nbsp;Select size to add to waitlist.</p>
-                    <div class="AddToCartFormstyles__FlexContainer-sc-17o2z77-2 kiJDwz">
-                        <div class="AddToCartFormstyles__QuantityContainer-sc-17o2z77-3 hSXeLi">
-                            <p class="AddToCartFormstyles__Subhead-sc-17o2z77-0 ddqQTz">Quantity</p>
-                            <div class="QuantityInputstyles__QuantityInputWrapper-sc-1mnnxw1-0 jJLARx">
-                                <button type="button"
-                                        class="Button__ButtonBase-sc-1f89saf-0 Button__StyledButton-sc-1f89saf-1 dUTcMc QuantityInputstyles__QuantityButton-sc-1mnnxw1-1 hheyrk"
-                                        data-delta="-1" value="" disabled="" data-acsb-clickable="true"
-                                        data-acsb-navigable="true" data-acsb-now-navigable="true" role="button">
-                                    <span class="acsb-sr-only" data-acsb-sr-only="true" data-acsb-force-visible="true"
-                                          aria-label=" Decrease quantity by 1 " aria-hidden="false"
-                                          data-acsb-hidden="false"></span>
-                                    <svg viewBox="0 0 24 24" height="24" width="24"
-                                         class="SvgIconstyles__StyledSvgIcon-sc-1h1x60g-0 hqtITr QuantityInputstyles__QuantityButtonIcon-sc-1mnnxw1-2 fMvPBf"
-                                         aria-label="" fill="" type="minus" aria-hidden="true" data-acsb-hidden="true"
-                                         data-acsb-force-hidden="true">
-                                        <path d="M7,11.5h8v1H7V11.5z"></path>
-                                    </svg>
-                                </button>
-                                <span aria-label="The current quantity is"
-                                      class="QuantityInputstyles__Quantity-sc-1mnnxw1-4 kYDzoa">1</span>
-                                <button type="button"
-                                        class="Button__ButtonBase-sc-1f89saf-0 Button__StyledButton-sc-1f89saf-1 dUTcMc QuantityInputstyles__QuantityButton-sc-1mnnxw1-1 hheyrk"
-                                        data-delta="1" value="" disabled="" data-acsb-clickable="true"
-                                        data-acsb-navigable="true" data-acsb-now-navigable="true" role="button">
-                                    <span class="acsb-sr-only" data-acsb-sr-only="true" data-acsb-force-visible="true"
-                                          aria-label=" Increase quantity by 1 " aria-hidden="false"
-                                          data-acsb-hidden="false"></span>
-                                    <svg viewBox="0 0 24 24" height="24" width="24"
-                                         class="SvgIconstyles__StyledSvgIcon-sc-1h1x60g-0 hqtITr QuantityInputstyles__QuantityButtonIcon-sc-1mnnxw1-2 QuantityInputstyles__QuantityButtonIconPlus-sc-1mnnxw1-3 fMvPBf kKikUY"
-                                         aria-label="" fill="" type="plus" aria-hidden="true" data-acsb-hidden="true"
-                                         data-acsb-force-hidden="true">
-                                        <g>
-                                            <path d="M11 8h1v9h-1V8z"></path>
-                                            <path d="M7 12h9v1H7v-1z"></path>
-                                        </g>
-                                    </svg>
-                                </button>
+                    <form method="POST"
+                          action="{{action('App\Http\Controllers\frontend\ProductController@addToCart', $product->id)}}"
+                          enctype='multipart/form-data'>
+                        @csrf
+                        @method('POST')
+                    <div class="">
+                        <div class="">
+                            <label for="quantity">Quantity</label>
+                            <div class="input-group text-center mb-3" style="width: 100px">
+                                <button class="input-group-text bg-white rounded-0 decrement-btn">-</button>
+                                <input type="number" name="quantity" class="form-control text-center qty-input" value="1">
+                                <button class="input-group-text bg-white rounded-0 increment-btn">+</button>
                             </div>
                             <!--						max aantal-->
                             <div class="QuantityInputstyles__QuantityNotification-sc-1mnnxw1-5 drwJIz">
                                 <em>Maximum available</em>
-                            </div>
-                        </div>
-                        <!--					ships to met vlaggen niet zichtbaar-->
-                        <div class="AddToCartFormstyles__ShippingTargetsContainer-sc-17o2z77-4 gKzGnC"
-                             style="display: none !important;" aria-hidden="true" data-acsb-hidden="true"><p
-                                class="AddToCartFormstyles__Subhead-sc-17o2z77-0 ddqQTz">Ships to</p>
-                            <div class="ShippingFlagstyles__ShippingFlagContainer-vfhz03-2 geSrDp">
-                                <div class="ShippingFlagstyles__ShippingFlagImageWrapper-vfhz03-3 gDBSQy"><img
-                                        src="//cdn.goop-assets.com/assets/flags/us-6c02c98dcd25ac6a10c4f65106d5312c6a6dbb6c580cbae75b960610119b0d96.png"
-                                        alt="United States"
-                                        class="ShippingFlagstyles__ShippingFlagImage-vfhz03-0 epTHvL"></div>
-                                <div class="ShippingFlagstyles__ShippingFlagLabel-vfhz03-1 kindOh">US</div>
-                            </div>
-                            <div class="ShippingFlagstyles__ShippingFlagContainer-vfhz03-2 geSrDp">
-                                <div class="ShippingFlagstyles__ShippingFlagImageWrapper-vfhz03-3 gDBSQy"><img
-                                        src="//cdn.goop-assets.com/assets/flags/ca-f4b41b03b0117cdb67fbb904f51c2e266bc6dcbf69f4f778a5f0791a0bda4613.png"
-                                        alt="Canada" class="ShippingFlagstyles__ShippingFlagImage-vfhz03-0 epTHvL">
-                                </div>
-                                <div class="ShippingFlagstyles__ShippingFlagLabel-vfhz03-1 kindOh">CA</div>
-                            </div>
-                            <div class="ShippingFlagstyles__ShippingFlagContainer-vfhz03-2 geSrDp">
-                                <div class="ShippingFlagstyles__ShippingFlagImageWrapper-vfhz03-3 dnGeei"><img
-                                        src="//cdn.goop-assets.com/assets/flags/eu-ec9ddc96e35d169c6178949e6b78242645c6271e361dbd926ad94c09b26f607f.png"
-                                        alt="Europe" class="ShippingFlagstyles__ShippingFlagImage-vfhz03-0 kecplJ">
-                                </div>
-                                <div class="ShippingFlagstyles__ShippingFlagLabel-vfhz03-1 kindOh">EU</div>
-                            </div>
-                            <div class="ShippingFlagstyles__ShippingFlagContainer-vfhz03-2 geSrDp">
-                                <div class="ShippingFlagstyles__ShippingFlagImageWrapper-vfhz03-3 dnGeei"><img
-                                        src="//cdn.goop-assets.com/assets/flags/uk-e0cf8e5dde0fa6ff12559411d55d4f7929b7b16e52098a300f64e46968f458e9.png"
-                                        alt="United Kingdom"
-                                        class="ShippingFlagstyles__ShippingFlagImage-vfhz03-0 kecplJ"></div>
-                                <div class="ShippingFlagstyles__ShippingFlagLabel-vfhz03-1 kindOh">UK</div>
                             </div>
                         </div>
                     </div>
@@ -981,17 +924,9 @@
                 <div class="text-start col-11 offset-1 mt-3">
                     <div data-cy="add-to-btn-container"
                          class="AddToCartBtnstyles__AddToBtnContainer-sc-1m28s06-0 hTTyJb">
-                        <!--					add do bag-->
-                        <a href="{{route('addToCart', $product->id)}}" class="Button__ButtonBase-sc-1f89saf-0 Button__StyledButton-sc-1f89saf-1 dUTcMc PrimaryButtonstyles__StyledButton-sc-19dqr27-0 lgLNaJ LoadingButtonstyles__StyledLoadingButton-sc-1bnpwr4-0 jaXJCb Productstyles__StyledLoadingButton-jw9a2y-15 cZinvQ m-0 text-centered"> <span
-                                class="LoadingButtonstyles__ContentWrapper-sc-1bnpwr4-1 NbHNL">Add to Bag</span>
-                        </a>
+                        <button type="submit" class="lgLNaJ jaXJCb cZinvQ">Add to bag</button>
+                        </form>
                         <br>
-{{--                        <button type="button"--}}
-{{--                                class="Button__ButtonBase-sc-1f89saf-0 Button__StyledButton-sc-1f89saf-1 dUTcMc PrimaryButtonstyles__StyledButton-sc-19dqr27-0 lgLNaJ LoadingButtonstyles__StyledLoadingButton-sc-1bnpwr4-0 jaXJCb Productstyles__StyledLoadingButton-jw9a2y-15 cZinvQ m-0"--}}
-{{--                                id="add-to-button-static" value="" data-acsb-clickable="true" data-acsb-navigable="true"--}}
-{{--                                data-acsb-now-navigable="true" role="button"><span--}}
-{{--                                class="LoadingButtonstyles__ContentWrapper-sc-1bnpwr4-1 NbHNL">Add to Bag</span>--}}
-{{--                        </button>--}}
                         <!--					waitlist-->
                         <button type="submit"
                                 class="d-none Button__ButtonBase-sc-1f89saf-0 Button__StyledButton-sc-1f89saf-1 dUTcMc PrimaryButtonstyles__StyledButton-sc-19dqr27-0 lgLNaJ Productstyles__AddToBtn-jw9a2y-16 cZinvQ m-0"
@@ -1655,4 +1590,32 @@
         </section>
     </main>
 
+@endsection
+@section('scripts')
+    <script>
+        $(document).ready(function (){
+            $('.increment-btn').click(function (e){
+                e.preventDefault();
+                var inc_value =$('.qty-input').val();
+                var value = parseInt(inc_value,10)
+                value = isNaN(value) ? 1 : value;
+                if(value < 10 )
+                {
+                    value++;
+                    $('.qty-input').val(value);
+                }
+            });
+            $('.decrement-btn').click(function (e){
+                e.preventDefault();
+                var inc_value =$('.qty-input').val();
+                var value = parseInt(inc_value,0)
+                value = isNaN(value) ? 1 : value;
+                if(value > 1 )
+                {
+                    value--;
+                    $('.qty-input').val(value);
+                }
+            });
+        });
+    </script>
 @endsection

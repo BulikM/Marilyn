@@ -120,7 +120,7 @@
     </nav>
 </header>
 
-<div class="row bg-dark">
+<div class="bg-dark">
     <div class="col-12 d-flex pt-2 justify-content-center">
         <ul class="list-unstyled d-flex mb-0">
             <li class="pe-3">

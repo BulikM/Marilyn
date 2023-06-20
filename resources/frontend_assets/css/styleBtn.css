@@ -33,7 +33,6 @@
 	}
 }
 .lgLNaJ {
-	display: flex;
 	-webkit-box-align: center;
 	align-items: center;
 	background-color: rgb(17, 17, 17) !important;
@@ -47,7 +46,6 @@
 	border: 0;
 }
 .lgLNaJ:hover {
-	display: flex;
 	-webkit-box-align: center;
 	align-items: center;
 	color: rgb(17, 17, 17) !important;

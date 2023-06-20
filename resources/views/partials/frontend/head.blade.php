@@ -13,7 +13,8 @@
           integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
           referrerpolicy="no-referrer" rel="stylesheet"/>
 
-
+{{--    jquery--}}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <!-- Scripts -->
     @vite(['resources/sass/app.scss','resources/js/frontend.js'])
 </head>
