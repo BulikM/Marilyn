@@ -31,9 +31,8 @@ Route::get('/removeItem/{id}', '\App\Http\Controllers\frontend\ProductController
 
 //cart-address
 Route::get("/cart-address", '\App\Http\Controllers\frontend\ProductController@cartAddress')->name('cart-address');
-Route::post('/cart-address', '\App\Http\Controllers\frontend\CheckoutController@checkoutShippingAddress')->name('checkoutShippingAddress');
-Route::post('/cart-address', '\App\Http\Controllers\frontend\CheckoutController@checkoutBillingAddress')->name('checkoutBillingAddress');
-
+Route::post('/cart-address/step1', '\App\Http\Controllers\frontend\CheckoutController@checkoutShippingAddress')->name('checkoutShippingAddress');
+Route::post('/cart-address/step2', '\App\Http\Controllers\frontend\CheckoutController@checkoutBillingAddress')->name('checkoutBillingAddress');
 
 //payment
 Route::post('/checkout', '\App\Http\Controllers\frontend\CheckoutController@checkout')->name('checkout');
@@ -42,7 +41,8 @@ Route::get('/success', [App\Http\Controllers\frontend\CheckoutController::class,
 Route::get('/cancel', [App\Http\Controllers\frontend\ProductController::class, 'cancel'])->name('checkout.cancel');
 Route::post('/webhook', '\App\Http\Controllers\frontend\CheckoutController@webhook')->name('checkout.webhook');
 
-
+//Remove session after payment
+Route::get("/succes/end", '\App\Http\Controllers\frontend\CheckoutController@sessionFlush')->name('sessionFlush');
 //Backend
 
 require('backend.php');

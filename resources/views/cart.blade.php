@@ -306,10 +306,6 @@
                                     <div class="xs-flex-1 value___38GgZ">€ {{Session::get('cart')->totalPrice}}</div>
                                 </div>
                             </div>
-{{--                        <form action="{{route('checkout')}}" method="POST">--}}
-{{--                            @csrf--}}
-{{--                            <button class="btn btn-g btn-dark text-uppercase rounded-0 w-100 mt-3 mb-4">Checkout</button>--}}
-{{--                        </form>--}}
 
                             <a href="{{route('cart-address')}}">
                             <button class="btn btn-g btn-dark text-uppercase rounded-0 w-100 mt-3 mb-4">Checkout</button>

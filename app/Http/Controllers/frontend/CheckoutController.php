@@ -30,51 +30,46 @@ class CheckoutController extends Controller
         $shippingaddress->province=$request->province;
         $shippingaddress->country =$request->country;
         $shippingaddress->shipping = true;
-
-
-//        $orderdetails->user_id = $request->customer_id;
-        $shippingaddress->save();
+//        $shippingaddress->save();
 
         session::put ('shipping', $shippingaddress);
         return redirect()
             ->route('cart-address');
     }
 
+
     public function checkoutBillingAddress(Request $request)
     {
         if($request->billing == 'true'){
             $billingaddress = session('shipping') ;
-//            dd($billingaddress);
             $billingaddress->billing = true;
-            $billingaddress->save();
             session::put ('billing', $billingaddress);
         }else{
-//            dd($request);
-//            request()->validate([
-//                'first_name'=> 'required|string|between:2,255',
-//                'last_name'=> 'required|string|between:2,255',
-//                'address_1'=> 'required|string|between:2,255',
-//                'address_2'=> 'nullable|string|between:2,255',
-//                'city'=> 'required|string|between:2,255',
-//                'zipcode'=> 'required|string|between:2,255',
-//                'province'=> 'required|string|between:2,255',
-//                'country'=> 'required|string|between:2,255',
-//                "phone" => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
-//                "email" => "required |email",
-//            ],
-//                [
-//
-//                    'first_name.string'=>'This name is a bit strange. Can you do this correctly',
-//                    'first_name.between'=>'The name must be between 2 and 255 characters',
-//                    'last_name.string'=>'This name is a bit strange. Can you do this correctly',
-//                    'last_name.between'=>'The name must be between 2 and 255 characters',
-//                    'address_1.required'=>'Please fill in a address line',
-//                    'city.required'=>'Please fill in the City name',
-//                    'zipcode.required'=>'Please fill in the Zipcode name',
-//                    "phone" => "Please enter a vilid phone number",
-//                    "email.email" => "Please enter a valid email adres",
-//
-//                ]);
+            request()->validate([
+                'first_name'=> 'required|string|between:2,255',
+                'last_name'=> 'required|string|between:2,255',
+                'address'=> 'required|string|between:2,255',
+                'address_2'=> 'nullable|string|between:2,255',
+                'city'=> 'required|string|between:2,255',
+                'zipcode'=> 'required|string|between:2,255',
+                'province'=> 'required|string|between:2,255',
+                'country'=> 'required|string|between:2,255',
+                "phone" => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+                "email" => "required |email",
+            ],
+                [
+
+                    'first_name.string'=>'This name is a bit strange. Can you do this correctly',
+                    'first_name.between'=>'The name must be between 2 and 255 characters',
+                    'last_name.string'=>'This name is a bit strange. Can you do this correctly',
+                    'last_name.between'=>'The name must be between 2 and 255 characters',
+                    'address.required'=>'Please fill in a address line',
+                    'city.required'=>'Please fill in the City name',
+                    'zipcode.required'=>'Please fill in the Zipcode name',
+                    "phone" => "Please enter a valid phone number",
+                    "email.email" => "Please enter a valid email adres",
+
+                ]);
 
             $billingaddress = new OrderDetail();
             $billingaddress->company = $request->company;
@@ -89,20 +84,12 @@ class CheckoutController extends Controller
             $billingaddress->province=$request->province;
             $billingaddress->country =$request->country;
             $billingaddress->billing = true;
-            $billingaddress->save();
 
-
+            session::put ('billing', $billingaddress);
             return redirect()
                 ->route('cart-address');
 
         }
-
-
-
-//        $orderdetails->user_id = $request->customer_id;
-//        $billingaddres->update();
-
-
         return redirect()
             ->route('cart-address');
     }
@@ -147,6 +134,20 @@ class CheckoutController extends Controller
         $order->total_price = $totalPrice;
         $order->session_id = $session->id;
         $order->save();
+
+        if(session('shipping')->billing == true){
+            $shipping = session('shipping');
+            $shipping->orders_id = $order->id;
+            $shipping->save();
+        }else{
+            $shipping = session('shipping');
+            $shipping->orders_id = $order->id;
+            $shipping->save();
+            $billing = session('billing');
+            $billing->orders_id = $order->id;
+            $billing->save();
+        }
+
         return redirect($session->url);
     }
 
@@ -221,5 +222,9 @@ class CheckoutController extends Controller
         }
 
         return response('');
+    }
+    public function sessionFlush(){
+        Session::flush();
+        return redirect('home');
     }
 }

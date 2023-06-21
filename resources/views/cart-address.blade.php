@@ -24,10 +24,10 @@
                 <div class="accordion border-0 mb-5 accordionArrow" id="accordionExample">
                     <div class="accordion-item border-start-0 border-end-0 ">
                         <h2 class="accordion-header border-0" id="headingOne">
-                            <button class="accordion-button " type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" >
-                                <h2 class="Headingstyles__H2-sc-1gmsk6i-1 fYdWWG Drawerstyles__DrawerHeader-sc-1c4yude-2 ffPZmP">
-                                    Shipping address</h2>
+                            <button class="btn w-100" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <h2 class="CheckoutAddressTittel">
+                                    1. Shipping address</h2>
                             </button>
                         </h2>
                         <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
@@ -36,6 +36,7 @@
                                 <div class="d-flex justify-content-center">
                                     <div class="border border-black col-10 col-lg-6 text-black">
                                         <div class="ps-5 py-2 AddressBookShippingForm" >
+                                            <strong class="">Shipping address</strong>
                                             <p class="m-0">{{Session('shipping')->first_name}} {{Session('shipping')->last_name}}</p>
                                             <p class="m-0">{{Session('shipping')->address_1}}</p>
                                             <p class="m-0">{{Session('shipping')->address_2}}</p>
@@ -52,10 +53,10 @@
 
                     <div class="accordion-item border-start-0 border-end-0">
                         <h2 class="accordion-header" id="headingTwo">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                <h2 class="Headingstyles__H2-sc-1gmsk6i-1 fYdWWG Drawerstyles__DrawerHeader-sc-1c4yude-2 ffPZmP"
-                                    role="heading" aria-level="2">Billing address</h2>
+                            <button class="btn w-100" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                <h2 class="CheckoutAddressTittel"
+                                    role="heading" aria-level="2">2. Billing address</h2>
                             </button>
                         </h2>
                         <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo"
@@ -269,33 +270,47 @@
                             </div>
                         </div>
                     </div>
-                    <div class="accordion-item border-start-0 border-end-0 ">
-                        <h2 class="accordion-header border-0" id="headingOne">
-                            <button class="btn w-100 border-0" type="button" data-bs-toggle="collapseThree"
-                                    data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree" disabled>
-                                <h2 class="CheckoutAddressTittel">
-                                    2. Billing address</h2>
-                            </button>
-                        </h2>
-                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
-                             data-bs-parent="#accordionExample">
-                            <div class="accordion-body Drawerstyles__DrawerContent-sc-1c4yude-5 ckoXeF"
-                                 data-acsb-overflower="true" aria-hidden="false" data-acsb-hidden="false">
-                                <div class="Drawerstyles__AdminHTML-sc-1c4yude-4">Mara Hoffman founded her eponymous
-                                    beachwear label in 2002 after graduating from the Parsons School of Design.
-                                    Known for bold hues, color-blocking, and wanderlust-inducing designs, her
-                                    eclectic suits and fashion-forward cover-ups not only push the envelope
-                                    sartorially speaking, but sustainability-wise, too—from eco-conscious materials,
-                                    right down to the fabric scraps she repurposes for trimmings and add-ons.
+                    @if(Session::has('billing'))
+                        <div class="accordion-item border-start-0 border-end-0 ">
+                            <h2 class="accordion-header border-0" id="headingOne">
+                                <button class="btn w-100" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#drie" aria-expanded="true" aria-controls="collapseOne">
+                                    <h2 class="CheckoutAddressTittel">
+                                        3. Payment</h2>
+                                </button>
+                            </h2>
+                            <div id="drie" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                                 data-bs-parent="#accordionExample">
+                                <div class="accordion-body ProductDetailsstyles__Text-sc-1osiovg-2 ckoXeF">
+                                    <div class="text-center">
+
+                                           <p>Pleace check if everything is correct and proceed to checkout</p>
+
+                                        <form action="{{route('checkout')}}" method="POST">
+                                            @csrf
+                                            <div class="d-flex justify-content-center mt-5">
+                                                <button type="submit" class="btn btn-g btn-dark text-uppercase rounded-0 col-10 col-lg-3 mt-3 mb-4">Checkout</button>
+                                            </div>
+                                        </form>
+
+                                    </div>
                                 </div>
-                                <span class="Accordionstyles__BrowseMore-sc-1me492j-2 DTTpg">Browse more <a
-                                        href="/mara-hoffman/c/"
-                                        class="Text__BaseText-vs2pg6-0 Link__StyledLink-sc-7p0xb2-0 bLYPWY styles__Brand-gvy2cl-0 hwMBsm Accordionstyles__StyledBrand-sc-1me492j-3 text-decoration-underline"
-                                        target="" data-acsb-clickable="true" data-acsb-navigable="true"
-                                        data-acsb-now-navigable="true" data-acsb-textual-ops="null">Mara Hoffman</a></span>
                             </div>
                         </div>
-                    </div>
+                    @else
+                        <div class="accordion-item border-start-0 border-end-0 ">
+                            <h2 class="accordion-header border-0" id="headingOne">
+                                <button class="btn w-100 border-0" type="button" data-bs-toggle="collapseThree"
+                                        data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree" disabled>
+                                    <h2 class="CheckoutAddressTittel">
+                                        3. Payment</h2>
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                                 data-bs-parent="#accordionExample">
+                            </div>
+                        </div>
+                    @endif
                 </div>
 
             @else
@@ -513,6 +528,7 @@
                     </div>
                 </div>
             @endif
+
         </div>
 
 
