@@ -5,21 +5,23 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Symfony\Component\HttpFoundation\Response;
 
 class Employee
 {
     /**
      * Handle an incoming request.
      *
-     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
+     * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-    public function handle(Request $request, Closure $next): Response
+    public function handle(Request $request, Closure $next)
     {
-        if (Auth::user() &&  Auth::user()->is_employee == 1 && Auth::user()->is_active == 1) {
-            return $next($request);
+        if(Auth::check()){//controle bestaande user
+            if(Auth::user()->isEmployee()){ //controle  of user admin is
+                return $next($request);
+            }
         }
-
         return redirect('/');
     }
 

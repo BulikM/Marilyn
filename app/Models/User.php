@@ -90,4 +90,9 @@ class User extends Authenticatable
             "newsletter_info_user"
         );
     }
+    public function isEmployee(){
+        if( $this->is_employee == 1  && $this->is_active ==1){
+            return true;
+        }
+    }
 }

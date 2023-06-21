@@ -43,6 +43,9 @@ Route::post('/webhook', '\App\Http\Controllers\frontend\CheckoutController@webho
 
 //Remove session after payment
 Route::get("/succes/end", '\App\Http\Controllers\frontend\CheckoutController@sessionFlush')->name('sessionFlush');
+//remove shipping sesion
+Route::get("/cart-address/remove", '\App\Http\Controllers\frontend\CheckoutController@removeShipping')->name('removeShipping');
+Route::get("/cart-address/removeBilling", '\App\Http\Controllers\frontend\CheckoutController@removeBilling')->name('removeBilling');
 //Backend
 
 require('backend.php');

@@ -35,14 +35,21 @@
                             <div class="accordion-body ProductDetailsstyles__Text-sc-1osiovg-2 ckoXeF">
                                 <div class="d-flex justify-content-center">
                                     <div class="border border-black col-10 col-lg-6 text-black">
-                                        <div class="ps-5 py-2 AddressBookShippingForm" >
-                                            <strong class="">Shipping address</strong>
-                                            <p class="m-0">{{Session('shipping')->first_name}} {{Session('shipping')->last_name}}</p>
-                                            <p class="m-0">{{Session('shipping')->address_1}}</p>
-                                            <p class="m-0">{{Session('shipping')->address_2}}</p>
-                                            <p class="m-0">{{Session('shipping')->provincy}}</p>
-                                            <p class="m-0">{{Session('shipping')->city}} {{Session('shipping')->zipcode}}</p>
-                                            <p class="m-0">{{Session('shipping')->country}}</p>
+                                        <div class="d-flex justify-content-between">
+                                            <div class="ps-5 py-2 AddressBookShippingForm" >
+                                                <strong class="">Shipping address</strong>
+                                                <p class="m-0">{{Session('shipping')->first_name}} {{Session('shipping')->last_name}}</p>
+                                                <p class="m-0">{{Session('shipping')->address_1}}</p>
+                                                <p class="m-0">{{Session('shipping')->address_2}}</p>
+                                                <p class="m-0">{{Session('shipping')->provincy}}</p>
+                                                <p class="m-0">{{Session('shipping')->city}} {{Session('shipping')->zipcode}}</p>
+                                                <p class="m-0">{{Session('shipping')->country}}</p>
+                                            </div>
+                                            <div>
+                                                <a href="{{route('removeShipping')}}" class="w-100">
+                                                    <button type="submit" class="btn">edit</button>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
 
@@ -65,34 +72,56 @@
                                  data-acsb-overflower="true" aria-hidden="false" data-acsb-hidden="false">
                                 <div class="accordion border-0 mb-5 accordionArrow" id="sub">
                                         <div class="accordion-item border-0">
-                                            <form action="{{route('checkoutBillingAddress')}}"
-                                                  method="POST" enctype="multipart/form-data">
-                                                @csrf
-                                                @method('POST')
+
 
                                                 <div class="d-flex justify-content-center">
                                                     <div class="border border-black col-10 col-lg-6 text-black">
                                                         <div class="ps-5 py-2 AddressBookShippingForm" >
-                                                            <label class="dlJBHs fWXjje" id="shippingOption" type="button" width="100">
-                                                                <button class="btn p-0" type="button" data-bs-toggle="collapse"
-                                                                        data-bs-target="#shipping" aria-expanded="true" aria-controls="collapseOne" data-parent="#shippingPrefferences">
-                                                                    <input class="jaoyAT" type="checkbox" name="billing" id="billing" value="true" checked>
-                                                                </button>
-
-                                                                <strong class="ps-3">Same as Shipping address</strong>
-                                                            </label>
-                                                            <p class="m-0">{{Session('shipping')->company}} {{Session('shipping')->vat}}</p>
-                                                            <p class="m-0">{{Session('shipping')->first_name}} {{Session('shipping')->last_name}}</p>
-                                                            <p class="m-0">{{Session('shipping')->address_1}}</p>
-                                                            <p class="m-0">{{Session('shipping')->address_2}}</p>
-                                                            <p class="m-0">{{Session('shipping')->provincy}}</p>
-                                                            <p class="m-0">{{Session('shipping')->city}} {{Session('shipping')->zipcode}}</p>
-                                                            <p class="m-0">{{Session('shipping')->country}}</p>
-                                                            <p class="m-0">{{Session('shipping')->phone}}</p>
-                                                            <p class="m-0">{{Session('shipping')->email}}</p>
+                                                            @if(session()->has('billing'))
+                                                                <div class="d-flex justify-content-between">
+                                                                    <div>
+                                                                        <p class="m-0">{{Session('billing')->company}} {{Session('billing')->vat}}</p>
+                                                                        <p class="m-0">{{Session('billing')->first_name}} {{Session('billing')->last_name}}</p>
+                                                                        <p class="m-0">{{Session('billing')->address_1}}</p>
+                                                                        <p class="m-0">{{Session('billing')->address_2}}</p>
+                                                                        <p class="m-0">{{Session('billing')->provincy}}</p>
+                                                                        <p class="m-0">{{Session('billing')->city}} {{Session('billing')->zipcode}}</p>
+                                                                        <p class="m-0">{{Session('billing')->country}}</p>
+                                                                        <p class="m-0">{{Session('billing')->phone}}</p>
+                                                                        <p class="m-0">{{Session('billing')->email}}</p>
+                                                                    </div>
+                                                                    <div>
+                                                                        <a href="{{route('removeBilling')}}" class="w-100">
+                                                                            <button type="submit" class="btn">edit</button>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            @else
+                                                        <form action="{{route('checkoutBillingAddress')}}"
+                                                              method="POST" enctype="multipart/form-data">
+                                                            @csrf
+                                                            @method('POST')
+                                                                <label class="dlJBHs fWXjje" id="shippingOption" type="button" width="100">
+                                                                    <button class="btn p-0" type="button" data-bs-toggle="collapse"
+                                                                            data-bs-target="#shipping" aria-expanded="true" aria-controls="collapseOne" data-parent="#shippingPrefferences">
+                                                                        <input class="jaoyAT" type="checkbox" name="billing" id="billing" value="true" checked>
+                                                                    </button>
+                                                                    <strong class="ps-3">Same as Shipping address</strong>
+                                                                </label>
+                                                                <p class="m-0">{{Session('shipping')->company}} {{Session('shipping')->vat}}</p>
+                                                                <p class="m-0">{{Session('shipping')->first_name}} {{Session('shipping')->last_name}}</p>
+                                                                <p class="m-0">{{Session('shipping')->address_1}}</p>
+                                                                <p class="m-0">{{Session('shipping')->address_2}}</p>
+                                                                <p class="m-0">{{Session('shipping')->provincy}}</p>
+                                                                <p class="m-0">{{Session('shipping')->city}} {{Session('shipping')->zipcode}}</p>
+                                                                <p class="m-0">{{Session('shipping')->country}}</p>
+                                                                <p class="m-0">{{Session('shipping')->phone}}</p>
+                                                                <p class="m-0">{{Session('shipping')->email}}</p>
+                                                            @endif
+                                                        </div>
                                                         </div>
                                                     </div>
-                                                </div>
+
 
 
                                                 <div id="shipping" class="accordion-collapse collapse" aria-labelledby="sub"
@@ -261,9 +290,12 @@
 
                                                     </div>
                                                 </div>
-                                                <div class="d-flex justify-content-center mt-5">
-                                                    <button type="submit" class="btn btn-g btn-dark text-uppercase rounded-0 col-10 col-lg-3 mt-3 mb-4">Continue</button>
-                                                </div>
+                                                @if(session()->has('billing'))
+                                                @else
+                                                    <div class="d-flex justify-content-center mt-5">
+                                                        <button type="submit" class="btn btn-g btn-dark text-uppercase rounded-0 col-10 col-lg-3 mt-3 mb-4">Continue</button>
+                                                    </div>
+                                                @endif
                                             </form>
                                         </div>
                                 </div>
@@ -544,7 +576,7 @@
                         <p>€ {{Session::get('cart')->totalPrice}}</p>
                     </div>
                     <div class="d-flex justify-content-between">
-                        <p>Standard Ground</p>
+                        <p>Shipping</p>
                         <p>Free</p>
                     </div>
                     <hr>

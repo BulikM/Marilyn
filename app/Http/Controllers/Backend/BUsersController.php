@@ -198,4 +198,5 @@ class BUsersController extends Controller
                 ["message" => "Record restored", "type" => "succes"]
             ]);
     }
+
 }

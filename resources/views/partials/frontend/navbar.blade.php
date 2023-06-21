@@ -295,7 +295,9 @@
             </li>
 
                 <li class="ps-3">
+                    @can('employee')
                     <a class="text-uppercase slideInEffect pb-1 categoryLink" href="{{route('dashboard')}}">Dashboard</a>
+                    @endcan
                 </li>
 
         </ul>

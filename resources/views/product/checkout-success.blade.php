@@ -19,9 +19,9 @@
         </div>
     </nav>
 
-    <div class="w-100 text-center pt-3">
-        <h2 class="line pb-3">Thank you for your purchase</h2>
-        <h1 class="fs-2">Order overview</h1>
+    <div class="w-100 text-center">
+    <div class="px-5"><h2 class="line d-flex align-items-center title___1Ikv6">Thank you for your purchase</h2></div>
+        <h1 class="fs-3">Order overview</h1>
     </div>
     <div class="d-flex justify-content-evenly p-3">
         <div class="col-5 border border-black mb-4">
@@ -117,6 +117,12 @@
                   </div>
               </div>
           @endforeach
+              <div class="d-flex justify-content-center mt-5">
+                  <a href="{{route('sessionFlush')}}" class="w-100">
+                      <button type="submit" class="btn btn-g btn-dark text-uppercase rounded-0 col-10 col-lg-3 mt-3 mb-4">Checkout</button>
+                  </a>
+
+              </div>
       </div>
     </div>
 

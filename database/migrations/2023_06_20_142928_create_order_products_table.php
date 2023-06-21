@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('order_products', function (Blueprint $table) {
             $table->id();
             $table->foreignId('orders_id')->unsigned();
+            $table->foreignId('product_id')->unsigned();
             $table->unsignedDecimal('price', 8, 2);
             $table->string('name');
             $table->string('quantity');

@@ -12,7 +12,7 @@ Route::get("/dashboard", [BController::class, "index"])->name(
     "dashboard"
 );
 
-Route::group(["prefix" => "dashboard", "middleware" => ['employee', 'auth']], function () {
+Route::group(["prefix" => "dashboard", "middleware" => ['employee']], function () {
     Route::get("/", [BController::class, "index"])->name("dashboard");
 //users
     Route::resource("users", BUsersController::class);

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\AddressRequest;
 use App\Models\Order;
 use App\Models\OrderDetail;
+use App\Models\OrderProducts;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
@@ -33,6 +34,11 @@ class CheckoutController extends Controller
 //        $shippingaddress->save();
 
         session::put ('shipping', $shippingaddress);
+        return redirect()
+            ->route('cart-address');
+    }
+    public function removeShipping(Request $request){
+        $request->session()->forget('shipping');
         return redirect()
             ->route('cart-address');
     }
@@ -93,6 +99,11 @@ class CheckoutController extends Controller
         return redirect()
             ->route('cart-address');
     }
+    public function removeBilling(Request $request){
+        $request->session()->forget('billing');
+        return redirect()
+            ->route('cart-address');
+    }
 
     public function checkout()
     {
@@ -139,6 +150,7 @@ class CheckoutController extends Controller
             $shipping = session('shipping');
             $shipping->orders_id = $order->id;
             $shipping->save();
+
         }else{
             $shipping = session('shipping');
             $shipping->orders_id = $order->id;
@@ -147,6 +159,19 @@ class CheckoutController extends Controller
             $billing->orders_id = $order->id;
             $billing->save();
         }
+        foreach ($cartitems as $cartitem) {
+            $item = $products->where('id', $cartitem['product_id'])->first();
+
+            $orderdproduct = new OrderProducts();
+            $orderdproduct->orders_id = $order->id;
+            $orderdproduct->product_id = $item->id;
+            $orderdproduct->price = $item->price;
+            $orderdproduct->name = $item->name;
+            $orderdproduct->quantity =$cartitem['quantity'];
+            $orderdproduct->save();
+        }
+
+
 
         return redirect($session->url);
     }

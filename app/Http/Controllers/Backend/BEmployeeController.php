@@ -5,8 +5,6 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\EmployeesRequest;
 use App\Models\Day;
-use App\Models\Employee;
-use App\Models\Employee_Adress;
 use App\Models\Month;
 use App\Models\NewsletterInfo;
 use App\Models\Preference;
