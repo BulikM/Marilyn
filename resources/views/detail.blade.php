@@ -914,10 +914,15 @@
                                 <input type="number" name="quantity" class="form-control text-center qty-input" value="1">
                                 <button class="input-group-text bg-white rounded-0 increment-btn">+</button>
                             </div>
+                            @error('quantity')
+                                <span class="drwJIz">
+                                  {{ $message }}
+                                </span>
+                            @enderror
                             <!--						max aantal-->
-                            <div class="QuantityInputstyles__QuantityNotification-sc-1mnnxw1-5 drwJIz">
-                                <em>Maximum available</em>
-                            </div>
+{{--                            <div class="QuantityInputstyles__QuantityNotification-sc-1mnnxw1-5 drwJIz">--}}
+{{--                                <em>Maximum available</em>--}}
+{{--                            </div>--}}
                         </div>
                     </div>
                 </div>

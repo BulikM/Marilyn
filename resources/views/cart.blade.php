@@ -79,6 +79,11 @@
                                                         <div class="input-group mb-3" style=" width: 100px">
                                                             <span class="input-group-text border-dark bg-white rounded-0 border-end-0" id="basic-addon1">Qty: </span>
                                                             <input type="number" class="form-control border-dark border-start-0 bg-white rounded-0 text-center" aria-label="quantity" aria-describedby="basic-addon1" value="{{$product['quantity']}}" name="quantity">
+                                                            @error('quantity')
+                                                                <span class="drwJIz">
+                                                                  {{ $message }}
+                                                                </span>
+                                                            @enderror
                                                         </div>
                                                         <input type="hidden" class="form-control form-control-sm"
                                                                name="id" value="{{$product['product_id']}}">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Account;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AddressRequest;
 use App\Models\ShippingAddresses;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -29,7 +30,7 @@ class ShippingAddressController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(AddressRequest $request)
     {
 
 

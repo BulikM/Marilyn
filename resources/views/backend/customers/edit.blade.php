@@ -173,8 +173,7 @@
                         <div class="tab-pane fade" id="nav-preferences" role="tabpanel"
                              aria-labelledby="nav-profile-tab" tabindex="0">
 
-                            <form
-                                action="{{action('App\Http\Controllers\Backend\BCustomerController@updatepreferences', $customer->id)}}"
+                            <form action="{{action('App\Http\Controllers\Backend\BCustomerController@updatepreferences', $customer->id)}}"
                                 method="POST" enctype="multipart/form-data">
                                 @csrf
                                 @method('patch')

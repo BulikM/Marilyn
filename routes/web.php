@@ -31,6 +31,8 @@ Route::get('/removeItem/{id}', '\App\Http\Controllers\frontend\ProductController
 
 //cart-address
 Route::get("/cart-address", '\App\Http\Controllers\frontend\ProductController@cartAddress')->name('cart-address');
+Route::post('/cart-address', '\App\Http\Controllers\frontend\CheckoutController@checkoutShippingAddress')->name('checkoutShippingAddress');
+Route::post('/cart-address', '\App\Http\Controllers\frontend\CheckoutController@checkoutBillingAddress')->name('checkoutBillingAddress');
 
 
 //payment

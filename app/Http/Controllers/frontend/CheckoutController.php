@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AddressRequest;
 use App\Models\Order;
+use App\Models\OrderDetail;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
@@ -12,6 +14,98 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class CheckoutController extends Controller
 {
+    public function checkoutShippingAddress(AddressRequest $request)
+    {
+
+        $shippingaddress = new OrderDetail();
+        $shippingaddress->company = $request->company;
+        $shippingaddress->vat = $request->vat;
+        $shippingaddress->first_name = $request->first_name;
+        $shippingaddress->last_name = $request->last_name;
+        $shippingaddress->phone =$request->phone;
+        $shippingaddress->address =$request->address;
+        $shippingaddress->address_2 =$request->address_2;
+        $shippingaddress->city =$request->city;
+        $shippingaddress->zipcode = $request->zipcode;
+        $shippingaddress->province=$request->province;
+        $shippingaddress->country =$request->country;
+        $shippingaddress->shipping = true;
+
+
+//        $orderdetails->user_id = $request->customer_id;
+        $shippingaddress->save();
+
+        session::put ('shipping', $shippingaddress);
+        return redirect()
+            ->route('cart-address');
+    }
+
+    public function checkoutBillingAddress(Request $request)
+    {
+        if($request->billing == 'true'){
+            $billingaddress = session('shipping') ;
+//            dd($billingaddress);
+            $billingaddress->billing = true;
+            $billingaddress->save();
+            session::put ('billing', $billingaddress);
+        }else{
+//            dd($request);
+//            request()->validate([
+//                'first_name'=> 'required|string|between:2,255',
+//                'last_name'=> 'required|string|between:2,255',
+//                'address_1'=> 'required|string|between:2,255',
+//                'address_2'=> 'nullable|string|between:2,255',
+//                'city'=> 'required|string|between:2,255',
+//                'zipcode'=> 'required|string|between:2,255',
+//                'province'=> 'required|string|between:2,255',
+//                'country'=> 'required|string|between:2,255',
+//                "phone" => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+//                "email" => "required |email",
+//            ],
+//                [
+//
+//                    'first_name.string'=>'This name is a bit strange. Can you do this correctly',
+//                    'first_name.between'=>'The name must be between 2 and 255 characters',
+//                    'last_name.string'=>'This name is a bit strange. Can you do this correctly',
+//                    'last_name.between'=>'The name must be between 2 and 255 characters',
+//                    'address_1.required'=>'Please fill in a address line',
+//                    'city.required'=>'Please fill in the City name',
+//                    'zipcode.required'=>'Please fill in the Zipcode name',
+//                    "phone" => "Please enter a vilid phone number",
+//                    "email.email" => "Please enter a valid email adres",
+//
+//                ]);
+
+            $billingaddress = new OrderDetail();
+            $billingaddress->company = $request->company;
+            $billingaddress->vat = $request->vat;
+            $billingaddress->first_name = $request->first_name;
+            $billingaddress->last_name = $request->last_name;
+            $billingaddress->phone =$request->phone;
+            $billingaddress->address =$request->address;
+            $billingaddress->address_2 =$request->address_2;
+            $billingaddress->city =$request->city;
+            $billingaddress->zipcode = $request->zipcode;
+            $billingaddress->province=$request->province;
+            $billingaddress->country =$request->country;
+            $billingaddress->billing = true;
+            $billingaddress->save();
+
+
+            return redirect()
+                ->route('cart-address');
+
+        }
+
+
+
+//        $orderdetails->user_id = $request->customer_id;
+//        $billingaddres->update();
+
+
+        return redirect()
+            ->route('cart-address');
+    }
 
     public function checkout()
     {
@@ -53,7 +147,6 @@ class CheckoutController extends Controller
         $order->total_price = $totalPrice;
         $order->session_id = $session->id;
         $order->save();
-
         return redirect($session->url);
     }
 
