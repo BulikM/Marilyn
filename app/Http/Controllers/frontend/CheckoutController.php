@@ -179,6 +179,7 @@ class CheckoutController extends Controller
     public function success(Request $request)
     {
         \Stripe\Stripe::setApiKey(env('STRIPE_SECRET_KEY'));
+//        dd(\Stripe\Checkout\Session::retrieve(id));
         $sessionId = $request->get('session_id');
 
         try {

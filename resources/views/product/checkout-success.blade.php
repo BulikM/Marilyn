@@ -121,7 +121,6 @@
                   <a href="{{route('sessionFlush')}}" class="w-100">
                       <button type="submit" class="btn btn-g btn-dark text-uppercase rounded-0 col-10 col-lg-3 mt-3 mb-4">Checkout</button>
                   </a>
-
               </div>
       </div>
     </div>

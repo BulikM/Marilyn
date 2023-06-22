@@ -294,11 +294,12 @@
                 <a class="text-uppercase slideInEffect pb-1 categoryLink" href="#">Sale</a>
             </li>
 
-                <li class="ps-3">
-                    @can('employee')
-                    <a class="text-uppercase slideInEffect pb-1 categoryLink" href="{{route('dashboard')}}">Dashboard</a>
-                    @endcan
-                </li>
+            <li class="ps-3">
+
+            @if(Auth::check() &&Auth::user()->isEmployee())
+                <a class="text-uppercase slideInEffect pb-1 categoryLink" href="{{route('dashboard')}}">Dashboard</a>
+                @endif
+            </li>
 
         </ul>
     </div>

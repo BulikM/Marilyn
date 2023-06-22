@@ -3,7 +3,7 @@
 
 <div class="container-fluid p-0">
     <div class="row justify-content-center max-width-1680 m-auto p-0">
-        <a href="#" class="col p-0 max-width-1680 mt-xxl-5">
+        <a href="#" class="col p-0 max-width-1680">
             <img src="https://goop-img.com/cdn-cgi/image/height=1120,width=3360,dpr=1,format=auto,onerror=redirect,metadata=copyright/wp-content/uploads/2022/11/221201-primaryHero-tablet.jpg" alt="221201-primaryhero-tablet" srcset="https://goop-img.com/cdn-cgi/image/height=1120,width=3360,dpr=1,format=auto,onerror=redirect,metadata=copyright/wp-content/uploads/2022/11/221201-primaryHero-tablet.jpg 3360w,
 			  https://goop-img.com/cdn-cgi/image/height=1120,width=3360,dpr=2,format=auto,onerror=redirect,metadata=copyright/wp-content/uploads/2022/11/221201-primaryHero-tablet.jpg 6720w,
 			  https://goop-img.com/cdn-cgi/image/height=1120,width=3360,dpr=3,format=auto,onerror=redirect,metadata=copyright/wp-content/uploads/2022/11/221201-primaryHero-tablet.jpg 10080w" class="hero">
