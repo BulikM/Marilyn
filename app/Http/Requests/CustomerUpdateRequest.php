@@ -24,8 +24,8 @@ class CustomerUpdateRequest extends FormRequest
 //        dd($this->customer);
         return  [
             "password" => "nullable|min:8",
-            'first_name' => 'nullable|string|between:2,255',
-            'last_name' => 'nullable|string|between:2,255',
+            'first_name' => 'required|string|between:2,255',
+            'last_name' => 'required|string|between:2,255',
             "email" => "required |email",
             "phone" => 'nullable|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
             "mobile_phone" => 'nullable|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',

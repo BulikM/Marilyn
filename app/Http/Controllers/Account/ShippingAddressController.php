@@ -30,9 +30,8 @@ class ShippingAddressController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(AddressRequest $request)
+    public function store(Request $request)
     {
-
 
         $address = new ShippingAddresses();
         $address->first_name = $request->first_name;

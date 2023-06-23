@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('status', 255);
             $table->decimal('total_price', 6,2);
             $table->string('session_id');
+            $table->string('stripe_reference');
             $table->timestamps();
         });
     }

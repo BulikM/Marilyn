@@ -11,6 +11,7 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Session;
+use Stripe\PaymentIntent;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class CheckoutController extends Controller
@@ -132,6 +133,11 @@ class CheckoutController extends Controller
                 'quantity' => $cartitem['quantity'],
             ];
         }
+        $paymentIntent = PaymentIntent::create([
+            'amount' => $totalPrice * 100, // This should be in the smallest unit of your currency. (For example, cents in USD.)
+            'currency' => 'EUR',
+        ]);
+//        session::put ('paymentIntentId', $paymentIntent->id);
 
         $session = \Stripe\Checkout\Session::create([
             'line_items' => $lineItems,
@@ -144,6 +150,7 @@ class CheckoutController extends Controller
         $order->status = 'unpaid';
         $order->total_price = $totalPrice;
         $order->session_id = $session->id;
+        $order->stripe_reference = $paymentIntent->id;
         $order->save();
 
         if(session('shipping')->billing == true){
@@ -179,8 +186,9 @@ class CheckoutController extends Controller
     public function success(Request $request)
     {
         \Stripe\Stripe::setApiKey(env('STRIPE_SECRET_KEY'));
-//        dd(\Stripe\Checkout\Session::retrieve(id));
         $sessionId = $request->get('session_id');
+//        $paymentIntent = PaymentIntent::retrieve(session::get('paymentIntentId'));
+//        dd(session('paymentIntentId'));
 
         try {
             $session = \Stripe\Checkout\Session::retrieve($sessionId);
