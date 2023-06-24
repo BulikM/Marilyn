@@ -27,7 +27,7 @@ return new class extends Migration
             $table->char("address", 255);
             $table->char("address_2", 255)->nullable();
             $table->char("city", 255);
-            $table->char("province", 255);
+            $table->char("province", 255)->nullable();
             $table->char("zipcode", 255);
             $table->char("country", 255);
             $table->char("phone", 255);

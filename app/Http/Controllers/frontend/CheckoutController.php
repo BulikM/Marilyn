@@ -59,12 +59,10 @@ class CheckoutController extends Controller
                 'first_name'=> 'required|string|between:2,255',
                 'last_name'=> 'required|string|between:2,255',
                 'address'=> 'required|string|between:2,255',
-                'address_2'=> 'nullable|string|between:2,255',
                 'city'=> 'required|string|between:2,255',
                 'zipcode'=> 'required|string|between:2,255',
-                'province'=> 'required|string|between:2,255',
                 'country'=> 'required|string|between:2,255',
-                "phone" => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+                "phone" => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:9',
                 "email" => "required |email",
             ],
                 [
@@ -86,13 +84,14 @@ class CheckoutController extends Controller
             $billingaddress->vat = $request->vat;
             $billingaddress->first_name = $request->first_name;
             $billingaddress->last_name = $request->last_name;
-            $billingaddress->phone =$request->phone;
             $billingaddress->address =$request->address;
             $billingaddress->address_2 =$request->address_2;
             $billingaddress->city =$request->city;
             $billingaddress->zipcode = $request->zipcode;
             $billingaddress->province=$request->province;
             $billingaddress->country =$request->country;
+            $billingaddress->phone =$request->phone;
+            $billingaddress->email =$request->email;
             $billingaddress->billing = true;
 
             session::put ('billing', $billingaddress);

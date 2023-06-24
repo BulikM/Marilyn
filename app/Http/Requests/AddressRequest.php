@@ -27,7 +27,6 @@ class AddressRequest extends FormRequest
             'address'=> 'required|string|between:2,255',
             'city'=> 'required|string|between:2,255',
             'zipcode'=> 'required|string|between:2,255',
-            'province'=> 'required|string|between:2,255',
             'country'=> 'required|string|between:2,255',
             "phone" => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:9',
             "email" => "required|email",
