@@ -18,13 +18,10 @@ class Images extends Model
         return $this->uploads .$photo;
     }
 
-    public function user(){
-        return $this->belongsTo(User::class);
-    }
-    public function post()
-    {
-        return $this->hasOne(Post::class);
-    }
+//    public function post()
+//    {
+//        return $this->hasOne(Post::class);
+//    }
     public function product()
     {
         return $this->hasOne(Product::class);

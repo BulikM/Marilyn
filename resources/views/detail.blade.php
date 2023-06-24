@@ -896,13 +896,8 @@
                             </button>
                         </div>
                     </div>
-                    <!--				waitlist-->
-                    <p class="AddToCartFormstyles__UnavailableText-sc-17o2z77-8 hujnzU"><b
-                            class="AddToCartFormstyles__Bold-sc-17o2z77-9 gldpZt">
-                            <strong>Color/Size unavailable?</strong>
-                        </b>&nbsp;Select size to add to waitlist.</p>
-                    <form method="POST"
-                          action="{{action('App\Http\Controllers\frontend\ProductController@addToCart', $product->id)}}"
+                        <form method="POST"
+                          action="{{action('App\Http\Controllers\frontend\CartController@addToCart', $product->id)}}"
                           enctype='multipart/form-data'>
                         @csrf
                         @method('POST')
@@ -919,18 +914,14 @@
                                   {{ $message }}
                                 </span>
                             @enderror
-                            <!--						max aantal-->
-{{--                            <div class="QuantityInputstyles__QuantityNotification-sc-1mnnxw1-5 drwJIz">--}}
-{{--                                <em>Maximum available</em>--}}
-{{--                            </div>--}}
                         </div>
                     </div>
                 </div>
                 <div class="text-start col-11 offset-1 mt-3">
                     <div data-cy="add-to-btn-container"
-                         class="AddToCartBtnstyles__AddToBtnContainer-sc-1m28s06-0 hTTyJb">
+                         class="hTTyJb">
                         <button type="submit" class="lgLNaJ jaXJCb cZinvQ">Add to bag</button>
-                        </form>
+                </form>
                         <br>
                         <!--					waitlist-->
                         <button type="submit"

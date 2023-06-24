@@ -21,7 +21,10 @@ Route::get("/home", [
 //products
 Route::resource("/product", \App\Http\Controllers\frontend\ProductController::class);
 Route::get('product/{product:slug}', [\App\Http\Controllers\frontend\ProductController::class, 'show'])->name('product.show');
+
+
 Route::get("/products/brand/{id}", '\App\Http\Controllers\frontend\ProductController@productsPerBrand')->name('productsPerBrand');
+Route::get("/products/category/{id}", '\App\Http\Controllers\frontend\ProductController@productsPerCategory')->name('productsPerCategory');
 
 //cart
 Route::post('/addToCart/{id}', '\App\Http\Controllers\frontend\CartController@addToCart')->name('addToCart');

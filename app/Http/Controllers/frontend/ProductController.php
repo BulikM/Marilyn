@@ -7,6 +7,7 @@ use App\Models\Brand;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Models\Product;
+use App\Models\ProductCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Carbon;
@@ -73,8 +74,19 @@ class ProductController extends Controller
         //
     }
     public function productsPerBrand($id){
-        $brands = Brand::all();
         $products = Product::with(['brand', 'image'])->where('brand_id','=',$id)->get();
-        return view('products', compact('brands', 'products'));
+        $heros = Brand::where('id',$id)->get();
+        return view('products', compact('products','heros'));
+    }
+    public function productsPerCategory($id){
+        $categories = ProductCategory::all();
+        $products = Product::with(['productcategories', 'image','brand'])->where('product_categories_id','=',$id)->get();
+        $heros = ProductCategory::with('subcategories')->where('id',$id)->get();
+        return view('products', compact('categories', 'products', 'heros'));
+    }
+    public function productsPerSubCategory($id){
+        $categories = ProductCategory::all();
+        $products = Product::with(['brand', 'image',])->where('brand_id','=',$id)->get();
+        return view('products', compact('categories', 'products'));
     }
 }

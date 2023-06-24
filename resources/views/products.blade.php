@@ -1,288 +1,62 @@
 @extends('layouts.frontend')
 @section('content')
     <!--main-->
-    <main class="container-fluid p-0">
-        <!--			hero-->
-        <section
-            class="ContextualCommerceHeaderstyles__Container-sc-1mqwtsv-0 ContexturlCommerceHeaderstyles__StyledCCHeader-sc-1h62xwr-0 max-width-1680 m-0 px-md-2 py-md-1 row d-flex justify-content-lg-center m-auto p-0"
-            data-acsb-main="true" role="main">
-            <div class="ContextualCommerceHeaderstyles__TitleWrapper-sc-1mqwtsv-3 d-flex align-items-center m-lg-0 p-0 col-lg-6">
-                <img alt="style icon"
-                     class="Imagestyles__StyledImage-fduzzi-0 CategoryIconstyles__StyledCategoryIcon-sc-19oix4f-0 col-3"
-                     src="https://assets.goop-img.com/client-apps/icons/category/icon-cat-style-2x.png">
-                <h1 aria-level="1"
-                    class="Headingstyles__H1-sc-1gmsk6i-0 jHuvxg ContextualCommerceHeaderstyles__Title-sc-1mqwtsv-2 col-9 col-lg-10 htfZLy"
-                    role="heading">Designer Clothing</h1>
-            </div>
+<main class="container-fluid p-0">
 
-            <ul aria-label="Page Menu"
-                class="List__StyledList-sc-1d0tmc3-0 pPHcI ContextualCommerceHeaderstyles__Tabs-sc-1mqwtsv-4 text-decoration-none p-0 m-0 iMXFXb col-12 col-lg-6 d-flex justify-content-center justify-content-md-start justify-content-lg-end m-0 p-0"
-                data-acsb-menu="ul" role="navigation">
-                <li class="ListItemstyles__StyledListItem-sc-17oosbk-0 ContextualCommerceHeaderstyles__Tab-sc-1mqwtsv-5 lnekFT"
-                    data-acsb-menu="li" data-acsb-menu-root="true">
-                    <a class="Text__BaseText-vs2pg6-0 Link__StyledLink-sc-7p0xb2-0 ContextualCommerceHeaderstyles__TabLink-sc-1mqwtsv-6 ddILIm"
-                       data-acsb-clickable="true"
-                       data-acsb-menu="a" data-acsb-menu-root-link="true" data-acsb-navigable="true"
-                       data-acsb-now-navigable="true" data-acsb-tooltip="Use ←/→ to navigate"
-                       data-analytics-name="cc-nav-content-shop"
-                       data-isactive="false" href="index.html">Read + Shop</a>
-                </li>
-                <li class="ListItemstyles__StyledListItem-sc-17oosbk-0 ContextualCommerceHeaderstyles__Tab-sc-1mqwtsv-5 lnekFT"
-                    data-acsb-menu="li" data-acsb-menu-root="true">
-                    <a class="Text__BaseText-vs2pg6-0 Link__StyledLink-sc-7p0xb2-0 ContextualCommerceHeaderstyles__TabLink-sc-1mqwtsv-6 ddILIm"
-                       data-acsb-clickable="true"
-                       data-acsb-menu="a" data-acsb-menu-root-link="true" data-acsb-navigable="true"
-                       data-acsb-now-navigable="true" data-analytics-name="cc-nav-content" data-isactive="false"
-                       href="index.html">Read Now</a>
-                </li>
-                <li class="ListItemstyles__StyledListItem-sc-17oosbk-0 ContextualCommerceHeaderstyles__Tab-sc-1mqwtsv-5 lnekFT"
-                    data-acsb-menu="li" data-acsb-menu-root="true">
-                    <a class="Text__BaseText-vs2pg6-0 Link__StyledLink-sc-7p0xb2-0 ContextualCommerceHeaderstyles__TabLink-sc-1mqwtsv-6 ddILIm"
-                       data-acsb-clickable="true"
-                       data-acsb-menu="a" data-acsb-menu-root-link="true" data-acsb-navigable="true"
-                       data-acsb-now-navigable="true" data-analytics-name="cc-nav-shop" data-isactive="true"
-                       href="index.html">Shop Now</a>
-                </li>
-            </ul>
+    @if($heros)
+        @foreach($heros as $hero)
+            <div class="px-5"><h1 class="line d-flex align-items-center title___1Ikv6">{{$hero->name}}</h1></div>
+        @endforeach
+    @endif
 
-        </section>
+        @if($heros[0]->subcategories->count() >= 1)
         <!--			option carousel-->
+            @if($heros[0]->getTable() != 'brands')
+        <section id="categories">
         <p class="bg-grey text-center p-2 d-none d-lg-flex" id="backgroud-grey">h</p>
-        <div class="max-width-1680 m-auto carousel carousel-9 carousel-dark row row-cols-9 d-none d-lg-block slide"
+        <div class="max-width-1680 m-auto carousel carousel-9 carousel-dark d-none d-lg-flex slide"
              data-bs-ride="false"
              id="optionsCarousel">
-            <div class="carousel-inner px-2 overflow-visible" role="listbox">
-                <div class="carousel-item active">
-                    <div class="col-1 text-nowrap">
-                        <div class="card bg-grey py-2">
-                            <div class="ard-body underline-carousel kWfyGM krKgn">
-                                <a class="CollectionsNavstyles__CollectionTitleLink-sc-16wrtf8-3 iOkQPe" href="#">All
-                                    Clothing</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="col">
-                        <div class="card bg-grey py-2">
-                            <div class="ard-body underline-carousel kWfyGM krKgn">
-                                <a class="CollectionsNavstyles__CollectionTitleLink-sc-16wrtf8-3 iOkQPe"
-                                   href="#">Dresses</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="col">
-                        <div class="card bg-grey py-2">
-                            <div class="ard-body underline-carousel kWfyGM krKgn">
-                                <a class="CollectionsNavstyles__CollectionTitleLink-sc-16wrtf8-3 iOkQPe"
-                                   href="#">Sweaters</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="col">
-                        <div class="card bg-grey py-2">
-                            <div class="ard-body underline-carousel kWfyGM krKgn">
-                                <a class="CollectionsNavstyles__CollectionTitleLink-sc-16wrtf8-3 iOkQPe"
-                                   href="#">Sweaters</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--                dropdown-->
-                <div class="carousel-item">
-                    <div class="col">
-                        <div class="card">
-                            <div class="card-body p-0 krKgn">
-                                <div class="dropdown-center bg-grey py-2">
-                                    <button aria-expanded="false"
-                                            class="dropdown-toggle-change ikrKgn kWfyGM underline-carousel"
-                                            data-bs-toggle="dropdown" type="button">
-                                        <span class="CollectionsNavstyles__CollectionTitle-sc-16wrtf8-4 dZeHdq" href="#">Swimwear</span>
-                                    </button>
-                                    <ul class="CollectionsNavstyles__SubItems-sc-16wrtf8-5 WZQTr dropdown-menu shadow rounded-0 border-0 p-2">
-                                        <li class="CollectionNavSubItemstyles__SubItem-sc-19hf82t-0 djwyXz">
-                                            <p>
-                                                <a class="CollectionsNavstyles__SubItemsLink-sc-16wrtf8-6 KhMfA" href="#">All
-                                                    Swimwear</a>
-                                            </p>
-                                        </li>
-                                        <li class="CollectionNavSubItemstyles__SubItem-sc-19hf82t-0 djwyXz">
-                                            <p>
-                                                <a class="CollectionsNavstyles__SubItemsLink-sc-16wrtf8-6 KhMfA" href="#">One-Piece
-                                                </a>
-                                            </p>
-                                        </li>
-                                        <li class="CollectionNavSubItemstyles__SubItem-sc-19hf82t-0 djwyXz">
-                                            <p>
-                                                <a class="CollectionsNavstyles__SubItemsLink-sc-16wrtf8-6 KhMfA" href="#">Two-Piece
-                                                </a>
-                                            </p>
-                                        </li>
-                                    </ul>
+            <div class="carousel-inner px-4 overflow-visible" role="listbox">
+                @foreach($heros as $categorie)
+                    @foreach($categorie->subcategories as $key=>$sub)
+                        <div class="carousel-item {{$key == 0 ? 'active':'' }}">
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-body p-0 krKgn">
+                                        <div class="dropdown-center bg-grey py-2">
+                                            <button aria-expanded="false"
+                                                    class="dropdown-toggle-change ikrKgn kWfyGM underline-carousel"
+                                                    data-bs-toggle="dropdown" type="button">
+                                                <span class="CollectionsNavstyles__CollectionTitle-sc-16wrtf8-4 dZeHdq" href="#">{{$sub->name}}</span>
+                                            </button>
+                                            <ul class="CollectionsNavstyles__SubItems-sc-16wrtf8-5 WZQTr dropdown-menu shadow rounded-0 border-0 p-2">
+                                                <li class="CollectionNavSubItemstyles__SubItem-sc-19hf82t-0 djwyXz">
+                                                    <p>
+                                                        <a class="CollectionsNavstyles__SubItemsLink-sc-16wrtf8-6 KhMfA" href="#">All
+                                                            Swimwear</a>
+                                                    </p>
+                                                </li>
+                                                <li class="CollectionNavSubItemstyles__SubItem-sc-19hf82t-0 djwyXz">
+                                                    <p>
+                                                        <a class="CollectionsNavstyles__SubItemsLink-sc-16wrtf8-6 KhMfA" href="#">One-Piece
+                                                        </a>
+                                                    </p>
+                                                </li>
+                                                <li class="CollectionNavSubItemstyles__SubItem-sc-19hf82t-0 djwyXz">
+                                                    <p>
+                                                        <a class="CollectionsNavstyles__SubItemsLink-sc-16wrtf8-6 KhMfA" href="#">Two-Piece
+                                                        </a>
+                                                    </p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="col">
-                        <div class="card bg-grey py-2">
-                            <div class="ard-body underline-carousel underline-carousel kWfyGM krKgn ">
-                                <a class="CollectionsNavstyles__CollectionTitleLink-sc-16wrtf8-3 iOkQPe"
-                                   href="/sleepwear/c/">Sleepwear</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="col">
-                        <div class="card bg-grey py-2">
-                            <div class="ard-body underline-carousel kWfyGM krKgn">
-                                <a class="CollectionsNavstyles__CollectionTitleLink-sc-16wrtf8-3 iOkQPe" href="/tops/c/">Tops</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--                dropdown-->
-                <div class="carousel-item">
-                    <div class="col">
-                        <div class="card">
-                            <div class="card-body p-0 krKgn">
-                                <div class="dropdown-center bg-grey py-2">
-                                    <button aria-expanded="false"
-                                            class="dropdown-toggle-change ikrKgn kWfyGM underline-carousel"
-                                            data-bs-toggle="dropdown" type="button">
-                                    <span class="CollectionsNavstyles__CollectionTitle-sc-16wrtf8-4 dZeHdq"
-                                          href="/bottoms/c/">Bottoms</span>
-                                    </button>
-                                    <ul class="CollectionsNavstyles__SubItems-sc-16wrtf8-5 gIFbDq dropdown-menu shadow rounded-0 border-0 p-2"
-                                        data-acsb-menu="ul">
-                                        <li class="CollectionNavSubItemstyles__SubItem-sc-19hf82t-0 djwyXz">
-                                            <p>
-                                                <a class="CollectionsNavstyles__SubItemsLink-sc-16wrtf8-6 KhMfA"
-                                                   href="/bottoms/c/">
-                                                    All Bottoms
-                                                </a>
-                                            </p>
-                                        </li>
-                                        <li class="CollectionNavSubItemstyles__SubItem-sc-19hf82t-0 djwyXz">
-                                            <p>
-                                                <a class="CollectionsNavstyles__SubItemsLink-sc-16wrtf8-6 KhMfA"
-                                                   href="/pants/c/">
-                                                    Pants
-                                                </a>
-                                            </p>
-                                        </li>
-                                        <li class="CollectionNavSubItemstyles__SubItem-sc-19hf82t-0 djwyXz">
-                                            <p>
-                                                <a class="CollectionsNavstyles__SubItemsLink-sc-16wrtf8-6 KhMfA"
-                                                   href="/denim/c/">
-                                                    Denim
-                                                </a>
-                                            </p>
-                                        </li>
-                                        <li class="CollectionNavSubItemstyles__SubItem-sc-19hf82t-0 djwyXz">
-                                            <p>
-                                                <a class="CollectionsNavstyles__SubItemsLink-sc-16wrtf8-6 KhMfA"
-                                                   href="/skirts/c/">
-                                                    Skirts
-                                                </a>
-                                            </p>
-                                        </li>
-                                        <li class="CollectionNavSubItemstyles__SubItem-sc-19hf82t-0 djwyXz"
-                                            data-acsb-menu="li" data-acsb-menu-root="true">
-                                            <p>
-                                                <a class="CollectionsNavstyles__SubItemsLink-sc-16wrtf8-6 KhMfA"
-                                                   href="/shorts/c/">
-                                                    Shorts
-                                                </a>
-                                            </p>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--                dropdown-->
-                <div class="carousel-item">
-                    <div class="col">
-                        <div class="card">
-                            <div class="card-body p-0 krKgn">
-                                <div class="dropdown-center bg-grey py-2">
-                                    <button aria-expanded="false"
-                                            class="dropdown-toggle-change ikrKgn kWfyGM underline-carousel"
-                                            data-bs-toggle="dropdown" type="button">
-                                    <span class="CollectionsNavstyles__CollectionTitle-sc-16wrtf8-4 dZeHdq"
-                                          href="/intimates/c/">Intimates</span>
-                                    </button>
-                                    <ul class="CollectionsNavstyles__SubItems-sc-16wrtf8-5 hxkfQM dropdown-menu shadow rounded-0 border-0 p-2">
-                                        <li class="CollectionNavSubItemstyles__SubItem-sc-19hf82t-0 djwyXz">
-                                            <p>
-                                                <a class="CollectionsNavstyles__SubItemsLink-sc-16wrtf8-6 KhMfA"
-                                                   href="/intimates/c/">
-                                                    All Intimates
-                                                </a>
-                                            </p>
-                                        </li>
-                                        <li class="CollectionNavSubItemstyles__SubItem-sc-19hf82t-0 djwyXz">
-                                            <p>
-                                                <a class="CollectionsNavstyles__SubItemsLink-sc-16wrtf8-6 KhMfA"
-                                                   href="/bras/c/">
-                                                    Bras
-                                                </a>
-                                            </p>
-                                        </li>
-                                        <li class="CollectionNavSubItemstyles__SubItem-sc-19hf82t-0 djwyXz">
-                                            <p>
-                                                <a class="CollectionsNavstyles__SubItemsLink-sc-16wrtf8-6 KhMfA"
-                                                   href="/panties/c/">
-                                                    Panties
-                                                </a>
-                                            </p>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="col">
-                        <div class="card bg-grey py-2">
-                            <div class="ard-body underline-carousel kWfyGM krKgn">
-                                <a class="CollectionsNavstyles__CollectionTitleLink-sc-16wrtf8-3 iOkQPe"
-                                   href="/jumpsuits/c/">Jumpsuits</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="col-2 text-nowrap">
-                        <div class="card bg-grey py-2">
-                            <div class="ard-body underline-carousel kWfyGM krKgn">
-                                <a class="CollectionsNavstyles__CollectionTitleLink-sc-16wrtf8-3 iOkQPe"
-                                   href="/activewear-and-loungewear/c/">Activewear &amp;
-                                    Loungewear</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="col-1 text-nowrap">
-                        <div class="card bg-grey py-2">
-                            <div class="ard-body underline-carousel kWfyGM krKgn">
-                                <a class="CollectionsNavstyles__CollectionTitleLink-sc-16wrtf8-3 iOkQPe"
-                                   href="/jackets-and-coats/c/">Jackets &amp;
-                                    Coats</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    @endforeach
+                @endforeach
             </div>
             <button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#optionsCarousel" type="button">
                 <span aria-hidden="true" class="carousel-control-prev-icon"></span>
@@ -293,6 +67,9 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
+        </section>
+
+
         <!--filter gsm-->
         <section class="cffkFG d-lg-none" id="modalfiltersgsm">
             <!-- Button trigger filters modal -->
@@ -2258,6 +2035,9 @@
             </div>
         </section>
 
+
+        @endif
+        @endif
         <!--	producten-->
 
         <section class="row row-cols-2 row-cols-lg-3 mt-5 dgWCVK">

@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Product extends Model
 {
     use HasFactory;
-    protected $fillable = ['price','image_id','productcategory_id','brand_id', 'color_id','name', 'body','slug'];
+    protected $fillable = ['price','image_id','product_categories_id','brand_id', 'color_id','name', 'body','slug'];
 
     public function keywords(){
         return $this->morphToMany(Keyword::class,'keywordable');
@@ -24,7 +24,7 @@ class Product extends Model
         return $this->belongsTo(Color::class);
     }
     public function productcategories(){
-        return $this->belongsTo(ProductCategory::class,'product_productcategory_id');
+        return $this->belongsTo(ProductCategory::class, 'product_categories_id');
     }
     public function orderProducts(){
         $this->hasMany(OrderProducts::class,'product_id');

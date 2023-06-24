@@ -65,7 +65,7 @@ input[type=number] {
 
 
 /*you might also like*/
-h2.line:before, h2.line:after {
+h2.line:before, h2.line:after, h1.line:before, h1.line:after {
     content: '';
     height: 1px;
     background-color: #ccc;

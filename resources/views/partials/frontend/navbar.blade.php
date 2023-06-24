@@ -149,7 +149,7 @@
                                                 </li>
 
                                                 <li class="mb-2">
-                                                    <a href="#"  class="headerDropdownMenuLink">Shop All {{$categorie->name}}</a>
+                                                    <a class="nav-link" href="{{route('productsPerCategory',$categorie->id)}}" class="headerDropdownMenuLink">Shop All {{$categorie->name}}</a>
                                                 </li>
 
                                                 @foreach($categorie->subcategories as $sub)

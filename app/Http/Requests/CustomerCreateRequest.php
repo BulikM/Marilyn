@@ -26,9 +26,9 @@ class CustomerCreateRequest extends FormRequest
             'first_name' => 'nullable|string|between:2,255',
             'last_name' => 'nullable|string|between:2,255',
             "email" => "required |email | unique:users",
-            "phone" => 'nullable|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+            "phone" => 'nullable|regex:/^([0-9\s\-\+\(\)]*)$/|min:9',
             "mobile_phone" =>
-                'nullable|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+                'nullable|regex:/^([0-9\s\-\+\(\)]*)$/|min:9',
         ];
     }
     public function messages(){
