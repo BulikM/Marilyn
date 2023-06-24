@@ -15,18 +15,16 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('description');
+            $table->softDeletes();
             $table->timestamps();
         });
-        Schema::create('product_productcategory', function(Blueprint $table){
-            $table->id();
-            // $table->bigInteger()->unsigned();
-            $table->unsignedBigInteger('product_id');
-            $table->unsignedBigInteger('productcategory_id');
-            $table->timestamps();
-
-            $table->unique(['product_id', 'productcategory_id']);
-            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
-            $table->foreign('productcategory_id')->references('id')->on('product_categories')->onDelete('cascade');
+        Schema::table("products", function (Blueprint $table) {
+            $table
+                ->foreignId("product_categories_id")
+                ->nullable()
+                ->unsigned()
+                ->constrained()
+                ->cascadeOnDelete();
         });
     }
 

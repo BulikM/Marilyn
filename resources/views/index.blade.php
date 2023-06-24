@@ -13,7 +13,15 @@
 
 <!--main-->
 <main class="container-fluid p-0">
-
+{{--@foreach($categories as $categorie)--}}
+{{--    <div class="d-flex flex-column">--}}
+{{--        <p>{{$categorie->name}}</p>--}}
+{{--        <hr>--}}
+{{--        @foreach($categorie->subcategories as $sub)--}}
+{{--            <p>{{$sub->name}}</p>--}}
+{{--        @endforeach--}}
+{{--    </div>--}}
+{{--    @endforeach--}}
     <!--New arrivals-->
     <section id="NewArrivals" class="row p-0 max-width-1680 m-auto">
         <article class="col-12 p-0 my-4">

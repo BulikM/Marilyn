@@ -24,13 +24,13 @@ Route::get('product/{product:slug}', [\App\Http\Controllers\frontend\ProductCont
 Route::get("/products/brand/{id}", '\App\Http\Controllers\frontend\ProductController@productsPerBrand')->name('productsPerBrand');
 
 //cart
-Route::post('/addToCart/{id}', '\App\Http\Controllers\frontend\ProductController@addToCart')->name('addToCart');
-Route::get('/cart', '\App\Http\Controllers\frontend\ProductController@cart')->name('cart');
-Route::post('/cart', '\App\Http\Controllers\frontend\ProductController@updateQuantity')->name('quantity');
-Route::get('/removeItem/{id}', '\App\Http\Controllers\frontend\ProductController@removeItem')->name('removeItem');
+Route::post('/addToCart/{id}', '\App\Http\Controllers\frontend\CartController@addToCart')->name('addToCart');
+Route::get('/cart', '\App\Http\Controllers\frontend\CartController@cart')->name('cart');
+Route::post('/cart', '\App\Http\Controllers\frontend\CartController@updateQuantity')->name('updateQuantity');
+Route::get('/removeItem/{id}', '\App\Http\Controllers\frontend\CartController@removeItem')->name('removeItem');
 
 //cart-address
-Route::get("/cart-address", '\App\Http\Controllers\frontend\ProductController@cartAddress')->name('cart-address');
+Route::get("/cart-address", '\App\Http\Controllers\frontend\CartController@cartAddress')->name('cart-address');
 Route::post('/cart-address/step1', '\App\Http\Controllers\frontend\CheckoutController@checkoutShippingAddress')->name('checkoutShippingAddress');
 Route::post('/cart-address/step2', '\App\Http\Controllers\frontend\CheckoutController@checkoutBillingAddress')->name('checkoutBillingAddress');
 

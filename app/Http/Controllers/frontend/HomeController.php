@@ -4,6 +4,7 @@ namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use App\Models\ProductCategory;
 
 class HomeController extends Controller
 {
@@ -22,6 +23,7 @@ class HomeController extends Controller
     public function index()
     {
         $new_products = Product::with('image', 'brand')->latest('created_at')->take(11)->get();
-        return view("index", compact('new_products'));
+        $categories = ProductCategory::with('subCategories')->get();
+        return view("index", compact('new_products','categories'));
     }
 }

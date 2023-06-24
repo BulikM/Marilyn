@@ -30,11 +30,12 @@ class ProductSeeder extends Seeder
 
         for ($i = 0; $i < 100; $i++) {
             $product = new Product();
-            $product->name = fake()->words(2, true);
+            $product->name = fake()->unique()->words(2, true);
             $product->body = fake()->paragraphs(3, true);
             $product->image_id = $images->random()->id;
             $product->color_id = $colors->random()->id;
             $product->brand_id = $brands->random()->id;
+            $product->product_categories_id = $brands->random()->id;
             $product->price = fake()->randomFloat(100,1000,2);
             $product->slug = Str::slug($product->name,'-');
             $product->save();

@@ -48,8 +48,12 @@
                                     </h3>
                                     <div class="m-0">
                                         <div class="m-0">
-                                            <p class="m-0">
-                                                <span>Brand:</span> {{$product['product_brand']}}</p>
+                                            <a href="{{route('productsPerBrand', $product['product']->brand->id)}}">
+                                                <p class="m-0">
+                                                    <span>Brand:</span>
+                                                {{$product['product_brand']}}
+                                                </p>
+                                            </a>
                                             <p class="m-0">
                                                 <span>Item:</span>
                                                 {{$product['product_name']}}
@@ -73,7 +77,7 @@
 
                                     <div class="pt-4 pt-md-0 ps-3">
                                                     <form method="POST"
-                                                          action="{{action('App\Http\Controllers\frontend\ProductController@updateQuantity')}}"
+                                                          action="{{action('App\Http\Controllers\frontend\CartController@updateQuantity')}}"
                                                           enctype='multipart/form-data'>
                                                         @csrf
                                                         @method('POST')

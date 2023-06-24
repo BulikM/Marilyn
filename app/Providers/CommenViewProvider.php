@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Brand;
+use App\Models\ProductCategory;
 use Illuminate\Support\ServiceProvider;
 
 class CommenViewProvider extends ServiceProvider
@@ -20,11 +21,10 @@ class CommenViewProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        view()->composer(['index', 'shop','detail'], function ($view) {
-            $brand = Brand::all();
-            $view->with('brand', $brand);
 
-        });
+            $categories = ProductCategory::with('subCategories')->get();
+            view()->share('categories', $categories);
+
 
     }
 }

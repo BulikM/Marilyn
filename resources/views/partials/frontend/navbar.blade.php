@@ -126,11 +126,12 @@
             <li class="pe-3">
                 <a class="text-uppercase slideInEffect pb-1 categoryLink" href="#">What's New</a>
             </li>
+            @foreach($categories as $categorie)
             <li class="ps-3 pe-3 d-flex">
                 <div class="dropdown hoverDropdown">
                     <a class="text-uppercase slideInEffect pb-1 categoryLink" href="#" role="button" id="MadeByGoop"
                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Made By goop
+                      {{$categorie->name}}
                     </a>
 
                     <div class="pt-4">
@@ -138,37 +139,24 @@
                              aria-labelledby="MadeByGoop">
                             <div class="d-flex m-4">
                                 <div>
-                                    <span style="font: 700 1.5rem caslon, georgia, serif;">Made By goop</span>
+                                    <span style="font: 700 1.5rem caslon, georgia, serif;">{{$categorie->name}}</span>
                                     <ul class="list-unstyled d-flex justify-content-between pt-4 pe-5 pb-3">
                                         <li>
                                             <ul class="list-unstyled pe-4">
+
                                                 <li class="mb-2">
-                                                    <span class="text-uppercase fw-bolder">goop Beauty</span>
+                                                    <span class="text-uppercase fw-bolder">shop</span>
                                                 </li>
+
                                                 <li class="mb-2">
-                                                    <a href="https://goop.com/goop-beauty/c/?click_source=nav-3-madebygoop-goopbeauty-shopallgoopbeauty"
-                                                       class="headerDropdownMenuLink">Shop All goop Beauty</a>
+                                                    <a href="#"  class="headerDropdownMenuLink">Shop All {{$categorie->name}}</a>
                                                 </li>
+
+                                                @foreach($categorie->subcategories as $sub)
                                                 <li class="mb-2">
-                                                    <a href="https://goop.com/goop-skincare/?click_source=nav-3-madebygoop-goopbeauty-goopskincare"
-                                                       class="headerDropdownMenuLink">goop Skin Care</a>
+                                                    <a href="#"  class="headerDropdownMenuLink">{{$sub->name}}</a>
                                                 </li>
-                                                <li class="mb-2">
-                                                    <a href="https://goop.com/goopglow/?click_source=nav-3-madebygoop-goopbeauty-goopglow"
-                                                       class="headerDropdownMenuLink">GOOPGLOW</a>
-                                                </li>
-                                                <li class="mb-2">
-                                                    <a href="https://goop.com/goop-genes/?click_source=nav-3-madebygoop-goopbeauty-goopgenes"
-                                                       class="headerDropdownMenuLink">GOOPGENES</a>
-                                                </li>
-                                                <li class="mb-2">
-                                                    <a href="https://goop.com/g-tox/?click_source=nav-3-madebygoop-goopbeauty-gtox"
-                                                       class="headerDropdownMenuLink">G.Tox</a>
-                                                </li>
-                                                <li class="">
-                                                    <a href="https://goop.com/goop-bath-soaks/?click_source=nav-3-madebygoop-goopbeauty-goopbathsoaks"
-                                                       class="headerDropdownMenuLink">goop Bath Soaks</a>
-                                                </li>
+                                                @endforeach
                                             </ul>
                                         </li>
                                         <li>
@@ -272,24 +260,8 @@
                     </div>
                 </div>
             </li>
-            <li class="ps-3 pe-3">
-                <a class="text-uppercase slideInEffect pb-1 categoryLink" href="#">Beauty</a>
-            </li>
-            <li class="ps-3 pe-3">
-                <a class="text-uppercase slideInEffect pb-1 categoryLink" href="#">Fashion</a>
-            </li>
-            <li class="ps-3 pe-3">
-                <a class="text-uppercase slideInEffect pb-1 categoryLink" href="#">Wellness</a>
-            </li>
-            <li class="ps-3 pe-3">
-                <a class="text-uppercase slideInEffect pb-1 categoryLink" href="#">Food &amp; Home</a>
-            </li>
-            <li class="ps-3 pe-3">
-                <a class="text-uppercase slideInEffect pb-1 categoryLink" href="#">Travel</a>
-            </li>
-            <li class="ps-3 pe-3">
-                <a class="text-uppercase slideInEffect pb-1 categoryLink" href="#">Featured</a>
-            </li>
+            @endforeach
+
             <li class="ps-3">
                 <a class="text-uppercase slideInEffect pb-1 categoryLink" href="#">Sale</a>
             </li>
