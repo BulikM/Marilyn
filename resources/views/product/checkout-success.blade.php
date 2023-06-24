@@ -74,7 +74,6 @@
     <div class="d-flex justify-content-evenly p-3">
       <div class="col-11 ">
           @foreach($orderProducts as $arrayProduct)
-              {{dd($arrayProduct)}}
                   <hr class="text-black">
                   <div class="p-2">
                   <div class="cartItemWrapper___1GWWZ d-flex flex-wrap m-0 p-0 w-100">
