@@ -37,14 +37,14 @@
                         <div class="p-2">
                             <div class="cartItemWrapper___1GWWZ d-flex flex-wrap m-0 p-0 w-100">
                                 <div class="cartItemImage___3USxn">
-
-                                    <a href="{{route('product.show', $product['product_id'])}}">
+                                    <a href="{{route('product.show', $product['product']->slug)}}">
                                         <img class="productImg___2ywut d-block"
-                                             src="{{$product['product_image'] ? asset( $product['product_image']) : "img.png"}}"></a>
+                                             src="{{$product['product_image'] ? asset( $product['product_image']) : "img.png"}}">
+                                    </a>
                                 </div>
                                 <div class="order-2 order-lg-1 ps-4">
                                     <h3 class="productName___289kw">
-                                        <a href="{{route('product.show', $product['product_id'])}}">{{$product['product_name']}}</a>
+                                        <a href="{{route('product.show', $product['slug'])}}">{{$product['product_name']}}</a>
                                     </h3>
                                     <div class="m-0">
                                         <div class="m-0">

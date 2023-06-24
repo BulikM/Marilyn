@@ -24,7 +24,7 @@ class Cart extends Model
     }
 
     public function add($product, $product_id){
-        $shopItems = ['quantity'=>0, 'product_id'=>0, 'product_name'=>$product->name, 'product_price'=>$product->price, 'product_image'=>$product->image->file, 'product_description'=> $product->description, 'product'=> $product];
+        $shopItems = ['quantity'=>0, 'product_id'=>0, 'product_name'=>$product->name, 'product_price'=>$product->price, 'product_image'=>$product->image->file, 'product_description'=> $product->description, 'slug'=> $product->slug, 'product'=> $product];
         if($this->products){
             if (array_key_exists($product_id, $this->products)){
                 $shopItems = $this->products[$product_id];
@@ -37,6 +37,8 @@ class Cart extends Model
         $shopItems['product_price']=$product->price;
         $shopItems['product_image']=$product->image->file;
         $shopItems['product_description']=$product->body;
+        $shopItems['slug']=$product->slug;
+        $shopItems['product']=$product;
         $this->totalQuantity++;
         $this->totalPrice+= $product->price;
         $this->products[$product_id]=$shopItems;
