@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Product extends Model
 {
     use HasFactory;
-    protected $fillable = ['price','image_id','productcategory_id','brand_id', 'color_id','name', 'body'];
+    protected $fillable = ['price','image_id','productcategory_id','brand_id', 'color_id','name', 'body','slug'];
 
     public function keywords(){
         return $this->morphToMany(Keyword::class,'keywordable');

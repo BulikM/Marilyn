@@ -35,21 +35,21 @@
                     <button type="button" data-bs-target="#newCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
                 </div>
                 <div class="carousel-inner carousel-4 Items_container mb-5 px-5">
-                    @foreach($new_products as $key=>$new)
+                    @foreach($new_products as $key=>$product)
 
                         <div class="carousel-item {{$key == 0 ? 'active':'' }} w-100 justify-content-center gap-5" style="padding-left: 24px; padding-right: 24px">
                             <div class="card h-auto">
                                 <div class="carousel-image">
-                                    <a href="{{route('product.show', $new->id)}}">
-                                        <img alt="{{$new->name}}"
-                                             src="{{$new->image ? $new->image->file : "/assets/img.png"}}" class="col-12">
+                                    <a href="{{route('product.show', $product->slug)}}">
+                                        <img alt="{{$product->name}}"
+                                             src="{{$product->image ? $product->image->file : "/assets/img.png"}}" class="col-12">
                                     </a>
                                 </div>
                                 <div class="card-body">
-                                    <p class="text-g1">{{$new->id}}</p>
-                                    <p class="text-g1">{{$new->brand->name}}</p>
-                                    <a class="nav-link" href="{{route('productsPerBrand',$new->brand->id)}}">{{$new->name}}</a>
-                                    <p class="text-g3">€ {{$new->price}}</p>
+                                    <p class="text-g1">{{$product->id}}</p>
+                                    <p class="text-g1">{{$product->brand->name}}</p>
+                                    <a class="nav-link" href="{{route('productsPerBrand',$product->brand->id)}}">{{$product->name}}</a>
+                                    <p class="text-g3">€ {{$product->price}}</p>
                                 </div>
                             </div>
                             <!--							einde inhoud tweede carousel-->

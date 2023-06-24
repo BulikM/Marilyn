@@ -20,7 +20,7 @@ Route::get("/home", [
 ])->name("home");
 //products
 Route::resource("/product", \App\Http\Controllers\frontend\ProductController::class);
-Route::get('product/{id}', [\App\Http\Controllers\frontend\ProductController::class, 'show'])->name('posts.show');
+Route::get('product/{product:slug}', [\App\Http\Controllers\frontend\ProductController::class, 'show'])->name('product.show');
 Route::get("/products/brand/{id}", '\App\Http\Controllers\frontend\ProductController@productsPerBrand')->name('productsPerBrand');
 
 //cart
