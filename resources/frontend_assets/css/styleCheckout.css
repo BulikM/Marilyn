@@ -51,9 +51,16 @@ input[type=number] {
 }
 /*remove button*/
 .removeButton {
-    margin-top: 20px;
-    font-size: 14px;
-    line-height: 1.43;
+    color: #111;
+    text-transform: uppercase;
+    font-family: brandon_grotesque, sans-serif;
+    font-weight: 500;
+    font-size: inherit;
+    line-height: inherit;
+    background: none;
+    border: none;
+    padding: 0;
+    text-decoration: underline;
 }
 
 
@@ -168,6 +175,7 @@ input:not(:placeholder-shown) + label.label-top{
     line-height: 1.5;
     font-family: brandon_text,arial,sans-serif;
     margin-bottom: 0;
+    text-transform: capitalize;
 }
 .CheckoutAddressTittel {
     margin: 12px 0;

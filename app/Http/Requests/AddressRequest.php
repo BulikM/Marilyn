@@ -25,13 +25,12 @@ class AddressRequest extends FormRequest
             'first_name'=> 'required|string|between:2,255',
             'last_name'=> 'required|string|between:2,255',
             'address'=> 'required|string|between:2,255',
-            'address_2'=> 'nullable|string|between:2,255',
             'city'=> 'required|string|between:2,255',
             'zipcode'=> 'required|string|between:2,255',
             'province'=> 'required|string|between:2,255',
             'country'=> 'required|string|between:2,255',
-            "phone" => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
-            "email" => "required |email",
+            "phone" => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:9',
+            "email" => "required|email",
         ];
     }
     public function messages(){
@@ -43,9 +42,10 @@ class AddressRequest extends FormRequest
             'last_name.between'=>'The name must be between 2 and 255 characters',
             'address.required'=>'Please fill in a address line',
             'city.required'=>'Please fill in the City name',
-            'zipcode.required'=>'Please fill in the Zipcode name',
-            "phone" => "Please enter a vilid phone number",
-            "email.email" => "Please enter a valid email adres",
+            'zipcode.required'=>'Please fill in the Zipcode',
+            "phone" => "Please enter a valid phone number",
+            "email.email" => "Please enter a valid email",
+            "email.required" => "Please enter a valid email",
         ];
     }
 }

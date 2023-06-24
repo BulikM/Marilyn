@@ -31,6 +31,7 @@
                     <div class="text-uppercase text-black">You qualify for <strong>FREE SHIPPING!</strong></div>
                 </div>
                 <div class="m-0">
+
                     @foreach($cart as $product)
                         <hr class="text-black">
                         <div class="p-2">
@@ -39,7 +40,7 @@
 
                                     <a href="{{route('product.show', $product['product_id'])}}">
                                         <img class="productImg___2ywut d-block"
-                                             src="{{$product['product_image'] ? asset ( $product['product_image']) : ' no image availebel'}}"></a>
+                                             src="{{$product['product_image'] ? asset( $product['product_image']) : "img.png"}}"></a>
                                 </div>
                                 <div class="order-2 order-lg-1 ps-4">
                                     <h3 class="productName___289kw">

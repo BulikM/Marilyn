@@ -15,13 +15,14 @@
 .dotscarousel .carousel-indicators [data-bs-target] {
 
 	/*bolletjes + kleur*/
+    position: relative;
 	color: rgb(17, 17, 17)!important;
 	background-color: rgb(83, 83, 83);
 	width: 8px;
 	height: 8px;
 	border-radius: 50%;
 	/*meer naar onder*/
-	bottom: -2rem;
+	bottom: -3rem;
 }
 /*pijltje omlaag*/
 .dotscarousel .carousel-control-next, .dotscarousel .carousel-control-prev {
@@ -85,4 +86,54 @@
 .pijl .carousel-control-next-icon {
 	/* change fill="currentColor" to %23fff to make it white  */
 	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' height='24' width='24' class='SvgIconstyles__StyledSvgIcon-sc-1h1x60g-0 hqtITr Carouselstyles__StyledSvgIcon-b7o3y3-8 ceHZFw' aria-label='Back' fill='%23fff' type='arrow' aria-hidden='true' data-acsb-hidden='true' data-acsb-force-hidden='true'%3E%3Cpath d='M16.517 12L7.414 0 7 .31 15.868 12 7 23.69l.414.31 9.103-12'%3E%3C/path%3E%3C/svg%3E");
+}
+
+/*meerdere items per carousel responsive*/
+
+
+@media (max-width: 767px) {
+    .carousel-inner .carousel-item > div {
+        display: none;
+    }
+    .carousel-inner .carousel-item > div:first-child {
+        display: block;
+    }
+}
+
+.carousel-inner .carousel-item.active,
+.carousel-inner .carousel-item-next,
+.carousel-inner .carousel-item-prev {
+    display: flex;
+}
+
+/*mooiere overgang*/
+/*.carousel-inner .carousel-item-end.active,*/
+/*.carousel-inner .carousel-item-next {*/
+/*    transform: translateX(50%);*/
+/*}*/
+
+/*.carousel-inner .carousel-item-start.active,*/
+/*.carousel-inner .carousel-item-prev {*/
+/*    transform: translateX(-50%);*/
+/*}*/
+
+/*.carousel-inner .carousel-item-end,*/
+/*.carousel-inner .carousel-item-start {*/
+/*    transform: translateX(0);*/
+/*}*/
+
+.carousel-item{
+    transition: all 1s ease-in-out;
+}
+.carousel-image{
+    width: 168px;
+    aspect-ratio: 1 / 1;
+    object-fit: scale-down;
+}
+@media (min-width: 767px) {
+    .carousel-image{
+        width: 222px;
+        aspect-ratio: 1 / 1;
+        object-fit: scale-down;
+    }
 }

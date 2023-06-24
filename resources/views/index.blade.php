@@ -14,7 +14,6 @@
 <!--main-->
 <main class="container-fluid p-0">
 
-
     <!--New arrivals-->
     <section id="NewArrivals" class="row p-0 max-width-1680 m-auto">
         <article class="col-12 p-0 my-4">
@@ -24,46 +23,50 @@
             </div>
         </article>
 
-        <!--Gwyneth's gift list-->
-        <article class="col12 p-0">
+        <!--new carousel-->
+        <article class="col-12 p-0">
 
-            <div id="carouselExampleIndicators" class="carousel slide dotscarousel d-flex" data-bs-ride="false">
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                    </div>
-                    <div class="carousel-inner carousel-4 Items_container pb-5 px-5" style="width: 1655px;">
-                        @foreach($new_products as $key=>$new)
+            <div id="newCarousel" class="dotscarousel carousel slide" data-bs-ride="false">
+                <div class="carousel-indicators">
+                    @foreach($new_products as $key=>$new)
+                    <button type="button" data-bs-target="#newCarousel" data-bs-slide-to="{{$key}}" class="{{ $key == 0 ? 'active':'' }}" aria-current="true" aria-label="Slide 1"></button>
+                    @endforeach
+                    <button type="button" data-bs-target="#newCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#newCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner carousel-4 Items_container mb-5 px-5">
+                    @foreach($new_products as $key=>$new)
+
                         <div class="carousel-item {{$key == 0 ? 'active':'' }} w-100 justify-content-center gap-5" style="padding-left: 24px; padding-right: 24px">
-
-                                <div class="card" style="width: 272px;">
+                            <div class="card h-auto">
+                                <div class="carousel-image">
                                     <a href="{{route('product.show', $new->id)}}">
-                                    <img alt="{{$new->name}}"
-                                         src="{{$new->image->file}}" class="w-100 h-auto">
+                                        <img alt="{{$new->name}}"
+                                             src="{{$new->image ? $new->image->file : "/assets/img.png"}}" class="col-12">
                                     </a>
-                                    <div class="card-body">
-                                        <p class="text-g1">{{$new->brand->name}}</p>
-                                        <a class="nav-link" href="{{route('productsPerBrand',$new->brand->id)}}">{{$new->name}}</a>
-                                        <p class="text-g3">€ {{$new->price}}</p>
-                                    </div>
                                 </div>
+                                <div class="card-body">
+                                    <p class="text-g1">{{$new->id}}</p>
+                                    <p class="text-g1">{{$new->brand->name}}</p>
+                                    <a class="nav-link" href="{{route('productsPerBrand',$new->brand->id)}}">{{$new->name}}</a>
+                                    <p class="text-g3">€ {{$new->price}}</p>
+                                </div>
+                            </div>
                             <!--							einde inhoud tweede carousel-->
                         </div>
-                        @endforeach
-
-
-                        <button class="carousel-control-prev pijl" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next pijl" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
+                    @endforeach
                 </div>
+                <button class="pijl carousel-control-prev" type="button" data-bs-target="#newCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="pijl carousel-control-next" type="button" data-bs-target="#newCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
         </article>
+
         <!--	btn new arrivals-->
         <article CLASS="text-center">
             <button type="button" class="btn btn-g btn-dark text-uppercase rounded-0 m-auto">Shop all 64 new Arrivals</button>

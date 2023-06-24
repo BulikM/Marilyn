@@ -4,6 +4,7 @@ namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AddressRequest;
+use App\Models\Images;
 use App\Models\Order;
 use App\Models\OrderDetail;
 use App\Models\OrderProducts;
@@ -18,19 +19,20 @@ class CheckoutController extends Controller
 {
     public function checkoutShippingAddress(AddressRequest $request)
     {
-
+//dd($request);
         $shippingaddress = new OrderDetail();
         $shippingaddress->company = $request->company;
         $shippingaddress->vat = $request->vat;
         $shippingaddress->first_name = $request->first_name;
         $shippingaddress->last_name = $request->last_name;
-        $shippingaddress->phone =$request->phone;
         $shippingaddress->address =$request->address;
         $shippingaddress->address_2 =$request->address_2;
         $shippingaddress->city =$request->city;
         $shippingaddress->zipcode = $request->zipcode;
         $shippingaddress->province=$request->province;
         $shippingaddress->country =$request->country;
+        $shippingaddress->phone =$request->phone;
+        $shippingaddress->email =$request->email;
         $shippingaddress->shipping = true;
 //        $shippingaddress->save();
 
@@ -47,6 +49,7 @@ class CheckoutController extends Controller
 
     public function checkoutBillingAddress(Request $request)
     {
+
         if($request->billing == 'true'){
             $billingaddress = session('shipping') ;
             $billingaddress->billing = true;
@@ -102,6 +105,9 @@ class CheckoutController extends Controller
     }
     public function removeBilling(Request $request){
         $request->session()->forget('billing');
+       $shipping = session('shipping');
+       $shipping->billing = false;
+        session::put('shipping', $shipping);
         return redirect()
             ->route('cart-address');
     }
@@ -179,7 +185,6 @@ class CheckoutController extends Controller
         }
 
 
-
         return redirect($session->url);
     }
 
@@ -189,6 +194,11 @@ class CheckoutController extends Controller
         $sessionId = $request->get('session_id');
 //        $paymentIntent = PaymentIntent::retrieve(session::get('paymentIntentId'));
 //        dd(session('paymentIntentId'));
+
+
+        $order = Order::with(['orderProducts', 'orderDetails'])->where('session_id',$sessionId)->get();
+        $orderId = $order->pluck('id');
+        $orderProducts = OrderProducts::with(['products.image'])->where('orders_id',$orderId)->get();
 
         try {
             $session = \Stripe\Checkout\Session::retrieve($sessionId);
@@ -205,7 +215,8 @@ class CheckoutController extends Controller
                 $order->save();
             }
 
-            return view('product.checkout-success');
+            return view('product.checkout-success', compact('order','orderProducts' ));
+
         } catch (\Exception $e) {
             throw new NotFoundHttpException();
         }

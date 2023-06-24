@@ -18,64 +18,81 @@
             </div>
         </div>
     </nav>
-
     <div class="w-100 text-center">
     <div class="px-5"><h2 class="line d-flex align-items-center title___1Ikv6">Thank you for your purchase</h2></div>
         <h1 class="fs-3">Order overview</h1>
     </div>
-    <div class="d-flex justify-content-evenly p-3">
-        <div class="col-5 border border-black mb-4">
+    <div class="d-lg-flex justify-content-evenly p-3">
+        @foreach($order->orderDetails as $address)
+        @if($address->billing == true && $address->shipping == true)
+                <div class="col-12 col-lg-5 border border-black mb-4">
+                    <div class="p-3 AddressBookShippingForm" >
+                        <h2 class="fs-4">billing address</h2>
+                        <p class="m-0">{{$address->company}} {{$address->vat}}</p>
+                        <p class="m-0">{{$address->first_name}} {{$address->last_name}}</p>
+                        <p class="m-0">{{$address->address}}</p>
+                        <p class="m-0">{{$address->address_2}}</p>
+                        <p class="m-0">{{$address->provincy}}</p>
+                        <p class="m-0">{{$address->city}} {{$address->zipcode}}</p>
+                        <p class="m-0">{{$address->country}}</p>
+                        <p class="m-0">{{$address->phone}}</p>
+                        <p class="m-0">{{$address->email}}</p>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-5 border border-black mb-4">
+                    <div class="p-3 AddressBookShippingForm" >
+                        <h2 class="fs-4">shipping address</h2>
+                        <p class="m-0">{{$address->company}} {{$address->vat}}</p>
+                        <p class="m-0">{{$address->first_name}} {{$address->last_name}}</p>
+                        <p class="m-0">{{$address->address}}</p>
+                        <p class="m-0">{{$address->address_2}}</p>
+                        <p class="m-0">{{$address->provincy}}</p>
+                        <p class="m-0">{{$address->city}} {{$address->zipcode}}</p>
+                        <p class="m-0">{{$address->country}}</p>
+                        <p class="m-0">{{$address->phone}}</p>
+                        <p class="m-0">{{$address->email}}</p>
+                    </div>
+                </div>
+            @else
+                <div class="col-12 col-lg-5 border border-black mb-4">
             <div class="p-3 AddressBookShippingForm" >
-                <h2 class="fs-4">Shipping address</h2>
-                <p class="m-0">{{Session('shipping')->company}} {{Session('shipping')->vat}}</p>
-                <p class="m-0">{{Session('shipping')->first_name}} {{Session('shipping')->last_name}}</p>
-                <p class="m-0">{{Session('shipping')->address}}</p>
-                <p class="m-0">{{Session('shipping')->address_2}}</p>
-                <p class="m-0">{{Session('shipping')->provincy}}</p>
-                <p class="m-0">{{Session('shipping')->city}} {{Session('shipping')->zipcode}}</p>
-                <p class="m-0">{{Session('shipping')->country}}</p>
-                <p class="m-0">{{Session('shipping')->phone}}</p>
-                <p class="m-0">{{Session('shipping')->email}}</p>
+                <h2 class="fs-4">{{$address->billing == true ? 'billing address' : 'shipping address' }}</h2>
+                <p class="m-0">{{$address->company}} {{$address->vat}}</p>
+                <p class="m-0">{{$address->first_name}} {{$address->last_name}}</p>
+                <p class="m-0">{{$address->address}}</p>
+                <p class="m-0">{{$address->address_2}}</p>
+                <p class="m-0">{{$address->provincy}}</p>
+                <p class="m-0">{{$address->city}} {{$address->zipcode}}</p>
+                <p class="m-0">{{$address->country}}</p>
+                <p class="m-0">{{$address->phone}}</p>
+                <p class="m-0">{{$address->email}}</p>
             </div>
         </div>
-        <div class="col-5 border border-black mb-4">
-            <div class="p-3 AddressBookShippingForm" >
-                <h2  class="fs-4">Billing address</h2>
-                <p class="m-0">{{Session('billing')->company}} {{Session('billing')->vat}}</p>
-                <p class="m-0">{{Session('billing')->first_name}} {{Session('billing')->last_name}}</p>
-                <p class="m-0">{{Session('billing')->address}}</p>
-                <p class="m-0">{{Session('billing')->address_2}}</p>
-                <p class="m-0">{{Session('billing')->provincy}}</p>
-                <p class="m-0">{{Session('billing')->city}} {{Session('billing')->zipcode}}</p>
-                <p class="m-0">{{Session('billing')->country}}</p>
-                <p class="m-0">{{Session('billing')->phone}}</p>
-                <p class="m-0">{{Session('billing')->email}}</p>
-            </div>
-        </div>
+            @endif
+        @endforeach
     </div>
     <div class="d-flex justify-content-evenly p-3">
       <div class="col-11 ">
-          @foreach(session('cart')->products as $product)
-              <hr class="text-black">
-              <div class="p-2">
+          @foreach($orderProducts as $arrayProduct)
+                  <hr class="text-black">
+                  <div class="p-2">
                   <div class="cartItemWrapper___1GWWZ d-flex flex-wrap m-0 p-0 w-100">
                       <div class="cartItemImage___3USxn">
-
-                          <a href="{{route('product.show', $product['product_id'])}}">
+                          <a href="{{route('product.show', $arrayProduct->products->id)}}">
                               <img class="productImg___2ywut d-block"
-                                   src="{{$product['product_image'] ? asset ( $product['product_image']) : ' no image availebel'}}"></a>
+                                   src="{{$arrayProduct->products->image ? asset($arrayProduct->products->image->file) : 'http://via.placeholder.com/62x62'}}"></a>
                       </div>
                       <div class="order-2 order-lg-1 ps-4">
                           <h3 class="productName___289kw">
-                              <a href="{{route('product.show', $product['product_id'])}}">{{$product['product_name']}}</a>
+                              <a href="{{route('product.show', $arrayProduct->products->id)}}">{{$arrayProduct->products->name}}</a>
                           </h3>
                           <div class="m-0">
                               <div class="m-0">
                                   <p class="m-0">
-                                      <span>Brand:</span> {{$product['product_brand']}}</p>
+                                      <span>Brand:</span> {{$arrayProduct->products->brand->name}}</p>
                                   <p class="m-0">
                                       <span>Item:</span>
-                                      {{$product['product_name']}}
+                                      {{$arrayProduct->products->name}}
                                   </p>
                                   <p class="m-0">
                                       <span>Size:</span>
@@ -86,43 +103,37 @@
                                       BLACK/IVORY
                                   </p>
                                   <p class="optionValues___qDP92">
-                                      <span>Price:</span>€ {{$product['product_price']}}
+                                      <span>Price:</span>€ {{$arrayProduct->products->price}}
                                   </p>
                               </div>
                           </div>
                       </div>
 
                       <div class="order-1 order-lg-2 flex-fill align-items-end">
-
                           <div class="pt-4 pt-md-0 ps-3">
                                   <div class="input-group mb-3" style=" width: 100px">
                                       <span class="input-group-text border-dark bg-white rounded-0 border-end-0" id="basic-addon1">Qty: </span>
-                                      <input type="number" class="form-control border-dark border-start-0 bg-white rounded-0 text-center" aria-label="quantity" aria-describedby="basic-addon1" value="{{$product['quantity']}}" name="quantity" readonly>
+                                      <input type="number" class="form-control border-dark border-start-0 bg-white rounded-0 text-center" aria-label="quantity" aria-describedby="basic-addon1" value="{{$arrayProduct->quantity}}" name="quantity" readonly>
                                   </div>
                                   <input type="hidden" class="form-control form-control-sm"
-                                         name="id" value="{{$product['product_id']}}">
-                                  <button class="d-none" type="submit">
-                                      Update price
-                                  </button>
-                              </form>
-
+                                         name="id" value="{{$arrayProduct->products->id}}">
                           </div>
                           <div class="cartItemDelete___6Odzn">
-                              <p class="text-black d-flex d-lg-none">{{$product['product_price']}}</p>
+                              <p class="text-black d-flex d-lg-none">{{$arrayProduct->products->price}}</p>
                           </div>
                       </div>
                       <div class="order-3 d-flex flex-column align-items-end">
-                          <p class="text-black d-none d-lg-block">€ {{$product['product_price'] * $product['quantity']}}</p>
+                          <p class="text-black d-none d-lg-block">€ {{$arrayProduct->products->price * $arrayProduct->quantity}}</p>
                       </div>
                   </div>
               </div>
           @endforeach
-              <div class="d-flex justify-content-center mt-5">
-                  <a href="{{route('sessionFlush')}}" class="w-100">
-                      <button type="submit" class="btn btn-g btn-dark text-uppercase rounded-0 col-10 col-lg-3 mt-3 mb-4">Checkout</button>
+                  <a href="{{route('home')}}" class="d-flex justify-content-center w-100 mt-5">
+                      <button type="submit" class="btn btn-g btn-dark text-uppercase rounded-0 col-10 col-lg-3 mt-3 mb-4">Go to Shop</button>
                   </a>
-              </div>
       </div>
     </div>
 
 @endsection
+
+

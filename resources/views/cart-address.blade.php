@@ -18,6 +18,7 @@
             </div>
         </div>
     </nav>
+
     <div class="row mt-5 px-lg-5 text-center">
         <div class="text-start col-12 col-lg-8">
             @if(Session::has('shipping'))
@@ -37,17 +38,23 @@
                                     <div class="border border-black col-10 col-lg-6 text-black">
                                         <div class="d-flex justify-content-between">
                                             <div class="ps-5 py-2 AddressBookShippingForm" >
-                                                <strong class="">Shipping address</strong>
-                                                <p class="m-0">{{Session('shipping')->first_name}} {{Session('shipping')->last_name}}</p>
-                                                <p class="m-0">{{Session('shipping')->address_1}}</p>
+                                               <p><strong>Shipping address</strong></p>
+                                                <p class="m-0">{{Session('shipping')->company}}</p>
+                                                <p class="mb-2"> {{Session('shipping')->vat}}</p>
+                                                <p class="mb-2">{{Session('shipping')->first_name}} {{Session('shipping')->last_name}}</p>
+                                                <p class="m-0">{{Session('shipping')->address}}</p>
                                                 <p class="m-0">{{Session('shipping')->address_2}}</p>
                                                 <p class="m-0">{{Session('shipping')->provincy}}</p>
                                                 <p class="m-0">{{Session('shipping')->city}} {{Session('shipping')->zipcode}}</p>
-                                                <p class="m-0">{{Session('shipping')->country}}</p>
+                                                <p class="mb-2">{{Session('shipping')->country}}</p>
+
+                                                <p class="m-0">{{Session('shipping')->phone}}</p>
+                                                <p class="m-0">{{Session('shipping')->email}}</p>
+{{--                                                {{dd(session('shipping'))}}--}}
                                             </div>
                                             <div>
                                                 <a href="{{route('removeShipping')}}" class="w-100">
-                                                    <button type="submit" class="btn">edit</button>
+                                                    <button type="submit" class="btn text-decoration-underline">edit</button>
                                                 </a>
                                             </div>
                                         </div>
@@ -73,7 +80,6 @@
                                 <div class="accordion border-0 mb-5 accordionArrow" id="sub">
                                         <div class="accordion-item border-0">
 
-
                                                 <div class="d-flex justify-content-center">
                                                     <div class="border border-black col-10 col-lg-6 text-black">
                                                         <div class="ps-5 py-2 AddressBookShippingForm" >
@@ -82,7 +88,7 @@
                                                                     <div>
                                                                         <p class="m-0">{{Session('billing')->company}} {{Session('billing')->vat}}</p>
                                                                         <p class="m-0">{{Session('billing')->first_name}} {{Session('billing')->last_name}}</p>
-                                                                        <p class="m-0">{{Session('billing')->address_1}}</p>
+                                                                        <p class="m-0">{{Session('billing')->address}}</p>
                                                                         <p class="m-0">{{Session('billing')->address_2}}</p>
                                                                         <p class="m-0">{{Session('billing')->provincy}}</p>
                                                                         <p class="m-0">{{Session('billing')->city}} {{Session('billing')->zipcode}}</p>
@@ -110,7 +116,7 @@
                                                                 </label>
                                                                 <p class="m-0">{{Session('shipping')->company}} {{Session('shipping')->vat}}</p>
                                                                 <p class="m-0">{{Session('shipping')->first_name}} {{Session('shipping')->last_name}}</p>
-                                                                <p class="m-0">{{Session('shipping')->address_1}}</p>
+                                                                <p class="m-0">{{Session('shipping')->address}}</p>
                                                                 <p class="m-0">{{Session('shipping')->address_2}}</p>
                                                                 <p class="m-0">{{Session('shipping')->provincy}}</p>
                                                                 <p class="m-0">{{Session('shipping')->city}} {{Session('shipping')->zipcode}}</p>
@@ -137,7 +143,7 @@
                                                                     <input id="company" name="company" type="text" placeholder="Company"
                                                                            class="form-control"
                                                                            value="{{old('company')}}">
-                                                                    <label class="label-top" for="email">company name</label>
+                                                                    <label class="label-top" for="company">company name</label>
                                                                 </div>
                                                             </div>
                                                             <div class="col-12 col-md-6 mb-4 mb-lg-0">
@@ -146,7 +152,7 @@
                                                                     <input id="vat" name="vat" type="text" placeholder="Vat number"
                                                                            class="form-control"
                                                                            value="{{old('vat')}}">
-                                                                    <label class="label-top" for="email">Vat number</label>
+                                                                    <label class="label-top" for="vat">Vat number</label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -213,7 +219,7 @@
                                                                 <div class="form-floating form-group">
                                                                     <input id="city" name="city" type="text" placeholder="city"
                                                                            class="form-control" value="{{old('city')}}">
-                                                                    <label class="label-top" for="address_1">*City</label>
+                                                                    <label class="label-top" for="address">*City</label>
                                                                     @error('city')
                                                                     <span class="drwJIz">
                                                   {{ $message }}
@@ -226,7 +232,7 @@
                                                                 <div class="form-floating form-group">
                                                                     <input id="zipcode" name="zipcode" type="text" placeholder="zipcode"
                                                                            class="form-control" value="{{old('zipcode')}}">
-                                                                    <label class="label-top" for="address_1">*zipcode</label>
+                                                                    <label class="label-top" for="address">*zipcode</label>
                                                                     @error('zipcode')
                                                                     <span class="drwJIz">
                                                   {{ $message }}
@@ -278,7 +284,7 @@
                                                                 <div class="form-floating form-group">
                                                                     <input id="email" name="email" type="email" placeholder="email"
                                                                            class="form-control" value="{{old('email')}}">
-                                                                    <label class="label-top" for="address_1">*email</label>
+                                                                    <label class="label-top" for="address">*email</label>
                                                                     @error('email')
                                                                     <span class="drwJIz">
                                                   {{ $message }}
@@ -370,7 +376,7 @@
                                             <input id="company" name="company" type="text" placeholder="Company"
                                                    class="form-control"
                                                    value="{{old('company')}}">
-                                            <label class="label-top" for="email">company name</label>
+                                            <label class="label-top" for="company">company name</label>
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6 mb-4 mb-lg-0">
@@ -379,7 +385,7 @@
                                             <input id="vat" name="vat" type="text" placeholder="Vat number"
                                                    class="form-control"
                                                    value="{{old('vat')}}">
-                                            <label class="label-top" for="email">Vat number</label>
+                                            <label class="label-top" for="vat">Vat number</label>
                                         </div>
                                     </div>
                                 </div>
@@ -447,7 +453,7 @@
                                         <div class="form-floating form-group">
                                             <input id="city" name="city" type="text" placeholder="city"
                                                    class="form-control" value="{{old('city')}}">
-                                            <label class="label-top" for="address_1">*City</label>
+                                            <label class="label-top" for="address">*City</label>
                                             @error('city')
                                             <span class="drwJIz">
                                                   {{ $message }}
@@ -460,7 +466,7 @@
                                         <div class="form-floating form-group">
                                             <input id="zipcode" name="zipcode" type="text" placeholder="zipcode"
                                                    class="form-control" value="{{old('zipcode')}}">
-                                            <label class="label-top" for="address_1">*zipcode</label>
+                                            <label class="label-top" for="address">*zipcode</label>
                                             @error('zipcode')
                                             <span class="drwJIz">
                                                   {{ $message }}
@@ -512,7 +518,7 @@
                                         <div class="form-floating form-group">
                                             <input id="email" name="email" type="email" placeholder="email"
                                                    class="form-control" value="{{old('email')}}">
-                                            <label class="label-top" for="address_1">*email</label>
+                                            <label class="label-top" for="address">*email</label>
                                             @error('email')
                                             <span class="drwJIz">
                                                   {{ $message }}

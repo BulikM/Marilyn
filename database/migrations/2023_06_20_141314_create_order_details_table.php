@@ -31,6 +31,7 @@ return new class extends Migration
             $table->char("zipcode", 255);
             $table->char("country", 255);
             $table->char("phone", 255);
+            $table->char("email", 255);
             $table->boolean('shipping') ->default(false);
             $table->boolean('billing') ->default(false);
             $table->timestamps();
