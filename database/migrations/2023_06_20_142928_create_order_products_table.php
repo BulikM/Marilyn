@@ -17,9 +17,6 @@ return new class extends Migration
             $table->foreignId('product_id')->unsigned();
             $table->unsignedDecimal('price', 8, 2);
             $table->string('name');
-            $table->char('brand',255);
-            $table->char('color',255)->nullable();
-            $table->char('size',255)->nullable();
             $table->string('quantity');
             $table->timestamps();
         });

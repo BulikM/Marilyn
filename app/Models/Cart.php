@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Http\Request;
 
 class Cart extends Model
 {
@@ -24,24 +23,27 @@ class Cart extends Model
         }
     }
 
-    public function add($product){
-        $request = request();
-        $shopItems = ['quantity'=>0, 'product_id'=>0, 'product_name'=>$product->name, 'product_price'=>$product->price, 'product_image'=>$product->image->file, 'slug'=> $product->slug, 'product'=> $product];
+    public function add($product, $product_id){
+        $shopItems = ['quantity'=>0, 'product_id'=>0, 'product_name'=>$product->name, 'product_price'=>$product->price, 'product_image'=>$product->image->file, 'product_description'=> $product->description, 'slug'=> $product->slug, 'product'=> $product];
         if($this->products){
-            if (array_key_exists($product->product_id, $this->products)){
-                $shopItems = $this->products[$product->product_id];            }
+            if (array_key_exists($product_id, $this->products)){
+                $shopItems = $this->products[$product_id];
+            }
         }
         $shopItems['quantity']++;
-        $shopItems['product_id'] = $product->product_id;
+        $shopItems['product_id'] = $product_id;
         $shopItems['product_name']=$product->name;
-        $shopItems['brand_name']= $request->brand;
+        foreach ($product->brand as $brand){
+            $shopItems['product_brand']=$brand->name;
+        }
         $shopItems['product_price']=$product->price;
         $shopItems['product_image']=$product->image->file;
+        $shopItems['product_description']=$product->body;
         $shopItems['slug']=$product->slug;
         $shopItems['product']=$product;
         $this->totalQuantity++;
         $this->totalPrice+= $product->price;
-        $this->products[$product->product_id]=$shopItems;
+        $this->products[$product_id]=$shopItems;
     }
     public function updateQuantity($id, $quantity){
         $this->totalQuantity -= $this->products[$id]['quantity'];

@@ -27,7 +27,7 @@ Route::get("/products/brand/{brand:slug}", '\App\Http\Controllers\frontend\Produ
 Route::get("/products/category/{productCategory:slug}", '\App\Http\Controllers\frontend\ProductController@productsPerCategory')->name('productsPerCategory');
 
 //cart
-Route::post('/addToCart/{product}', '\App\Http\Controllers\frontend\CartController@addToCart')->name('addToCart');
+Route::post('/addToCart/{id}', '\App\Http\Controllers\frontend\CartController@addToCart')->name('addToCart');
 Route::get('/cart', '\App\Http\Controllers\frontend\CartController@cart')->name('cart');
 Route::post('/cart', '\App\Http\Controllers\frontend\CartController@updateQuantity')->name('updateQuantity');
 Route::get('/removeItem/{id}', '\App\Http\Controllers\frontend\CartController@removeItem')->name('removeItem');

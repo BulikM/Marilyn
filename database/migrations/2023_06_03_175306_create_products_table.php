@@ -15,8 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedDecimal('price', 8, 2);
             $table->string('name');
-            $table->text('description');
-            $table->char('info',255);
+            $table->text('body');
             $table->char('slug',255)->unique();
             $table->timestamps();
         });
