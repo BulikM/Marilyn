@@ -19,7 +19,7 @@ class ProductCategorySeeder extends Seeder
         foreach ($productcategories as $productcategorie) {
             ProductCategory::create([
                 'name' => $productcategorie,
-                'description'=> Str::words(20)
+                'slug' => Str::slug($productcategorie,'-'),
             ]);
         }
     }

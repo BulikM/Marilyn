@@ -48,11 +48,13 @@
                                     </h3>
                                     <div class="m-0">
                                         <div class="m-0">
-                                            <a href="{{route('productsPerBrand', $product['product']->brand->id)}}">
+                                            @foreach($product['product']->brand as $brand)
+                                            <a href="{{route('productsPerBrand', $brand->slug)}}">
                                                 <p class="m-0">
                                                     <span>Brand:</span>
                                                 {{$product['product_brand']}}
                                                 </p>
+                                                @endforeach
                                             </a>
                                             <p class="m-0">
                                                 <span>Item:</span>

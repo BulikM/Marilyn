@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Brand;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class BrandsSeeder extends Seeder
 {
@@ -18,7 +19,8 @@ class BrandsSeeder extends Seeder
         foreach ($brands as $brand) {
             Brand::create([
                 'name' => $brand,
-                'description' => fake()->text(150, true)
+                'description' => fake()->text(150, true),
+                'slug' => Str::slug($brand,'-'),
             ]);
         }
     }

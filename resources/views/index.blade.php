@@ -53,10 +53,13 @@
                                              src="{{$product->image ? $product->image->file : "/assets/img.png"}}" class="col-12">
                                     </a>
                                 </div>
+
                                 <div class="card-body">
                                     <p class="text-g1">{{$product->id}}</p>
-                                    <p class="text-g1">{{$product->brand->name}}</p>
-                                    <a class="nav-link" href="{{route('productsPerBrand',$product->brand->id)}}">{{$product->name}}</a>
+                                    @foreach($product->brand as $brand)
+                                    <p class="text-g1">{{$brand->name}}</p>
+                                    <a class="nav-link" href="{{route('productsPerBrand',$brand->slug)}}">{{$product->name}}</a>
+                                    @endforeach
                                     <p class="text-g3">€ {{$product->price}}</p>
                                 </div>
                             </div>

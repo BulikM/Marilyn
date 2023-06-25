@@ -9,9 +9,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Brand extends Model
 {
     use HasFactory , SoftDeletes;
-    protected $fillable=['name', 'description'];
+    protected $fillable=['name', 'description','slug'];
 
     public function products(){
-        return $this->hasMany(Product::class);
+        return $this->belongsToMany(Product::class, 'product_propertylists');
     }
 }

@@ -27,9 +27,11 @@
 
                     <!--			gsm omschrijving art-->
                     <div class="text-center row m-auto">
-                        <a href="/mara-hoffman/c/"
+                        @foreach($product->brand as $brand)
+                        <a href="{{route('productsPerBrand', $brand->slug)}}"
                            class=" p-0 Text__BaseText-vs2pg6-0 Link__StyledLink-sc-7p0xb2-0 bLYPWY iICCXR styles__Brand-gvy2cl-0 hwMBsm Productstyles__StyledBrand-jw9a2y-18 bYxLCt"
-                           target="">{{$product->brand->name}}</a>
+                           target="">{{$brand->name}}</a>
+                        @endforeach
                         <h1 class=" p-0 Headingstyles__H1-sc-1gmsk6i-0 jHuvxg styles__ProductTitle-sc-98vcgp-0 fgVCbT">
                             Marilyn Dress</h1>
                         <div
@@ -498,9 +500,11 @@
                             <div class="modal-content img-zoom-container">
                                 <div class="text-center row">
                                     <div class="col-10 offset-1">
-                                        <a href="{{route('productsPerBrand',$product->brand->id)}}"
+                                        @foreach($product->brand as $brand)
+                                        <a href="{{route('productsPerBrand',$brand->id)}}"
                                            class=" p-0 Text__BaseText-vs2pg6-0 Link__StyledLink-sc-7p0xb2-0 bLYPWY iICCXR styles__Brand-gvy2cl-0 hwMBsm Productstyles__StyledBrand-jw9a2y-18 bYxLCt"
-                                           target="">{{$product->brand->name}}</a>
+                                           target="">{{$brand->name}}</a>
+                                        @endforeach
                                         <h1 class=" p-0 Headingstyles__H1-sc-1gmsk6i-0 jHuvxg styles__ProductTitle-sc-98vcgp-0 fgVCbT">
                                             {{$product->name}}</h1>
                                     </div>
@@ -523,9 +527,11 @@
 
                                             <div class="carousel-inner fit_modal mb-4 ms-5 col-6">
                                                 <div class="carousel-item active">
-                                                    <img  alt="{{$product->brand->name}} {{$product->name}}"
+                                                    @foreach($product->brand as $brand)
+                                                    <img  alt="{{$brand->name}} {{$product->name}}"
                                                          src="{{$product->image->file}}"
                                                          class="d-block w-75">
+                                                    @endforeach
                                                 </div>
                                                 <div class="carousel-item">
                                                     <img alt="Mara Hoffman Marilyn Dress"
@@ -850,9 +856,11 @@
             <!--				omschrijving laptop-->
             <div id="omschrijvingLg" class="col-5 d-none d-lg-block vh-100 ">
                 <div class="text-start col-11 offset-1 p-0">
-                    <a href="{{route('productsPerBrand', $product->brand->id)}}"
+                    @foreach($product->brand as $brand)
+                    <a href="{{route('productsPerBrand', $brand->slug)}}"
                        class=" p-0 Text__BaseText-vs2pg6-0 Link__StyledLink-sc-7p0xb2-0 bLYPWY iICCXR styles__Brand-gvy2cl-0 hwMBsm Productstyles__StyledBrand-jw9a2y-18 bYxLCt"
-                       target="">{{$product->brand->name}}</a>
+                       target="">{{$brand->name}}</a>
+                        @endforeach
                     <h1 class=" p-0 Headingstyles__H1-sc-1gmsk6i-0 jHuvxg styles__ProductTitle-sc-98vcgp-0 fgVCbT">
                         {{$product->name}}</h1>
                     <div class="styles__PriceContainer-sc-40crr6-0 fDkzrM d-flex align-items-center">

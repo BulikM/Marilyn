@@ -33,7 +33,9 @@ class Cart extends Model
         $shopItems['quantity']++;
         $shopItems['product_id'] = $product_id;
         $shopItems['product_name']=$product->name;
-        $shopItems['product_brand']=$product->brand->name;
+        foreach ($product->brand as $brand){
+            $shopItems['product_brand']=$brand->name;
+        }
         $shopItems['product_price']=$product->price;
         $shopItems['product_image']=$product->image->file;
         $shopItems['product_description']=$product->body;

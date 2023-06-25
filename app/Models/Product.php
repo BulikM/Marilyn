@@ -17,16 +17,22 @@ class Product extends Model
     public function image(){
         return $this->belongsTo(Images::class);
     }
-    public function brand(){
-        return $this->belongsTo(Brand::class);
-    }
     public function color(){
         return $this->belongsTo(Color::class);
     }
     public function productcategories(){
         return $this->belongsTo(ProductCategory::class, 'product_categories_id');
     }
+
+
+
     public function orderProducts(){
-        $this->hasMany(OrderProducts::class,'product_id');
+        return $this->hasMany(OrderProducts::class,'product_id');
+    }
+
+
+
+    public function brand(){
+        return  $this->belongsToMany(Brand::class, 'product_propertylists');
     }
 }

@@ -74,22 +74,27 @@
     <div class="d-flex justify-content-evenly p-3">
       <div class="col-11 ">
           @foreach($orderProducts as $arrayProduct)
+
                   <hr class="text-black">
                   <div class="p-2">
                   <div class="cartItemWrapper___1GWWZ d-flex flex-wrap m-0 p-0 w-100">
                       <div class="cartItemImage___3USxn">
-                          <a href="{{route('product.show', $arrayProduct->products->id)}}">
+                          <a href="{{route('product.show', $arrayProduct->products->slug)}}">
                               <img class="productImg___2ywut d-block"
                                    src="{{$arrayProduct->products->image ? asset($arrayProduct->products->image->file) : 'http://via.placeholder.com/62x62'}}"></a>
                       </div>
                       <div class="order-2 order-lg-1 ps-4">
                           <h3 class="productName___289kw">
-                              <a href="{{route('product.show', $arrayProduct->products->id)}}">{{$arrayProduct->products->name}}</a>
+                              <a href="{{route('product.show', $arrayProduct->products->slug)}}">{{$arrayProduct->products->name}}</a>
                           </h3>
                           <div class="m-0">
                               <div class="m-0">
-                                  <p class="m-0">
-                                      <span>Brand:</span> {{$arrayProduct->products->brand->name}}</p>
+
+                                      <a href="{{route('productsPerBrand', $arrayProduct->products->brand[0]->slug)}}">
+                                          <p class="m-0">
+                                              <span>Brand:</span> {{$arrayProduct->products->brand[0]->name}}
+                                          </p>
+                                      </a>
                                   <p class="m-0">
                                       <span>Item:</span>
                                       {{$arrayProduct->products->name}}

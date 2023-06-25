@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\SubCategory;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class SubCategorySeeder extends Seeder
 {
@@ -17,7 +18,8 @@ class SubCategorySeeder extends Seeder
         foreach ($WelnessSubs as $WelnessSub){
             SubCategory::create([
                 'name'=>$WelnessSub,
-                'product_categories_id'=> '4'
+                'product_categories_id'=> '4',
+                'slug' => Str::slug($WelnessSub,'-'),
             ]);
         }
     }

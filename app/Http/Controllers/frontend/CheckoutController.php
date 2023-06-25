@@ -195,9 +195,8 @@ class CheckoutController extends Controller
 //        dd(session('paymentIntentId'));
 
 
-        $order = Order::with(['orderProducts', 'orderDetails'])->where('session_id',$sessionId)->get();
-        $orderId = $order->pluck('id');
-        $orderProducts = OrderProducts::with(['products.image'])->where('orders_id',$orderId)->get();
+        $order = Order::with(['orderProducts','orderProducts.products', 'orderDetails'])->where('session_id',$sessionId)->first();
+        $orderProducts = $order->orderProducts;
 
         try {
             $session = \Stripe\Checkout\Session::retrieve($sessionId);

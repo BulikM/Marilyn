@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\BillingAddresses;
 use App\Models\ProductCategory;
+use App\Models\ProductPropertlist;
 use App\Models\SubCategory;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -35,6 +36,7 @@ class DatabaseSeeder extends Seeder
             ProductCategorySeeder::class,
             SubCategorySeeder::class,
             ProductSeeder::class,
+            ProductPropertylistSeeder::class,
 
         ]);
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');

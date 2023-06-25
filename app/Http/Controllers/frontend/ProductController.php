@@ -22,7 +22,7 @@ class ProductController extends Controller
     public function index()
     {
         $date = Carbon::today()->subDays(7);
-        $products = Product::with('category', 'brand', 'image')->where('created_at','>=',$date)->get();
+        $products = Product::with('category', 'image')->where('created_at','>=',$date)->get();
         return view ('products', compact($products));
     }
 
@@ -73,15 +73,17 @@ class ProductController extends Controller
     {
         //
     }
-    public function productsPerBrand($id){
-        $products = Product::with(['brand', 'image'])->where('brand_id','=',$id)->get();
-        $heros = Brand::where('id',$id)->get();
+    public function productsPerBrand(Brand $brand){
+        $brands = Brand::with('products', 'products.image')
+            ->findOrFail($brand->id);
+        $products = $brands->products;
+        $heros = Brand::where('id',$brand->id)->get();
         return view('products', compact('products','heros'));
     }
-    public function productsPerCategory($id){
+    public function productsPerCategory(ProductCategory $productCategory){
         $categories = ProductCategory::all();
-        $products = Product::with(['productcategories', 'image','brand'])->where('product_categories_id','=',$id)->get();
-        $heros = ProductCategory::with('subcategories')->where('id',$id)->get();
+        $products = Product::with(['productcategories', 'image','brand'])->where('product_categories_id','=',$productCategory->id)->get();
+        $heros = ProductCategory::with('subcategories')->where('id',$productCategory->id)->get();
         return view('products', compact('categories', 'products', 'heros'));
     }
     public function productsPerSubCategory($id){

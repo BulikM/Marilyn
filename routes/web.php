@@ -23,8 +23,8 @@ Route::resource("/product", \App\Http\Controllers\frontend\ProductController::cl
 Route::get('product/{product:slug}', [\App\Http\Controllers\frontend\ProductController::class, 'show'])->name('product.show');
 
 
-Route::get("/products/brand/{id}", '\App\Http\Controllers\frontend\ProductController@productsPerBrand')->name('productsPerBrand');
-Route::get("/products/category/{id}", '\App\Http\Controllers\frontend\ProductController@productsPerCategory')->name('productsPerCategory');
+Route::get("/products/brand/{brand:slug}", '\App\Http\Controllers\frontend\ProductController@productsPerBrand')->name('productsPerBrand');
+Route::get("/products/category/{productCategory:slug}", '\App\Http\Controllers\frontend\ProductController@productsPerCategory')->name('productsPerCategory');
 
 //cart
 Route::post('/addToCart/{id}', '\App\Http\Controllers\frontend\CartController@addToCart')->name('addToCart');
