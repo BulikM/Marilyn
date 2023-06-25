@@ -766,12 +766,8 @@
                             </h2>
                             <div id="collapseOne1" class="accordion-collapse collapse show" aria-labelledby="headingOne"
                                  data-bs-parent="#accordionExample">
-                                <div class="accordion-body ProductDetailsstyles__Text-sc-1osiovg-2 ckoXeF"><p>Done in a
-                                        blend of GOTS-certified organic cotton and Lycra in a thick ribbed knit, this
-                                        sweaterdress hugs the body in all the right places. It has sculptural
-                                        bracelet-length sleeves and a low-cut sweetheart neckline (play it up with a
-                                        chain or two). And it’s done in an inky-black hue that handles the
-                                        desk-to-dinner shuffle with ease.</p>
+                                <div class="accordion-body ProductDetailsstyles__Text-sc-1osiovg-2 ckoXeF">
+                                    <p>{{$product->description}}</p>
                                     <ul>
                                         <li>95% organic cotton, 5% lycra</li>
                                     </ul>
@@ -869,9 +865,17 @@
                         <span class="styles__FreeShippingContainer-sc-40crr6-6 dqISby">Free Shipping!</span></div>
 
                 </div>
+                <form method="POST"
+                      action="{{action('App\Http\Controllers\frontend\CartController@addToCart', $product)}}"
+                      enctype='multipart/form-data'>
+                    @csrf
+                    @method('POST')
                 <div class="text-start col-11 offset-1  Productstyles__StyledAddToCartForm-jw9a2y-13 bjaWAm">
                     <div>
                         <p class="kgeFzw">Select Options</p>
+                        @foreach($product->brand as $brand)
+                        <input type="hidden" name="brand" value="{{$brand->name}}">
+                        @endforeach
                         <p class="ddqQTz text-uppercase">Color<span class="text-capitalize jMqIvg"> {{$product->color->name}}</span></p>
                         <div class="VariantPickerstyles__StyledVariantOptionPicker-vvspn3-2 gOPwLh">
                             <p class="AddToCartFormstyles__Subhead-sc-17o2z77-0 VariantPickerstyles__StyledSubhead-vvspn3-9 ddqQTz d-flex justify-content-between">
@@ -904,11 +908,7 @@
                             </button>
                         </div>
                     </div>
-                        <form method="POST"
-                          action="{{action('App\Http\Controllers\frontend\CartController@addToCart', $product->id)}}"
-                          enctype='multipart/form-data'>
-                        @csrf
-                        @method('POST')
+
                     <div class="">
                         <div class="">
                             <label for="quantity">Quantity</label>
@@ -952,14 +952,9 @@
                             </h2>
                             <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
                                  data-bs-parent="#accordionExample">
-                                <div class="accordion-body ProductDetailsstyles__Text-sc-1osiovg-2 ckoXeF"><p>Done in a
-                                        blend of GOTS-certified organic cotton and Lycra in a thick ribbed knit, this
-                                        sweaterdress hugs the body in all the right places. It has sculptural
-                                        bracelet-length sleeves and a low-cut sweetheart neckline (play it up with a
-                                        chain or two). And it’s done in an inky-black hue that handles the
-                                        desk-to-dinner shuffle with ease.</p>
+                                <div class="accordion-body ProductDetailsstyles__Text-sc-1osiovg-2 ckoXeF"><p>{{$product->description}}</p>
                                     <ul>
-                                        <li>95% organic cotton, 5% lycra</li>
+                                        <li>{{$product->info}}</li>
                                     </ul>
                                 </div>
                             </div>
@@ -998,21 +993,18 @@
                             </h2>
                             <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
                                  data-bs-parent="#accordionExample">
+                                @foreach($product->brand as $brand)
                                 <div class="accordion-body Drawerstyles__DrawerContent-sc-1c4yude-5 ckoXeF"
                                      data-acsb-overflower="true" aria-hidden="false" data-acsb-hidden="false">
-                                    <div class="Drawerstyles__AdminHTML-sc-1c4yude-4">Mara Hoffman founded her eponymous
-                                        beachwear label in 2002 after graduating from the Parsons School of Design.
-                                        Known for bold hues, color-blocking, and wanderlust-inducing designs, her
-                                        eclectic suits and fashion-forward cover-ups not only push the envelope
-                                        sartorially speaking, but sustainability-wise, too—from eco-conscious materials,
-                                        right down to the fabric scraps she repurposes for trimmings and add-ons.
+                                    <div class="Drawerstyles__AdminHTML-sc-1c4yude-4">{{$brand->description}}
                                     </div>
-                                    <span class="Accordionstyles__BrowseMore-sc-1me492j-2 DTTpg">Browse more <a
-                                            href="/mara-hoffman/c/"
+                                    <span class="Accordionstyles__BrowseMore-sc-1me492j-2 DTTpg">Browse more
+                                        <a href="{{route('productsPerBrand', $brand->slug)}}"
                                             class="Text__BaseText-vs2pg6-0 Link__StyledLink-sc-7p0xb2-0 bLYPWY styles__Brand-gvy2cl-0 hwMBsm Accordionstyles__StyledBrand-sc-1me492j-3 text-decoration-underline"
                                             target="" data-acsb-clickable="true" data-acsb-navigable="true"
-                                            data-acsb-now-navigable="true" data-acsb-textual-ops="null">Mara Hoffman</a></span>
+                                            data-acsb-now-navigable="true" data-acsb-textual-ops="null">{{$brand->name}}</a></span>
                                 </div>
+                                @endforeach
                             </div>
                         </div>
                         <div class="accordion-item border-start-0 border-end-0">

@@ -52,7 +52,7 @@
                                             <a href="{{route('productsPerBrand', $brand->slug)}}">
                                                 <p class="m-0">
                                                     <span>Brand:</span>
-                                                {{$product['product_brand']}}
+                                                {{$brand->name}}
                                                 </p>
                                                 @endforeach
                                             </a>
