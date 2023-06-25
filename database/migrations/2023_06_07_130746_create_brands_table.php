@@ -19,15 +19,6 @@ return new class extends Migration
             $table->timestamps();
             $table->softDeletes();
         });
-
-        Schema::table("products", function (Blueprint $table) {
-            $table
-                ->foreignId("brand_id")
-                ->nullable()
-                ->unsigned()
-                ->constrained()
-                ->cascadeOnDelete();
-        });
     }
 
     /**
