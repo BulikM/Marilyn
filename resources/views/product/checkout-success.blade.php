@@ -73,31 +73,37 @@
     </div>
     <div class="d-flex justify-content-evenly p-3">
       <div class="col-11 ">
-          @foreach($orderProducts as $arrayProduct)
+
+
+          @foreach($order->orderProducts as $orderProduct)
+{{--              @php--}}
+{{--              $product = $orderProduct->product_id--}}
+{{--    @endphp--}}
 
                   <hr class="text-black">
                   <div class="p-2">
                   <div class="cartItemWrapper___1GWWZ d-flex flex-wrap m-0 p-0 w-100">
                       <div class="cartItemImage___3USxn">
-                          <a href="{{route('product.show', $arrayProduct->products->slug)}}">
+                          <a href="{{route('product.show', $orderProduct->products->slug)}}">
                               <img class="productImg___2ywut d-block"
-                                   src="{{$arrayProduct->products->image ? asset($arrayProduct->products->image->file) : 'http://via.placeholder.com/62x62'}}"></a>
+                                   src="{{$orderProduct->products->image ? asset($orderProduct->products->image->file) : 'http://via.placeholder.com/62x62'}}"></a>
                       </div>
                       <div class="order-2 order-lg-1 ps-4">
                           <h3 class="productName___289kw">
-                              <a href="{{route('product.show', $arrayProduct->products->slug)}}">{{$arrayProduct->products->name}}</a>
+                              <a href="{{route('product.show', $orderProduct->products->slug)}}">{{$orderProduct->products->name}}</a>
                           </h3>
                           <div class="m-0">
                               <div class="m-0">
-
-                                      <a href="{{route('productsPerBrand', $arrayProduct->products->brand[0]->slug)}}">
+                                    @foreach($orderProduct->products->brand as $brand)
+                                      <a href="{{route('productsPerBrand', $brand->slug)}}">
                                           <p class="m-0">
-                                              <span>Brand:</span> {{$arrayProduct->products->brand[0]->name}}
+                                              <span>Brand:</span> {{$brand->name}}
                                           </p>
                                       </a>
+                                      @endforeach
                                   <p class="m-0">
                                       <span>Item:</span>
-                                      {{$arrayProduct->products->name}}
+                                      {{$orderProduct->products->name}}
                                   </p>
                                   <p class="m-0">
                                       <span>Size:</span>
@@ -108,28 +114,29 @@
                                       BLACK/IVORY
                                   </p>
                                   <p class="optionValues___qDP92">
-                                      <span>Price:</span>€ {{$arrayProduct->products->price}}
+                                      <span>Price:</span>€ {{$orderProduct->products->price}}
                                   </p>
                               </div>
                           </div>
                       </div>
 
-                      <div class="order-1 order-lg-2 flex-fill align-items-end">
-                          <div class="pt-4 pt-md-0 ps-3">
-                                  <div class="input-group mb-3" style=" width: 100px">
-                                      <span class="input-group-text border-dark bg-white rounded-0 border-end-0" id="basic-addon1">Qty: </span>
-                                      <input type="number" class="form-control border-dark border-start-0 bg-white rounded-0 text-center" aria-label="quantity" aria-describedby="basic-addon1" value="{{$arrayProduct->quantity}}" name="quantity" readonly>
-                                  </div>
-                                  <input type="hidden" class="form-control form-control-sm"
-                                         name="id" value="{{$arrayProduct->products->id}}">
+                          <div class="order-1 order-lg-2 flex-fill align-items-end">
+                              <div class="pt-4 pt-md-0 ps-3">
+                                      <div class="input-group mb-3" style=" width: 100px">
+                                          <span class="input-group-text border-dark bg-white rounded-0 border-end-0" id="basic-addon1">Qty: </span>
+                                          <input type="number" class="form-control border-dark border-start-0 bg-white rounded-0 text-center" aria-label="quantity" aria-describedby="basic-addon1" value="{{$orderProduct->quantity}}" name="quantity" readonly>
+                                      </div>
+                                      <input type="hidden" class="form-control form-control-sm"
+                                             name="id" value="{{$orderProduct->products->id}}">
+                              </div>
+                              <div class="cartItemDelete___6Odzn">
+                                  <p class="text-black d-flex d-lg-none">{{$orderProduct->products->price}}</p>
+                              </div>
                           </div>
-                          <div class="cartItemDelete___6Odzn">
-                              <p class="text-black d-flex d-lg-none">{{$arrayProduct->products->price}}</p>
+                          <div class="order-3 d-flex flex-column align-items-end">
+                              <p class="text-black d-none d-lg-block">€ {{$orderProduct->products->price * $orderProduct->quantity}}</p>
                           </div>
-                      </div>
-                      <div class="order-3 d-flex flex-column align-items-end">
-                          <p class="text-black d-none d-lg-block">€ {{$arrayProduct->products->price * $arrayProduct->quantity}}</p>
-                      </div>
+
                   </div>
               </div>
           @endforeach

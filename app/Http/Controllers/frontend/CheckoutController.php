@@ -195,8 +195,7 @@ class CheckoutController extends Controller
 //        dd(session('paymentIntentId'));
 
 
-        $order = Order::with(['orderProducts','orderProducts.products', 'orderDetails'])->where('session_id',$sessionId)->first();
-        $orderProducts = $order->orderProducts;
+        $order = Order::with('orderDetails', 'products')->where('session_id',$sessionId)->first();
 
         try {
             $session = \Stripe\Checkout\Session::retrieve($sessionId);
@@ -213,7 +212,7 @@ class CheckoutController extends Controller
                 $order->save();
             }
 
-            return view('product.checkout-success', compact('order','orderProducts' ));
+            return view('product.checkout-success', compact('order' ));
 
         } catch (\Exception $e) {
             throw new NotFoundHttpException();
