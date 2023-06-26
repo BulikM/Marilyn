@@ -2,22 +2,22 @@
 
 namespace Database\Seeders;
 
+use App\Models\Category;
 use App\Models\ProductCategory;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
 
-class ProductCategorySeeder extends Seeder
+class CategorySeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
-    public function run()
+    public function run(): void
     {
-        //
-        $productcategories = ['Made By Goop','Beauty','Fashion', 'Wellness', 'food & home', 'Read'];
+        $productcategories = ['Made By Marilyn','Beauty','Fashion', 'Wellness', 'food & home', 'Read'];
         foreach ($productcategories as $productcategorie) {
-            ProductCategory::create([
+            Category::create([
                 'name' => $productcategorie,
                 'slug' => Str::slug($productcategorie,'-'),
             ]);

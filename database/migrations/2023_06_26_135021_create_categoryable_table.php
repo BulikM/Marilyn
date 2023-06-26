@@ -11,13 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('category_product_lists', function (Blueprint $table) {
+        Schema::create('categoryable', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('product_id')->unsigned()->constrained()->cascadeOnDelete();
-            $table->foreignId('sub_categories_id')->unsigned()->constrained()->cascadeOnDelete();
-            $table->foreignId('product_categories_id')->unsigned()->constrained()->cascadeOnDelete();
+            $table->foreignId('category_id')->unsigned();
+            $table->foreignId('categoryable_id')->unsigned();
+            $table->string('categoryable_type');
             $table->timestamps();
         });
+
+
+
     }
 
     /**
@@ -25,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('category_product_lists');
+        Schema::dropIfExists('categoryable');
     }
 };

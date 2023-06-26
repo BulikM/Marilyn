@@ -4,19 +4,50 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
 
 class SubCategory extends Model
 {
     use HasFactory;
 
     public $fillable = ['name'];
+    protected $table = 'subcategory';
 
-    public function productCategories()
+    public function categories()
     {
-        return $this->belongsToMany(ProductCategory::class, 'category_product_lists', 'sub_categories_id','product_categories_id', );
+        return $this->belongsTo(Category::class, 'category_id', );
     }
-    public function products()
+
+    public function products(): MorphToMany
     {
-        return $this->belongsToMany(Product::class, 'category_product_lists', 'sub_categories_id','product_id', );
+        return $this->morphedByMany(Product::class, 'subcategoryable', 'subcategoryable', 'subcategoryable_id' );
+    }
+
+    public function subCategoryable(): MorphTo
+    {
+        return $this->morphTo();
+    }
+    public function related(): MorphToMany
+    {
+        return $this->morphToMany(SubCategoryable::class, 'subcategoryable', 'subcategoryable_type');
+    }
+
+    public function subCategories(){
+        return $this->hasMany(SubCategory::class, 'parent_id', );
+    }
+
+
+
+
+
+    public function children()
+    {
+        return $this->hasMany(SubCategory::class, 'parent_id')->with('products', 'children');
+    }
+    public function parent()
+    {
+        return $this->belongsTo(SubCategory::class, 'parent_id')->with('products', 'parent');
     }
 }

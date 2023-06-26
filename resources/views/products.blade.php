@@ -3,56 +3,52 @@
     <!--main-->
 <main class="container-fluid p-0">
 
-    @if($heros)
-        @foreach($heros as $hero)
-            <div class="px-5"><h1 class="line d-flex align-items-center title___1Ikv6">{{$hero->name}}</h1></div>
-        @endforeach
+    @if($hero)
+        <div class="px-5"><h1 class="line d-flex align-items-center title___1Ikv6">{{$hero->name}}</h1></div>
     @endif
-        @foreach($heros as $categorie)
-            @if(!empty($categorie->subcategories))
+            @if(!empty($hero->subcategories))
             <!--			option carousel-->
-                @if($categorie->getTable() != 'brands')
+                @if($hero->getTable() != 'brands')
                     <section id="categories">
-                    <p class="bg-grey text-center p-2 d-lg-flex w-100" id="backgroud-grey"><span class="opacity-0">hallo</span></p>
-                    <div class="max-width-1680 m-auto carousel carousel-9 carousel-dark d-none d-lg-flex slide"
+
+                    <div class="max-width-1680 m-auto carousel carousel-9 carousel-dark d-none d-lg-flex slide bg-grey"
                          data-bs-ride="false"
                          id="optionsCarousel">
                         <div class="carousel-inner px-4 overflow-visible" role="listbox">
-                                @foreach($categorie->subcategories as $key=>$sub)
+                                @foreach($hero->subcategories as $key=>$sub)
+
                                     <div class="carousel-item {{$key == 0 ? 'active':'' }}">
-                                        <div class="col">
-                                            <div class="card">
-                                                <div class="card-body p-0 krKgn">
-                                                    <div class="dropdown-center bg-grey py-2">
+                                        @if ($sub->children->count() == 0)
+                                            <div class="w-100 bg-grey py-2 mx-3 text-nowrap">
+                                                <div class="underline-carousel kWfyGM krKgn">
+                                                    <a class="CollectionsNavstyles__CollectionTitleLink-sc-16wrtf8-3 iOkQPe"
+                                                       href="{{route('productsPerSubCategory', $sub->slug)}}">{{$sub->name}}</a>
+                                                </div>
+                                            </div>
+                                        @else
+
+                                            <div class="p-0 krKgn w-100">
+                                                    <div class="dropdown-center bg-grey py-2 text-nowrap">
                                                         <button aria-expanded="false"
                                                                 class="dropdown-toggle-change ikrKgn kWfyGM underline-carousel"
                                                                 data-bs-toggle="dropdown" type="button">
-                                                            <span class="CollectionsNavstyles__CollectionTitle-sc-16wrtf8-4 dZeHdq" href="#">{{$sub->name}}</span>
+                                                            <span class="CollectionsNavstyles__CollectionTitle-sc-16wrtf8-4 dZeHdq"   href="{{route('productsPerSubCategory', $sub->slug)}}">{{$sub->name}}</span>
+
                                                         </button>
+
                                                         <ul class="CollectionsNavstyles__SubItems-sc-16wrtf8-5 WZQTr dropdown-menu shadow rounded-0 border-0 p-2">
-                                                            <li class="CollectionNavSubItemstyles__SubItem-sc-19hf82t-0 djwyXz">
-                                                                <p>
-                                                                    <a class="CollectionsNavstyles__SubItemsLink-sc-16wrtf8-6 KhMfA" href="#">All
-                                                                        Swimwear</a>
-                                                                </p>
-                                                            </li>
-                                                            <li class="CollectionNavSubItemstyles__SubItem-sc-19hf82t-0 djwyXz">
-                                                                <p>
-                                                                    <a class="CollectionsNavstyles__SubItemsLink-sc-16wrtf8-6 KhMfA" href="#">One-Piece
-                                                                    </a>
-                                                                </p>
-                                                            </li>
-                                                            <li class="CollectionNavSubItemstyles__SubItem-sc-19hf82t-0 djwyXz">
-                                                                <p>
-                                                                    <a class="CollectionsNavstyles__SubItemsLink-sc-16wrtf8-6 KhMfA" href="#">Two-Piece
-                                                                    </a>
-                                                                </p>
-                                                            </li>
+                                                            @foreach($sub->children as $child)
+                                                                <li class="CollectionNavSubItemstyles__SubItem-sc-19hf82t-0 djwyXz">
+                                                                    <p>
+                                                                        <a class="CollectionsNavstyles__SubItemsLink-sc-16wrtf8-6 KhMfA"   href="{{route('productsPerSubCategory', $sub->slug)}}">{{$child->name}}</a>
+                                                                    </p>
+                                                                </li>
+                                                            @endforeach
                                                         </ul>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
+
+                                        @endif
                                     </div>
                                 @endforeach
                         </div>
@@ -2033,7 +2029,6 @@
             </section>
                 @endif
             @endif
-        @endforeach
 
 
 @foreach($products as $product)

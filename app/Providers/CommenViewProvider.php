@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Brand;
+use App\Models\Category;
 use App\Models\ProductCategory;
 use Illuminate\Support\ServiceProvider;
 
@@ -21,10 +22,7 @@ class CommenViewProvider extends ServiceProvider
      */
     public function boot(): void
     {
-
-            $categories = ProductCategory::with('subCategories')->get();
-            view()->share('categories', $categories);
-
-
+        $categories = Category::with('subcategories')->get();
+        view()->share('categories', $categories);
     }
 }

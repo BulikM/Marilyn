@@ -5,10 +5,12 @@ namespace App\Http\Controllers\frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Brand;
 use App\Models\Cart;
+use App\Models\Category;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\SubCategory;
+use App\Models\SubCategoryable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Carbon;
@@ -78,23 +80,35 @@ class ProductController extends Controller
         $brands = Brand::with('products', 'products.image')
             ->findOrFail($brand->id);
         $products = $brands->products;
-        $heros = Brand::with('products')->where('id',$brand->id)->get();
-        return view('products', compact('products','heros'));
+        $hero = Brand::with('products')->where('id',$brand->id)->first();
+        return view('products', compact('products','hero'));
     }
-    public function productsPerCategory(ProductCategory $productCategory){
-        $category = ProductCategory::with('products')->findOrFail($productCategory->id);
-        $products = $category->products;
-        $heros = ProductCategory::with('subCategories')->where('id', $productCategory->id)->get();
 
-//        $heros = ProductCategory::with('subcategories')->where('id',$productCategory->id)->get();
-        return view('products', compact('products', 'heros'));
+    public function productsPerCategory(Category $category){
+        $products = $category->subCategories()->with('products','subCategories.children')->get()->pluck('products')->flatten();
+        $hero = $category;
+        return view('products', compact('products', 'hero'));
     }
 
     public function productsPerSubCategory(SubCategory $subCategory){
-        $sub = SubCategory::with('products','productCategories')->findOrFail($subCategory->id);
-        $products = $sub->products;
-        $category = $sub->productCategories->pluck('id');
-        $heros = ProductCategory::with('subcategories')->where('id',$category)->get();
-        return view('products', compact('products', 'heros'));
+       $category = $subCategory->cotegory_id;
+        $products = $subCategory->products()->get();
+        $sub = SubCategory::with('products')->where('id',$subCategory->id)->get();
+        $hero = $subCategory->categories;
+        return view('products', compact('products', 'hero'));
+
     }
+
+//    public function productsPerSubCategory(SubCategory $subCategory)
+//    {
+//        $products = Product::whereHas('subCategories', function ($query) use ($subCategory) {
+//            $query->where('subcategory_id', $subCategory->id);
+//        })->get();
+//
+//        $hero = $subCategory->categories;
+//        return view('products', compact('products', 'hero'));
+//    }
+
+
+
 }

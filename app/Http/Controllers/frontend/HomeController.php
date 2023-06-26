@@ -25,7 +25,6 @@ class HomeController extends Controller
     {
 
         $new_products = Product::with('image', 'brand',)->latest('created_at')->take(11)->get();
-        $categories = ProductCategory::with('subCategories')->get();
-        return view("index", compact('new_products','categories'));
+        return view("index", compact('new_products'));
     }
 }

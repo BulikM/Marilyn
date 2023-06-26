@@ -22,25 +22,7 @@ class ProductSeeder extends Seeder
      */
     public function run()
     {
-        //
-        $brands = Brand::all();
-        $images = Images::all();
-        $colors = Color::all();
-        $category= ProductCategory::all();
-        $subcategory = SubCategory::all();
+        Product::factory()->count(250)->create();
 
-
-
-        for ($i = 0; $i < 100; $i++) {
-            $product = new Product();
-            $product->name = fake()->unique()->words(2, true);
-            $product->description = fake()->paragraphs(3, true);
-            $product->info = fake()->sentence(3, true);
-            $product->image_id = $images->random()->id;
-            $product->color_id = $colors->random()->id;
-            $product->price = fake()->randomFloat(100,1000,2);
-            $product->slug = Str::slug($product->name,'-');
-            $product->save();
-        }
     }
 }

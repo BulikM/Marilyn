@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Color;
+use App\Models\Images;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use function Symfony\Component\Translation\t;
 
@@ -19,10 +21,14 @@ class ProductFactory extends Factory
     {
 
         return [
-            'name'=>fake()->sentence,
+            'name'=>fake()->unique()->words(2, true),
             'price'=>fake()->randomFloat(100,1000,2),
-            'details'=>fake()->paragraph(100, true),
-            'amount'=>fake()->numberBetween(0, 10),
+            'description'=>fake()->paragraph(100, true),
+            'info'=>fake()->sentence(5, true),
+            'slug'=>fake()->slug(),
+            'color_id'=> Color::inRandomOrder()->first()->id,
+            'image_id'=> Images::inRandomOrder()->first()->id,
+
         ];
     }
 }

@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Product extends Model
@@ -33,15 +35,27 @@ class Product extends Model
         return $this->hasMany(OrderProducts::class,'product_id');
     }
 
-
-
     public function brand(){
         return  $this->belongsToMany(Brand::class, 'product_propertylists');
     }
-    public function productcategories(){
-        return $this->belongsToMany(ProductCategory::class, 'category_product_lists', 'product_categories_id');
+//
+//    public function productcategories(){
+//        return $this->belongsToMany(ProductCategory::class, 'category_product_lists', 'product_categories_id');
+//    }
+    public function subCategories(): MorphToMany
+    {
+        return $this->morphToMany(SubCategory::class, 'subcategoryable', 'subcategoryable', 'subcategory_id', 'subcategory_id');
     }
-    public function subCategories(){
-        return $this->belongsToMany(ProductCategory::class, 'category_product_lists', 'sub_categories_id');
-    }
+//    public function subCategories(): MorphMany
+//    {
+//        return $this->morphMany(Product::class, 'subcategoryable', 'subcategoryable');
+//
+//    }
+
+
+//
+//    Public function categories()
+//    {
+//        Return $this->morphToMany(Category::class, 'categoryable', 'categoryable', );
+//    }
 }

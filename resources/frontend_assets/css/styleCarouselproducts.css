@@ -1,8 +1,4 @@
 
-#optionsCarousel{
-	position: relative;
-	top: -2rem;
-}
 /*pijltjes verplaatsen*/
 #optionsCarousel .carousel-control-next, #optionsCarousel .carousel-control-prev {
 	position: absolute !important;
@@ -27,11 +23,6 @@
 /*geen transformatie*/
 #optionsCarousel .carousel-item {
 	 transition: none;
-}
-/*filter omhoog door dropdown*/
-#filter{
-	position: relative;
-	top: -6.2rem;
 }
 
 

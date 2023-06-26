@@ -34,11 +34,12 @@ class DatabaseSeeder extends Seeder
             ColorsSeeder::class,
             KeywordsSeeder::class,
             ImagesSeeder::class,
-            ProductCategorySeeder::class,
             SubCategorySeeder::class,
             ProductSeeder::class,
             ProductPropertylistSeeder::class,
-            CategoryProductListsSeeder::class,
+            CategorySeeder::class,
+            CategoryableSeeder::class,
+            SubCategoryableSeeder::class,
 
         ]);
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');

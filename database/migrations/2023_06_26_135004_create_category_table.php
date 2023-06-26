@@ -11,22 +11,28 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('product_categories', function (Blueprint $table) {
+        Schema::create('category', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->char('slug', 255)->unique();
             $table->softDeletes();
             $table->timestamps();
         });
+        Schema::table("subcategory", function (Blueprint $table) {
+            $table
+                ->foreignId("category_id")->references('id')->on('category')
+                ->nullable()
+                ->unsigned()
+                ->constrained()
+                ->cascadeOnDelete();
+        });
     }
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
-    public function down()
+    public function down(): void
     {
-        Schema::dropIfExists('product_categories');
+        Schema::dropIfExists('category');
     }
 };
