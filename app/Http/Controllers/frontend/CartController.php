@@ -24,12 +24,13 @@ class CartController extends Controller
                 'quantity.min'=>'Please give a valid quantity',
                 //   'categories.required'=>'Please check minimum one category'
             ]);
+
         $product = Product::with(['productcategories', 'brand', 'image'])->where('id','=',$id)->first();
         $oldCart = Session::has('cart') ? Session::get('cart'):null;
         $cart = new Cart($oldCart);
-        $cart->add($product, $id);
-        $cart->updateQuantity($request->id, $request->quantity);
-        session::put ('cart', $cart);
+        $cart->add($product, $id, $request->quantity);
+        Session::put('cart', $cart);
+
         return redirect()->back();
     }
     public function cart(){

@@ -869,77 +869,81 @@
                         <span class="styles__FreeShippingContainer-sc-40crr6-6 dqISby">Free Shipping!</span></div>
 
                 </div>
-                <div class="text-start col-11 offset-1  Productstyles__StyledAddToCartForm-jw9a2y-13 bjaWAm">
-                    <div>
-                        <p class="kgeFzw">Select Options</p>
-                        <p class="ddqQTz text-uppercase">Color<span class="text-capitalize jMqIvg"> {{$product->color->name}}</span></p>
-                        <div class="VariantPickerstyles__StyledVariantOptionPicker-vvspn3-2 gOPwLh">
-                            <p class="AddToCartFormstyles__Subhead-sc-17o2z77-0 VariantPickerstyles__StyledSubhead-vvspn3-9 ddqQTz d-flex justify-content-between">
-                                Size
-                                <button class="VariantPickerstyles__Button-vvspn3-8 bmHVqN" data-acsb-clickable="true"
-                                        data-acsb-navigable="true" data-acsb-now-navigable="true" role="button">Size
-                                    Guide
+                <form method="POST"
+                      action="{{route('addToCart', $product->id)}}"
+                      enctype='multipart/form-data'>
+                    @csrf
+                    @method('POST')
+                    <div class="text-start col-11 offset-1  Productstyles__StyledAddToCartForm-jw9a2y-13 bjaWAm">
+                        <div>
+                            <p class="kgeFzw">Select Options</p>
+                            @foreach($product->brand as $brand)
+                             <input type="hidden" name="brand" value="{{$brand->name}}">
+                            @endforeach
+                            <p class="ddqQTz text-uppercase">Color<span class="text-capitalize jMqIvg"> {{$product->color->name}}</span></p>
+                            <div class="VariantPickerstyles__StyledVariantOptionPicker-vvspn3-2 gOPwLh">
+                                <p class="AddToCartFormstyles__Subhead-sc-17o2z77-0 VariantPickerstyles__StyledSubhead-vvspn3-9 ddqQTz d-flex justify-content-between">
+                                    Size
+                                    <button class="VariantPickerstyles__Button-vvspn3-8 bmHVqN" data-acsb-clickable="true"
+                                            data-acsb-navigable="true" data-acsb-now-navigable="true" role="button">Size
+                                        Guide
+                                    </button>
+                                </p>
+                                <!--						size-->
+                                <button class="VariantPickerstyles__SwatchButton-vvspn3-3 CSKuw" data-acsb-overflower="true"
+                                        data-acsb-clickable="true" data-acsb-navigable="true" data-acsb-now-navigable="true"
+                                        role="button"><span
+                                        class="VariantPickerstyles__SwatchText-vvspn3-6 hjXHYX">XS</span>
                                 </button>
-                            </p>
-                            <!--						size-->
-                            <button class="VariantPickerstyles__SwatchButton-vvspn3-3 CSKuw" data-acsb-overflower="true"
-                                    data-acsb-clickable="true" data-acsb-navigable="true" data-acsb-now-navigable="true"
-                                    role="button"><span
-                                    class="VariantPickerstyles__SwatchText-vvspn3-6 hjXHYX">XS</span>
-                            </button>
-                            <button class="VariantPickerstyles__SwatchButton-vvspn3-3 jzSZMb"
-                                    data-acsb-overflower="true" data-acsb-clickable="true" data-acsb-navigable="true"
-                                    data-acsb-now-navigable="true" role="button"><span
-                                    class="VariantPickerstyles__SwatchText-vvspn3-6 hjXHYX">S</span>
-                            </button>
-                            <button class="VariantPickerstyles__SwatchButton-vvspn3-3 jzSZMb"
-                                    data-acsb-overflower="true" data-acsb-clickable="true" data-acsb-navigable="true"
-                                    data-acsb-now-navigable="true" role="button"><span
-                                    class="VariantPickerstyles__SwatchText-vvspn3-6 hjXHYX">M</span>
-                            </button>
-                            <button class="VariantPickerstyles__SwatchButton-vvspn3-3 gXMVwD"
-                                    data-acsb-overflower="true" data-acsb-clickable="true" data-acsb-navigable="true"
-                                    data-acsb-now-navigable="true" role="button"><span
-                                    class="VariantPickerstyles__SwatchText-vvspn3-6 hjXHYX">L</span>
-                            </button>
-                        </div>
-                    </div>
-                        <form method="POST"
-                          action="{{action('App\Http\Controllers\frontend\CartController@addToCart', $product->id)}}"
-                          enctype='multipart/form-data'>
-                        @csrf
-                        @method('POST')
-                    <div class="">
-                        <div class="">
-                            <label for="quantity">Quantity</label>
-                            <div class="input-group text-center mb-3" style="width: 100px">
-                                <button class="input-group-text bg-white rounded-0 decrement-btn">-</button>
-                                <input type="number" name="quantity" class="form-control text-center qty-input" value="1">
-                                <button class="input-group-text bg-white rounded-0 increment-btn">+</button>
+                                <button class="VariantPickerstyles__SwatchButton-vvspn3-3 jzSZMb"
+                                        data-acsb-overflower="true" data-acsb-clickable="true" data-acsb-navigable="true"
+                                        data-acsb-now-navigable="true" role="button"><span
+                                        class="VariantPickerstyles__SwatchText-vvspn3-6 hjXHYX">S</span>
+                                </button>
+                                <button class="VariantPickerstyles__SwatchButton-vvspn3-3 jzSZMb"
+                                        data-acsb-overflower="true" data-acsb-clickable="true" data-acsb-navigable="true"
+                                        data-acsb-now-navigable="true" role="button"><span
+                                        class="VariantPickerstyles__SwatchText-vvspn3-6 hjXHYX">M</span>
+                                </button>
+                                <button class="VariantPickerstyles__SwatchButton-vvspn3-3 gXMVwD"
+                                        data-acsb-overflower="true" data-acsb-clickable="true" data-acsb-navigable="true"
+                                        data-acsb-now-navigable="true" role="button"><span
+                                        class="VariantPickerstyles__SwatchText-vvspn3-6 hjXHYX">L</span>
+                                </button>
                             </div>
-                            @error('quantity')
-                                <span class="drwJIz">
-                                  {{ $message }}
-                                </span>
-                            @enderror
+                        </div>
+
+                        <div class="">
+                            <div class="">
+                                <label for="quantity">Quantity</label>
+                                <div class="input-group text-center mb-3" style="width: 100px">
+                                    <button class="input-group-text bg-white rounded-0 decrement-btn">-</button>
+                                    <input type="number" name="quantity" class="form-control text-center qty-input" value="1">
+                                    <button class="input-group-text bg-white rounded-0 increment-btn">+</button>
+                                </div>
+                                @error('quantity')
+                                    <span class="drwJIz">
+                                      {{ $message }}
+                                    </span>
+                                @enderror
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="text-start col-11 offset-1 mt-3">
-                    <div data-cy="add-to-btn-container"
-                         class="hTTyJb">
-                        <button type="submit" class="lgLNaJ jaXJCb cZinvQ">Add to bag</button>
-                </form>
-                        <br>
-                        <!--					waitlist-->
-                        <button type="submit"
-                                class="d-none Button__ButtonBase-sc-1f89saf-0 Button__StyledButton-sc-1f89saf-1 dUTcMc PrimaryButtonstyles__StyledButton-sc-19dqr27-0 lgLNaJ Productstyles__AddToBtn-jw9a2y-16 cZinvQ m-0"
-                                value="" data-acsb-clickable="true" data-acsb-navigable="true"
-                                data-acsb-now-navigable="true" aria-hidden="false" data-acsb-hidden="false"
-                                role="button">ADD TO WAITLIST
-                        </button>
+                    <div class="text-start col-11 offset-1 mt-3">
+                        <div data-cy="add-to-btn-container"
+                             class="hTTyJb">
+                            <button type="submit" class="lgLNaJ jaXJCb cZinvQ">Add to bag</button>
+                            <br>
+                            <!--					waitlist-->
+                            <button type="submit"
+                                    class="d-none Button__ButtonBase-sc-1f89saf-0 Button__StyledButton-sc-1f89saf-1 dUTcMc PrimaryButtonstyles__StyledButton-sc-19dqr27-0 lgLNaJ Productstyles__AddToBtn-jw9a2y-16 cZinvQ m-0"
+                                    value="" data-acsb-clickable="true" data-acsb-navigable="true"
+                                    data-acsb-now-navigable="true" aria-hidden="false" data-acsb-hidden="false"
+                                    role="button">ADD TO WAITLIST
+                            </button>
+                        </div>
                     </div>
-                </div>
+                </form>
                 <div class="text-start col-11 offset-1 mt-3">
                     <div class="accordion border-0 mb-5 accordionArrow" id="accordionExample">
                         <div class="accordion-item border-start-0 border-end-0 ">

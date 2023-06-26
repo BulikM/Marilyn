@@ -172,6 +172,7 @@ class CheckoutController extends Controller
             $billing->save();
         }
         foreach ($cartitems as $cartitem) {
+
             $item = $products->where('id', $cartitem['product_id'])->first();
 
             $orderdproduct = new OrderProducts();
@@ -179,6 +180,7 @@ class CheckoutController extends Controller
             $orderdproduct->product_id = $item->id;
             $orderdproduct->price = $item->price;
             $orderdproduct->name = $item->name;
+            $orderdproduct->brand = $cartitem['brand_name'];
             $orderdproduct->quantity =$cartitem['quantity'];
             $orderdproduct->save();
         }

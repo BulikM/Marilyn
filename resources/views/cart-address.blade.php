@@ -610,7 +610,6 @@
                              data-acsb-overflower="true" aria-hidden="false" data-acsb-hidden="false">
                             @foreach($cart as $product)
                            <ul class="list-group ">
-
                                <li class="list-group-item border-0 d-flex justify-content-between">
                                    <img class="w-25" alt{{$product['product_name']}}
                                         src="{{$product['product_image'] ? asset ( $product['product_image']) : ' no image availebel'}}">
@@ -621,7 +620,7 @@
                                <li class="list-group-item border-0">
                                    <div>
                                    <p class="m-0">
-                                       <span>Brand:</span> {{$product['product_brand']}}</p>
+                                       <span>Brand:</span> {{$product['brand_name']}}</p>
                                    <p class="m-0">
                                        <span>Item:</span>
                                        {{$product['product_name']}}
@@ -635,8 +634,10 @@
                                        BLACK/IVORY
                                    </p>
                                    </div>
-                                   <div>
-
+                                   <div class="d-flex justify-content-between">
+                                       <div>Qty {{$product['quantity']}} </div>
+                                       <div> |</div>
+                                       <div> Price {{$product['product_price'] * $product['quantity']}}</div>
                                    </div>
                                </li>
 

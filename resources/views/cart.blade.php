@@ -4,6 +4,7 @@
 @endsection
 
 @section('content')
+
     <main class="container-fluid">
         <div class="row mx-lg-5 mb-3">
             <div class="col-12 col-lg-8">
@@ -52,10 +53,11 @@
                                             <a href="{{route('productsPerBrand', $brand->slug)}}">
                                                 <p class="m-0">
                                                     <span>Brand:</span>
-                                                {{$product['product_brand']}}
+
+                                                {{$product['brand_name']}}
                                                 </p>
-                                                @endforeach
                                             </a>
+                                            @endforeach
                                             <p class="m-0">
                                                 <span>Item:</span>
                                                 {{$product['product_name']}}
@@ -74,9 +76,7 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="order-1 order-lg-2 flex-fill align-items-end">
-
                                     <div class="pt-4 pt-md-0 ps-3">
                                                     <form method="POST"
                                                           action="{{action('App\Http\Controllers\frontend\CartController@updateQuantity')}}"
