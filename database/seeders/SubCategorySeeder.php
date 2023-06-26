@@ -18,7 +18,6 @@ class SubCategorySeeder extends Seeder
         foreach ($WelnessSubs as $WelnessSub){
             SubCategory::create([
                 'name'=>$WelnessSub,
-                'product_categories_id'=> '4',
                 'slug' => Str::slug($WelnessSub,'-'),
             ]);
         }

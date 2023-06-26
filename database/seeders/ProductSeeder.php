@@ -9,6 +9,7 @@ use App\Models\Keyword;
 use App\Models\Photo;
 use App\Models\Product;
 use App\Models\ProductCategory;
+use App\Models\SubCategory;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -26,6 +27,8 @@ class ProductSeeder extends Seeder
         $images = Images::all();
         $colors = Color::all();
         $category= ProductCategory::all();
+        $subcategory = SubCategory::all();
+
 
 
         for ($i = 0; $i < 100; $i++) {
@@ -35,7 +38,6 @@ class ProductSeeder extends Seeder
             $product->info = fake()->sentence(3, true);
             $product->image_id = $images->random()->id;
             $product->color_id = $colors->random()->id;
-            $product->product_categories_id = $brands->random()->id;
             $product->price = fake()->randomFloat(100,1000,2);
             $product->slug = Str::slug($product->name,'-');
             $product->save();

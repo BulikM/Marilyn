@@ -12,12 +12,12 @@ class ProductCategory extends Model
 
     public $fillable = ['name'];
 
-    public function subCategories()
-    {
-        return $this->hasMany(SubCategory::class, 'product_categories_id' );
-    }
     public function products()
     {
-        return $this->belongsTo(Product::class, 'product_categories_id');
+        return $this->belongsToMany(Product::class, 'category_product_lists', 'product_categories_id', 'product_id',);
+    }
+    public function subCategories()
+    {
+        return $this->belongsToMany(SubCategory::class, 'category_product_lists',  'product_categories_id','sub_categories_id', );
     }
 }

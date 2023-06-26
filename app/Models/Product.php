@@ -20,9 +20,7 @@ class Product extends Model
     public function color(){
         return $this->belongsTo(Color::class);
     }
-    public function productcategories(){
-        return $this->belongsTo(ProductCategory::class, 'product_categories_id');
-    }
+
 
 
     public function orders()
@@ -39,5 +37,11 @@ class Product extends Model
 
     public function brand(){
         return  $this->belongsToMany(Brand::class, 'product_propertylists');
+    }
+    public function productcategories(){
+        return $this->belongsToMany(ProductCategory::class, 'category_product_lists', 'product_categories_id');
+    }
+    public function subCategories(){
+        return $this->belongsToMany(ProductCategory::class, 'category_product_lists', 'sub_categories_id');
     }
 }

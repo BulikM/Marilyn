@@ -13,7 +13,7 @@
             <!--			option carousel-->
                 @if($categorie->getTable() != 'brands')
                     <section id="categories">
-                    <p class="bg-grey text-center p-2 d-none d-lg-flex" id="backgroud-grey">h</p>
+                    <p class="bg-grey text-center p-2 d-lg-flex w-100" id="backgroud-grey"><span class="opacity-0">hallo</span></p>
                     <div class="max-width-1680 m-auto carousel carousel-9 carousel-dark d-none d-lg-flex slide"
                          data-bs-ride="false"
                          id="optionsCarousel">
@@ -2038,7 +2038,6 @@
 
 @foreach($products as $product)
     <p class="text-center text-danger">{{$product->name}}</p>
-
         @endforeach
         <!--	producten-->
 

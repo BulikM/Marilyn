@@ -18,14 +18,6 @@ return new class extends Migration
             $table->softDeletes();
             $table->timestamps();
         });
-        Schema::table("products", function (Blueprint $table) {
-            $table
-                ->foreignId("product_categories_id")
-                ->nullable()
-                ->unsigned()
-                ->constrained()
-                ->cascadeOnDelete();
-        });
     }
 
     /**

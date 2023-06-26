@@ -9,10 +9,14 @@ class SubCategory extends Model
 {
     use HasFactory;
 
-    public $fillable = ['name', 'product_categories_id'];
+    public $fillable = ['name'];
 
-    public function productCategory()
+    public function productCategories()
     {
-        return $this->belongsTo(ProductCategory::class, 'product_categories_id');
+        return $this->belongsToMany(ProductCategory::class, 'category_product_lists', 'sub_categories_id','product_categories_id', );
+    }
+    public function products()
+    {
+        return $this->belongsToMany(Product::class, 'category_product_lists', 'sub_categories_id','product_id', );
     }
 }

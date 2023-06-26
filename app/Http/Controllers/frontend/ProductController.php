@@ -8,6 +8,7 @@ use App\Models\Cart;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\ProductCategory;
+use App\Models\SubCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Carbon;
@@ -77,18 +78,23 @@ class ProductController extends Controller
         $brands = Brand::with('products', 'products.image')
             ->findOrFail($brand->id);
         $products = $brands->products;
-        $heros = Brand::where('id',$brand->id)->get();
+        $heros = Brand::with('products')->where('id',$brand->id)->get();
         return view('products', compact('products','heros'));
     }
     public function productsPerCategory(ProductCategory $productCategory){
-        $categories = ProductCategory::all();
-        $products = Product::with(['productcategories', 'image','brand'])->where('product_categories_id','=',$productCategory->id)->get();
-        $heros = ProductCategory::with('subcategories')->where('id',$productCategory->id)->get();
-        return view('products', compact('categories', 'products', 'heros'));
+        $category = ProductCategory::with('products')->findOrFail($productCategory->id);
+        $products = $category->products;
+        $heros = ProductCategory::with('subCategories')->where('id', $productCategory->id)->get();
+
+//        $heros = ProductCategory::with('subcategories')->where('id',$productCategory->id)->get();
+        return view('products', compact('products', 'heros'));
     }
+
     public function productsPerSubCategory($id){
-        $categories = ProductCategory::all();
-        $products = Product::with(['brand', 'image',])->where('brand_id','=',$id)->get();
-        return view('products', compact('categories', 'products'));
+        $sub = SubCategory::with('products','productCategories')->findOrFail($id);
+        $products = $sub->products;
+        $category = $sub->productCategories->pluck('id');
+        $heros = ProductCategory::with('subcategories')->where('id',$category)->get();
+        return view('products', compact('products', 'heros'));
     }
 }
