@@ -568,7 +568,7 @@
 
                                                 @foreach($categorie->subcategories as $sub)
                                                 <li class="mb-2">
-                                                    <a href="{{route('productsPerSubCategory', $sub->id)}}"  class="headerDropdownMenuLink">{{$sub->name}}</a>
+                                                    <a href="{{route('productsPerSubCategory', $sub->slug)}}"  class="headerDropdownMenuLink">{{$sub->name}}</a>
                                                 </li>
                                                 @endforeach
                                             </ul>

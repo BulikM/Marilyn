@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->char('name',255);
             $table->char('slug')->unique();
+            $table->foreignId('parent_id')->unsigned()->nullable()->constrained('comments')->onDelete('cascade');
             $table->softDeletes();
             $table->timestamps();
         });

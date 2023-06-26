@@ -25,7 +25,7 @@ Route::get('product/{product:slug}', [\App\Http\Controllers\frontend\ProductCont
 
 Route::get("/products/brand/{brand:slug}", '\App\Http\Controllers\frontend\ProductController@productsPerBrand')->name('productsPerBrand');
 Route::get("/products/category/{productCategory:slug}", '\App\Http\Controllers\frontend\ProductController@productsPerCategory')->name('productsPerCategory');
-Route::get("/products/{id}", '\App\Http\Controllers\frontend\ProductController@productsPerSubCategory')->name('productsPerSubCategory');
+Route::get("/products/{subCategory:slug}", '\App\Http\Controllers\frontend\ProductController@productsPerSubCategory')->name('productsPerSubCategory');
 //cart
 Route::post('/addToCart/{id}', '\App\Http\Controllers\frontend\CartController@addToCart')->name('addToCart');
 Route::get('/cart', '\App\Http\Controllers\frontend\CartController@cart')->name('cart');

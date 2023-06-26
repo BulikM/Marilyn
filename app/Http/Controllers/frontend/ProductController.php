@@ -90,8 +90,8 @@ class ProductController extends Controller
         return view('products', compact('products', 'heros'));
     }
 
-    public function productsPerSubCategory($id){
-        $sub = SubCategory::with('products','productCategories')->findOrFail($id);
+    public function productsPerSubCategory(SubCategory $subCategory){
+        $sub = SubCategory::with('products','productCategories')->findOrFail($subCategory->id);
         $products = $sub->products;
         $category = $sub->productCategories->pluck('id');
         $heros = ProductCategory::with('subcategories')->where('id',$category)->get();
