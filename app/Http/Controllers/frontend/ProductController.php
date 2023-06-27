@@ -8,7 +8,6 @@ use App\Models\Cart;
 use App\Models\Category;
 use App\Models\Order;
 use App\Models\Product;
-use App\Models\ProductCategory;
 use App\Models\SubCategory;
 use App\Models\SubCategoryable;
 use Illuminate\Http\Request;
@@ -29,53 +28,14 @@ class ProductController extends Controller
         return view ('products', compact($products));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
     public function show(Product $product)
     {
         return view('detail', compact('product'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
     public function productsPerBrand(Brand $brand){
         $brands = Brand::with('products', 'products.image')
             ->findOrFail($brand->id);
@@ -99,15 +59,7 @@ class ProductController extends Controller
 
     }
 
-//    public function productsPerSubCategory(SubCategory $subCategory)
-//    {
-//        $products = Product::whereHas('subCategories', function ($query) use ($subCategory) {
-//            $query->where('subcategory_id', $subCategory->id);
-//        })->get();
-//
-//        $hero = $subCategory->categories;
-//        return view('products', compact('products', 'hero'));
-//    }
+
 
 
 

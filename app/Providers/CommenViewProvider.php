@@ -22,7 +22,17 @@ class CommenViewProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $categories = Category::with('subcategories')->get();
-        view()->share('categories', $categories);
+
+        view()->composer('*', function ($view) {
+            $categories = Category::with('subcategories')->get();
+            $brands =  Brand::with('products')->get();
+            $view->with('categories', $categories);
+            $view->with('brands', $brands);
+
+
+        });
+
+
+
     }
 }
