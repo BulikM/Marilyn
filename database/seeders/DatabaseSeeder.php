@@ -30,16 +30,14 @@ class DatabaseSeeder extends Seeder
             BillingAddressesSeeder::class,
             ShippingAddressesSeeder::class,
             EmployeeSeeder::class,
-            BrandsSeeder::class,
             ColorsSeeder::class,
-            KeywordsSeeder::class,
             ImagesSeeder::class,
             SubCategorySeeder::class,
+            BrandsSeeder::class,
             ProductSeeder::class,
             ProductPropertylistSeeder::class,
             CategorySeeder::class,
-            CategoryableSeeder::class,
-            SubCategoryableSeeder::class,
+            ProductSubcategorySeeder::class,
 
         ]);
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');

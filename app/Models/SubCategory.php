@@ -4,9 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\MorphOne;
-use Illuminate\Database\Eloquent\Relations\MorphTo;
-use Illuminate\Database\Eloquent\Relations\MorphToMany;
+
 
 class SubCategory extends Model
 {
@@ -20,19 +18,12 @@ class SubCategory extends Model
         return $this->belongsTo(Category::class, 'category_id', );
     }
 
-    public function products(): MorphToMany
-    {
-        return $this->morphedByMany(Product::class, 'subcategoryable', 'subcategoryable', 'subcategoryable_id' );
+
+    public function products(){
+        return $this->belongsToMany(Product::class, 'product_subcategories', 'subcategory_id');
     }
 
-    public function subCategoryable(): MorphTo
-    {
-        return $this->morphTo();
-    }
-    public function related(): MorphToMany
-    {
-        return $this->morphToMany(SubCategoryable::class, 'subcategoryable', 'subcategoryable_type');
-    }
+
 
     public function subCategories(){
         return $this->hasMany(SubCategory::class, 'parent_id', );

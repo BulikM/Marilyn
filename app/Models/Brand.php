@@ -14,4 +14,7 @@ class Brand extends Model
     public function products(){
         return $this->belongsToMany(Product::class, 'product_propertylists');
     }
+    public function subcategory(){
+        return $this->belongsTo(SubCategory::class, 'subcategory_id', 'id');
+    }
 }

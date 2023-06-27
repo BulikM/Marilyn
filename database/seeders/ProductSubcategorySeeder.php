@@ -2,13 +2,13 @@
 
 namespace Database\Seeders;
 
-use App\Models\Category;
 use App\Models\Product;
+use App\Models\SubCategory;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class CategoryableSeeder extends Seeder
+class ProductSubcategorySeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,12 +16,12 @@ class CategoryableSeeder extends Seeder
     public function run(): void
     {
         $products = Product::all();
+        $subId = SubCategory::all();
 
         foreach ($products as $product){
-            DB::table('categoryable')->insert([
-                'category_id'=> rand(1,5),
-                'categoryable_id'=>$product->id,
-                'categoryable_type' => 'App\Models\Product'
+            DB::table('product_subcategories')->insert([
+                'subcategory_id'=> $subId->random()->id,
+                'product_id'=>$product->id,
             ]);
         }
     }

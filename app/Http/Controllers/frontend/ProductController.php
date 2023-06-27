@@ -40,22 +40,26 @@ class ProductController extends Controller
         $brands = Brand::with('products', 'products.image')
             ->findOrFail($brand->id);
         $products = $brands->products;
-        $hero = Brand::with('products')->where('id',$brand->id)->first();
+        $hero = Brand::with('products.brand')->where('id',$brand->id)->first();
         return view('products', compact('products','hero'));
     }
 
     public function productsPerCategory(Category $category){
-        $products = $category->subCategories()->with('products','subCategories.children')->get()->pluck('products')->flatten();
+
+        $products = $category->subCategories()->with('products','products.brand')->get()->pluck('products')->flatten();
+        $brands = $products->pluck('brand')->flatten();
+
         $hero = $category;
-        return view('products', compact('products', 'hero'));
+        return view('products', compact('products', 'hero', 'brands'));
     }
 
     public function productsPerSubCategory(SubCategory $subCategory){
-       $category = $subCategory->cotegory_id;
-        $products = $subCategory->products()->get();
-        $sub = SubCategory::with('products')->where('id',$subCategory->id)->get();
+
+
+        $products = $subCategory->products()->with('brand')->get()->flatten();
+        $brands = $products->pluck('brand')->flatten();
         $hero = $subCategory->categories;
-        return view('products', compact('products', 'hero'));
+        return view('products', compact('products', 'hero', 'brands'));
 
     }
 

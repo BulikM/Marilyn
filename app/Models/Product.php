@@ -42,9 +42,9 @@ class Product extends Model
 //    public function productcategories(){
 //        return $this->belongsToMany(ProductCategory::class, 'category_product_lists', 'product_categories_id');
 //    }
-    public function subCategories(): MorphToMany
+    public function subCategories()
     {
-        return $this->morphToMany(SubCategory::class, 'subcategoryable', 'subcategoryable', 'subcategory_id', 'subcategory_id');
+        return $this->belongsToMany(SubCategory::class, 'product_subcategories', );
     }
 //    public function subCategories(): MorphMany
 //    {

@@ -25,9 +25,9 @@ class CommenViewProvider extends ServiceProvider
 
         view()->composer('*', function ($view) {
             $categories = Category::with('subcategories')->get();
-            $brands =  Brand::with('products')->get();
+
             $view->with('categories', $categories);
-            $view->with('brands', $brands);
+
 
 
         });

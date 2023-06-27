@@ -19,16 +19,6 @@ class Category extends Model
         return $this->morphToMany(Product::class, 'categoryable', 'categoryable');
     }
 
-
-//    public function products(): MorphToMany
-//    {
-//        return $this->morphedByMany(Product::class, 'categoryable', 'categoryable', );
-//    }
-//    public function posts(): MorphToMany
-//    {
-//        return $this->morphedByMany(Post::class, 'categoryable');
-//    }
-
     public function categoryable():MorphTo {
         return $this->morphTo();
     }
