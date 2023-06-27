@@ -13,11 +13,8 @@ class Product extends Model
     use HasFactory;
     protected $fillable = ['price','image_id','product_categories_id','brand_id', 'color_id','name', 'body','slug'];
 
-    public function keywords(){
-        return $this->morphToMany(Keyword::class,'keywordable');
-    }
-    public function image(){
-        return $this->belongsTo(Images::class);
+    public function images(){
+        return $this->belongsToMany(Images::class , 'product_images', 'product_id', 'image_id');
     }
     public function color(){
         return $this->belongsTo(Color::class);

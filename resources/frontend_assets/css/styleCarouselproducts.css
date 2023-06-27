@@ -1,27 +1,28 @@
-
-/*pijltjes verplaatsen*/
-#optionsCarousel .carousel-control-next, #optionsCarousel .carousel-control-prev {
+.optionsCarousel-control-next, .optionsCarousel-control-prev {
 	position: absolute !important;
 	top: 0.65rem;
 }
-#optionsCarousel .carousel-control-next-icon{
+.optionsCarousel-control-next-icon{
 	position: relative;
 }
-#optionsCarousel .carousel-control-prev-icon{
+.optionsCarousel-control-prev-icon{
 	left: 0rem;
 	rotate: 180deg;
 }
-#optionsCarousel .carousel-control-next-icon, .carousel-control-prev-icon{
+.optionsCarousel-control-next-icon, .optionsCarousel-control-prev-icon{
 	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23fff' class='bi bi-caret-right-fill' viewBox='0 0 16 16'%3E%3Cpath d='m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z'/%3E%3C/svg%3E");
 }
 /*pijltjes verkleinen*/
-#optionsCarousel .carousel-control-next, .carousel-control-prev {
+.optionsCarousel-control-next, .optionsCarousel-control-prev {
 	height: 1.5rem;
 	width: 1.5rem;
 }
-
+#backgroud-grey{
+	position: relative;
+	bottom: -1rem;
+}
 /*geen transformatie*/
-#optionsCarousel .carousel-item {
+#optionsCarousel.carousel-item {
 	 transition: none;
 }
 

@@ -38,6 +38,7 @@ class DatabaseSeeder extends Seeder
             ProductPropertylistSeeder::class,
             CategorySeeder::class,
             ProductSubcategorySeeder::class,
+            ProductImagesSeeder::class,
 
         ]);
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');

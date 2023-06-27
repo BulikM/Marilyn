@@ -24,7 +24,7 @@ class HomeController extends Controller
     public function index()
     {
 
-        $new_products = Product::with('image', 'brand',)->latest('created_at')->take(11)->get();
+        $new_products = Product::with('images', 'brand',)->latest('created_at')->take(11)->get();
         return view("index", compact('new_products'));
     }
 }

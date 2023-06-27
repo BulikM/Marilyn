@@ -52,12 +52,12 @@
                                     </div>
                                 @endforeach
                         </div>
-                        <button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#optionsCarousel" type="button">
-                            <span aria-hidden="true" class="carousel-control-prev-icon"></span>
+                        <button class="carousel-control-prev optionsCarousel-control-prev" data-bs-slide="prev" data-bs-target="#optionsCarousel" type="button">
+                            <span aria-hidden="true" class="carousel-control-prev-icon optionsCarousel-control-prev-icon"></span>
                             <span class="visually-hidden">Previous</span>
                         </button>
-                        <button class="carousel-control-next" data-bs-slide="next" data-bs-target="#optionsCarousel" type="button">
-                            <span aria-hidden="true" class="carousel-control-next-icon"></span>
+                        <button class="carousel-control-next optionsCarousel-control-next" data-bs-slide="next" data-bs-target="#optionsCarousel" type="button">
+                            <span aria-hidden="true" class="carousel-control-next-icon optionsCarousel-control-next-icon"></span>
                             <span class="visually-hidden">Next</span>
                         </button>
                     </div>

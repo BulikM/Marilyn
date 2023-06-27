@@ -22,9 +22,8 @@ class Images extends Model
 //    {
 //        return $this->hasOne(Post::class);
 //    }
-    public function product()
-    {
-        return $this->hasOne(Product::class);
+    public function products(){
+        return $this->belongsToMany(Product::class, 'product_images');
     }
 
 }

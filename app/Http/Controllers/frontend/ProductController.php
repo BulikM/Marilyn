@@ -37,9 +37,7 @@ class ProductController extends Controller
 
 
     public function productsPerBrand(Brand $brand){
-        $brands = Brand::with('products', 'products.image')
-            ->findOrFail($brand->id);
-        $products = $brands->products;
+        $products = $brand->products;
         $hero = Brand::with('products.brand')->where('id',$brand->id)->first();
         return view('products', compact('products','hero'));
     }

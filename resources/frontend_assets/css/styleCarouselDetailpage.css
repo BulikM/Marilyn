@@ -18,16 +18,25 @@
 
 /*aanpaasen pijltjes*/
 
-.carousel .carousel-control-next-icon {
+.pijl .carousel-control-next-icon {
 	/* change fill="currentColor" to %23fff to make it white  */
 	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' height='24' width='24' class='SvgIconstyles__StyledSvgIcon-sc-1h1x60g-0 hqtITr Carouselstyles__StyledSvgIcon-b7o3y3-8 ceHZFw' aria-label='Back' fill='%23fff' type='arrow' aria-hidden='true' data-acsb-hidden='true' data-acsb-force-hidden='true'%3E%3Cpath d='M16.517 12L7.414 0 7 .31 15.868 12 7 23.69l.414.31 9.103-12'%3E%3C/path%3E%3C/svg%3E");
 }
+.pijl .carousel-control-prev-icon {
+    /* change fill="currentColor" to %23fff to make it white  */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' height='24' width='24' class='SvgIconstyles__StyledSvgIcon-sc-1h1x60g-0 hqtITr Carouselstyles__StyledSvgIcon-b7o3y3-8 ceHZFw' aria-label='Back' fill='%23fff' type='arrow' aria-hidden='true' data-acsb-hidden='true' data-acsb-force-hidden='true'%3E%3Cpath d='M16.517 12L7.414 0 7 .31 15.868 12 7 23.69l.414.31 9.103-12'%3E%3C/path%3E%3C/svg%3E");
+    transform: rotate(180deg);
+}
 
 /*grote klikgebied pijltjes + positie*/
-.carousel-control-next, .carousel-control-prev {
+.pijl, .carousel-control-next .carousel-control-prev {
 	top: 35%;
-	whidth: 5%;
+    width: 5%;
 	height: 15%;
+}
+.bigArrow {
+    width: 3.5rem;
+    height: 3.5rem;
 }
 /*plaatsing hart icon*/
 .hartgsm{

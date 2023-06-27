@@ -2,15 +2,25 @@
 /*carousel*/
 
 /*pijl kleur carousel*/
-.pijl{
+.pijl-bg{
 	height: 6rem !important;
 	width: 2rem !important;
 	background-color: rgb(68, 68, 68)
 }
 @media (min-width: 992px) {
-    .pijl {
+    .pijl-bg {
         flex: 0 0 139px;
     }
+}
+/*aanpaasen pijltjes*/
+.pijl-bg .carousel-control-prev-icon {
+    /* change fill="currentColor" to %23fff to make it white  */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' height='24' width='24' class='SvgIconstyles__StyledSvgIcon-sc-1h1x60g-0 hqtITr Carouselstyles__StyledSvgIcon-b7o3y3-8 ceHZFw' aria-label='Back' fill='%23fff' type='arrow' aria-hidden='true' data-acsb-hidden='true' data-acsb-force-hidden='true'%3E%3Cpath d='M16.517 12L7.414 0 7 .31 15.868 12 7 23.69l.414.31 9.103-12'%3E%3C/path%3E%3C/svg%3E");
+    transform: rotate(180deg);
+}
+.pijl-bg .carousel-control-next-icon {
+    /* change fill="currentColor" to %23fff to make it white  */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' height='24' width='24' class='SvgIconstyles__StyledSvgIcon-sc-1h1x60g-0 hqtITr Carouselstyles__StyledSvgIcon-b7o3y3-8 ceHZFw' aria-label='Back' fill='%23fff' type='arrow' aria-hidden='true' data-acsb-hidden='true' data-acsb-force-hidden='true'%3E%3Cpath d='M16.517 12L7.414 0 7 .31 15.868 12 7 23.69l.414.31 9.103-12'%3E%3C/path%3E%3C/svg%3E");
 }
 .dotscarousel .carousel-indicators [data-bs-target] {
 
@@ -77,16 +87,7 @@
 	transform: scale(1.1);
 }
 
-/*aanpaasen pijltjes*/
-.pijl .carousel-control-prev-icon {
-	/* change fill="currentColor" to %23fff to make it white  */
-	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' height='24' width='24' class='SvgIconstyles__StyledSvgIcon-sc-1h1x60g-0 hqtITr Carouselstyles__StyledSvgIcon-b7o3y3-8 ceHZFw' aria-label='Back' fill='%23fff' type='arrow' aria-hidden='true' data-acsb-hidden='true' data-acsb-force-hidden='true'%3E%3Cpath d='M16.517 12L7.414 0 7 .31 15.868 12 7 23.69l.414.31 9.103-12'%3E%3C/path%3E%3C/svg%3E");
-	transform: rotate(180deg);
-}
-.pijl .carousel-control-next-icon {
-	/* change fill="currentColor" to %23fff to make it white  */
-	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' height='24' width='24' class='SvgIconstyles__StyledSvgIcon-sc-1h1x60g-0 hqtITr Carouselstyles__StyledSvgIcon-b7o3y3-8 ceHZFw' aria-label='Back' fill='%23fff' type='arrow' aria-hidden='true' data-acsb-hidden='true' data-acsb-force-hidden='true'%3E%3Cpath d='M16.517 12L7.414 0 7 .31 15.868 12 7 23.69l.414.31 9.103-12'%3E%3C/path%3E%3C/svg%3E");
-}
+
 
 /*meerdere items per carousel responsive*/
 

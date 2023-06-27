@@ -47,13 +47,20 @@
 
                         <div class="carousel-item {{$key == 0 ? 'active':'' }} w-100 justify-content-center gap-5" style="padding-left: 24px; padding-right: 24px">
                             <div class="card h-auto">
-                                <div class="carousel-image">
+                                <div class="img">
                                     <a href="{{route('product.show', $product->slug)}}">
-                                        <img alt="{{$product->name}}"
-                                             src="{{$product->image ? $product->image->file : "/assets/img.png"}}" class="col-12">
+                                        @foreach($product->images as $key=>$image)
+                                            @if($loop->first)
+                                                <img alt="{{$product->name}}"
+                                                     class="card-img-top rounded-0"
+                                                     src="{{$image->file ? $image->file : "/assets/img.png"}}">
+                                            @endif
+                                            @if($loop->last)
+                                                <img alt="{{$product->name}}" src="{{$image->file ? $image->file : "/assets/img.png"}}" class="hover_img card-img-top rounded-0">
+                                            @endif
+                                        @endforeach
                                     </a>
                                 </div>
-
                                 <div class="card-body">
                                     <p class="text-g1">{{$product->id}}</p>
                                     @foreach($product->brand as $brand)
@@ -67,11 +74,11 @@
                         </div>
                     @endforeach
                 </div>
-                <button class="pijl carousel-control-prev" type="button" data-bs-target="#newCarousel" data-bs-slide="prev">
+                <button class="pijl-bg carousel-control-prev" type="button" data-bs-target="#newCarousel" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="pijl carousel-control-next" type="button" data-bs-target="#newCarousel" data-bs-slide="next">
+                <button class="pijl-bg carousel-control-next" type="button" data-bs-target="#newCarousel" data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
                 </button>
