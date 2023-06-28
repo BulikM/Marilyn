@@ -38,20 +38,23 @@ class ProductController extends Controller
 
     public function productsPerCategory(Category $category){
 
-        $products = $category->subCategories()->with('products','products.brand')->get()->pluck('products')->flatten();
+        $products = $category->subCategories()->with('products','products.brand', 'products.sizes', 'products.color')->get()->pluck('products')->flatten();
         $brands = $products->pluck('brand')->flatten();
-
+        $colors = $products->pluck('color')->flatten();
+        $sizes = $products->pluck('sizes')->flatten();
         $hero = $category;
-        return view('products', compact('products', 'hero', 'brands'));
+        return view('products', compact('products', 'hero', 'brands', 'colors', 'sizes'));
     }
 
     public function productsPerSubCategory(SubCategory $subCategory){
 
 
-        $products = $subCategory->products()->with('brand')->get()->flatten();
+        $products = $subCategory->products()->with('brand', 'sizes', 'color')->get()->flatten();
         $brands = $products->pluck('brand')->flatten();
+        $colors = $products->pluck('color')->flatten();
+        $sizes = $products->pluck('sizes')->flatten();
         $hero = $subCategory->categories;
-        return view('products', compact('products', 'hero', 'brands'));
+        return view('products', compact('products', 'hero', 'brands', 'colors', 'sizes'));
 
     }
 

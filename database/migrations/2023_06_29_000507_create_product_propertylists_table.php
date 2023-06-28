@@ -14,7 +14,9 @@ return new class extends Migration
         Schema::create('product_propertylists', function (Blueprint $table) {
             $table->id();
             $table->foreignId('product_id')->unsigned()->constrained()->cascadeOnDelete();
-            $table->foreignId('brand_id')->nullable()->unsigned()->constrained()->cascadeOnDelete();
+            $table->foreignId('brand_id')->unsigned()->constrained()->cascadeOnDelete();
+            $table->foreignId('color_id')->nullable()->unsigned()->constrained()->cascadeOnDelete();
+            $table->foreignId('size_id')->nullable()->unsigned()->constrained()->cascadeOnDelete();
             $table->softDeletes();
             $table->timestamps();
         });

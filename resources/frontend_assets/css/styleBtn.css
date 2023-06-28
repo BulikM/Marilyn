@@ -340,3 +340,9 @@ button, input, optgroup, select, textarea {
 	opacity: 0.8;
 	transition: opacity 250ms ease-in-out 0s;
 }
+.btn-check:checked + .btn-outline-purple, .btn-check:active + .btn-outline-purple, .btn-outline-purple:active, .btn-outline-purple.active, .btn-outline-purple.dropdown-toggle.show {
+    background-color: black;
+    color: #ffff;
+    border: 0;
+    -webkit-transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease; }

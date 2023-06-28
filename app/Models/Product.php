@@ -16,9 +16,7 @@ class Product extends Model
     public function images(){
         return $this->belongsToMany(Images::class , 'product_images', 'product_id', 'image_id');
     }
-    public function color(){
-        return $this->belongsTo(Color::class);
-    }
+
 
 
 
@@ -35,24 +33,16 @@ class Product extends Model
     public function brand(){
         return  $this->belongsToMany(Brand::class, 'product_propertylists');
     }
-//
-//    public function productcategories(){
-//        return $this->belongsToMany(ProductCategory::class, 'category_product_lists', 'product_categories_id');
-//    }
+    public function color(){
+        return $this->belongsToMany(Color::class, 'product_propertylists');
+    }
+    public function Sizes(){
+    return $this->belongsToMany(Size::class, 'product_propertylists');
+}
+
     public function subCategories()
     {
         return $this->belongsToMany(SubCategory::class, 'product_subcategories', );
     }
-//    public function subCategories(): MorphMany
-//    {
-//        return $this->morphMany(Product::class, 'subcategoryable', 'subcategoryable');
-//
-//    }
 
-
-//
-//    Public function categories()
-//    {
-//        Return $this->morphToMany(Category::class, 'categoryable', 'categoryable', );
-//    }
 }

@@ -1156,531 +1156,57 @@
                         </div>
                         <div class="separator my-2"></div>
                         <!--				color-->
-                        <div class="dropdown">
+                        <div class="dropdown position-static">
                             <button aria-expanded="false" class="dropdown-toggle-change lgLNaJ" data-bs-toggle="dropdown" type="button">
                                 <strong>color</strong>
                             </button>
-                            <ul class="FiltersDropdownstyles__OptionsList-sc-1qgkt1w-2 dropdown-menu w-auto border-0 p-2">
-                                <div class="input-group w-50 col-5 m-auto">
-                                    <input aria-describedby="addon-wrapping2" aria-label="color" class="form-control" id="findAColor"
-                                           placeholder="Find a color" type="text">
-                                    <span class="input-group-text bg-white border-start-0" id="addon-wrapping2"><i
+                            <ul class="dropdown-menu w-100 mt-0 rounded-0">
+                                <li class="input-group w-50 col-5 m-auto">
+                                    <input aria-describedby="addon-wrapping" aria-label="Username" class="form-control" id="findABrand"
+                                           placeholder="Find a brand" type="text">
+                                    <span class="input-group-text bg-white border-start-0" id="addon-wrapping"><i
                                             class="bi text-dark bi-search"></i></span>
+                                </li>
+                                <div class="row row-cols-5 m-3 justify-content-evenly">
+                                    @foreach($colors as $color)
+                                        <li class="col d-flex justify-content-start jrrhLu">
+                                            <input aria-label="Checkbox for following text input" class="jaoyAT" type="checkbox" value="{{$color->name}}">
+                                            <span class=" bLYPWY mx-1">{{$color->name}}</span>
+                                        </li>
+                                    @endforeach
                                 </div>
-                                <div class="d-flex row row-cols-5 p-4">
-                                    <li class="col d-flex justify-content-start jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">108 Sportif</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(1)</span>
-                                    </li>
-                                    <li class="col jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">Adidas by Stella McCartney</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(9)</span>
-                                    </li>
-                                    <li class="col jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">AGOLDE</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(23)</span>
-                                    </li>
-                                    <li class="col jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">Agua by Agua Bendita</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(4)</span>
-                                    </li>
-                                    <li class="col jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">Alemais</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(4)</span>
-                                    </li>
-                                    <li class="col d-flex justify-content-start jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">108 Sportif</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(1)</span>
-                                    </li>
-                                    <li class="col jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">Adidas by Stella McCartney</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(9)</span>
-                                    </li>
-                                    <li class="col jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">AGOLDE</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(23)</span>
-                                    </li>
-                                    <li class="col jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">Agua by Agua Bendita</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(4)</span>
-                                    </li>
-                                    <li class="col jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">Alemais</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(4)</span>
-                                    </li>
-                                    <li class="col d-flex justify-content-start jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">108 Sportif</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(1)</span>
-                                    </li>
-                                    <li class="col jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">Adidas by Stella McCartney</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(9)</span>
-                                    </li>
-                                    <li class="col jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">AGOLDE</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(23)</span>
-                                    </li>
-                                    <li class="col jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">Agua by Agua Bendita</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(4)</span>
-                                    </li>
-                                    <li class="col jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">Alemais</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(4)</span>
-                                    </li>
-                                    <li class="col d-flex justify-content-start jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">108 Sportif</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(1)</span>
-                                    </li>
-                                    <li class="col jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">Adidas by Stella McCartney</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(9)</span>
-                                    </li>
-                                    <li class="col jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">AGOLDE</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(23)</span>
-                                    </li>
-                                    <li class="col jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">Agua by Agua Bendita</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(4)</span>
-                                    </li>
-                                    <li class="col jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">Alemais</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(4)</span>
-                                    </li>
-                                    <li class="col d-flex justify-content-start jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">108 Sportif</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(1)</span>
-                                    </li>
-                                    <li class="col jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">Adidas by Stella McCartney</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(9)</span>
-                                    </li>
-                                    <li class="col jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">AGOLDE</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(23)</span>
-                                    </li>
-                                    <li class="col jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">Agua by Agua Bendita</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(4)</span>
-                                    </li>
-                                    <li class="col jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">Alemais</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(4)</span>
-                                    </li>
-                                    <li class="col d-flex justify-content-start jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">108 Sportif</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(1)</span>
-                                    </li>
-                                    <li class="col jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">Adidas by Stella McCartney</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(9)</span>
-                                    </li>
-                                    <li class="col jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">AGOLDE</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(23)</span>
-                                    </li>
-                                    <li class="col jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">Agua by Agua Bendita</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(4)</span>
-                                    </li>
-                                    <li class="col jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">Alemais</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(4)</span>
-                                    </li>
-                                    <li class="col d-flex justify-content-start jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">108 Sportif</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(1)</span>
-                                    </li>
-                                    <li class="col jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">Adidas by Stella McCartney</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(9)</span>
-                                    </li>
-                                    <li class="col jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">AGOLDE</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(23)</span>
-                                    </li>
-                                    <li class="col jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">Agua by Agua Bendita</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(4)</span>
-                                    </li>
-                                    <li class="col jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">Alemais</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(4)</span>
-                                    </li>
-                                    <li class="col d-flex justify-content-start jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">108 Sportif</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(1)</span>
-                                    </li>
-                                    <li class="col jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">Adidas by Stella McCartney</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(9)</span>
-                                    </li>
-                                    <li class="col jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">AGOLDE</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(23)</span>
-                                    </li>
-                                    <li class="col jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">Agua by Agua Bendita</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(4)</span>
-                                    </li>
-                                    <li class="col jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">Alemais</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(4)</span>
-                                    </li>
-                                    <li class="col d-flex justify-content-start jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">108 Sportif</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(1)</span>
-                                    </li>
-                                    <li class="col jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">Adidas by Stella McCartney</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(9)</span>
-                                    </li>
-                                    <li class="col jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">AGOLDE</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(23)</span>
-                                    </li>
-                                    <li class="col jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">Agua by Agua Bendita</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(4)</span>
-                                    </li>
-                                    <li class="col jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">Alemais</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(4)</span>
-                                    </li>
-                                </div>
-                                <div class="d-flex justify-content-center align-items-center m-3">
+                                <li class="d-flex justify-content-center align-items-center m-3">
                                     <button class="lgLNaJ m-1">show more</button>
                                     <button class="lgLNaJ m-1">apply</button>
-                                </div>
+                                </li>
                             </ul>
-
                         </div>
                         <div class="separator my-2"></div>
                         <!--				size-->
-                        <div class="dropdown">
+                        <div class="dropdown position-static">
                             <button aria-expanded="false" class="dropdown-toggle-change lgLNaJ" data-bs-toggle="dropdown" type="button">
-                                <strong>size</strong>
+                                <strong>Size</strong>
                             </button>
-                            <ul class="FiltersDropdownstyles__OptionsList-sc-1 qgkt1w-2 dropdown-menu p-2 border-0">
-                                <div class="input-group w-50 col-5 m-auto">
-                                    <input aria-describedby="addon-wrapping3" aria-label="size" class="form-control" id="findASize"
-                                           placeholder="Find a size"
-                                           type="text">
-                                    <span class="input-group-text bg-white border-start-0" id="addon-wrapping3"><i
+                            <ul class="dropdown-menu w-100 mt-0 rounded-0">
+                                <li class="input-group w-50 col-5 m-auto">
+                                    <input aria-describedby="addon-wrapping" aria-label="Username" class="form-control" id="findABrand"
+                                           placeholder="Find a brand" type="text">
+                                    <span class="input-group-text bg-white border-start-0" id="addon-wrapping"><i
                                             class="bi text-dark bi-search"></i></span>
+                                </li>
+                                <div class="row row-cols-5 m-3 justify-content-evenly">
+                                    @foreach($sizes as $size)
+                                        <li class="col d-flex justify-content-start jrrhLu">
+                                            <input aria-label="Checkbox for following text input" class="jaoyAT" type="checkbox" value="{{$size->name}}">
+                                            <span class=" bLYPWY mx-1">{{$size->name}}</span>
+                                        </li>
+                                    @endforeach
                                 </div>
-                                <div class="d-flex row row-cols-5 p-4">
-                                    <li class="col d-flex justify-content-start jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">108 Sportif</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(1)</span>
-                                    </li>
-                                    <li class="col jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">Adidas by Stella McCartney</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(9)</span>
-                                    </li>
-                                    <li class="col jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">AGOLDE</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(23)</span>
-                                    </li>
-                                    <li class="col jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">Agua by Agua Bendita</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(4)</span>
-                                    </li>
-                                    <li class="col jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">Alemais</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(4)</span>
-                                    </li>
-                                    <li class="col d-flex justify-content-start jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">108 Sportif</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(1)</span>
-                                    </li>
-                                    <li class="col jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">Adidas by Stella McCartney</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(9)</span>
-                                    </li>
-                                    <li class="col jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">AGOLDE</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(23)</span>
-                                    </li>
-                                    <li class="col jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">Agua by Agua Bendita</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(4)</span>
-                                    </li>
-                                    <li class="col jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">Alemais</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(4)</span>
-                                    </li>
-                                    <li class="col d-flex justify-content-start jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">108 Sportif</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(1)</span>
-                                    </li>
-                                    <li class="col jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">Adidas by Stella McCartney</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(9)</span>
-                                    </li>
-                                    <li class="col jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">AGOLDE</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(23)</span>
-                                    </li>
-                                    <li class="col jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">Agua by Agua Bendita</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(4)</span>
-                                    </li>
-                                    <li class="col jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">Alemais</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(4)</span>
-                                    </li>
-                                    <li class="col d-flex justify-content-start jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">108 Sportif</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(1)</span>
-                                    </li>
-                                    <li class="col jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">Adidas by Stella McCartney</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(9)</span>
-                                    </li>
-                                    <li class="col jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">AGOLDE</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(23)</span>
-                                    </li>
-                                    <li class="col jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">Agua by Agua Bendita</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(4)</span>
-                                    </li>
-                                    <li class="col jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">Alemais</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(4)</span>
-                                    </li>
-                                    <li class="col d-flex justify-content-start jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">108 Sportif</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(1)</span>
-                                    </li>
-                                    <li class="col jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">Adidas by Stella McCartney</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(9)</span>
-                                    </li>
-                                    <li class="col jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">AGOLDE</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(23)</span>
-                                    </li>
-                                    <li class="col jrrhLu">
-                                        <input aria-label="Checkbox for following text input" class="form-check-input mt-0"
-                                               type="checkbox"
-                                               value="">
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY">Agua by Agua Bendita</span>
-                                        <span class="Text__BaseText-vs2pg6-0 bLYPWY InputLabelWithSecondaryTextstyles__Subtext-bvh17g-2 hUTJAh">(4)</span>
-                                    </li>
-                                </div>
-                                <div class="d-flex justify-content-center align-items-center">
+                                <li class="d-flex justify-content-center align-items-center m-3">
                                     <button class="lgLNaJ m-1">show more</button>
                                     <button class="lgLNaJ m-1">apply</button>
-                                </div>
+                                </li>
                             </ul>
-
                         </div>
                         <div class="separator my-2"></div>
                         <!--				sort-->

@@ -105,29 +105,17 @@
                             @foreach($product->brand as $brand)
                              <input type="hidden" name="brand" value="{{$brand->name}}">
                             @endforeach
-                            <p class="ddqQTz text-uppercase">Color<span class="text-capitalize jMqIvg"> {{$product->color->name}}</span></p>
+                            @foreach($product->color as $color)
+                            <p class="ddqQTz text-uppercase">Color<span class="text-capitalize jMqIvg"> {{$color->name}}</span></p>
+                            @endforeach
                             <div class=" gOPwLh">
                                 <!--						size-->
-                                <button class="CSKuw" data-acsb-overflower="true"
-                                        data-acsb-clickable="true" data-acsb-navigable="true" data-acsb-now-navigable="true"
-                                        role="button"><span
-                                        class=" hjXHYX">XS</span>
-                                </button>
-                                <button class="VariantPickerstyles__SwatchButton-vvspn3-3 jzSZMb"
-                                        data-acsb-overflower="true" data-acsb-clickable="true" data-acsb-navigable="true"
-                                        data-acsb-now-navigable="true" role="button"><span
-                                        class="VariantPickerstyles__SwatchText-vvspn3-6 hjXHYX">S</span>
-                                </button>
-                                <button class="VariantPickerstyles__SwatchButton-vvspn3-3 jzSZMb"
-                                        data-acsb-overflower="true" data-acsb-clickable="true" data-acsb-navigable="true"
-                                        data-acsb-now-navigable="true" role="button"><span
-                                        class="VariantPickerstyles__SwatchText-vvspn3-6 hjXHYX">M</span>
-                                </button>
-                                <button class="VariantPickerstyles__SwatchButton-vvspn3-3 gXMVwD"
-                                        data-acsb-overflower="true" data-acsb-clickable="true" data-acsb-navigable="true"
-                                        data-acsb-now-navigable="true" role="button"><span
-                                        class="VariantPickerstyles__SwatchText-vvspn3-6 hjXHYX">L</span>
-                                </button>
+                                @foreach($product->sizes as $preference)
+
+                                        <input type="checkbox" class="btn-check p-5" value="{{$preference->id}}" name="preferences[]" id="preference{{$preference->id}}" autocomplete="off" @checked(in_array($preference->id, old('preferences', [])))>
+                                        <label class="button btn-outline-purple fs-2 p-2 px-3  border border-1" for="preference{{$preference->id}}">{{$preference->name}}</label><br>
+
+                                @endforeach
                             </div>
                         </div>
 
