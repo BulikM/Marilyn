@@ -2,7 +2,10 @@
 @section('content')
     <!--main-->
 <main class="container-fluid p-0">
-
+    @isset($title)
+        <div class="px-5"><h1 class="line d-flex align-items-center title___1Ikv6">{{$title}}</h1></div>
+    @endif
+@isset($hero)
     @if($hero)
         <div class="px-5"><h1 class="line d-flex align-items-center title___1Ikv6">{{$hero->name}}</h1></div>
     @endif
@@ -1141,8 +1144,7 @@
                                     @foreach($brands as $brand)
                                         <li class="col d-flex justify-content-start jrrhLu">
                                             <input aria-label="Checkbox for following text input" class="jaoyAT" type="checkbox" value="{{$brand->name}}">
-                                            <span class=" bLYPWY me-1">{{$brand->name}}</span>
-                                            <span class=" bLYPWY check-g hUTJAh">{{$brand->products->count()}}  </span>
+                                            <span class=" bLYPWY mx-1">{{$brand->name}}</span>
                                         </li>
                                     @endforeach
                                 </div>
@@ -1721,244 +1723,61 @@
                         @endif
                     @endif
 
+@endif
 
 
-@foreach($products as $product)
-    <p class="text-center text-danger">{{$product->name}}</p>
-        @endforeach
         <!--	producten-->
 
         <section class="row row-cols-2 row-cols-lg-3 mt-5 dgWCVK">
-
+            @foreach($products as $product)
             <div class="card col ejylGK">
-                <a href="detailpage.html">
-                    <div class="carousel slide dotscarousel carouselproductsgsm mb-lg-2"
-                         id="carouselproductsgsm1">
-
-                        <div class="carousel-inner">
-                            <div class="carousel-item active img">
-                                <img alt="RIVET UTILITY Unisex Jumpsuit"
-                                     class="ProductListCardstyles__StyledImage-g09iyn-4 d-block w-100"
-                                     src="https://shop.goop-img.com/cdn-cgi/image/height=324,width=324,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/086/022/large/open-uri20230104-8884-1bycesh?1672861824.webp"
-                                     srcset="
-                  https://shop.goop-img.com/cdn-cgi/image/height=324,width=324,dpr=1,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/086/022/large/open-uri20230104-8884-1bycesh?1672861824.webp 324w,
-                  https://shop.goop-img.com/cdn-cgi/image/height=324,width=324,dpr=2,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/086/022/large/open-uri20230104-8884-1bycesh?1672861824.webp 648w,
-                  https://shop.goop-img.com/cdn-cgi/image/height=324,width=324,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/086/022/large/open-uri20230104-8884-1bycesh?1672861824.webp 972w
-                ">
-                                <img alt="RIVET UTILITY Unisex Jumpsuit"
-                                     class="ProductListCardstyles__StyledImage-g09iyn-4 ProductListCardstyles__StyledSecondaryImage-g09iyn-5 w-100 hover_img"
-                                     src="https://shop.goop-img.com/cdn-cgi/image/height=324,width=324,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/086/023/large/open-uri20230104-8884-mza0ab?1672861828.webp"
-                                     srcset="
-                  https://shop.goop-img.com/cdn-cgi/image/height=324,width=324,dpr=1,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/086/023/large/open-uri20230104-8884-mza0ab?1672861828.webp 324w,
-                  https://shop.goop-img.com/cdn-cgi/image/height=324,width=324,dpr=2,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/086/023/large/open-uri20230104-8884-mza0ab?1672861828.webp 648w,
-                  https://shop.goop-img.com/cdn-cgi/image/height=324,width=324,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/086/023/large/open-uri20230104-8884-mza0ab?1672861828.webp 972w
-                ">
-                            </div>
-                            <div class="carousel-item">
-                                <img alt="RIVET UTILITY Unisex Jumpsuit"
-                                     class="ProductListCardstyles__StyledImage-g09iyn-4 ProductListCardstyles__StyledSecondaryImage-g09iyn-5 d-block w-100"
-                                     src="https://shop.goop-img.com/cdn-cgi/image/height=324,width=324,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/086/023/large/open-uri20230104-8884-mza0ab?1672861828.webp"
-                                     srcset="
-                  https://shop.goop-img.com/cdn-cgi/image/height=324,width=324,dpr=1,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/086/023/large/open-uri20230104-8884-mza0ab?1672861828.webp 324w,
-                  https://shop.goop-img.com/cdn-cgi/image/height=324,width=324,dpr=2,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/086/023/large/open-uri20230104-8884-mza0ab?1672861828.webp 648w,
-                  https://shop.goop-img.com/cdn-cgi/image/height=324,width=324,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/086/023/large/open-uri20230104-8884-mza0ab?1672861828.webp 972w
-                ">
-                            </div>
-                        </div>
-                        <div class="carousel-indicators d-lg-none">
-                            <button aria-current="true" aria-label="Slide 1" class="active" data-bs-slide-to="0"
-                                    data-bs-target="#carouselproductsgsm1" type="button"></button>
-                            <button aria-label="Slide 2" data-bs-slide-to="1" data-bs-target="#carouselproductsgsm1"
-                                    type="button"></button>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="ProductListCardstyles__RequiredDetails-g09iyn-11 kxzyWr">
-                            <span class="ProductListCardstyles__Brand-g09iyn-9 bRYfZP">RIVET UTILITY</span>
-                            <a class="ProductListCardstyles__Title-g09iyn-16 dNoHTw"
-                               data-acsb-clickable="true" data-acsb-navigable="true"
-                               data-acsb-now-navigable="true" href="detailpage.html">Unisex
-                                Jumpsuit</a>
-                            <div class="ProductListCardstyles__PriceWrapper-g09iyn-10 gMRwgT">
-						<span class="ProductListCardstyles__BasePrice-g09iyn-12 ProductListCardstyles__Price-g09iyn-13 jdPKXS NTnhi">
-							US $390.00
-						</span>
-                            </div>
-                        </div>
-                        <span class="ProductListCardstyles__Caption-g09iyn-17 cKUVkS">The oversize unisex fit is straight-up cool.</span>
-                    </div>
-                </a>
-            </div>
-            <div class="card col ejylGK">
-                <a href="detailpage.html">
-                    <div class="carousel slide dotscarousel carouselproductsgsm" data-bs-ride="false"
-                         id="carouselproductsgsm2">
-
-                        <div class="carousel-inner pb-lg-2">
-                            <div class="carousel-item img active">
-                                <img alt="LISA YANG Mila Sweater"
-                                     class="ProductListCardstyles__StyledImage-g09iyn-4 d-block w-100"
-                                     src="https://shop.goop-img.com/cdn-cgi/image/height=324,width=324,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/086/021/large/open-uri20230104-9188-sy26bv?1672861758.webp"
-                                     srcset="
-          https://shop.goop-img.com/cdn-cgi/image/height=324,width=324,dpr=1,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/086/021/large/open-uri20230104-9188-sy26bv?1672861758.webp 324w,
-          https://shop.goop-img.com/cdn-cgi/image/height=324,width=324,dpr=2,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/086/021/large/open-uri20230104-9188-sy26bv?1672861758.webp 648w,
-          https://shop.goop-img.com/cdn-cgi/image/height=324,width=324,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/086/021/large/open-uri20230104-9188-sy26bv?1672861758.webp 972w
-        "> <img alt="LISA YANG Mila Sweater"
-                class="ProductListCardstyles__StyledImage-g09iyn-4 hover_img w-100 "
-                src="https://shop.goop-img.com/cdn-cgi/image/height=324,width=324,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/086/048/large/open-uri20230104-24232-wbfp2a?1672874399.webp"
-                srcset="
-          https://shop.goop-img.com/cdn-cgi/image/height=324,width=324,dpr=1,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/086/048/large/open-uri20230104-24232-wbfp2a?1672874399.webp 324w,
-          https://shop.goop-img.com/cdn-cgi/image/height=324,width=324,dpr=2,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/086/048/large/open-uri20230104-24232-wbfp2a?1672874399.webp 648w,
-          https://shop.goop-img.com/cdn-cgi/image/height=324,width=324,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/086/048/large/open-uri20230104-24232-wbfp2a?1672874399.webp 972w
-        ">
-                            </div>
-                            <div class="carousel-item">
-                                <img alt="LISA YANG Mila Sweater"
-                                     class="ProductListCardstyles__StyledImage-g09iyn-4 d-block w-100 "
-                                     src="https://shop.goop-img.com/cdn-cgi/image/height=324,width=324,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/086/048/large/open-uri20230104-24232-wbfp2a?1672874399.webp"
-                                     srcset="
-          https://shop.goop-img.com/cdn-cgi/image/height=324,width=324,dpr=1,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/086/048/large/open-uri20230104-24232-wbfp2a?1672874399.webp 324w,
-          https://shop.goop-img.com/cdn-cgi/image/height=324,width=324,dpr=2,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/086/048/large/open-uri20230104-24232-wbfp2a?1672874399.webp 648w,
-          https://shop.goop-img.com/cdn-cgi/image/height=324,width=324,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/086/048/large/open-uri20230104-24232-wbfp2a?1672874399.webp 972w
-        ">
-                            </div>
-                        </div>
-                        <div class="carousel-indicators d-lg-none">
-                            <button aria-current="true" aria-label="Slide 1" class="active" data-bs-slide-to="0"
-                                    data-bs-target="#carouselproductsgsm2" type="button"></button>
-                            <button aria-label="Slide 2" data-bs-slide-to="1" data-bs-target="#carouselproductsgsm2"
-                                    type="button"></button>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="ProductListCardstyles__RequiredDetails-g09iyn-11 kxzyWr"><span
-                                class="ProductListCardstyles__Brand-g09iyn-9 bRYfZP">LISA YANG</span><a
-                                class="ProductListCardstyles__Title-g09iyn-16 dNoHTw"
-                                data-acsb-clickable="true" data-acsb-navigable="true"
-                                data-acsb-now-navigable="true" href="detailpage.html">Mila
-                                Sweater</a>
-                            <div class="ProductListCardstyles__PriceWrapper-g09iyn-10 gMRwgT"><span
-                                    class="ProductListCardstyles__BasePrice-g09iyn-12 ProductListCardstyles__Price-g09iyn-13 jdPKXS NTnhi">US $504.00</span>
-                            </div>
-                        </div>
-                        <span class="ProductListCardstyles__Caption-g09iyn-17 cKUVkS">The soft, sumptuous 100 percent cashmere will steal your heart.</span>
-                    </div>
-                </a>
-            </div>
-            <div class="card col ejylGK">
-                <a href="detailpage.html">
-                    <div class="carousel slide dotscarousel carouselproductsgsm" data-bs-ride="false"
+                <a href="{{route('products.show', $product->slug)}}">
+                    <div class="carousel slide dotscarouselproduct carouselproductsgsm" data-bs-ride="false"
                          id="carouselproductsgsm3">
 
-                        <div class="carousel-inner p-lg-2">
-                            <div class="carousel-item active img">
-                                <img alt="RE/DONE ’70s Stove Pipe Jeans"
-                                     class="ProductListCardstyles__StyledImage-g09iyn-4 d-block w-100"
-                                     src="https://shop.goop-img.com/cdn-cgi/image/height=324,width=324,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/086/027/large/open-uri20230104-9188-vrx6wy?1672861903.webp"
-                                     srcset="
-          https://shop.goop-img.com/cdn-cgi/image/height=324,width=324,dpr=1,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/086/027/large/open-uri20230104-9188-vrx6wy?1672861903.webp 324w,
-          https://shop.goop-img.com/cdn-cgi/image/height=324,width=324,dpr=2,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/086/027/large/open-uri20230104-9188-vrx6wy?1672861903.webp 648w,
-          https://shop.goop-img.com/cdn-cgi/image/height=324,width=324,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/086/027/large/open-uri20230104-9188-vrx6wy?1672861903.webp 972w
-        "> <img alt="RE/DONE ’70s Stove Pipe Jeans"
-                class="ProductListCardstyles__StyledImage-g09iyn-4 w-100 hover_img"
-                src="https://shop.goop-img.com/cdn-cgi/image/height=324,width=324,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/086/028/large/open-uri20230104-9188-1o2jx5e?1672861907.webp"
-                srcset="
-          https://shop.goop-img.com/cdn-cgi/image/height=324,width=324,dpr=1,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/086/028/large/open-uri20230104-9188-1o2jx5e?1672861907.webp 324w,
-          https://shop.goop-img.com/cdn-cgi/image/height=324,width=324,dpr=2,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/086/028/large/open-uri20230104-9188-1o2jx5e?1672861907.webp 648w,
-          https://shop.goop-img.com/cdn-cgi/image/height=324,width=324,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/086/028/large/open-uri20230104-9188-1o2jx5e?1672861907.webp 972w
-        ">
+                        <div class="carousel-inner p-lg-2 pb-5">
+                            @foreach($product->images as $key=>$image)
+                            <div class="carousel-item {{$key == 0 ? 'active': ''}} img">
+                                @foreach($product->images as $subimage)
+                                    @if($loop->first)
+                                <img alt="{{$product->name}}"
+                                     class="d-block w-100"
+                                     src="{{$subimage->file ? $subimage->file : "/assets/img.png"}}">
+                                    @endif
+                                @if($loop->last)
+                                        <img alt="{{$product->name}}" class=" w-100 hover_img" src="{{$subimage->file ? $subimage->file : "/assets/img.png"}}">@endif
+                                @endforeach
                             </div>
-                            <div class="carousel-item">
-                                <img alt="RE/DONE ’70s Stove Pipe Jeans"
-                                     class="ProductListCardstyles__StyledImage-g09iyn-4 w-100 d-block"
-                                     src="https://shop.goop-img.com/cdn-cgi/image/height=324,width=324,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/086/028/large/open-uri20230104-9188-1o2jx5e?1672861907.webp"
-                                     srcset="
-          https://shop.goop-img.com/cdn-cgi/image/height=324,width=324,dpr=1,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/086/028/large/open-uri20230104-9188-1o2jx5e?1672861907.webp 324w,
-          https://shop.goop-img.com/cdn-cgi/image/height=324,width=324,dpr=2,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/086/028/large/open-uri20230104-9188-1o2jx5e?1672861907.webp 648w,
-          https://shop.goop-img.com/cdn-cgi/image/height=324,width=324,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/086/028/large/open-uri20230104-9188-1o2jx5e?1672861907.webp 972w
-        ">
-                            </div>
+                            @endforeach
                         </div>
+
                         <div class="carousel-indicators d-lg-none">
-                            <button aria-current="true" aria-label="Slide 1" class="active" data-bs-slide-to="0"
-                                    data-bs-target="#carouselproductsgsm3" type="button"></button>
-                            <button aria-label="Slide 2" data-bs-slide-to="1" data-bs-target="#carouselproductsgsm3"
-                                    type="button"></button>
+                            @foreach($product->images as $key=>$image)
+                                <button aria-current="true" aria-label="Slide 1" class="{{$key == 0 ? 'active': ''}}" data-bs-slide-to="{{$key}}" data-bs-target="#carouselproductsgsm3" type="button"></button>
+                            @endforeach
                         </div>
                     </div>
                     <div>
-                        <div class="ProductListCardstyles__RequiredDetails-g09iyn-11 kxzyWr"><span
-                                class="ProductListCardstyles__Brand-g09iyn-9 bRYfZP">RE/DONE</span><a
-                                class="ProductListCardstyles__Title-g09iyn-16 dNoHTw"
+                        <div class=" kxzyWr">
+                            @foreach($product->brand as $brand)
+                            <a href="{{route('productsPerBrand', $brand->slug)}}">
+                            <span class=" bRYfZP">{{$brand->name}}</span>
+                            </a>
+                            @endforeach
+                            <a class="dNoHTw"
                                 data-acsb-clickable="true" data-acsb-navigable="true"
                                 data-acsb-now-navigable="true"
-                                href="detailpage.html">’70s Stove Pipe
+                                href="{{route('product.show', $product->slug)}}">’{{$product->name}}
                                 Jeans</a>
-                            <div class="ProductListCardstyles__PriceWrapper-g09iyn-10 gMRwgT"><span
-                                    class="ProductListCardstyles__BasePrice-g09iyn-12 ProductListCardstyles__Price-g09iyn-13 jdPKXS NTnhi">US $285.00</span>
+                            <div class="gMRwgT"><span
+                                    class="jdPKXS NTnhi">€{{$product->price}}</span>
                             </div>
                         </div>
-                        <span class="ProductListCardstyles__Caption-g09iyn-17 cKUVkS">Cut from an extra-stretchy denim blend that hugs the figure in all the right places.  </span>
+                        <span class="cKUVkS">{{Str::limit($product->description,45)}}</span>
                     </div>
                 </a>
             </div>
-            <div class="card col ejylGK">
-                <a href="detailpage.html">
-                    <div class="carousel slide dotscarousel carouselproductsgsm p-lg-2" data-bs-ride="false"
-                         id="carouselproductsgsm4">
-
-                        <div class="carousel-inner">
-                            <div class="carousel-item img active">
-                                <img alt="TOTEME A-Line Wool Cotton Dress"
-                                     class="ProductListCardstyles__StyledImage-g09iyn-4 d-block w-100"
-                                     src="https://shop.goop-img.com/cdn-cgi/image/height=324,width=324,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/086/033/large/open-uri20230104-9045-1adefel?1672861959.webp"
-                                     srcset="
-          https://shop.goop-img.com/cdn-cgi/image/height=324,width=324,dpr=1,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/086/033/large/open-uri20230104-9045-1adefel?1672861959.webp 324w,
-          https://shop.goop-img.com/cdn-cgi/image/height=324,width=324,dpr=2,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/086/033/large/open-uri20230104-9045-1adefel?1672861959.webp 648w,
-          https://shop.goop-img.com/cdn-cgi/image/height=324,width=324,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/086/033/large/open-uri20230104-9045-1adefel?1672861959.webp 972w
-        ">
-                                <img alt="TOTEME A-Line Wool Cotton Dress"
-                                     class="ProductListCardstyles__StyledImage-g09iyn-4 w-100 hover_img"
-                                     src="https://shop.goop-img.com/cdn-cgi/image/height=324,width=324,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/086/034/large/open-uri20230104-9045-13lnqur?1672861964.webp"
-                                     srcset="
-          https://shop.goop-img.com/cdn-cgi/image/height=324,width=324,dpr=1,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/086/034/large/open-uri20230104-9045-13lnqur?1672861964.webp 324w,
-          https://shop.goop-img.com/cdn-cgi/image/height=324,width=324,dpr=2,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/086/034/large/open-uri20230104-9045-13lnqur?1672861964.webp 648w,
-          https://shop.goop-img.com/cdn-cgi/image/height=324,width=324,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/086/034/large/open-uri20230104-9045-13lnqur?1672861964.webp 972w
-        ">
-                            </div>
-                            <div class="carousel-item">
-                                <img alt="TOTEME A-Line Wool Cotton Dress"
-                                     class="ProductListCardstyles__StyledImage-g09iyn-4 w-100 d-block"
-                                     src="https://shop.goop-img.com/cdn-cgi/image/height=324,width=324,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/086/034/large/open-uri20230104-9045-13lnqur?1672861964.webp"
-                                     srcset="
-          https://shop.goop-img.com/cdn-cgi/image/height=324,width=324,dpr=1,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/086/034/large/open-uri20230104-9045-13lnqur?1672861964.webp 324w,
-          https://shop.goop-img.com/cdn-cgi/image/height=324,width=324,dpr=2,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/086/034/large/open-uri20230104-9045-13lnqur?1672861964.webp 648w,
-          https://shop.goop-img.com/cdn-cgi/image/height=324,width=324,dpr=3,format=auto,onerror=redirect,metadata=copyright/spree/images/attachments/000/086/034/large/open-uri20230104-9045-13lnqur?1672861964.webp 972w
-        ">
-                            </div>
-                        </div>
-                        <div class="carousel-indicators d-lg-none">
-                            <button aria-current="true" aria-label="Slide 1" class="active" data-bs-slide-to="0"
-                                    data-bs-target="#carouselproductsgsm4" type="button"></button>
-                            <button aria-label="Slide 2" data-bs-slide-to="1" data-bs-target="#carouselproductsgsm4"
-                                    type="button"></button>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="ProductListCardstyles__RequiredDetails-g09iyn-11 kxzyWr"><span
-                                class="ProductListCardstyles__Brand-g09iyn-9 bRYfZP">TOTEME</span><a
-                                class="ProductListCardstyles__Title-g09iyn-16 dNoHTw"
-                                data-acsb-clickable="true" data-acsb-navigable="true"
-                                data-acsb-now-navigable="true" href="detailpage.html">A-Line
-                                Wool Cotton Dress</a>
-                            <div class="ProductListCardstyles__PriceWrapper-g09iyn-10 gMRwgT"><span
-                                    class="ProductListCardstyles__BasePrice-g09iyn-12 ProductListCardstyles__Price-g09iyn-13 jdPKXS NTnhi">US $680.00</span>
-                            </div>
-                        </div>
-                        <span class="ProductListCardstyles__Caption-g09iyn-17 cKUVkS">Folded neckline, fitted waist, flared skirt—this dress is expertly proportioned.</span>
-                    </div>
-                </a>
-            </div>
+            @endforeach
         </section>
         <!--    textbox onderaan-->
         <section class="OutlinedBoxstyles__Container-ut42sb-1 p-3 pb-lg-5 px-lg-3">
@@ -1974,7 +1793,7 @@
                 Shop designer picks from the goop-favorite brands you know and love, plus the up-and-coming designers on our
                 radar. For chic options that you can buy now and wear forever, may we suggest our <a
                     data-acsb-clickable="true" data-acsb-navigable="true" data-acsb-now-navigable="true"
-                    data-acsb-tooltip="New Window" href="detailpage.html" target="_blank"><span
+                    data-acsb-tooltip="New Window" href="{{route('new')}}" target="_blank"><span
                         aria-hidden="false" aria-label=" New Window " class="acsb-sr-only"
                         data-acsb-force-visible="true" data-acsb-hidden="false" data-acsb-sr-only="true"></span>latest G.
                     Label

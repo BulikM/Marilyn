@@ -427,9 +427,9 @@
 <div class="container-fluid ps-5 pe-5 pt-2 pb-2 advertisement">
     <div class="row">
         <div class="col-12 d-flex justify-content-center">
-            <a href="" class="advertisementLink">
-                <span>THE GOOP SALE</span>
-                <span class="emphasizedAdvertisement">NOW UP TO 60% OFF</span>
+            <a href="{{route('new')}}" class="advertisementLink">
+                <span>Marilyn new Arrivals</span>
+                <span class="emphasizedAdvertisement">lets explore</span>
             </a>
         </div>
     </div>

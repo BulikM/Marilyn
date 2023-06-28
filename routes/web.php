@@ -21,7 +21,8 @@ Route::get("/home", [
 ])->name("home");
 //products
 Route::get('product/{product:slug}', [ProductController::class, 'show'])->name('product.show');
-Route::get('/product', '\App\Http\Controllers\frontend\ProductController@Brand')->name('Brand');
+Route::get('/new', '\App\Http\Controllers\frontend\HomeController@new')->name('new');
+Route::get('/gateway', '\App\Http\Controllers\frontend\HomeController@getaway')->name('getaway');
 
 
 Route::get("/products/brand/{brand:slug}", '\App\Http\Controllers\frontend\ProductController@productsPerBrand')->name('productsPerBrand');

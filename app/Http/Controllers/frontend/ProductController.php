@@ -9,7 +9,6 @@ use App\Models\Category;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\SubCategory;
-use App\Models\SubCategoryable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Carbon;
@@ -21,12 +20,7 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        $date = Carbon::today()->subDays(7);
-        $products = Product::with('category', 'image')->where('created_at','>=',$date)->get();
-        return view ('products', compact($products));
-    }
+
 
 
     public function show(Product $product)

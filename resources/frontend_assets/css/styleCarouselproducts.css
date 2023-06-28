@@ -40,3 +40,15 @@
 	padding: 0px 20px;
 	margin: 0px 0px 80px;
 }
+.dotscarouselproduct .carousel-indicators [data-bs-target] {
+
+    /*bolletjes + kleur*/
+    /*position: relative;*/
+    color: rgb(17, 17, 17)!important;
+    background-color: rgb(83, 83, 83);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    /*meer naar onder*/
+    bottom: -3rem;
+}

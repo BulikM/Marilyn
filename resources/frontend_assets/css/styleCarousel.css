@@ -37,7 +37,7 @@
 /*pijltje omlaag*/
 .dotscarousel .carousel-control-next, .dotscarousel .carousel-control-prev {
 	top: 20%;
-	whidth: 15% !important;
+	width: 3% !important;
 }
 /*card rand weg*/
 
