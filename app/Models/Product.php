@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Product extends Model
 {
     use HasFactory;
-    protected $fillable = ['price','image_id','product_categories_id','brand_id', 'color_id','name', 'body','slug'];
+    protected $fillable = ['price','product_categories_id','name', 'body','slug'];
 
     public function images(){
         return $this->belongsToMany(Images::class , 'product_images', 'product_id', 'image_id');

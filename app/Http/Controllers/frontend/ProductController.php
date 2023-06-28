@@ -47,12 +47,11 @@ class ProductController extends Controller
     }
 
     public function productsPerSubCategory(SubCategory $subCategory){
+        $products = $subCategory->products()->with('brand', 'sizes', 'color')->get();
 
-
-        $products = $subCategory->products()->with('brand', 'sizes', 'color')->get()->flatten();
-        $brands = $products->pluck('brand')->flatten();
-        $colors = $products->pluck('color')->flatten();
-        $sizes = $products->pluck('sizes')->flatten();
+        $brands = new \Illuminate\Database\Eloquent\Collection($products->pluck('brand')->flatten());
+        $colors = new \Illuminate\Database\Eloquent\Collection($products->pluck('color')->flatten());
+        $sizes = new \Illuminate\Database\Eloquent\Collection($products->pluck('sizes')->flatten());
         $hero = $subCategory->categories;
         return view('products', compact('products', 'hero', 'brands', 'colors', 'sizes'));
 

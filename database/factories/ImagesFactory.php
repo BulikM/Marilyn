@@ -18,24 +18,7 @@ class ImagesFactory extends Factory
      */
     public function definition()
     {
-//        $path = storage_path('app/public/posts');
-        $pathproduct = storage_path('app/public/products');
-//        if (!file_exists($path)) {
-//            mkdir($path, 0755, true);
-//        } else {
-//            $files = glob($path . '/*');
-//            if (count($files) > $this->count ) {
-//                Storage::disk('public')->deleteDirectory('posts');
-//            }
-//        }
-        if (!file_exists($pathproduct)) {
-            mkdir($pathproduct, 0755, true);
-        } else {
-            $files = glob($pathproduct . '/*');
-            if (count($files) > $this->count ) {
-                Storage::disk('public')->deleteDirectory('products');
-            }
-        }
+//
         return [
             'file' => function () {
                 $imageUrl = 'https://picsum.photos/640/480';

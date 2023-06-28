@@ -17,6 +17,6 @@ class ImagesSeeder extends Seeder
     {
         //
         Storage::disk('public')->deleteDirectory('products');
-        Images::factory()->count(10)->create();
+        Images::factory()->count(150)->create();
     }
 }

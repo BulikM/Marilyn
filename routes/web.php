@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\frontend\ProductController;
+use App\Http\Controllers\frontend\SearchCotroller;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,18 +20,24 @@ Route::get("/home", [
     \App\Http\Controllers\frontend\HomeController::class,
     "index",
 ])->name("home");
+Route::get("/contact", [
+    \App\Http\Controllers\frontend\HomeController::class,
+    "contact",
+])->name("contact");
+
+
 //products
 Route::get('product/{product:slug}', [ProductController::class, 'show'])->name('product.show');
-Route::get('/new', '\App\Http\Controllers\frontend\HomeController@new')->name('new');
-Route::get('/gateway', '\App\Http\Controllers\frontend\HomeController@getaway')->name('getaway');
+Route::get('products/new', '\App\Http\Controllers\frontend\HomeController@new')->name('new');
+Route::get('products/gateway', '\App\Http\Controllers\frontend\HomeController@getaway')->name('getaway');
 
 
-Route::get("/products/brand/{brand:slug}", '\App\Http\Controllers\frontend\ProductController@productsPerBrand')->name('productsPerBrand');
-Route::get("/products/category/{category:slug}", '\App\Http\Controllers\frontend\ProductController@productsPerCategory')->name('productsPerCategory');
+Route::get("/product/brand/{brand:slug}", '\App\Http\Controllers\frontend\ProductController@productsPerBrand')->name('productsPerBrand');
+Route::get("/product/category/{category:slug}", '\App\Http\Controllers\frontend\ProductController@productsPerCategory')->name('productsPerCategory');
 Route::get("/products/{subCategory:slug}", '\App\Http\Controllers\frontend\ProductController@productsPerSubCategory')->name('productsPerSubCategory');
 
 
-Route::get('/search', [\App\Http\Controllers\SearchCotroller::class, 'search'])->name('search');
+Route::get('/search', [SearchCotroller::class, 'search'])->name('search');
 
 
 

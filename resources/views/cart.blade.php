@@ -297,20 +297,9 @@
                                 <p>€ {{Session::get('cart')->totalPrice}}</p>
                             </div>
                             <div class="d-flex justify-content-between">
-                                <p class="label___3OTM4 xs-flex-2">Standard Ground</p>
                                 <p class="value___3Fz-s xs-flex-1">Free</p>
                             </div>
                             <div>
-                                <div class="promoFormWrapper___1AEUX">
-                                    <div>
-                                        <div><p class="promoInputLabel___iOhtg"><span>Promo Code</span></p>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                        <p class="promoInputinfo">(only one per order)</p></div>
-                                    <form class="input-group mb-3">
-                                        <input type="text" class="form-control text-capitalize rounded-0" placeholder="Enter Promo code" aria-label="Username" aria-describedby="basic-addon1">
-                                    </form>
-                                </div>
                             </div>
                             <div class="totalWrapper___20bDu">
                                 <div class="display-flex fullPageCart___bGTcB">

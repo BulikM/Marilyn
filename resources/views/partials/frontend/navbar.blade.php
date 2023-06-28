@@ -444,14 +444,14 @@
                     <li class="px-3 py-2 d-inline-block headerListItemSeparator">
                         <a class="headerLink" href="#">be</a>
                     </li>
-                    <li class="px-3 py-2 d-inline-block headerListItemSeparator">
+                    <li class="px-3 py-2 d-inline-block headerListItemSeparator d-none">
                         <a class="headerLink" href="#">Get $50</a>
                     </li>
-                    <li class="px-3 py-2 d-inline-block headerListItemSeparator">
+                    <li class="px-3 py-2 d-inline-block headerListItemSeparator d-none">
                         <a class="headerLink" href="#">About</a>
                     </li>
                     <li class="px-3 py-2 d-inline-block headerListItemSeparator">
-                        <a class="headerLink" href="#">Stores</a>
+                        <a class="headerLink" href="{{route('contact')}}">Contact</a>
                     </li>
                 </ul>
                 <div class="d-lg-none">
@@ -482,17 +482,17 @@
                         </li>
                     @endguest
 {{--wishlist--}}
-{{--                    <li class="ps-3 mt-2 navbarRightOptions d-none d-lg-flex">--}}
-{{--                        <a href="https://shop.goop.com/account/wish_list" aria-label="wishlist heart"--}}
-{{--                           class="headerLink iconHeader">--}}
-{{--                            <svg viewBox="0 0 32 32" height="32" width="32"--}}
-{{--                                 class="hart" aria-label="heart icon"--}}
-{{--                                 fill="#111">--}}
-{{--                                <path fill-rule="evenodd" clip-rule="evenodd"--}}
-{{--                                      d="M4.84862 6.35758C8.85695 2.71364 13.9999 5.25513 15.9998 9.25503C17.9999 4.58844 23.9999 3.25515 27.1509 6.35758C29.8753 8.83429 29.8657 12.9708 27.5994 15.775C25.5129 18.3567 17.4366 26.4801 16.1679 27.7532C16.0715 27.85 15.9269 27.851 15.829 27.7556C14.5518 26.5109 6.48519 18.6168 4.40017 15.775C2.13387 12.6861 2.12424 8.83429 4.84862 6.35758Z"--}}
-{{--                                      stroke-width="1.25" stroke-linecap="round"></path>--}}
-{{--                            </svg>--}}
-{{--                        </a></li>--}}
+                    <li class="ps-3 mt-2 navbarRightOptions d-none">
+                        <a href="https://shop.goop.com/account/wish_list" aria-label="wishlist heart"
+                           class="headerLink iconHeader">
+                            <svg viewBox="0 0 32 32" height="32" width="32"
+                                 class="hart" aria-label="heart icon"
+                                 fill="#111">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                      d="M4.84862 6.35758C8.85695 2.71364 13.9999 5.25513 15.9998 9.25503C17.9999 4.58844 23.9999 3.25515 27.1509 6.35758C29.8753 8.83429 29.8657 12.9708 27.5994 15.775C25.5129 18.3567 17.4366 26.4801 16.1679 27.7532C16.0715 27.85 15.9269 27.851 15.829 27.7556C14.5518 26.5109 6.48519 18.6168 4.40017 15.775C2.13387 12.6861 2.12424 8.83429 4.84862 6.35758Z"
+                                      stroke-width="1.25" stroke-linecap="round"></path>
+                            </svg>
+                        </a></li>
 {{--cart--}}
                     <li class="ps-lg-3 mt-2 navbarRightOptions">
                         <a href="{{route('cart')}}" class="headerLink iconHeader">
@@ -538,7 +538,7 @@
     <div class="col-12 d-flex pt-2 justify-content-center">
         <ul class="list-unstyled d-flex mb-0">
             <li class="pe-3">
-                <a class="text-uppercase slideInEffect pb-1 categoryLink" href="#">What's New</a>
+                <a class="text-uppercase slideInEffect pb-1 categoryLink" href="{{route('new')}}">What's New</a>
             </li>
             @foreach($categories as $categorie)
             <li class="ps-3 pe-3 d-flex">
@@ -573,7 +573,7 @@
                                                 @endforeach
                                             </ul>
                                         </li>
-                                        <li>
+                                        <li class="d-none">
                                             <ul class="list-unstyled pe-4">
                                                 <li class="mb-2">
                                                     <span class="text-uppercase fw-bolder">goop Fashion</span>
@@ -604,7 +604,7 @@
                                                 </li>
                                             </ul>
                                         </li>
-                                        <li>
+                                        <li class="opacity-0">
                                             <ul class="list-unstyled pe-4">
                                                 <li class="mb-2">
                                                     <span class="text-uppercase fw-bolder">goop Wellness</span>
@@ -652,15 +652,14 @@
                                     </ul>
                                 </div>
                                 <div class="d-flex">
-                                    <a href="https://goop.com/early-access-sign-up/?click_source=nav-2-madebygoop-merchabletile1"
-                                       class="headerDropdownMenuImageLink">
+                                    <a href="{{route('productsPerCategory', 'food-home')}}">
                                         <img src="https://goop-img.com/wp-content/uploads/2022/06/beauty-tile-3.29-630x479.jpeg"
                                              class="pl-5 headerDropdownMenuImage"/>
                                         <div class="">
                                             <p class="mt-2">Get Early Access to Our Next Product</p>
                                         </div>
                                     </a>
-                                    <a href="https://goop.com/goop-home/c/?click_source=nav-2-madebygoop-merchabletile2"
+                                    <a href="{{route('home')}}"
                                        class="headerDropdownMenuImageLink">
                                         <img src="https://goop-img.com/wp-content/uploads/2021/10/20210108_EDITORIAL_HOME_GOOP-COOKWARE-10-PIECE-SET_SHOT-01_106-1-1-599x950.jpg"
                                              class="pl-5 headerDropdownMenuImage"/>
@@ -676,7 +675,7 @@
             </li>
             @endforeach
 
-            <li class="ps-3">
+            <li class="ps-3 d-none">
                 <a class="text-uppercase slideInEffect pb-1 categoryLink" href="#">Sale</a>
             </li>
 

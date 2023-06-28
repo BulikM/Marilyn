@@ -26,8 +26,6 @@ class ProductFactory extends Factory
             'description'=>fake()->paragraph(100, true),
             'info'=>fake()->sentence(5, true),
             'slug'=>fake()->slug(),
-            'color_id'=> Color::inRandomOrder()->first()->id,
-            'image_id'=> Images::inRandomOrder()->first()->id,
 
         ];
     }

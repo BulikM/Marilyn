@@ -33,12 +33,6 @@
                         </div>
                     </nav>
                     <div class="tab-content mt-4" id="nav-tabContent">
-                        @if (session('tab'))
-                        test
-
-                        {{--const triggerEl = document.querySelector('#myTab button[data-bs-target="#{{$tab}}"]')--}}
-                        {{--bootstrap.Tab.getInstance(triggerEl).show()}--}}
-                        @endisset
                         {{--Persenal info--}}
                         <div class="tab-pane fade show active" id="nav-info" role="tabpanel"
                              aria-labelledby="nav-home-tab" tabindex="0">

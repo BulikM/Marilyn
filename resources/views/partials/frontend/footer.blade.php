@@ -20,19 +20,19 @@
                     </button>
                     <ul class="list-unstyled d-none d-lg-block" id="companyList">
                         <li class="mb-2">
-                            <a class="footerLink" href="https://goop.com/whats-goop/">About goop</a>
+                            <a class="footerLink" href="#">About goop</a>
                         </li>
                         <li class="mb-2">
-                            <a class="footerLink" href="https://goop.com/privacy-cookies-policy/">Policies</a>
+                            <a class="footerLink" href="#">Policies</a>
                         </li>
                         <li class="mb-2">
-                            <a class="footerLink" href="https://goop.com/careers/">Careers</a>
+                            <a class="footerLink" href="#">Careers</a>
                         </li>
                         <li class="mb-2">
-                            <a class="footerLink" href="https://goop.com/goop-press/">goop Press</a>
+                            <a class="footerLink" href="#">goop Press</a>
                         </li>
                         <li class="mb-2">
-                            <a class="footerLink" href="https://goop.com/goop-retail-store-locations/">Stores</a>
+                            <a class="footerLink" href="#">Stores</a>
                         </li>
                     </ul>
                 </div>
@@ -44,29 +44,29 @@
                     </button>
                     <ul class="list-unstyled d-none d-lg-block" id="customerServiceList">
                         <li class="mb-2">
-                            <a class="footerLink" href="https://goop.com/contact/">Contact Us</a>
+                            <a class="footerLink" href="{{route('contact')}}">Contact Us</a>
                         </li>
                         <li class="mb-2">
-                            <a class="footerLink" href="https://shop.goop.com/account/">My Account</a>
+                            <a class="footerLink" href="#">My Account</a>
                         </li>
                         <li class="mb-2">
-                            <a class="footerLink" href="https://shop.goop.com/order_tracking/new">Track My Order</a>
+                            <a class="footerLink" href="#">Track My Order</a>
                         </li>
                         <li class="mb-2">
-                            <a class="footerLink" href="https://goop.com/shipping-returns/">Shipping &amp; Returns</a>
+                            <a class="footerLink" href="#">Shipping &amp; Returns</a>
                         </li>
                         <li class="mb-2">
-                            <a class="footerLink" href="https://goop.com/refer-a-friend/">Give and Get $50</a>
+                            <a class="footerLink" href="#">Give and Get $50</a>
                         </li>
                         <li class="mb-2">
-                            <a class="footerLink" href="https://goop.com/faqs/">FAQs</a>
+                            <a class="footerLink" href="#">FAQs</a>
                         </li>
                         <li class="mb-2">
-                            <a class="footerLink" href="https://goop.com/subscription-terms-conditions/">Subscription
+                            <a class="footerLink" href="#">Subscription
                                 Terms</a>
                         </li>
                         <li class="mb-2">
-                            <a class="footerLink" href="https://goop.com/faqs/#donorschoose/">DonorsChoose.org</a>
+                            <a class="footerLink" href="#">DonorsChoose.org</a>
                         </li>
                     </ul>
                 </div>
@@ -78,22 +78,22 @@
                     </button>
                     <ul class="list-unstyled d-none d-lg-block" id="exploreList">
                         <li class="mb-2">
-                            <a class="footerLink" href="https://goop.com/whats-new/c/">Shop</a>
+                            <a class="footerLink" href="h{{route('home')}}">Shop</a>
                         </li>
                         <li class="mb-2">
-                            <a class="footerLink" href="https://goop.com/beauty/">Beauty</a>
+                            <a class="footerLink" href="{{route('productsPerCategory', 'beauty')}}">Beauty</a>
                         </li>
                         <li class="mb-2">
-                            <a class="footerLink" href="https://goop.com/food/">Food</a>
+                            <a class="footerLink" href="{{route('productsPerCategory', 'food-home')}}">Food</a>
                         </li>
                         <li class="mb-2">
-                            <a class="footerLink" href="https://goop.com/style/">Style</a>
+                            <a class="footerLink" href="{{route('productsPerCategory', 'fashion')}}}">Style</a>
                         </li>
                         <li class="mb-2">
-                            <a class="footerLink" href="https://goop.com/travel/">Travel</a>
+                            <a class="footerLink" href="{{route('productsPerCategory', 'wellness')}}">Travel</a>
                         </li>
                         <li class="mb-2">
-                            <a class="footerLink" href="https://goop.com/wellness/">Wellness</a>
+                            <a class="footerLink" href="{{route('productsPerCategory', 'wellness')}}">Wellness</a>
                         </li>
                     </ul>
                 </div>
@@ -101,38 +101,38 @@
                     <div class="text-uppercase text-white mb-4 ps-0 heading">Connect with goop</div>
                     <ul class="list-unstyled d-flex d-lg-block flex-row flex-lg-column justify-content-between max-width-600 flex-wrap">
                         <li class="mb-3">
-                            <a class="footerLink" href="http://applepodcasts.com/Goop"><i
+                            <a class="footerLink" href="#"><i
                                     class="fa-solid fa-podcast fa-lg fa-fw me-1"></i><span
                                     class="d-none d-lg-inline">Apple Podcast</span></a>
                         </li>
                         <li class="mb-3">
-                            <a class="footerLink" href="https://www.facebook.com/goop/"><i
+                            <a class="footerLink" href="#"><i
                                     class="fa-brands fa-facebook-f fa-lg fa-fw me-1"></i><span
                                     class="d-none d-lg-inline">Facebook</span></a>
                         </li>
                         <li class="mb-3">
-                            <a class="footerLink" href="https://twitter.com/goop"><i
+                            <a class="footerLink" href="#"><i
                                     class="fa-brands fa-twitter fa-lg fa-fw me-1"></i><span
                                     class="d-none d-lg-inline">Twitter</span></a>
                         </li>
                         <li class="mb-3">
-                            <a class="footerLink" href="https://instagram.com/goop"><i
+                            <a class="footerLink" href="#"><i
                                     class="fa-brands fa-instagram fa-lg fa-fw me-1"></i><span
                                     class="d-none d-lg-inline">Instagram</span></a>
                         </li>
                         <li class="mb-3">
-                            <a class="footerLink" href="https://www.youtube.com/user/goop"><i
+                            <a class="footerLink" href="#"><i
                                     class="fa-brands fa-youtube fa-lg fa-fw me-1"></i><span
                                     class="d-none d-lg-inline">YouTube</span></a>
                         </li>
                         <li class="mb-3">
-                            <a class="footerLink" href="https://www.pinterest.com/goop"><i
+                            <a class="footerLink" href="#"><i
                                     class="fa-brands fa-pinterest fa-lg fa-fw me-1"></i><span
                                     class="d-none d-lg-inline">Pinterest</span></a>
                         </li>
                         <li class="mb-3">
                             <a class="footerLink"
-                               href="https://play.spotify.com/user/gooptunes?play=true&amp;utm_source=open.spotify.com&amp;utm_medium=open"><i
+                               href="#"><i
                                     class="fa-brands fa-spotify fa-lg fa-fw me-1"></i><span
                                     class="d-none d-lg-inline">Spotify</span></a>
                         </li>
@@ -145,7 +145,7 @@
                         <div class="">
                             <input aria-label="Enter your email address" class="ps-2 pe-2 me-2 signUpInput"
                                    placeholder="Email Address"
-                                   type="email" value="">
+                                   type="email" value="" disabled>
                             <button class="text-uppercase text-white ps-2 pe-2 signUpButton" type="submit" value="">Sign
                                 Up
                             </button>
@@ -205,6 +205,7 @@
 @include('partials.login_modal')
 
 @yield('scripts')
+@livewireScripts
 </body>
 </html>
 <!--js-->
