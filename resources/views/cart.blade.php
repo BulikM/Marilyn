@@ -4,6 +4,11 @@
 @endsection
 
 @section('content')
+    @if (session('alert'))
+        <x-alert :type="session('alert')['type']" :message="session('alert')['message']">
+            <x-slot name="title">Users</x-slot>
+        </x-alert>
+    @endif
 
     <main class="container-fluid">
         <div class="row mx-lg-5 mb-3">

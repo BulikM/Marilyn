@@ -30,6 +30,9 @@ Route::get("/products/category/{category:slug}", '\App\Http\Controllers\frontend
 Route::get("/products/{subCategory:slug}", '\App\Http\Controllers\frontend\ProductController@productsPerSubCategory')->name('productsPerSubCategory');
 
 
+Route::get('/search', [\App\Http\Controllers\SearchCotroller::class, 'search'])->name('search');
+
+
 
 
 

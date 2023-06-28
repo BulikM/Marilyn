@@ -1257,7 +1257,7 @@
         <section class="row row-cols-2 row-cols-lg-3 mt-5 dgWCVK">
             @foreach($products as $product)
             <div class="card col ejylGK">
-                <a href="{{route('products.show', $product->slug)}}">
+                <a href="{{route('product.show', $product->slug)}}">
                     <div class="carousel slide dotscarouselproduct carouselproductsgsm" data-bs-ride="false"
                          id="carouselproductsgsm3">
 

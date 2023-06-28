@@ -14,8 +14,7 @@ return new class extends Migration
         Schema::create('order_details', function (Blueprint $table) {
             $table->id();
             $table->foreignId('orders_id')->nullable()->unsigned();
-            $table
-                ->foreignId("user_id")
+            $table->foreignId("user_id")
                 ->nullable()
                 ->unsigned()
                 ->constrained()

@@ -2,6 +2,11 @@
 @section('content')
 
 <div class="container-fluid p-0">
+    @if (session('alert'))
+        <x-alert :type="session('alert')['type']" :message="session('alert')['message']">
+            <x-slot name="title">Users</x-slot>
+        </x-alert>
+    @endif
     <div class="row justify-content-center max-width-1680 m-auto p-0">
         <a href="{{route('getaway')}}" class="col p-0 max-width-1680">
             <img src="https://goop-img.com/cdn-cgi/image/height=1120,width=3360,dpr=1,format=auto,onerror=redirect,metadata=copyright/wp-content/uploads/2023/06/230623-primaryHero-desktop-1-scaled.jpg" alt="230623-primaryhero-desktop-1" srcset="https://goop-img.com/cdn-cgi/image/height=1120,width=3360,dpr=1,format=auto,onerror=redirect,metadata=copyright/wp-content/uploads/2023/06/230623-primaryHero-desktop-1-scaled.jpg 3360w,
@@ -31,10 +36,10 @@
                     <button type="button" data-bs-target="#newCarousel" data-bs-slide-to="{{$key}}" class="{{ $key == 0 ? 'active':'' }}" aria-current="true" aria-label="Slide 1"></button>
                     @endforeach
                 </div>
-                <div class="carousel-inner carousel-4 Items_container mb-5 px-5">
+                <div class="carousel-inner carousel-4 Items_container mb-5 px-md-5">
                     @foreach($new_products as $key=>$product)
 
-                        <div class="carousel-item {{$key == 0 ? 'active':'' }} w-100 justify-content-center gap-5" style="padding-left: 24px; padding-right: 24px">
+                        <div class="carousel-item {{$key == 0 ? 'active':'' }} w-100 justify-content-center px-md-2 gap-md-5">
                             <div class="card h-auto">
                                 <div class="img">
                                     <a href="{{route('product.show', $product->slug)}}">
@@ -62,6 +67,7 @@
                         </div>
                     @endforeach
                 </div>
+                <div class="d-none d-lg-block">
                 <button class="pijl-bg carousel-control-prev" type="button" data-bs-target="#newCarousel" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
@@ -70,6 +76,7 @@
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
                 </button>
+                </div>
             </div>
         </article>
 

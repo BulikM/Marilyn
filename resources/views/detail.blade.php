@@ -4,7 +4,11 @@
     <main class="container-fluid">
         <div class="row py-lg-3">
             <section class="col-12 col-lg-7 pb-5 order-1 order-lg-0">
-
+                @if (session('alert'))
+                    <x-alert :type="session('alert')['type']" :message="session('alert')['message']">
+                        <x-slot name="title">Users</x-slot>
+                    </x-alert>
+                @endif
                 <!--			carousel gsm-->
                 <article id="carouselExampleDarkgsm" class="carousel carousel-dark slide col-10 offset-1 p-3 d-lg-none"
                          data-bs-ride="false">
@@ -106,14 +110,15 @@
                              <input type="hidden" name="brand" value="{{$brand->name}}">
                             @endforeach
                             @foreach($product->color as $color)
-                            <p class="ddqQTz text-uppercase">Color<span class="text-capitalize jMqIvg"> {{$color->name}}</span></p>
+                            <p class="ddqQTz text-uppercase">Color<span class="text-capitalize jMqIvg">
+                                     <input type="hidden" name="color" value="{{$color->name}}">{{$color->name}}</span></p>
                             @endforeach
                             <div class=" gOPwLh">
                                 <!--						size-->
-                                @foreach($product->sizes as $preference)
+                                @foreach($product->sizes as $size)
 
-                                        <input type="checkbox" class="btn-check p-5" value="{{$preference->id}}" name="preferences[]" id="preference{{$preference->id}}" autocomplete="off" @checked(in_array($preference->id, old('preferences', [])))>
-                                        <label class="button btn-outline-purple fs-2 p-2 px-3  border border-1" for="preference{{$preference->id}}">{{$preference->name}}</label><br>
+                                        <input type="checkbox" class="btn-check p-5" value="{{$size->id}}" name="sizes[]" id="size{{$size->id}}" autocomplete="off" @checked(in_array($size->id, old('sizes', [])))>
+                                        <label class="button btn-outline-purple fs-2 p-2 px-3  border border-1" for="size{{$size->id}}">{{$size->name}}</label><br>
 
                                 @endforeach
                             </div>

@@ -440,9 +440,9 @@
 
         <div class="row ms-md-4 me-md-4">
             <div class="col-12 d-flex justify-content-lg-between justify-content-evenly">
-                <ul class="list-unstyled d-none d-lg-flex align-items-center">
+                <ul class="list-unstyled d-none d-lg-flex align-items-center d-none">
                     <li class="px-3 py-2 d-inline-block headerListItemSeparator">
-                        <a class="headerLink" href="#">US</a>
+                        <a class="headerLink" href="#">be</a>
                     </li>
                     <li class="px-3 py-2 d-inline-block headerListItemSeparator">
                         <a class="headerLink" href="#">Get $50</a>
@@ -482,17 +482,17 @@
                         </li>
                     @endguest
 {{--wishlist--}}
-                    <li class="ps-3 mt-2 navbarRightOptions d-none d-lg-flex">
-                        <a href="https://shop.goop.com/account/wish_list" aria-label="wishlist heart"
-                           class="headerLink iconHeader">
-                            <svg viewBox="0 0 32 32" height="32" width="32"
-                                 class="hart" aria-label="heart icon"
-                                 fill="#111">
-                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                      d="M4.84862 6.35758C8.85695 2.71364 13.9999 5.25513 15.9998 9.25503C17.9999 4.58844 23.9999 3.25515 27.1509 6.35758C29.8753 8.83429 29.8657 12.9708 27.5994 15.775C25.5129 18.3567 17.4366 26.4801 16.1679 27.7532C16.0715 27.85 15.9269 27.851 15.829 27.7556C14.5518 26.5109 6.48519 18.6168 4.40017 15.775C2.13387 12.6861 2.12424 8.83429 4.84862 6.35758Z"
-                                      stroke-width="1.25" stroke-linecap="round"></path>
-                            </svg>
-                        </a></li>
+{{--                    <li class="ps-3 mt-2 navbarRightOptions d-none d-lg-flex">--}}
+{{--                        <a href="https://shop.goop.com/account/wish_list" aria-label="wishlist heart"--}}
+{{--                           class="headerLink iconHeader">--}}
+{{--                            <svg viewBox="0 0 32 32" height="32" width="32"--}}
+{{--                                 class="hart" aria-label="heart icon"--}}
+{{--                                 fill="#111">--}}
+{{--                                <path fill-rule="evenodd" clip-rule="evenodd"--}}
+{{--                                      d="M4.84862 6.35758C8.85695 2.71364 13.9999 5.25513 15.9998 9.25503C17.9999 4.58844 23.9999 3.25515 27.1509 6.35758C29.8753 8.83429 29.8657 12.9708 27.5994 15.775C25.5129 18.3567 17.4366 26.4801 16.1679 27.7532C16.0715 27.85 15.9269 27.851 15.829 27.7556C14.5518 26.5109 6.48519 18.6168 4.40017 15.775C2.13387 12.6861 2.12424 8.83429 4.84862 6.35758Z"--}}
+{{--                                      stroke-width="1.25" stroke-linecap="round"></path>--}}
+{{--                            </svg>--}}
+{{--                        </a></li>--}}
 {{--cart--}}
                     <li class="ps-lg-3 mt-2 navbarRightOptions">
                         <a href="{{route('cart')}}" class="headerLink iconHeader">
@@ -518,10 +518,10 @@
                     </a>
                 </div>
                 <div class="col-12 w-md-75" id="searchNavbar">
-                    <form class="input-group">
+                    <form action="{{url('search')}}" method="get" class="input-group">
                         <input type="search" aria-label="Search" placeholder="What can we help you find?"
                                aria-controls="" aria-autocomplete="list" id="BigSearchBarWebKit" autocomplete="off"
-                               class="searchInput" value="">
+                               class="searchInput" name="search" value="">
                         <span id="search-icon" class=""><svg viewBox="0 0 24 24" height="24" width="24"
                                                              class="searchIconContainer" aria-label="Submit Search"
                                                              fill="" type="search" role="button"><path
