@@ -19,7 +19,7 @@
                 <table class="table table-borderless table-hover">
                     <thead>
                     <tr>
-                        <th>Actions</th>
+{{--                        <th>Actions</th>--}}
                         <th>id</th>
                         <th>image</th>
                         <th>Price</th>
@@ -38,8 +38,8 @@
                     @if($products)
                         @forelse($products as $product)
                             <tr class="{{$product ->deleted_at == null ? ' ' : 'text-secondary'}}">
-                                                                        <td>
-                                {{--                                        <button class="dropdown-toggle border-0 bg-none" id="userDropdown{{ $product->id }}" type="button" data-bs-toggle="dropdown" aria-expanded="false">--}}
+{{--                                                                        <td>--}}
+{{--                                --}}{{--                                        <button class="dropdown-toggle border-0 bg-none" id="userDropdown{{ $product->id }}" type="button" data-bs-toggle="dropdown" aria-expanded="false">--}}
                                 {{--                                            <i class="bi bi-info-circle"></i>--}}
                                 {{--                                        </button>--}}
                                 {{--                                        <div class="dropdown-menu  shadow "--}}
@@ -70,27 +70,23 @@
                                 {{--                                        </div>--}}
                                 {{--                                    </td>--}}
                                 <td>{{$product->id}}</td>
+                                @foreach($product->images as $image)
+                                    @if($loop->first)
                                 <td><img class="img-thumbnail" width="62" height="62"
-                                         src="{{$product->image ? asset($product->image->file) : 'http://via.placeholder.com/62x62'}}"
+                                         src="{{$image->file ? $image->file : "/assets/img.png"}}"
                                          alt="{{$product->name}}"></td>
+                                    @endif
+                                @endforeach
                                 <td> {{$product->price}}</td>
                                 <td>
-                                    @foreach($product->productcategories as $productcategory)
-                                        <span class="badge text-bg-light">
-                                {{$productcategory->name}}
-                            </span>
-                                    @endforeach
                                 </td>
-                                <td>{{$product->brand->name}}</td>
+                                @foreach($product->brand as $brand)
+                                <td>{{$brand->name}}</td>
+                                @endforeach
                                 <td>  {{Str::limit($product->name,18,'...')}} </td>
-                                <td>{{$product->color->name}}</td>
-                                <td>
-                                    @foreach($product->keywords as $keyword)
-                                        <span class="badge badge-pill badge-info">
-                                {{$keyword->name}}
-                            </span>
-                                    @endforeach
-                                </td>
+{{--                                @foreach($products->color as $col)--}}
+{{--                                <td>{{$col->name}}</td>--}}
+{{--                                @endforeach--}}
                                 <td>  {{Str::limit($product->body,18,'...')}}</td>
                                 <td>{{$product->created_at ? $product->created_at->diffForHumans() : ''}}</td>
                                 <td>{{$product->updated_at ? $product->updated_at->diffForHumans() : ''}}</td>

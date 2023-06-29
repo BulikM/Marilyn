@@ -45,7 +45,7 @@
                                     <a href="{{route('product.show', $product['product']->slug)}}">
                                         @foreach($product['product']->images as $image)
                                             @if($loop->first)
-                                        <img class="productImg___2ywut d-block"
+                                        <img class="productImg___2ywut d-block" alt="{{$product['product_name']}}"
                                              src="{{$image->file ? $image->file : "/assets/img.png"}}">
                                             @endif
                                         @endforeach
@@ -286,7 +286,7 @@
                                         </li>
                                         <li style="width:50%;min-width:136px;display:flex;align-items:center;margin-bottom:1em;">
 		<span style="padding-right:0.75em;">
-			<svg width="42" height="25" viewBox="0 0 300 180" style="enable-background:new 0 0 300 180;">
+			<svg width="42" height="25" viewBox="0 0 300 180">
 				<g>
 					<g>
 						<path style="fill:#FF9900;"
@@ -357,7 +357,7 @@
                                         </li>
                                         <li style="width:50%;min-width:136px;display:flex;align-items:center;margin-bottom:1em;">
 		<span style="padding-right:0.75em;">
-			<svg width="43" height="35" viewBox="0 0 300 300" enable-background="new 0 0 300 300">
+			<svg width="43" height="35" viewBox="0 0 300 300">
 				<radialGradient id="SVGID_1_" cx="57.3882" cy="57.021" r="264.5797" gradientUnits="userSpaceOnUse">
 					<stop offset="0" style="stop-color:#9DD5F6"></stop>
 					<stop offset="0.0711" style="stop-color:#98D3F5"></stop>

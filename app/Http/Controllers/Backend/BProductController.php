@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Brand;
+use App\Models\Category;
 use App\Models\Images;
 use App\Models\Keyword;
 use App\Models\Product;
@@ -19,7 +20,7 @@ class BProductController extends Controller
     {
 
         $brands = Brand::all();
-        $products = Product::with(['keywords','image','brand','productcategories','color'])->paginate(10);
+        $products = Product::with(['images','brand','color', 'sizes'])->paginate(10);
 
         return view('backend.products.index', compact('products', 'brands'));
     }
@@ -29,10 +30,10 @@ class BProductController extends Controller
      */
     public function create()
     {
-        $keywords = Keyword::all();
-        $categories = ProductCategory::all();
+        $categories =  Category::all();
+
         $brands = Brand::all();
-        return view('backend.products.create', compact('keywords', 'categories', 'brands'));
+        return view('backend.products.create', compact('categories', 'brands'));
     }
 
     /**

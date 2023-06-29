@@ -18,7 +18,7 @@
         </div>
     </div>
 </nav>
-
+<h1 class="d-none">Order-detail</h1>
 <div class="row mt-5 px-lg-5 text-center">
     <div class="text-start col-12 col-lg-8 order-1 order-lg-0">
         @if(Session::has('shipping'))
@@ -196,7 +196,7 @@
                                                         <div class="form-floating form-group">
                                                             <input id="street" name="address" type="text" placeholder="Address"
                                                                    class="form-control" value="{{old('address')}}" autocomplete="address-line1">
-                                                            <label class="label-top" for="address" >*Address</label>
+                                                            <label class="label-top" for="street" >*Address</label>
                                                             @error('address')
                                                                <span class="drwJIz">
                                                                   {{ $message }}
