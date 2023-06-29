@@ -7,7 +7,7 @@
     </x-mail::panel>
 
     {{--    kleuren zijn primary, succes en error hieronder--}}
-    <x-mail::button :url="'http://127.0.0.1:8000/home'" color="dark">
+    <x-mail::button :url="'http://127.0.0.1:8000/home'" color="primary">
         Bezoek onze site
     </x-mail::button>
 

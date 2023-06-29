@@ -28,6 +28,7 @@ Route::post("/contact", '\App\Http\Controllers\frontend\ContactController@store'
 Route::get('product/{product:slug}', [ProductController::class, 'show'])->name('product.show');
 Route::get('products/new', '\App\Http\Controllers\frontend\HomeController@new')->name('new');
 Route::get('products/gateway', '\App\Http\Controllers\frontend\HomeController@getaway')->name('getaway');
+Route::get('products/occasion', '\App\Http\Controllers\frontend\HomeController@occasion')->name('occasion');
 
 
 Route::get("/product/brand/{brand:slug}", '\App\Http\Controllers\frontend\ProductController@productsPerBrand')->name('productsPerBrand');

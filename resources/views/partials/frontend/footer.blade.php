@@ -203,7 +203,7 @@
     </div>
 </footer>
 @include('partials.login_modal')
-
+@include('partials.register_modal')
 @yield('scripts')
 @livewireScripts
 </body>

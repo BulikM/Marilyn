@@ -15,7 +15,8 @@
                 </p>
                 <div class="d-flex align-items-center justify-content-center">
                     <span class=" kjxxYl">Don’t have one?</span>
-                    <a class="bgacUK" href="{{ route('register') }}">Sign up</a>
+                    <a class="bgacUK" href="#" data-bs-toggle="modal" data-bs-target="#registermodal">
+                    Sign up</a>
                 </div>
                 {{--                        form--}}
                 <form method="POST" action="{{ route('login') }}" class="gnqwzR w-100" >

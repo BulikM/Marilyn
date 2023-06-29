@@ -28,7 +28,7 @@ class Contact extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'contactController',
+            subject: 'contact',
         );
     }
 
@@ -37,9 +37,9 @@ class Contact extends Mailable
      */
     public function content(): Content
     {
-        return new Content(
+        return (new Content(
             markdown: 'emails.contact',
-        );
+        ))->with('data',$this->data);
     }
 
     /**
