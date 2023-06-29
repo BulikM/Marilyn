@@ -1,0 +1,219 @@
+/*voorbeeld fotos*/
+.previewLG {
+	position: relative;
+	top: 0rem;
+	margin-left: -1rem;
+	background: none !important;
+}
+/*bolletjes carousel modal gsm*/
+.modal .carousel-indicators .btnmodalgsm [data-bs-target]{
+	border-radius: 100% !important;
+}
+/*de ronding van de voorbeeld fotos weg doen*/
+.previewLG [data-bs-target]{
+	border-radius: 0% !important;
+	background: none;
+	padding-bottom: 0.2rem;
+}
+
+/*aanpaasen pijltjes*/
+
+.pijl .carousel-control-next-icon {
+	/* change fill="currentColor" to %23fff to make it white  */
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' height='24' width='24' class='SvgIconstyles__StyledSvgIcon-sc-1h1x60g-0 hqtITr Carouselstyles__StyledSvgIcon-b7o3y3-8 ceHZFw' aria-label='Back' fill='%23fff' type='arrow' aria-hidden='true' data-acsb-hidden='true' data-acsb-force-hidden='true'%3E%3Cpath d='M16.517 12L7.414 0 7 .31 15.868 12 7 23.69l.414.31 9.103-12'%3E%3C/path%3E%3C/svg%3E");
+}
+.pijl .carousel-control-prev-icon {
+    /* change fill="currentColor" to %23fff to make it white  */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' height='24' width='24' class='SvgIconstyles__StyledSvgIcon-sc-1h1x60g-0 hqtITr Carouselstyles__StyledSvgIcon-b7o3y3-8 ceHZFw' aria-label='Back' fill='%23fff' type='arrow' aria-hidden='true' data-acsb-hidden='true' data-acsb-force-hidden='true'%3E%3Cpath d='M16.517 12L7.414 0 7 .31 15.868 12 7 23.69l.414.31 9.103-12'%3E%3C/path%3E%3C/svg%3E");
+    transform: rotate(180deg);
+}
+
+/*grote klikgebied pijltjes + positie*/
+.pijl, .carousel-control-next .carousel-control-prev {
+	top: 35%;
+    width: 5%;
+	height: 15%;
+}
+.bigArrow {
+    width: 3.5rem;
+    height: 3.5rem;
+}
+/*plaatsing hart icon*/
+.hartgsm{
+	position: absolute;
+	right:0;
+	top: 0;
+}
+.hartlg{
+	position: absolute;
+	right: 1.5rem;
+	top: 1rem;
+}
+/*icoon dikker maken*/
+.heart-bold{
+	-webkit-text-stroke: 1px;
+}
+/*plaatsing zoom icon*/
+.zoomgsm{
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+.zoomlg{
+	position: absolute;
+	right: 1rem;
+	bottom: 3rem;
+}
+/*opmaak plus icon*/
+.plus{
+	background: rgb(17, 17, 17);
+	-webkit-text-stroke: 1px;
+	opacity: 0.7;
+}
+/*voorbeeld fotos carousel onder gsm*/
+.carousel .carousel-indicators .imggsm {
+	height: 25%;
+}
+.previewgsm{
+	position: relative;
+	top: 0rem;
+	margin-left: -1rem;
+	background: none !important;
+}
+.carousel .carousel-indicators .imggsm  img{
+	border: none;
+	opacity: 100%;
+	width: 20%;
+	height: auto;
+	padding-bottom: 1rem;
+	background-color: transparent;
+	border-radius: 0%;
+}
+.imggsm .active{
+	border-bottom: solid black 0.3rem !important;
+}
+/*voorbeeld fotos carousel links laptop*/
+.links{
+	position: absolute;
+	left: -4.5rem;
+
+}
+.carousel .carousel-indicators .imglg  img{
+	border: none;
+	opacity: 100%;
+	width: auto;
+	height: auto;
+	padding-bottom: 1rem;
+	padding-top: 1rem;
+	background-color: transparent;
+}
+.imglg .active{
+	border-bottom: solid black 0.3rem !important;
+}
+.rechts{
+		position: relative;
+		left: 4rem;
+
+}
+/*carrousel modal*/
+.carousel .carousel-indicators .imgmodal  img{
+	border: none;
+	opacity: 100%;
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	background-color: transparent;
+}
+/*carousel modal gsm bolletjes*/
+.modal .carousel .carousel-indicators button {
+	display: flex;
+	width: 1rem;
+	height: 1rem;
+	border-radius: 100%;
+	padding: 0;
+	border: solid 1px rgb(153, 153, 153);
+	background-color: transparent;
+}
+.carousel-indicators .btnmodalgsm .active{
+	background-color: rgb(153, 153, 153) !important;
+}
+
+/*modal zoom lg*/
+.fit_modal{
+	height: inherit;
+}
+/*Pijltjes*/
+.btn-top{
+	position: absolute;
+	top: -8rem;
+	left: -3.5rem;
+	width: 5rem;
+	height: 10rem;
+	transform: rotate(90deg)
+}
+.carousel .btn-top .carousel-control-prev-icon{
+	width: 6rem;
+	height: 10rem;
+}
+.btn-bottom{
+	position: absolute;
+	top: 23rem;
+	left: -3.5rem;
+	width: 5rem;
+	height: 10rem;
+	transform: rotate(90deg);
+}
+.carousel .btn-bottom .carousel-control-next-icon{
+	width: 6rem;
+	height: 10rem;
+}
+
+/*hoogte previeuw*/
+.box {
+	height: 100%;
+}
+.carousel .carousel-indicators .imglgmodal  img{
+	border: none;
+	opacity: 100%;
+	width: 80%;
+	height: 80%;
+	padding-bottom: 1rem;
+	padding-top: 1rem;
+	background-color: transparent;
+	margin-left: 1rem;
+}
+.imglgmodal .active{
+	border-bottom: solid black 0.3rem !important;
+}
+.previewLGmodal {
+	position: absolute;
+	top: -2rem;
+	left: -4.5rem;
+	background: none !important;
+}
+.previewLGmodal [data-bs-target]{
+	border-radius: 0% !important;
+	background: none;
+	padding-bottom: 0.2rem;
+}
+/*zoom*/
+* {box-sizing: border-box;}
+
+.img-zoom-container {
+	position: relative;
+}
+
+.img-zoom-lens {
+	position: absolute;
+	border: 1px solid #d4d4d4;
+	background: #858585;
+	opacity: 20%;
+	/*set the size of the lens:*/
+	width: 5rem;
+	height: 5rem;
+}
+
+.img-zoom-result {
+	border: 1px solid #d4d4d4;
+	/*set the size of the result div:*/
+}

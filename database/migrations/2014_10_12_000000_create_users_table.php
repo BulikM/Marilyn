@@ -4,21 +4,27 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create("users", function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->char("first_name", 255)->nullable();
+            $table->char("last_name", 255)->nullable();
+            $table->char("email", 255)->unique();
+            $table->char("phone", 255)->nullable();
+            $table->char("mobile_phone", 255)->nullable();
+            $table->date('birthdate')->nullable();
+            $table->timestamp("email_verified_at")->nullable();
+            $table->char("password", 255);
             $table->rememberToken();
+            $table->boolean('is_employee')->default(0);
+            $table->integer("is_active")->default(0);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -27,6 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists("users");
     }
 };

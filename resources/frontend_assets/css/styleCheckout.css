@@ -1,0 +1,187 @@
+.cartItemWrapper___1GWWZ .cartItemImage___3USxn {
+    width: 130px;
+    max-width: 40%;
+}
+@media (min-width: 769px) {
+    .cartItemWrapper___1GWWZ .cartItemImage___3USxn {
+        width: 200px;
+    }
+}
+.productImg___2ywut {
+    width: 100%;
+}
+
+.go-back{
+    position: absolute;
+}
+
+/*quantity*/
+.cartItemQuantityInner___34hNk {
+    font: 13px/0 brandon_grotesque_, brandon_grotesque, arial, sans-serif;
+}
+.qty::after {
+    content: 'Qty: ';
+    position: absolute;
+    font-size: 1.25em;
+    top: calc((100% - 1.25em) / 3);
+    left: 1em;
+    line-height: 25px;
+}
+/*remove arrows*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+
+@media (min-width: 769px) {
+    .cartItemActionsWrapper___1ahDy {
+        align-items: flex-start !important;
+        flex-direction: row;
+        flex-basis: 33%;
+        flex-grow: 2;
+        max-width: 100%;
+    }
+}
+/*remove button*/
+.removeButton {
+    color: #111;
+    text-transform: uppercase;
+    font-family: brandon_grotesque, sans-serif;
+    font-weight: 500;
+    font-size: inherit;
+    line-height: inherit;
+    background: none;
+    border: none;
+    padding: 0;
+    text-decoration: underline;
+}
+
+
+/*you might also like*/
+h2.line:before, h2.line:after, h1.line:before, h1.line:after {
+    content: '';
+    height: 1px;
+    background-color: #ccc;
+    display: block;
+    flex: 1 1;
+}
+.title___1Ikv6 {
+    margin: 30px 0 25px;
+    text-align: center;
+}
+
+/*you might also like*/
+.name___1-mZL {
+    display: block;
+    text-transform: uppercase;
+    color: #111;
+    font-size: 12px;
+    font-weight: 500;
+    font-family: brandon_grotesque_, brandon_grotesque, arial, sans-serif;
+}
+
+
+/*checkout*/
+.checkout h3 {
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 35px 0 10px;
+    font-size: 24px;
+    line-height: 26px;
+}
+.checkout-list {
+    font-weight: 500;
+    text-transform: uppercase;
+    line-height: 36px;
+    color: #111;
+    font-family: brandon_grotesque_, brandon_grotesque, arial, sans-serif;
+}
+
+.promoInputinfo{
+    font-size: 14px;
+    line-height: 18px;
+    color: #666;
+    margin-bottom: 14px;
+    font-style: italic;
+    text-transform: none;
+}
+.promoInput{
+    width: 100%;
+    height: 39px;
+    color: black;
+    padding: 0 1em;
+    vertical-align: bottom;
+    border: 1px solid #ccc;
+}
+
+/*address*/
+/*placeholder top*/
+label{
+    text-transform: capitalize;
+}
+
+label.label-top {
+    transition: all .4s linear;
+    font-size: 20px;
+    color: black;
+}
+
+:focus + label.label-top{
+
+    top: -15px;
+    left: 5px;
+    background-color: #FFFFFF;
+    height: auto;
+    opacity: 1 !important;
+    font-size: 16px;
+    width: auto;
+}
+input:not(:placeholder-shown) + label.label-top{
+    top: -5px;
+    left: 5px;
+    height: auto !important;
+    padding-top:0;
+    opacity: 1 !important;
+    font-size: 16px;
+    width: auto;
+}
+:focus + input{
+    border-color: lightgray;
+}
+.form-control:focus {
+
+    border-color: black;
+    outline: 0;
+    -webkit-box-shadow: 0 0 0 0.0rem rgba(0, 0, 0, 0.0);
+    box-shadow: 0 0 0 0.0rem rgba(0, 0, 0, 0.0);
+}
+.form-control {
+
+   border-radius: 0;
+}
+
+
+/*checkout addres*/
+.AddressBookShippingForm{
+    font-size: 16px;
+    color: #535353;
+    line-height: 1.5;
+    font-family: brandon_text,arial,sans-serif;
+    margin-bottom: 0;
+    text-transform: capitalize;
+}
+.CheckoutAddressTittel {
+    margin: 12px 0;
+    font-size: 20px;
+    line-height: 1.3;
+    font-family: caslon,georgia,serif;
+    font-weight: 700;
+    text-transform: capitalize;
+}
