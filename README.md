@@ -17,3 +17,5 @@
 11. [ ] set up the staroge link -> php artisan storage:link
 12. [ ] npm run dev
 13.  [ ] php artisan serve
+
+Now you can explore the site if you want to login you can with email -> admin@admin.com password -> password.
