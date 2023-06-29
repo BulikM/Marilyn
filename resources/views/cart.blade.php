@@ -37,15 +37,18 @@
                     <div class="text-uppercase text-black">You qualify for <strong>FREE SHIPPING!</strong></div>
                 </div>
                 <div class="m-0">
-
                     @foreach($cart as $product)
                         <hr class="text-black">
                         <div class="p-2">
                             <div class="cartItemWrapper___1GWWZ d-flex flex-wrap m-0 p-0 w-100">
                                 <div class="cartItemImage___3USxn">
                                     <a href="{{route('product.show', $product['product']->slug)}}">
+                                        @foreach($product['product']->images as $image)
+                                            @if($loop->first)
                                         <img class="productImg___2ywut d-block"
-                                             src="{{$product['product_image'] ? asset( $product['product_image']) : "img.png"}}">
+                                             src="{{$image->file ? $image->file : "/assets/img.png"}}">
+                                            @endif
+                                        @endforeach
                                     </a>
                                 </div>
                                 <div class="order-2 order-lg-1 ps-4">
@@ -73,7 +76,9 @@
                                             </p>
                                             <p class="m-0">
                                                 <span>Color:</span>
-                                                BLACK/IVORY
+                                                @foreach($product['product']->color as $color)
+                                                    {{$color->name}}
+                                                @endforeach
                                             </p>
                                             <p class="optionValues___qDP92">
                                                 <span>Price:</span>€ {{$product['product_price']}}
@@ -121,164 +126,53 @@
                 <div>
                     <div><h2 class="line d-flex align-items-center title___1Ikv6">You might also like...</h2></div>
 
-                    <div id="carouselExampleIndicators-You-might-like" class="carousel slide dotscarousel" data-bs-ride="carousel" >
-                        <div class="carousel-indicators d-lg-none">
-                            <button type="button" data-bs-target="#carouselExampleIndicators-You-might-like" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                            <button type="button" data-bs-target="#carouselExampleIndicators-You-might-like" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                            <button type="button" data-bs-target="#carouselExampleIndicators-You-might-like" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    <div id="newCarousel2" class="dotscarousel carousel slide" data-bs-ride="false">
+                        <div class="carousel-indicators">
+                            @foreach($likeProducts as $key=>$like)
+                                <button type="button" data-bs-target="#newCarousel2" data-bs-slide-to="{{$key}}" class="{{ $key == 0 ? 'active':'' }}" aria-current="true" aria-label="Slide 1"></button>
+                            @endforeach
                         </div>
-                        <div class="carousel-inner carousel-4 Items_container pb-5 w-100 gap-2" style="height: 350px; ">
-                            <div class="carousel-item active ">
-                                <!--							eerste carousel-->
-                                <!--									eerste card-->
-                                <div class="card h-100 col-6 col-lg-3 d-flex flex-column justify-content-between pe-3" >
-                                    <div>
-                                        <a class="imageLink___1NeIh"
-                                           href="#">
-                                            <img alt="Vintner’s Daughter Active Botanical Serum" itemprop="image" class="w-100 h-auto"
-                                                 src="https://shop.goop-img.com/spree/images/attachments/000/062/863/product/open-uri20201123-6983-1g043ji?1606174998"
-                                                 draggable="false">
-                                        </a>
-                                        <span class="brandName___2Tzl8">Vintner’s Daughter</span>
-                                        <a class="name___1-mZL" title="Active Botanical Serum" href="#">
-                                            <span>Active Botanical Serum</span>
-                                        </a>
-                                        <span class="d-block">
-                                            <span itemtype="https://schema.org/Offer">
-                                                <span>US $</span>
-                                                <span>195.00</span>
-                                            </span>
-                                        </span>
-                                    </div>
-                                    <div>
-                                        <button class="btn text-center text-uppercase w-100 btn-outline-dark rounded-0 mt-4">Add to Bag
-                                        </button>
-                                    </div>
-                                </div>
-                                <!--							einde inhoud tweede carousel-->
-                            </div>
-                            <div class="carousel-item">
-                                <!--							tweed carousel-->
-                                <div class="card h-100 col-6 col-lg-3 d-flex flex-column justify-content-between pe-3" >
-                                    <div>
-                                        <a class="imageLink___1NeIh"
-                                           href="#">
-                                            <img alt="Vintner’s Daughter Active Botanical Serum" itemprop="image" class="w-100 h-auto"
-                                                 src="https://shop.goop-img.com/spree/images/attachments/000/062/863/product/open-uri20201123-6983-1g043ji?1606174998"
-                                                 draggable="false">
-                                        </a>
-                                        <span class="brandName___2Tzl8">Vintner’s Daughter</span>
-                                        <a class="name___1-mZL" title="Active Botanical Serum" href="#">
-                                            <span>Active Botanical Serum</span>
-                                        </a>
-                                        <span class="d-block">
-                                            <span itemtype="https://schema.org/Offer">
-                                                <span>US $</span>
-                                                <span>195.00</span>
-                                            </span>
-                                        </span>
-                                    </div>
-                                    <div>
-                                        <button class="btn text-center text-uppercase w-100 btn-outline-dark rounded-0 mt-4">Add to Bag
-                                        </button>
+                        <div class="carousel-inner carousel-4 Items_container">
+                            @foreach($likeProducts as $key=>$like)
+
+                                <div class="carousel-item {{$key == 0 ? 'active':'' }} w-100 justify-content-center px-md-2 gap-md-1">
+                                    <div class="card h-auto">
+                                        <div class="img">
+                                            <a href="{{route('product.show', $like->slug)}}">
+                                                @foreach($like->images as $key=>$imagelike)
+                                                    @if($loop->first)
+                                                        <img alt="{{$like->name}}"
+                                                             class="card-img-top rounded-0"
+                                                             src="{{$imagelike->file ? $imagelike->file : "/assets/img.png"}}">
+                                                    @endif
+                                                    @if($loop->last)
+                                                        <img alt="{{$like->name}}" src="{{$imagelike->file ? $imagelike->file : "/assets/img.png"}}" class="hover_img card-img-top rounded-0">
+                                                    @endif
+                                                @endforeach
+                                            </a>
+                                        </div>
+                                        <div class="card-body">
+                                            <p class="text-g1">{{$like->id}}</p>
+                                            @foreach($like->brand as $brand)
+                                                <p class="text-g1">{{$brand->name}}</p>
+                                                <a class="nav-link" href="{{route('productsPerBrand',$brand->slug)}}">{{$like->name}}</a>
+                                            @endforeach
+                                            <p class="text-g3">€ {{$like->price}}</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <!--						einde tweede carousel-->
-                            <div class="carousel-item">
-                                <!--							derde carousel-->
-                                <div class="card h-100 col-6 col-lg-3 d-flex flex-column justify-content-between pe-3" >
-                                    <div>
-                                        <a class="imageLink___1NeIh"
-                                           href="#">
-                                            <img alt="Vintner’s Daughter Active Botanical Serum" itemprop="image" class="w-100 h-auto"
-                                                 src="https://shop.goop-img.com/spree/images/attachments/000/062/863/product/open-uri20201123-6983-1g043ji?1606174998"
-                                                 draggable="false">
-                                        </a>
-                                        <span class="brandName___2Tzl8">Vintner’s Daughter</span>
-                                        <a class="name___1-mZL" title="Active Botanical Serum" href="#">
-                                            <span>Active Botanical Serum</span>
-                                        </a>
-                                        <span class="d-block">
-                                            <span itemtype="https://schema.org/Offer">
-                                                <span>US $</span>
-                                                <span>195.00</span>
-                                            </span>
-                                        </span>
-                                    </div>
-                                    <div>
-                                        <button class="btn text-center text-uppercase w-100 btn-outline-dark rounded-0 mt-4">Add to Bag
-                                        </button>
-                                    </div>
-                                </div>
-                                <!--							einde inhoud derde carousel-->
-                            </div>
-                            <div class="carousel-item">
-                                <!--							vierde carousel-->
-                                <div class="card h-100 col-6 col-lg-3 d-flex flex-column justify-content-between pe-3" >
-                                    <div>
-                                        <a class="imageLink___1NeIh"
-                                           href="#">
-                                            <img alt="Vintner’s Daughter Active Botanical Serum" itemprop="image" class="w-100 h-auto"
-                                                 src="https://shop.goop-img.com/spree/images/attachments/000/062/863/product/open-uri20201123-6983-1g043ji?1606174998"
-                                                 draggable="false">
-                                        </a>
-                                        <span class="brandName___2Tzl8">Vintner’s Daughter</span>
-                                        <a class="name___1-mZL" title="Active Botanical Serum" href="#">
-                                            <span>Active Botanical Serum</span>
-                                        </a>
-                                        <span class="d-block">
-                                            <span itemtype="https://schema.org/Offer">
-                                                <span>US $</span>
-                                                <span>195.00</span>
-                                            </span>
-                                        </span>
-                                    </div>
-                                    <div>
-                                        <button class="btn text-center text-uppercase w-100 btn-outline-dark rounded-0 mt-4">Add to Bag
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <!--							vierde carousel-->
-                                <div class="card h-100 col-6 col-lg-3 d-flex flex-column justify-content-between pe-3" >
-                                    <div>
-                                        <a class="imageLink___1NeIh"
-                                           href="#">
-                                            <img alt="Vintner’s Daughter Active Botanical Serum" itemprop="image" class="w-100 h-auto"
-                                                 src="https://shop.goop-img.com/spree/images/attachments/000/062/863/product/open-uri20201123-6983-1g043ji?1606174998"
-                                                 draggable="false">
-                                        </a>
-                                        <span class="brandName___2Tzl8">Vintner’s Daughter</span>
-                                        <a class="name___1-mZL" title="Active Botanical Serum" href="#">
-                                            <span>Active Botanical Serum</span>
-                                        </a>
-                                        <span class="d-block">
-                                            <span itemtype="https://schema.org/Offer">
-                                                <span>US $</span>
-                                                <span>195.00</span>
-                                            </span>
-                                        </span>
-                                    </div>
-                                    <div>
-                                        <button class="btn text-center text-uppercase w-100 btn-outline-dark rounded-0 mt-4">Add to Bag
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <button class="carousel-control-prev pijl d-lg-none" type="button" data-bs-target="#carouselExampleIndicators-You-might-like" data-bs-slide="prev">
+                            @endforeach
+                        </div>
+                        <div class="d-none d-lg-block">
+                            <button class="pijl-bg carousel-control-prev" type="button" data-bs-target="#newCarousel2" data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Previous</span>
                             </button>
-                            <button class="carousel-control-next pijl d-lg-none" type="button" data-bs-target="#carouselExampleIndicators-You-might-like" data-bs-slide="next">
+                            <button class="pijl-bg carousel-control-next" type="button" data-bs-target="#newCarousel2" data-bs-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Next</span>
                             </button>
                         </div>
-
-
-
                     </div>
 
 
@@ -333,7 +227,7 @@
                                     <p style="min-width: 50%;float: left;padding-right: 10px; margin-bottom: 1em; line-height: 24px;">
                                         <strong>Contact Customer Service</strong>
                                         <br>
-                                        <a href="mailto:customerservice@goop.com" style="font-weight:bold;">customerservice@goop.com</a>
+                                        <a href="{{route('contact')}}" style="font-weight:bold;">contact form</a>
                                         <br>
                                         1.844.WTF.GOOP,
                                         <br>

@@ -30,9 +30,10 @@ class Cart extends Model
                 'quantity' => 0,
                 'product_id' => 0,
                 'product_name' => $product->name,
-                'brand_name' => $request->brand,
                 'product_price' => $product->price,
-                'product_image' => $product->image->file,
+                'brand_name' => $request->brand,
+                'color_name' => $request->color,
+                'product_size' => $request->size,
                 'product_description' => $product->description,
                 'slug' => $product->slug,
                 'product' => $product,
@@ -43,7 +44,9 @@ class Cart extends Model
         $shopItems['product_id'] = $product_id;
         $shopItems['product_name'] = $product->name;
         $shopItems['product_price'] = $product->price;
-        $shopItems['product_image'] = $product->image->file;
+        $shopItems['brand_name']=$request->brand;
+        $shopItems['color_name']=$request->color;
+        $shopItems['size'] = $request->size;
         $shopItems['product_description'] = $product->description;
         $shopItems['slug'] = $product->slug;
         $shopItems['product'] = $product;

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Brand;
 use App\Models\Cart;
 use App\Models\Product;
+use App\Models\SubCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -25,7 +26,7 @@ class CartController extends Controller
                 //   'categories.required'=>'Please check minimum one category'
             ]);
 
-        $product = Product::with(['productcategories', 'brand', 'image'])->where('id','=',$id)->first();
+        $product = Product::with(['color', 'sizes', 'brand', 'images'])->where('id','=',$id)->first();
         $oldCart = Session::has('cart') ? Session::get('cart'):null;
         $cart = new Cart($oldCart);
         $cart->add($product, $id, $request->quantity);
@@ -34,13 +35,15 @@ class CartController extends Controller
         return redirect()->back();
     }
     public function cart(){
+        $subCategorieSkin = SubCategory::with('products')->where('name', 'skin care')->get();
+        $likeProducts = new \Illuminate\Database\Eloquent\Collection($subCategorieSkin->unique('products')->take(12)->pluck('products')->flatten());
         if(!Session::has('cart')){
             return redirect('/');
         }else{
             $currentCart =Session::has('cart')? Session::get('cart') : null;
             $cart = new Cart($currentCart);
             $cart = $cart->products;
-            return view ('cart', compact('cart'));
+            return view ('cart', compact('cart', 'likeProducts'));
         }
     }
     public function updateQuantity(Request $request){
@@ -78,4 +81,5 @@ class CartController extends Controller
         }
         return view ('cart-address', compact('cart'));
     }
+
 }

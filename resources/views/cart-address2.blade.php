@@ -20,7 +20,7 @@
 </nav>
 
 <div class="row mt-5 px-lg-5 text-center">
-    <div class="text-start col-12 col-lg-8 order-1 order-lg-0">
+    <div class="text-start col-12 col-lg-8">
         @if(Session::has('shipping'))
             <div class="accordion border-0 mb-5 accordionArrow" id="accordionExample">
                 <div class="accordion-item border-start-0 border-end-0 ">
@@ -28,8 +28,7 @@
                         <button class="btn w-100" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                             <h2 class="CheckoutAddressTittel">
-                                1. Shipping address
-                            </h2>
+                                1. Shipping address</h2>
                         </button>
                     </h2>
                     <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
@@ -100,11 +99,11 @@
                                                         </div>
                                                     </div>
                                                 @else
-                                                <form action="{{route('checkoutBillingAddress')}}"
+                                            <form action="{{route('checkoutBillingAddress')}}"
                                                   method="POST" enctype="multipart/form-data">
                                                 @csrf
                                                 @method('POST')
-                                                    <label class="dlJBHs fWXjje" id="shippingOption" type="button">
+                                                    <label class="dlJBHs fWXjje" id="shippingOption" type="button" width="100">
                                                         <button class="btn p-0" type="button" data-bs-toggle="collapse"
                                                                 data-bs-target="#shipping" aria-expanded="true" aria-controls="collapseOne" data-parent="#shippingPrefferences">
                                                             <input class="jaoyAT" type="checkbox" name="billing" id="billing" value="true" @if ($errors->any()) '' @else checked @endif>
@@ -122,11 +121,7 @@
                                                     <p class="m-0">{{Session('shipping')->email}}</p>
                                                 @endif
                                             </div>
-                                            @if(!session()->has('billing'))
-                                                <div class="d-flex justify-content-center mx-2 mx-lg-5 mt-5">
-                                                    <button type="submit" class="btn btn-g btn-dark text-uppercase rounded-0 col-10 col-lg-3 mt-3 mb-4 w-100">Continue</button>
-                                                </div>
-                                            @endif
+                                            </div>
                                         </div>
                                         <div id="shipping" class="accordion-collapse collapse @if ($errors->any()) show @endif" aria-labelledby="sub"
                                              data-bs-parent="#sub">
@@ -135,6 +130,7 @@
 
                                                 <div class="row mb-4">
                                                     <div class="col-12 col-md-6 mb-4 mb-lg-0">
+
                                                         {{--                                company--}}
                                                         <div class="form-floating form-group">
                                                             <input id="company" name="company" type="text" placeholder="Company"
@@ -226,7 +222,7 @@
                                                         <div class="form-floating form-group">
                                                             <input id="city" name="city" type="text" placeholder="city"
                                                                    class="form-control" value="{{old('city')}}">
-                                                            <label class="label-top" for="city">*City</label>
+                                                            <label class="label-top" for="address">*City</label>
                                                             @error('city')
                                                                 <span class="drwJIz">
                                                                   {{ $message }}
@@ -239,7 +235,7 @@
                                                         <div class="form-floating form-group">
                                                             <input id="zipcode" name="zipcode" type="text" placeholder="zipcode"
                                                                    class="form-control" value="{{old('zipcode')}}" autocomplete="postal-code">
-                                                            <label class="label-top" for="zipcode">*zipcode</label>
+                                                            <label class="label-top" for="address">*zipcode</label>
                                                             @error('zipcode')
                                                                 <span class="drwJIz">
                                                                   {{ $message }}
@@ -296,7 +292,7 @@
                                                         <div class="form-floating form-group">
                                                             <input id="email" name="email" type="email" placeholder="email"
                                                                    class="form-control" value="{{old('email')}}" autocomplete="email">
-                                                            <label class="label-top" for="email">*email</label>
+                                                            <label class="label-top" for="address">*email</label>
                                                             @error('email')
                                                                 <span class="drwJIz">
                                                                   {{ $message }}
@@ -307,7 +303,12 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                        @if(!session()->has('billing'))
+                                            <div class="d-flex justify-content-center mt-5">
+                                                <button type="submit" class="btn btn-g btn-dark text-uppercase rounded-0 col-10 col-lg-3 mt-3 mb-4">Continue</button>
+                                            </div>
+                                        @endif
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -571,81 +572,79 @@
                 </div>
             </div>
         @endif
-    </div>
-    <div class="col-12 col-lg-4 order-0 order-lg-1">
 
-        <div class="border card">
-            <div class="px-4 py-5 text-black checkout-list">
-                <div class="d-flex justify-content-between">
-                    <p>Subtotal</p>
-                    <p>€ {{Session::get('cart')->totalPrice}}</p>
-                </div>
-                <div class="d-flex justify-content-between">
-                    <p>Shipping</p>
-                    <p>Free</p>
-                </div>
-                <hr>
+        <div class="col-12 col-lg-4 order-0 order-lg-1">
 
-                <div class="d-flex justify-content-between">
-                    <div>Total</div>
-                    <div>€ {{Session::get('cart')->totalPrice}}</div>
-                </div>
+            <div class="border card">
+                <div class="px-4 py-5 text-black checkout-list">
+                    <div class="d-flex justify-content-between">
+                        <p>Subtotal</p>
+                        <p>€ {{Session::get('cart')->totalPrice}}</p>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <p>Shipping</p>
+                        <p>Free</p>
+                    </div>
+                    <hr>
 
+                    <div class="d-flex justify-content-between">
+                        <div>Total</div>
+                        <div>€ {{Session::get('cart')->totalPrice}}</div>
+                    </div>
+
+                </div>
             </div>
-        </div>
-        <div class="accordion border-0 mb-5 accordionArrow" id="accordionExample1">
-            <div class="accordion-item border-start-0 border-end-0">
-                <h2 class="accordion-header" id="headingTwo1">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapseTwo1" aria-expanded="false"
-                            aria-controls="collapseTwo1">
-                        <h2 class="Headingstyles__H2-sc-1gmsk6i-1 fYdWWG Drawerstyles__DrawerHeader-sc-1c4yude-2 ffPZmP"
-                            role="heading" aria-level="2">your bag</h2>
-                    </button>
-                </h2>
-                <div id="collapseTwo1" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                     data-bs-parent="#accordionExample1">
-                    <div class="accordion-body Drawerstyles__DrawerContent-sc-1c4yude-5 ckoXeF bg-white"
-                         data-acsb-overflower="true" aria-hidden="false" data-acsb-hidden="false">
-                        @foreach($cart as $product)
-                            <ul class="list-group ">
-                                <li class="list-group-item border-0 d-flex justify-content-between">
-                                    @foreach($product['product']->images as $image)
-                                        @if($loop->first)
-                                            <img class="w-25" alt{{$product['product_name']}} src="{{$image->file ? $image->file : "/assets/img.png"}}">
-                                        @endif
-                                    @endforeach
-                                    <p class="optionValues___qDP92">
-                                        <span>Price:</span>€ {{$product['product_price']}}
-                                    </p>
-                                </li>
-                                <li class="list-group-item border-0">
-                                    <div>
-                                        <p class="m-0">
-                                            <span>Brand:</span> {{$product['brand_name']}}</p>
-                                        <p class="m-0">
-                                            <span>Item:</span>
-                                            {{$product['product_name']}}
-                                        </p>
-                                        <p class="m-0">
-                                            <span>Size:</span>
-                                            {{$product['size']}}
-                                        </p>
-                                        <p class="m-0">
-                                            <span>Color:</span>
-                                            {{$product['color_name']}}
-                                        </p>
-                                    </div>
-                                    <div class="d-flex justify-content-between">
-                                        <div>Qty {{$product['quantity']}} </div>
-                                        <div> |</div>
-                                        <div> Price {{$product['product_price'] * $product['quantity']}}</div>
-                                    </div>
-                                </li>
+            <div class="accordion border-0 mb-5 accordionArrow" id="accordionExample1">
+                <div class="accordion-item border-start-0 border-end-0">
+                    <h2 class="accordion-header" id="headingTwo1">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseTwo1" aria-expanded="false"
+                                aria-controls="collapseTwo1">
+                            <h2 class="Headingstyles__H2-sc-1gmsk6i-1 fYdWWG Drawerstyles__DrawerHeader-sc-1c4yude-2 ffPZmP"
+                                role="heading" aria-level="2">your bag</h2>
+                        </button>
+                    </h2>
+                    <div id="collapseTwo1" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                         data-bs-parent="#accordionExample1">
+                        <div class="accordion-body Drawerstyles__DrawerContent-sc-1c4yude-5 ckoXeF bg-white"
+                             data-acsb-overflower="true" aria-hidden="false" data-acsb-hidden="false">
+                            @foreach($cart as $product)
+                           <ul class="list-group ">
+                               <li class="list-group-item border-0 d-flex justify-content-between">
+                                   <img class="w-25" alt{{$product['product_name']}}
+                                        src="{{$product['product_image'] ? asset ( $product['product_image']) : ' no image availebel'}}">
+                                   <p class="optionValues___qDP92">
+                                       <span>Price:</span>€ {{$product['product_price']}}
+                                   </p>
+                               </li>
+                               <li class="list-group-item border-0">
+                                   <div>
+                                   <p class="m-0">
+                                       <span>Brand:</span> {{$product['brand_name']}}</p>
+                                   <p class="m-0">
+                                       <span>Item:</span>
+                                       {{$product['product_name']}}
+                                   </p>
+                                   <p class="m-0">
+                                       <span>Size:</span>
+                                       S
+                                   </p>
+                                   <p class="m-0">
+                                       <span>Color:</span>
+                                       BLACK/IVORY
+                                   </p>
+                                   </div>
+                                   <div class="d-flex justify-content-between">
+                                       <div>Qty {{$product['quantity']}} </div>
+                                       <div> |</div>
+                                       <div> Price {{$product['product_price'] * $product['quantity']}}</div>
+                                   </div>
+                               </li>
 
-                            </ul>
-                            <hr>
-                        @endforeach
+                           </ul>
+                                <hr>
+                            @endforeach
+                        </div>
                     </div>
                 </div>
             </div>
@@ -653,5 +652,26 @@
     </div>
 
 @endsection
+{{--@section('scripts')--}}
+{{--    @if (session('accordion'))--}}
+{{--    <script>--}}
+{{--        const triggerTabList = document.querySelectorAll('#nav-tab button')--}}
+{{--        triggerTabList.forEach(triggerEl => {--}}
+{{--            const tabTrigger = new bootstrap.Tab(triggerEl)--}}
 
+{{--            triggerEl.addEventListener('click', event => {--}}
+{{--                event.preventDefault()--}}
+{{--                tabTrigger.show()--}}
+{{--            })--}}
+{{--        })--}}
+
+{{--        const triggerEl = document.querySelector('#nav-tab button[data-bs-target="#shipping"]')--}}
+{{--        //const triggerEl = document.querySelector('#nav-preferences')--}}
+{{--        console.log(triggerEl);--}}
+{{--        const t = bootstrap.Tab.getInstance(triggerEl)--}}
+{{--        console.log(t);--}}
+{{--        t.show()--}}
+{{--        @endif--}}
+{{--    </script>--}}
+{{--@endsection--}}
 

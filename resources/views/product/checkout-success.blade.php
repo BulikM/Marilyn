@@ -75,19 +75,11 @@
       <div class="col-11 ">
 
 
-          @foreach($order->orderProducts as $orderProduct)
-{{--              @php--}}
-{{--              $product = $orderProduct->product_id--}}
-{{--    @endphp--}}
+          @foreach($orderProducts as $orderProduct)
 
                   <hr class="text-black">
                   <div class="p-2">
                   <div class="cartItemWrapper___1GWWZ d-flex flex-wrap m-0 p-0 w-100">
-                      <div class="cartItemImage___3USxn">
-                          <a href="{{route('product.show', $orderProduct->products->slug)}}">
-                              <img class="productImg___2ywut d-block"
-                                   src="{{$orderProduct->products->image ? asset($orderProduct->products->image->file) : 'http://via.placeholder.com/62x62'}}"></a>
-                      </div>
                       <div class="order-2 order-lg-1 ps-4">
                           <h3 class="productName___289kw">
                               <a href="{{route('product.show', $orderProduct->products->slug)}}">{{$orderProduct->products->name}}</a>

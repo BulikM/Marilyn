@@ -111,14 +111,14 @@
                             @endforeach
                             @foreach($product->color as $color)
                             <p class="ddqQTz text-uppercase">Color<span class="text-capitalize jMqIvg">
-                                     <input type="hidden" name="color" value="{{$color->name}}">{{$color->name}}</span></p>
+                             <input type="hidden" name="color" value="{{$color->name}}">{{$color->name}}</span></p>
                             @endforeach
                             <div class=" gOPwLh">
                                 <!--						size-->
                                 @foreach($product->sizes as $size)
 
-                                        <input type="checkbox" class="btn-check p-5" value="{{$size->id}}" name="sizes[]" id="size{{$size->id}}" autocomplete="off" @checked(in_array($size->id, old('sizes', [])))>
-                                        <label class="button btn-outline-purple fs-2 p-2 px-3  border border-1" for="size{{$size->id}}">{{$size->name}}</label><br>
+                            <input type="radio" class="btn-check p-5" value="{{$size->name}}" name="size" id="size{{$size->id}}" autocomplete="off" @checked(in_array($size->id, old('sizes', [])))>
+                            <label class="button btn-outline-purple fs-2 p-2 px-3  border border-1" for="size{{$size->id}}">{{$size->name}}</label><br>
 
                                 @endforeach
                             </div>

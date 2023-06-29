@@ -181,6 +181,8 @@ class CheckoutController extends Controller
             $orderdproduct->price = $item->price;
             $orderdproduct->name = $item->name;
             $orderdproduct->brand = $cartitem['brand_name'];
+            $orderdproduct->color = $cartitem['color_name'];
+            $orderdproduct->size = $cartitem['size'];
             $orderdproduct->quantity =$cartitem['quantity'];
             $orderdproduct->save();
         }
@@ -197,7 +199,8 @@ class CheckoutController extends Controller
 //        dd(session('paymentIntentId'));
 
 
-        $order = Order::with('orderDetails', 'products')->where('session_id',$sessionId)->first();
+        $order = Order::with('orderDetails', 'orderProducts', 'orderProducts.products')->where('session_id',$sessionId)->first();
+        $orderProducts =OrderProducts::with('products', 'products.images', 'products.brand')->where('orders_id', $order->id)->get();
 
         try {
             $session = \Stripe\Checkout\Session::retrieve($sessionId);
@@ -213,8 +216,8 @@ class CheckoutController extends Controller
                 $order->status = 'paid';
                 $order->save();
             }
-
-            return view('product.checkout-success', compact('order' ));
+            Session::flush();
+            return view('product.checkout-success', compact('order', 'orderProducts' ));
 
         } catch (\Exception $e) {
             throw new NotFoundHttpException();
