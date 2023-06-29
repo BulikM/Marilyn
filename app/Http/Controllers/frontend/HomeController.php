@@ -44,8 +44,6 @@ class HomeController extends Controller
         return view('products', compact('products', 'title'));
     }
 
-    public function contact(){
-        return view('contact');
-    }
+
 
 }

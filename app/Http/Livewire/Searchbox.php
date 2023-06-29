@@ -18,9 +18,12 @@ class Searchbox extends Component
     public $brands;
     public $colors;
     public $sizes;
+    public $sortField;
 
     public $filters = [
         'brand' => [],
+        'color' =>[],
+//        'size' =>[],
         ];
 
 
@@ -39,6 +42,33 @@ class Searchbox extends Component
                 }
                 return false;
             });
+        }
+        if (!empty($this->filters['color'])) {
+            $colorname = $this->filters['color'];
+
+            $filteredProducts = $filteredProducts->where(function ($product) use ($colorname) {
+                foreach ($product->color as $color) {
+                    if (in_array($color->name, $colorname)) {
+                        return true;
+                    }
+                }
+                return false;
+            });
+        }
+
+
+
+        if (!empty($this->filters['size'])) {
+            $sizename = $this->filters['size'];
+
+//            $filteredProducts = $filteredProducts->where(function ($product) use ($sizename) {
+//                foreach ($product->size as $size) {
+//                    if (in_array($size->name, $sizename)) {
+//                        return true;
+//                    }
+//                }
+//                return false;
+//            });
         }
 //
         $this->products = $filteredProducts;

@@ -32,16 +32,20 @@ class ProductController extends Controller
 
     public function productsPerBrand(Brand $brand){
         $products = $brand->products;
-        $hero = Brand::with('products.brand')->where('id',$brand->id)->first();
-        return view('products', compact('products','hero'));
+        $brandname = Brand::with('products.brand')->where('id',$brand->id)->first();
+        $title = $brandname->name;
+        return view('products', compact('products','title'));
     }
 
     public function productsPerCategory(Category $category){
 
-        $products = $category->subCategories()->with('products','products.brand', 'products.sizes', 'products.color')->get()->pluck('products')->flatten();
-        $brands = $products->pluck('brand')->flatten();
-        $colors = $products->pluck('color')->flatten();
-        $sizes = $products->pluck('sizes')->flatten();
+        $products = new \Illuminate\Database\Eloquent\Collection($category->subCategories()->with('products','products.brand', 'products.sizes', 'products.color')->get()->pluck('products')->flatten());
+        $brandsall = new \Illuminate\Database\Eloquent\Collection($products->unique('brand')->pluck('brand')->flatten());
+        $brands = $brandsall->unique();
+        $colorsall = new \Illuminate\Database\Eloquent\Collection($products->pluck('color')->flatten());
+        $colors = $colorsall->unique();
+        $sizesall = new \Illuminate\Database\Eloquent\Collection($products->pluck('sizes')->flatten());
+        $sizes= $sizesall->unique();
         $hero = $category;
         return view('products', compact('products', 'hero', 'brands', 'colors', 'sizes'));
     }
@@ -49,9 +53,12 @@ class ProductController extends Controller
     public function productsPerSubCategory(SubCategory $subCategory){
         $products = $subCategory->products()->with('brand', 'sizes', 'color')->get();
 
-        $brands = new \Illuminate\Database\Eloquent\Collection($products->pluck('brand')->flatten());
-        $colors = new \Illuminate\Database\Eloquent\Collection($products->pluck('color')->flatten());
-        $sizes = new \Illuminate\Database\Eloquent\Collection($products->pluck('sizes')->flatten());
+        $brandsall = new \Illuminate\Database\Eloquent\Collection($products->pluck('brand')->flatten());
+        $brands = $brandsall->unique();
+        $colorsall = new \Illuminate\Database\Eloquent\Collection($products->pluck('color')->flatten());
+        $colors = $colorsall->unique();
+        $sizesall = new \Illuminate\Database\Eloquent\Collection($products->pluck('sizes')->flatten());
+        $sizes= $sizesall->unique();
         $hero = $subCategory->categories;
         return view('products', compact('products', 'hero', 'brands', 'colors', 'sizes'));
 

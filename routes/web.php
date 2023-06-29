@@ -20,10 +20,8 @@ Route::get("/home", [
     \App\Http\Controllers\frontend\HomeController::class,
     "index",
 ])->name("home");
-Route::get("/contact", [
-    \App\Http\Controllers\frontend\HomeController::class,
-    "contact",
-])->name("contact");
+Route::get("/contact", '\App\Http\Controllers\frontend\ContactController@contact')->name("contact");
+Route::post("/contact", '\App\Http\Controllers\frontend\ContactController@store')->name("store");
 
 
 //products

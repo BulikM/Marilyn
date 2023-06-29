@@ -9,7 +9,7 @@
             @endif
             @if(!empty($hero->subcategories))
                 <!--			option carousel-->
-                @if($hero->getTable() != 'brands')
+
                     <section id="categories">
 
                         <div class="max-width-1680 m-auto carousel carousel-9 carousel-dark d-none d-lg-flex slide bg-grey"
@@ -1138,7 +1138,7 @@
                                     <span class="input-group-text bg-white border-start-0" id="addon-wrapping"><i
                                             class="bi text-dark bi-search"></i></span>
                                 </li>
-                                <div class="row row-cols-5 mx-5">
+                                <div class="row row-cols-5 m-5">
                                     @foreach($brands as $brand)
                                         <li class="col d-flex justify-content-start jrrhLu">
                                             <input wire:model="filters.brand" aria-label="Checkbox for following text input" class="jaoyAT" type="checkbox" value="{{ $brand['name'] }}">
@@ -1146,9 +1146,6 @@
                                         </li>
                                     @endforeach
                                 </div>
-                                <li class="d-flex justify-content-center align-items-center m-3">
-                                    <button wire:click="applyFilters" class="lgLNaJ m-1">apply</button>
-                                </li>
                             </ul>
                         </div>
                         <div class="separator my-2"></div>
@@ -1158,56 +1155,36 @@
                                 <strong>color</strong>
                             </button>
                             <ul class="dropdown-menu w-100 mt-0 rounded-0">
-                                <li class="input-group w-50 col-5 m-auto">
-                                    <input aria-describedby="addon-wrapping" aria-label="Username" class="form-control" id="findABrand"
-                                           placeholder="Find a brand" type="text">
-                                    <span class="input-group-text bg-white border-start-0" id="addon-wrapping"><i
-                                            class="bi text-dark bi-search"></i></span>
-                                </li>
-                                <div class="row row-cols-5 m-3 justify-content-evenly">
+                                <div class="row row-cols-5 m-5 ">
                                     @foreach($colors as $color)
                                         <li class="col d-flex justify-content-start jrrhLu">
-                                            <input aria-label="Checkbox for following text input" class="jaoyAT" type="checkbox" value="{{$color->name}}">
-                                            <span class=" bLYPWY mx-1">{{$color->name}}</span>
+                                            <input wire:model="filters.color" aria-label="Checkbox for following text input" class="jaoyAT" type="checkbox" value="{{ $color['name'] }}">
+                                            <span class=" bLYPWY mx-1">{{$color['name']}}</span>
                                         </li>
                                     @endforeach
                                 </div>
-                                <li class="d-flex justify-content-center align-items-center m-3">
-                                    <button class="lgLNaJ m-1">show more</button>
-                                    <button class="lgLNaJ m-1">apply</button>
-                                </li>
                             </ul>
                         </div>
-                        <div class="separator my-2"></div>
+                        <div class="separator my-2 d-none"></div>
                         <!--				size-->
-                        <div class="dropdown position-static">
+                        <div class="dropdown position-static d-none">
                             <button aria-expanded="false" class="dropdown-toggle-change lgLNaJ" data-bs-toggle="dropdown" type="button">
-                                <strong>Size</strong>
+                                <strong>size</strong>
                             </button>
                             <ul class="dropdown-menu w-100 mt-0 rounded-0">
-                                <li class="input-group w-50 col-5 m-auto">
-                                    <input aria-describedby="addon-wrapping" aria-label="Username" class="form-control" id="findABrand"
-                                           placeholder="Find a brand" type="text">
-                                    <span class="input-group-text bg-white border-start-0" id="addon-wrapping"><i
-                                            class="bi text-dark bi-search"></i></span>
-                                </li>
-                                <div class="row row-cols-5 m-3 justify-content-evenly">
+                                <div class="row row-cols-5 m-5 ">
                                     @foreach($sizes as $size)
                                         <li class="col d-flex justify-content-start jrrhLu">
-                                            <input aria-label="Checkbox for following text input" class="jaoyAT" type="checkbox" value="{{$size->name}}">
-                                            <span class=" bLYPWY mx-1">{{$size->name}}</span>
+                                            <input wire:model="filters.size" aria-label="Checkbox for following text input" class="jaoyAT" type="checkbox" value="{{ $size['name'] }}">
+                                            <span class=" bLYPWY mx-1">{{$size['name']}}</span>
                                         </li>
                                     @endforeach
                                 </div>
-                                <li class="d-flex justify-content-center align-items-center m-3">
-                                    <button class="lgLNaJ m-1">show more</button>
-                                    <button class="lgLNaJ m-1">apply</button>
-                                </li>
                             </ul>
                         </div>
-                        <div class="separator my-2"></div>
+                        <div class="separator my-2 d-none"></div>
                         <!--				sort-->
-                        <div class="dropdown">
+                        <div class="dropdown d-none">
                             <button aria-expanded="false" class="dropdown-toggle-change lgLNaJ" data-bs-toggle="dropdown" type="button">
                                 <strong>sort</strong>
                             </button>
@@ -1243,7 +1220,7 @@
 
                         </div>
                     </section>
-                @endif
+
             @endif
 
         @endif
